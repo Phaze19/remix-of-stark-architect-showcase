@@ -1,67 +1,83 @@
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+import productCtc from "@/assets/product-ctc-conductor.jpg";
+import productPaperCovered from "@/assets/product-paper-covered.jpg";
+import productEnameled from "@/assets/product-enameled-wire.jpg";
+import productBareCopper from "@/assets/product-bare-copper.jpg";
+import productBusbar from "@/assets/product-busbar.jpg";
+import productWindingWire from "@/assets/product-winding-wire.jpg";
 
 const Portfolio = () => {
-  const projects = [
+  const products = [
     {
-      image: project1,
-      title: "MINIMAL RESIDENCE",
-      location: "NEW YORK, 2024",
-      description: "A contemporary home focusing on light, space, and material honesty"
+      image: productCtc,
+      title: "CTC CONDUCTORS",
+      category: "TRANSFORMER WINDINGS",
+      description: "Continuously Transposed Conductors (CTC) designed for power transformer windings. Superior current-carrying capacity with reduced eddy current losses."
     },
     {
-      image: project2,
-      title: "CORPORATE HEADQUARTERS",
-      location: "LONDON, 2023",
-      description: "Modern office space emphasizing collaboration and natural elements"
+      image: productPaperCovered,
+      title: "PAPER COVERED WIRE",
+      category: "INSULATED CONDUCTORS",
+      description: "High-quality kraft paper insulated copper conductors for transformer applications. Excellent dielectric properties and thermal stability."
     },
     {
-      image: project3,
-      title: "CULTURAL CENTER",
-      location: "TOKYO, 2023",
-      description: "Public architecture that bridges tradition with contemporary design"
+      image: productEnameled,
+      title: "ENAMELED WIRE",
+      category: "MAGNET WIRE",
+      description: "Premium enameled copper magnet wire with various coating options. Ideal for motors, generators, and electromagnetic applications."
+    },
+    {
+      image: productBareCopper,
+      title: "BARE COPPER WIRE",
+      category: "RAW CONDUCTORS",
+      description: "High-purity bare copper wire and rods in various gauges. Perfect for grounding, electrical connections, and further processing."
+    },
+    {
+      image: productBusbar,
+      title: "COPPER BUSBARS",
+      category: "FLAT CONDUCTORS",
+      description: "Precision copper busbars and flat strips for power distribution. Available in standard and custom dimensions."
+    },
+    {
+      image: productWindingWire,
+      title: "WINDING WIRE",
+      category: "TRANSFORMER COMPONENTS",
+      description: "Specialized copper winding wire for transformer manufacturing. Consistent quality for reliable electrical performance."
     }
   ];
 
   return (
-    <section id="work" className="py-32 bg-muted">
+    <section id="products" className="py-32 bg-muted">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
-            <h2 className="text-minimal text-muted-foreground mb-4">SELECTED WORK</h2>
+            <h2 className="text-minimal text-muted-foreground mb-4">OUR PRODUCTS</h2>
             <h3 className="text-4xl md:text-6xl font-light text-architectural">
-              Our Projects
+              Premium Copper Solutions
             </h3>
           </div>
           
-          <div className="space-y-32">
-            {projects.map((project, index) => (
-              <div key={index} className="group">
-                <div className="relative overflow-hidden">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product, index) => (
+              <div key={index} className="group bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="relative overflow-hidden aspect-square">
                   <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-[70vh] object-cover transition-transform duration-700 group-hover:scale-105"
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 
-                <div className="mt-8 grid md:grid-cols-3 gap-8">
-                  <div>
-                    <h4 className="text-2xl font-light text-architectural mb-2">
-                      {project.title}
-                    </h4>
-                    <p className="text-minimal text-muted-foreground">
-                      {project.location}
-                    </p>
-                  </div>
-                  
-                  <div className="md:col-span-2">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
+                <div className="p-6">
+                  <p className="text-minimal text-muted-foreground mb-2">
+                    {product.category}
+                  </p>
+                  <h4 className="text-xl font-medium text-foreground mb-3">
+                    {product.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {product.description}
+                  </p>
                 </div>
               </div>
             ))}
