@@ -12,15 +12,15 @@ const Navigation = () => {
           RATIONAL ENGINEERS
         </a>
         
-        <div className="hidden md:flex items-center space-x-12">
-          <a href="/work" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
-            PRODUCTS
+        <div className="hidden md:flex items-center space-x-10">
+          <a href="#capabilities" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+            CAPABILITIES
           </a>
-          <a href="/services" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
-            SERVICES
+          <a href="#trust" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+            WHY LEADERS CHOOSE US
           </a>
-          <a href="/about" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
-            ABOUT
+          <a href="#quality" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+            QUALITY SYSTEMS
           </a>
           <a href="/contact" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
             CONTACT
@@ -45,14 +45,14 @@ const Navigation = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-background border-b border-border">
           <div className="container mx-auto px-6 py-6 space-y-4">
-            <a href="/work" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
-              PRODUCTS
+            <a href="#capabilities" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+              CAPABILITIES
             </a>
-            <a href="/services" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
-              SERVICES
+            <a href="#trust" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+              WHY LEADERS CHOOSE US
             </a>
-            <a href="/about" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
-              ABOUT
+            <a href="#quality" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+              QUALITY SYSTEMS
             </a>
             <a href="/contact" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
               CONTACT
