@@ -13,15 +13,22 @@ const Hero = () => {
       <div className="absolute inset-0 hero-overlay" />
       
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-white text-architectural mb-8 reveal">
-          RATIONAL
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white text-architectural mb-6 reveal leading-tight">
+          Copper Manufacturing Built for
           <br />
-          ENGINEERS
+          <span className="font-medium">Consistency, Scale & Zero Compromise</span>
         </h1>
-        <p className="text-xl md:text-2xl text-white/80 font-light tracking-wide max-w-2xl mx-auto reveal-delayed">
-          Premium copper CTC wires and conductor solutions for power transformers
+        <p className="text-lg md:text-xl text-white/80 font-light tracking-wide max-w-3xl mx-auto mb-10 reveal-delayed">
+          Supplying high-performance copper conductors to India's leading transformer 
+          and infrastructure manufacturers since 1989.
         </p>
+        <a 
+          href="#trust" 
+          className="inline-block bg-white text-foreground px-8 py-4 text-sm font-medium tracking-wider hover:bg-white/90 transition-colors duration-300 reveal-delayed"
+        >
+          WHY COMPANIES LIKE ABB & SIEMENS TRUST US
+        </a>
       </div>
       
       {/* Scroll Indicator */}
