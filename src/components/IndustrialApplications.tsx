@@ -52,21 +52,22 @@ const IndustrialApplications = () => {
             {clusters.map((cluster, index) => (
               <div 
                 key={index} 
-                className="bg-background p-8 rounded-lg border border-border hover:border-foreground/20 transition-colors duration-300"
+                className="group bg-background p-8 rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth"
               >
-                <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center mb-6">
-                  <cluster.icon className="w-7 h-7 text-foreground" />
+                <div className="w-14 h-14 rounded-full bg-muted group-hover:bg-foreground/10 flex items-center justify-center mb-6 transition-colors duration-300">
+                  <cluster.icon className="w-7 h-7 text-foreground group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h4 className="text-xl font-medium mb-6 text-foreground">
+                <h4 className="text-xl font-medium mb-6 text-foreground group-hover:text-foreground/90 transition-colors duration-300">
                   {cluster.label}
                 </h4>
                 <ul className="space-y-3">
                   {cluster.applications.map((app, appIndex) => (
                     <li 
                       key={appIndex}
-                      className="text-muted-foreground flex items-center gap-3"
+                      className="text-muted-foreground flex items-center gap-3 group-hover:text-foreground/70 transition-colors duration-300"
+                      style={{ transitionDelay: `${appIndex * 50}ms` }}
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-foreground/60 group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
                       {app}
                     </li>
                   ))}
