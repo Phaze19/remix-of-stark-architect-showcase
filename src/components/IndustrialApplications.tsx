@@ -1,21 +1,37 @@
-import { Zap, Building2, Globe } from "lucide-react";
+import { Zap, Cog, Wind } from "lucide-react";
 
 const IndustrialApplications = () => {
-  const applications = [
+  const clusters = [
     {
       icon: Zap,
-      title: "Power & Transformers",
-      description: "High-performance conductors for power transformers, reactors, and electrical equipment where reliability is non-negotiable."
+      label: "Power & Grid Infrastructure",
+      applications: [
+        "Oil-filled transformers",
+        "Dry-type transformers",
+        "Cast resin transformers",
+        "HVDC transformers",
+        "Generators"
+      ]
     },
     {
-      icon: Building2,
-      title: "Infrastructure & Grid",
-      description: "Copper solutions built for India's growing power infrastructure and grid modernization projects."
+      icon: Cog,
+      label: "Mission-Critical Electrical Machinery",
+      applications: [
+        "Alternators",
+        "Transformer generators",
+        "High-voltage motors",
+        "Low-voltage motors",
+        "Turbines"
+      ]
     },
     {
-      icon: Globe,
-      title: "Export & Compliance-Heavy Projects",
-      description: "Certified products meeting international standards for global OEMs and compliance-critical applications."
+      icon: Wind,
+      label: "High-Stress & Continuous-Load Applications",
+      applications: [
+        "Windmill & hydro systems",
+        "Traction / locomotive motors",
+        "Industrial generators"
+      ]
     }
   ];
 
@@ -33,20 +49,28 @@ const IndustrialApplications = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {applications.map((app, index) => (
+            {clusters.map((cluster, index) => (
               <div 
                 key={index} 
                 className="bg-background p-8 rounded-lg border border-border hover:border-foreground/20 transition-colors duration-300"
               >
                 <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center mb-6">
-                  <app.icon className="w-7 h-7 text-foreground" />
+                  <cluster.icon className="w-7 h-7 text-foreground" />
                 </div>
-                <h4 className="text-xl font-medium mb-4 text-foreground">
-                  {app.title}
+                <h4 className="text-xl font-medium mb-6 text-foreground">
+                  {cluster.label}
                 </h4>
-                <p className="text-muted-foreground leading-relaxed">
-                  {app.description}
-                </p>
+                <ul className="space-y-3">
+                  {cluster.applications.map((app, appIndex) => (
+                    <li 
+                      key={appIndex}
+                      className="text-muted-foreground flex items-center gap-3"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 flex-shrink-0" />
+                      {app}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
