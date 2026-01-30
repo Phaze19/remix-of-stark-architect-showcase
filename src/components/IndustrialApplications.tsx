@@ -1,10 +1,14 @@
 import { Zap, Cog, Wind } from "lucide-react";
+import productBareCopper from "@/assets/product-bare-copper.jpg";
+import productBusbar from "@/assets/product-busbar.jpg";
+import productCtc from "@/assets/product-ctc-conductor.jpg";
 
 const IndustrialApplications = () => {
   const clusters = [
     {
       icon: Zap,
       label: "Power & Grid Infrastructure",
+      image: productBareCopper,
       applications: [
         "Oil-filled transformers",
         "Dry-type transformers",
@@ -16,6 +20,7 @@ const IndustrialApplications = () => {
     {
       icon: Cog,
       label: "Mission-Critical Electrical Machinery",
+      image: productBusbar,
       applications: [
         "Alternators",
         "Transformer generators",
@@ -27,6 +32,7 @@ const IndustrialApplications = () => {
     {
       icon: Wind,
       label: "High-Stress & Continuous-Load Applications",
+      image: productCtc,
       applications: [
         "Windmill & hydro systems",
         "Traction / locomotive motors",
@@ -52,26 +58,36 @@ const IndustrialApplications = () => {
             {clusters.map((cluster, index) => (
               <div 
                 key={index} 
-                className="group bg-background p-8 rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth"
+                className="group bg-background rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth overflow-hidden"
               >
-                <div className="w-14 h-14 rounded-full bg-muted group-hover:bg-foreground/10 flex items-center justify-center mb-6 transition-colors duration-300">
-                  <cluster.icon className="w-7 h-7 text-foreground group-hover:scale-110 transition-transform duration-300" />
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={cluster.image} 
+                    alt={cluster.label}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-smooth"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center">
+                    <cluster.icon className="w-6 h-6 text-foreground" />
+                  </div>
                 </div>
-                <h4 className="text-xl font-medium mb-6 text-foreground group-hover:text-foreground/90 transition-colors duration-300">
-                  {cluster.label}
-                </h4>
-                <ul className="space-y-3">
-                  {cluster.applications.map((app, appIndex) => (
-                    <li 
-                      key={appIndex}
-                      className="text-muted-foreground flex items-center gap-3 group-hover:text-foreground/70 transition-colors duration-300"
-                      style={{ transitionDelay: `${appIndex * 50}ms` }}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-foreground/60 group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
-                      {app}
-                    </li>
-                  ))}
-                </ul>
+                <div className="p-6">
+                  <h4 className="text-xl font-medium mb-4 text-foreground group-hover:text-foreground/90 transition-colors duration-300">
+                    {cluster.label}
+                  </h4>
+                  <ul className="space-y-2">
+                    {cluster.applications.map((app, appIndex) => (
+                      <li 
+                        key={appIndex}
+                        className="text-muted-foreground text-sm flex items-center gap-3 group-hover:text-foreground/70 transition-colors duration-300"
+                        style={{ transitionDelay: `${appIndex * 50}ms` }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-foreground/60 group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
+                        {app}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
