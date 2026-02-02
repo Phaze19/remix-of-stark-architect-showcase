@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import windmillBg from "@/assets/contact-windmill-bg.jpg";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -57,7 +58,30 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <section className="pt-32 pb-32 bg-background">
+      
+      {/* Hero Section with Windmill Background */}
+      <section 
+        className="relative pt-32 pb-20 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${windmillBg})` }}
+      >
+        <div className="absolute inset-0 bg-background/85" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-minimal text-muted-foreground mb-4 tracking-widest">POWERING INFRASTRUCTURE</h1>
+            <h2 className="text-4xl md:text-6xl font-light text-foreground mb-6">
+              Copper Solutions for
+              <br />
+              <span className="text-muted-foreground">Renewable Energy</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-xl">
+              From wind farms to power grids, our copper conductors enable the infrastructure 
+              that powers the future.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-20">
