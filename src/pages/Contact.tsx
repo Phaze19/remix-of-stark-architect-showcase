@@ -97,24 +97,30 @@ const Contact = () => {
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-minimal text-muted-foreground mb-2">EMAIL</h3>
-                    <a href="mailto:sales@coppertech.com" className="text-xl hover:text-muted-foreground transition-colors duration-300">
-                      sales@coppertech.com
+                    <a href="mailto:info@rationalengineers.com" className="text-xl hover:text-muted-foreground transition-colors duration-300">
+                      info@rationalengineers.com
                     </a>
                   </div>
                   
                   <div>
                     <h3 className="text-minimal text-muted-foreground mb-2">PHONE</h3>
-                    <a href="tel:+1234567890" className="text-xl hover:text-muted-foreground transition-colors duration-300">
-                      +1 (234) 567-8900
+                    <a href="tel:+919168643114" className="text-xl hover:text-muted-foreground transition-colors duration-300">
+                      +91 91686 43114
                     </a>
                   </div>
                   
                   <div>
                     <h3 className="text-minimal text-muted-foreground mb-2">HEADQUARTERS</h3>
-                    <address className="text-xl not-italic">
-                      Industrial Zone, Sector 12
+                    <address className="text-xl not-italic leading-relaxed">
+                      <strong>RATIONAL ENGINEERS LIMITED</strong>
                       <br />
-                      Manufacturing District
+                      103, Dhanalaxmi Residency, 1st Floor
+                      <br />
+                      Near Tip Top Plaza, Naupada
+                      <br />
+                      L.B.S. Marg, Thane West
+                      <br />
+                      Maharashtra 400604, India
                     </address>
                   </div>
                 </div>
