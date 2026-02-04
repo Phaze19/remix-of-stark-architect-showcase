@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import TrustSignals from "@/components/TrustSignals";
 import IndustrialApplications from "@/components/IndustrialApplications";
 import Differentiation from "@/components/Differentiation";
-import Portfolio from "@/components/Portfolio";
+import ProductShowcase from "@/components/ProductShowcase";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -29,7 +29,7 @@ const Index = () => {
         </div>
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
-        <Portfolio />
+        <ProductShowcase />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <Testimonials />
