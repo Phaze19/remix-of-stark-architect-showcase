@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Zap, Factory, Wind, Shield, CheckCircle, ArrowRight } from "lucide-react";
+import { X, Zap, Factory, Wind, Shield, CheckCircle, ArrowRight, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import productCtc from "@/assets/product-ctc-conductor.jpg";
 import productPaperCovered from "@/assets/product-paper-covered.jpg";
 import productEnameled from "@/assets/product-enameled-wire.jpg";
 import productBareCopper from "@/assets/product-bare-copper.jpg";
 import productBusbar from "@/assets/product-busbar.jpg";
 import productWindingWire from "@/assets/product-winding-wire.jpg";
+
+// Import brochure PDF - update this path when you have the actual file
+import brochurePdf from "@/assets/rational-engineers-brochure.pdf";
 
 interface Product {
   id: string;
@@ -221,9 +225,21 @@ const ProductShowcase = () => {
             <h3 className="text-4xl md:text-6xl font-light text-architectural">
               Premium Copper Solutions
             </h3>
-            <p className="text-muted-foreground text-lg mt-4 max-w-2xl">
-              Click any product to explore applications, specifications, and why industry leaders choose us.
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mt-4">
+              <p className="text-muted-foreground text-lg max-w-2xl">
+                Click any product to explore applications, specifications, and why industry leaders choose us.
+              </p>
+              <Button 
+                asChild
+                className="gap-2 shrink-0"
+                size="lg"
+              >
+                <a href={brochurePdf} download="Rational-Engineers-Brochure.pdf">
+                  <Download className="w-4 h-4" />
+                  Download Brochure
+                </a>
+              </Button>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
