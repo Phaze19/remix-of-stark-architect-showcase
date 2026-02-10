@@ -9,8 +9,8 @@ import productBareCopper from "@/assets/product-bare-copper.jpg";
 import productBusbar from "@/assets/product-busbar.jpg";
 import productWindingWire from "@/assets/product-winding-wire.jpg";
 
-// Import brochure PDF - update this path when you have the actual file
-import brochurePdf from "@/assets/rational-engineers-brochure.pdf";
+// Brochure PDF path - will work once the user uploads the file
+const brochurePdf = "/rational-engineers-brochure.pdf";
 
 interface Product {
   id: string;
