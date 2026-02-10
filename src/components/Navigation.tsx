@@ -26,6 +26,9 @@ const Navigation = () => {
           <a href="#quality" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
             QUALITY SYSTEMS
           </a>
+          <a href="/certifications" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+            CERTIFICATIONS
+          </a>
           <a href="/contact" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
             CONTACT
           </a>
@@ -57,6 +60,9 @@ const Navigation = () => {
             </a>
             <a href="#quality" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
               QUALITY SYSTEMS
+            </a>
+            <a href="/certifications" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+              CERTIFICATIONS
             </a>
             <a href="/contact" className="block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
               CONTACT
