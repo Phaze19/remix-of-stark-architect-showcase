@@ -215,6 +215,64 @@ const About = () => {
         </div>
       </section>
 
+      {/* Timeline */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">OUR JOURNEY</h3>
+              <h4 className="text-3xl md:text-4xl font-light text-architectural">
+                Milestones That Define Us
+              </h4>
+            </motion.div>
+
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-border" />
+
+              {[
+                { year: "1989", title: "The Beginning", desc: "Rational Engineers Limited is founded, entering the copper conductor industry with a commitment to quality." },
+                { year: "1990s", title: "Building Foundations", desc: "Established core manufacturing capabilities and built early relationships with transformer OEMs across India." },
+                { year: "2006", title: "New Leadership", desc: "Mr. Mahendra Jain (B.E Mech) takes over as Managing Director, bringing a bold vision to modernise and scale operations." },
+                { year: "2010s", title: "Facility Modernisation", desc: "Major upgrades to manufacturing facilities with state-of-the-art machinery, achieving ISO certifications and expanding product range." },
+                { year: "2018", title: "Next Generation Joins", desc: "Mr. Jubin Jain (B.E Electrical) joins the leadership, driving innovation in CTC conductors and digital transformation." },
+                { year: "2020s", title: "Global Expansion", desc: "Expanded presence in international markets while strengthening domestic operations — now serving clients across India and abroad." },
+                { year: "Today", title: "Industry Pioneer", desc: "50+ years in copper, a complete product range, and a reputation for exceeding customer expectations at every turn." },
+              ].map((milestone, i) => (
+                <motion.div
+                  key={milestone.year}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className={`relative flex items-start gap-6 md:gap-0 mb-12 last:mb-0 ${
+                    i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Dot */}
+                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-foreground border-2 border-background z-10 mt-1.5" />
+
+                  {/* Content */}
+                  <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                    <span className="text-sm font-semibold text-foreground tracking-widest">{milestone.year}</span>
+                    <h5 className="text-xl font-medium text-foreground mt-1 mb-2">{milestone.title}</h5>
+                    <p className="text-muted-foreground leading-relaxed">{milestone.desc}</p>
+                  </div>
+
+                  {/* Spacer for opposite side */}
+                  <div className="hidden md:block md:w-1/2" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
