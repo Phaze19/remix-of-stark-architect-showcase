@@ -4,6 +4,7 @@ import TrustSignals from "@/components/TrustSignals";
 import IndustrialApplications from "@/components/IndustrialApplications";
 import Differentiation from "@/components/Differentiation";
 import ProductShowcase from "@/components/ProductShowcase";
+import NewsUpdates from "@/components/NewsUpdates";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -30,6 +31,9 @@ const Index = () => {
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <ProductShowcase />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <NewsUpdates />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <Testimonials />
