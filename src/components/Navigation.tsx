@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logoLight from "@/assets/rational-logo-light.png";
-import logoDark from "@/assets/rational-logo-dark.png";
+import logoDark from "@/assets/rational-logo-real.jpg";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
