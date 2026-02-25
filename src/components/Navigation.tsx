@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import logoLight from "@/assets/rational-logo-light.png";
+import logoDark from "@/assets/rational-logo-dark.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,9 +12,14 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img 
-            src="/rational-logo.png" 
-            alt="Rational Engineers - Paving the way for Copper & Aluminium Windings" 
-            className="h-12 w-auto dark:brightness-0 dark:invert"
+            src={logoDark} 
+            alt="Rational Engineers" 
+            className="h-12 w-auto block dark:hidden"
+          />
+          <img 
+            src={logoLight} 
+            alt="Rational Engineers" 
+            className="h-12 w-auto hidden dark:block"
           />
         </a>
         
