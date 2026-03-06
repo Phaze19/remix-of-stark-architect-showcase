@@ -1,4 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import logoLight from "@/assets/rational-logo-light.png";
+import logoDark from "@/assets/rational-logo-real.jpg";
 
 const Footer = () => {
   return (
@@ -8,7 +10,10 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Company Info */}
             <div className="md:col-span-2">
-              <h3 className="text-2xl font-light mb-6">RATIONAL ENGINEERS</h3>
+              <div className="mb-6">
+                <img src={logoLight} alt="Rational Engineers" className="h-12 w-auto block dark:hidden" />
+                <img src={logoDark} alt="Rational Engineers" className="h-12 w-auto hidden dark:block" />
+              </div>
               <p className="text-background/70 leading-relaxed max-w-xl">
                 Rational Engineers is a leading copper conductor manufacturer delivering 
                 consistent quality, process control, and long-term supply reliability 
