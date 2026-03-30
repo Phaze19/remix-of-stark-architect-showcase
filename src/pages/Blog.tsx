@@ -61,6 +61,32 @@ const Blog = () => {
         </div>
       </section>
 
+      {/* Featured Factory Video */}
+      <section className="pb-16">
+        <div className="container mx-auto px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="relative rounded-lg overflow-hidden aspect-video max-h-[480px]">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/factory-tour-2.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <span className="text-xs text-white/60 uppercase tracking-widest">From the Factory Floor</span>
+                <h3 className="text-2xl md:text-3xl font-light text-white mt-2">
+                  Where Precision Meets Craftsmanship
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Blog Posts Grid */}
       <section className="pb-32">
         <div className="container mx-auto px-6">
@@ -73,6 +99,9 @@ const Blog = () => {
                       <img 
                         src={post.image} 
                         alt={post.title}
+                        loading="lazy"
+                        width={1024}
+                        height={640}
                         className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
