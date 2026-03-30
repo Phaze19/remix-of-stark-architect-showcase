@@ -192,15 +192,49 @@ const Services = () => {
       </section>
 
       {/* Factory Visit CTA */}
-      <section className="py-24 bg-foreground text-background">
-        <div className="container mx-auto px-6">
+      <section className="relative py-24 bg-foreground text-background overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-7xl mx-auto">
+            {/* Video Showcase */}
+            <div className="mb-16">
+              <h3 className="text-minimal text-background/50 mb-4 tracking-widest">SEE IT TO BELIEVE IT</h3>
+              <h4 className="text-3xl md:text-4xl font-light mb-8">
+                Visit Our Manufacturing Facility
+              </h4>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative rounded-lg overflow-hidden aspect-video">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/factory-tour-1.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                    <span className="text-sm text-white/90 font-medium">Production Floor — CTC Winding Line</span>
+                  </div>
+                </div>
+                <div className="relative rounded-lg overflow-hidden aspect-video">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/videos/factory-tour-2.mp4" type="video/mp4" />
+                  </video>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                    <span className="text-sm text-white/90 font-medium">Quality Lab — Insulation Testing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
-                <h3 className="text-minimal text-background/50 mb-4 tracking-widest">SEE IT TO BELIEVE IT</h3>
-                <h4 className="text-3xl md:text-4xl font-light mb-6">
-                  Visit Our Manufacturing Facility
-                </h4>
                 <p className="text-background/70 leading-relaxed mb-8">
                   Numbers and certifications tell part of the story. A factory visit tells the rest.
                   Walk our production floor, meet our engineers, and see the processes that make

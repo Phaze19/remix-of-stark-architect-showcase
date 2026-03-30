@@ -3,11 +3,17 @@ import heroImage from "@/assets/hero-copper-wires.jpg";
 const Hero = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={heroImage}
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videos/factory-tour-1.mp4" type="video/mp4" />
+      </video>
       
       {/* Overlay */}
       <div className="absolute inset-0 hero-overlay" />
