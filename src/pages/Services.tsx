@@ -213,7 +213,7 @@ const Services = () => {
                   >
                     <source src="/videos/factory-tour-1.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4 pointer-events-none">
                     <span className="text-sm text-white/90 font-medium">Production Floor — CTC Winding Line</span>
                   </div>
                 </div>
