@@ -202,18 +202,18 @@ const Services = () => {
                 Visit Our Manufacturing Facility
               </h4>
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="relative rounded-lg overflow-hidden aspect-video">
+                <div className="relative rounded-lg overflow-hidden aspect-video group">
                   <video
                     autoPlay
                     muted
                     loop
                     playsInline
                     controls
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover relative z-10"
                   >
                     <source src="/videos/factory-tour-1.mp4" type="video/mp4" />
                   </video>
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4 pointer-events-none">
+                  <div className="absolute bottom-12 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4 pointer-events-none z-20">
                     <span className="text-sm text-white/90 font-medium">Production Floor — CTC Winding Line</span>
                   </div>
                 </div>
