@@ -223,6 +223,7 @@ const Services = () => {
                     muted
                     loop
                     playsInline
+                    controls
                     className="w-full h-full object-cover"
                   >
                     <source src="/videos/factory-tour-2.mp4" type="video/mp4" />
