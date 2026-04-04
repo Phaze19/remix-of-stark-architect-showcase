@@ -1,5 +1,4 @@
 import heroImage from "@/assets/hero-copper-wires.jpg";
-import logoLight from "@/assets/rational-logo-light.png";
 
 const Hero = () => {
   return (
@@ -16,11 +15,17 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
-        <img
-          src={logoLight}
-          alt="Rational Engineers"
-          className="h-20 md:h-28 w-auto mx-auto mb-8 reveal"
-        />
+        {/* Brand Mark */}
+        <div className="mb-8 reveal">
+          <span className="text-sm md:text-base tracking-[0.4em] text-white/60 uppercase font-light">
+            Established 1989
+          </span>
+          <h2 className="text-2xl md:text-4xl font-bold tracking-[0.15em] text-white mt-2">
+            RATIONAL ENGINEERS
+          </h2>
+          <div className="w-16 h-px bg-white/40 mx-auto mt-4" />
+        </div>
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white text-architectural mb-6 reveal leading-tight">
           Copper Manufacturing Built for
           <br />
