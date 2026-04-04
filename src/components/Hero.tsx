@@ -1,25 +1,26 @@
 import heroImage from "@/assets/hero-copper-wires.jpg";
+import logoLight from "@/assets/rational-logo-light.png";
 
 const Hero = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={heroImage}
+      {/* Background Image */}
+      <img
+        src={heroImage}
+        alt="Copper manufacturing facility"
         className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/videos/factory-tour-1.mp4" type="video/mp4" />
-      </video>
+      />
       
       {/* Overlay */}
       <div className="absolute inset-0 hero-overlay" />
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+        <img
+          src={logoLight}
+          alt="Rational Engineers"
+          className="h-20 md:h-28 w-auto mx-auto mb-8 reveal"
+        />
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white text-architectural mb-6 reveal leading-tight">
           Copper Manufacturing Built for
           <br />
