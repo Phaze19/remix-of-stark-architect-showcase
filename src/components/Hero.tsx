@@ -1,5 +1,5 @@
 import heroImage from "@/assets/hero-copper-wires.jpg";
-import rationalLogo from "@/assets/rational-logo-original.jpeg";
+import rationalLogo from "@/assets/rational-logo-light.png";
 
 const Hero = () => {
   return (
@@ -21,7 +21,7 @@ const Hero = () => {
           <img 
             src={rationalLogo} 
             alt="Rational Engineers" 
-            className="h-20 md:h-28 w-auto mx-auto mb-4 brightness-0 invert"
+            className="h-20 md:h-28 w-auto mx-auto mb-4"
           />
           <span className="text-sm md:text-base tracking-[0.4em] text-white/60 uppercase font-light">
             Established 1989
