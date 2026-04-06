@@ -1,4 +1,5 @@
 import heroImage from "@/assets/hero-copper-wires.jpg";
+import rationalLogo from "@/assets/rational-logo-original.jpeg";
 
 const Hero = () => {
   return (
@@ -15,14 +16,16 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
-        {/* Brand Mark */}
+        {/* Logo */}
         <div className="mb-8 reveal">
+          <img 
+            src={rationalLogo} 
+            alt="Rational Engineers" 
+            className="h-20 md:h-28 w-auto mx-auto mb-4 brightness-0 invert"
+          />
           <span className="text-sm md:text-base tracking-[0.4em] text-white/60 uppercase font-light">
             Established 1989
           </span>
-          <h2 className="text-2xl md:text-4xl font-bold tracking-[0.15em] text-white mt-2">
-            RATIONAL ENGINEERS
-          </h2>
           <div className="w-16 h-px bg-white/40 mx-auto mt-4" />
         </div>
 
@@ -37,7 +40,7 @@ const Hero = () => {
         </p>
         <a 
           href="#trust" 
-          className="inline-block bg-white text-foreground px-8 py-4 text-sm font-medium tracking-wider hover:bg-white/90 transition-colors duration-300 reveal-delayed"
+          className="inline-block bg-rational-red text-white px-8 py-4 text-sm font-medium tracking-wider hover:bg-rational-red/90 transition-colors duration-300 reveal-delayed"
         >
           WHY COMPANIES LIKE ABB & SIEMENS TRUST US
         </a>
