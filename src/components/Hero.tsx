@@ -1,5 +1,5 @@
 import heroImage from "@/assets/hero-copper-wires.jpg";
-import rationalLogo from "@/assets/rational-logo-light.png";
+import rationalLogo from "@/assets/rational-logo-original.jpeg";
 
 const Hero = () => {
   return (
@@ -18,14 +18,18 @@ const Hero = () => {
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
         {/* Logo */}
         <div className="mb-8 reveal">
-          <img 
-            src={rationalLogo} 
-            alt="Rational Engineers" 
-            className="h-20 md:h-28 w-auto mx-auto mb-4"
-          />
-          <span className="text-sm md:text-base tracking-[0.4em] text-white/60 uppercase font-light">
-            Established 1989
-          </span>
+          <div className="inline-block bg-white/95 rounded-lg px-6 py-3 mb-4">
+            <img 
+              src={rationalLogo} 
+              alt="Rational Engineers" 
+              className="h-14 md:h-20 w-auto"
+            />
+          </div>
+          <div className="block">
+            <span className="text-sm md:text-base tracking-[0.4em] text-white/60 uppercase font-light">
+              Established 1989
+            </span>
+          </div>
           <div className="w-16 h-px bg-white/40 mx-auto mt-4" />
         </div>
 
