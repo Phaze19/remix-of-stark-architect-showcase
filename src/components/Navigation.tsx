@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import logoLight from "@/assets/rational-logo-light.png";
-import logoDark from "@/assets/rational-logo-real.jpg";
+import logoDark from "@/assets/rational-logo-original.jpeg";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-rational-red/20">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img 
