@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
         {/* Logo */}
         <div className="mb-8 reveal">
-          <div className="inline-block bg-white/95 rounded-lg px-6 py-3 mb-4">
+          <div className="inline-block bg-white/20 backdrop-blur-md rounded-lg px-6 py-3 mb-4 border border-white/30 shadow-lg">
             <img 
               src={rationalLogo} 
               alt="Rational Engineers" 
