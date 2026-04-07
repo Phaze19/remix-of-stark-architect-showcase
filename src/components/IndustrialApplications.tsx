@@ -68,8 +68,8 @@ const IndustrialApplications = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-smooth"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center">
-                    <cluster.icon className="w-6 h-6 text-foreground" />
+                   <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center group-hover:bg-rational-red/10 transition-colors duration-300">
+                    <cluster.icon className="w-6 h-6 text-foreground group-hover:text-rational-red transition-colors duration-300" />
                   </div>
                 </div>
                 <div className="p-6">
