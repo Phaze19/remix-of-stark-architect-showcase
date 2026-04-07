@@ -24,22 +24,22 @@ const Navigation = () => {
         </a>
         
         <div className="hidden md:flex items-center space-x-10">
-          <a href="#capabilities" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
+          <a href="#capabilities" className="relative text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
             CAPABILITIES
           </a>
-          <a href="#trust" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
+          <a href="#trust" className="relative text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
             WHY LEADERS CHOOSE US
           </a>
-          <a href="#quality" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
+          <a href="#quality" className="relative text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
             QUALITY SYSTEMS
           </a>
-          <a href="/certifications" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
+          <a href="/certifications" className="relative text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
             CERTIFICATIONS
           </a>
-          <a href="/gallery" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
+          <a href="/gallery" className="relative text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
             GALLERY
           </a>
-          <a href="/contact" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
+          <a href="/contact" className="relative text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left">
             CONTACT
           </a>
         </div>
