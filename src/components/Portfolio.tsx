@@ -59,7 +59,7 @@ const Portfolio = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <div key={index} className="group bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <div key={index} className="group bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:ring-1 hover:ring-rational-red/20">
                 <div className="relative overflow-hidden aspect-square">
                   <img 
                     src={product.image} 

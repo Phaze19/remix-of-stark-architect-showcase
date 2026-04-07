@@ -44,9 +44,9 @@ const Differentiation = () => {
               {differentiators.map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex gap-4 p-6 bg-muted rounded-lg border border-border"
+                  className="flex gap-4 p-6 bg-muted rounded-lg border border-border hover:border-rational-red/30 transition-colors duration-300"
                 >
-                  <CheckCircle className="w-6 h-6 text-foreground flex-shrink-0 mt-1" />
+                  <CheckCircle className="w-6 h-6 text-rational-red flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="text-lg font-medium mb-2 text-foreground">
                       {item.title}

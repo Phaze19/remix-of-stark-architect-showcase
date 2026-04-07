@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
           
           {/* Bottom Bar */}
-          <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-8 border-t border-rational-red/20 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/50 text-sm">
               © {new Date().getFullYear()} Rational Engineers. All rights reserved.
             </p>

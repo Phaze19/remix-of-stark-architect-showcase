@@ -45,7 +45,7 @@ const Testimonials = () => {
                   "{testimonial.quote}"
                 </p>
                 
-                <div className="pt-6 border-t border-border">
+                <div className="pt-6 border-t border-rational-red/20">
                   <h4 className="font-semibold text-foreground mb-1">
                     {testimonial.company}
                   </h4>

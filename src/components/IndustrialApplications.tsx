@@ -83,7 +83,7 @@ const IndustrialApplications = () => {
                         className="text-muted-foreground text-sm flex items-center gap-3 group-hover:text-foreground/70 transition-colors duration-300"
                         style={{ transitionDelay: `${appIndex * 50}ms` }}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-foreground/60 group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-rational-red group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
                         {app}
                       </li>
                     ))}

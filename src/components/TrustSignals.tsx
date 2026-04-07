@@ -42,7 +42,7 @@ const TrustSignals = () => {
           {/* Certifications & Since */}
           <div className="flex flex-wrap justify-center items-center gap-8 pt-8 border-t border-border">
             {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center gap-2 text-muted-foreground">
+              <div key={index} className="flex items-center gap-2 text-muted-foreground hover:text-rational-red transition-colors duration-300">
                 <cert.icon className="w-5 h-5" />
                 <span className="text-sm font-medium">{cert.label}</span>
               </div>
