@@ -23,7 +23,7 @@ const Footer = () => {
             
             {/* Contact */}
             <div>
-              <h4 className="text-minimal text-background/50 mb-6 tracking-widest">CONTACT</h4>
+              <h4 className="text-minimal text-rational-red mb-6 tracking-widest">CONTACT</h4>
               <div className="space-y-4">
                 <a 
                   href="mailto:info@rationalengineers.com" 
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
           
           {/* Bottom Bar */}
-          <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="pt-8 border-t border-rational-red/20 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/50 text-sm">
               © {new Date().getFullYear()} Rational Engineers. All rights reserved.
             </p>

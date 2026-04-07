@@ -30,7 +30,7 @@ const Hero = () => {
               Established 1989
             </span>
           </div>
-          <div className="w-16 h-px bg-white/40 mx-auto mt-4" />
+          <div className="w-16 h-0.5 bg-rational-red mx-auto mt-4" />
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white text-architectural mb-6 reveal leading-tight">

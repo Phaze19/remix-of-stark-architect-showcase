@@ -24,22 +24,22 @@ const Navigation = () => {
         </a>
         
         <div className="hidden md:flex items-center space-x-10">
-          <a href="#capabilities" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="#capabilities" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
             CAPABILITIES
           </a>
-          <a href="#trust" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="#trust" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
             WHY LEADERS CHOOSE US
           </a>
-          <a href="#quality" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="#quality" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
             QUALITY SYSTEMS
           </a>
-          <a href="/certifications" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="/certifications" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
             CERTIFICATIONS
           </a>
-          <a href="/gallery" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="/gallery" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
             GALLERY
           </a>
-          <a href="/contact" className="text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300">
+          <a href="/contact" className="text-minimal text-muted-foreground hover:text-rational-red transition-colors duration-300">
             CONTACT
           </a>
         </div>

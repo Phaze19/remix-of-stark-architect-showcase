@@ -46,9 +46,10 @@ const IndustrialApplications = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
+            <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
               APPLICATIONS
             </h2>
+            <div className="w-12 h-0.5 bg-rational-red mx-auto mb-6" />
             <h3 className="text-4xl md:text-5xl font-light text-architectural max-w-3xl mx-auto">
               Built for Industries Where Failure Is Not an Option
             </h3>
@@ -58,7 +59,7 @@ const IndustrialApplications = () => {
             {clusters.map((cluster, index) => (
               <div 
                 key={index} 
-                className="group bg-background rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth overflow-hidden"
+                className="group bg-background rounded-lg border border-border hover:border-rational-red/40 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth overflow-hidden"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -67,8 +68,8 @@ const IndustrialApplications = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-smooth"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center">
-                    <cluster.icon className="w-6 h-6 text-foreground" />
+                   <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center group-hover:bg-rational-red/10 transition-colors duration-300">
+                    <cluster.icon className="w-6 h-6 text-foreground group-hover:text-rational-red transition-colors duration-300" />
                   </div>
                 </div>
                 <div className="p-6">
@@ -82,7 +83,7 @@ const IndustrialApplications = () => {
                         className="text-muted-foreground text-sm flex items-center gap-3 group-hover:text-foreground/70 transition-colors duration-300"
                         style={{ transitionDelay: `${appIndex * 50}ms` }}
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-foreground/60 group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-rational-red group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
                         {app}
                       </li>
                     ))}

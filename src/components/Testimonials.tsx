@@ -24,9 +24,10 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
+             <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
               CLIENT TESTIMONIALS
             </h2>
+            <div className="w-12 h-0.5 bg-rational-red mx-auto mb-6" />
             <h3 className="text-4xl md:text-5xl font-light text-architectural">
               What Our Partners Say
             </h3>
@@ -38,13 +39,13 @@ const Testimonials = () => {
                 key={index} 
                 className="bg-background p-8 rounded-lg border border-border"
               >
-                <Quote className="w-10 h-10 text-muted-foreground/30 mb-6" />
+                <Quote className="w-10 h-10 text-rational-red/40 mb-6" />
                 
                 <p className="text-foreground leading-relaxed mb-8 text-lg">
                   "{testimonial.quote}"
                 </p>
                 
-                <div className="pt-6 border-t border-border">
+                <div className="pt-6 border-t border-rational-red/20">
                   <h4 className="font-semibold text-foreground mb-1">
                     {testimonial.company}
                   </h4>

@@ -50,7 +50,8 @@ const Portfolio = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
-            <h2 className="text-minimal text-muted-foreground mb-4">OUR PRODUCTS</h2>
+             <h2 className="text-minimal text-rational-red mb-4">OUR PRODUCTS</h2>
+            <div className="w-12 h-0.5 bg-rational-red mb-6" />
             <h3 className="text-4xl md:text-6xl font-light text-architectural">
               Premium Copper Solutions
             </h3>
@@ -58,7 +59,7 @@ const Portfolio = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <div key={index} className="group bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <div key={index} className="group bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:ring-1 hover:ring-rational-red/20">
                 <div className="relative overflow-hidden aspect-square">
                   <img 
                     src={product.image} 

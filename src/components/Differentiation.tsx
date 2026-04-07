@@ -26,9 +26,10 @@ const Differentiation = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
+              <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
                 OUR PROCESS
               </h2>
+              <div className="w-12 h-0.5 bg-rational-red mb-6" />
               <h3 className="text-4xl md:text-5xl font-light text-architectural mb-8">
                 Why Our Products Perform Differently
               </h3>
@@ -43,9 +44,9 @@ const Differentiation = () => {
               {differentiators.map((item, index) => (
                 <div 
                   key={index} 
-                  className="flex gap-4 p-6 bg-muted rounded-lg border border-border"
+                  className="flex gap-4 p-6 bg-muted rounded-lg border border-border hover:border-rational-red/30 transition-colors duration-300"
                 >
-                  <CheckCircle className="w-6 h-6 text-foreground flex-shrink-0 mt-1" />
+                  <CheckCircle className="w-6 h-6 text-rational-red flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="text-lg font-medium mb-2 text-foreground">
                       {item.title}
