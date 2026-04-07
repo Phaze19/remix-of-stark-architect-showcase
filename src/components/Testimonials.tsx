@@ -24,9 +24,10 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
+             <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
               CLIENT TESTIMONIALS
             </h2>
+            <div className="w-12 h-0.5 bg-rational-red mx-auto mb-6" />
             <h3 className="text-4xl md:text-5xl font-light text-architectural">
               What Our Partners Say
             </h3>
