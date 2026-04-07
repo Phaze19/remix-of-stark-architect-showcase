@@ -23,7 +23,7 @@ const Footer = () => {
             
             {/* Contact */}
             <div>
-              <h4 className="text-minimal text-background/50 mb-6 tracking-widest">CONTACT</h4>
+              <h4 className="text-minimal text-rational-red mb-6 tracking-widest">CONTACT</h4>
               <div className="space-y-4">
                 <a 
                   href="mailto:info@rationalengineers.com" 
