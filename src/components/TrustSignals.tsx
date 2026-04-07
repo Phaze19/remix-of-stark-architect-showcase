@@ -21,9 +21,10 @@ const TrustSignals = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
+            <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
               TRUSTED BY INDUSTRY LEADERS
             </h2>
+            <div className="w-12 h-0.5 bg-rational-red mx-auto" />
           </div>
           
           {/* Client Logos */}
