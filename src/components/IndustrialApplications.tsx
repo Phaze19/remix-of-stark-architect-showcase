@@ -59,7 +59,7 @@ const IndustrialApplications = () => {
             {clusters.map((cluster, index) => (
               <div 
                 key={index} 
-                className="group bg-background rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth overflow-hidden"
+                className="group bg-background rounded-lg border border-border hover:border-rational-red/40 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth overflow-hidden"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
