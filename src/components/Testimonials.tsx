@@ -39,7 +39,7 @@ const Testimonials = () => {
                 key={index} 
                 className="bg-background p-8 rounded-lg border border-border"
               >
-                <Quote className="w-10 h-10 text-muted-foreground/30 mb-6" />
+                <Quote className="w-10 h-10 text-rational-red/40 mb-6" />
                 
                 <p className="text-foreground leading-relaxed mb-8 text-lg">
                   "{testimonial.quote}"
