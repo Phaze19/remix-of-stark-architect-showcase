@@ -32,7 +32,7 @@ const TrustSignals = () => {
             {clients.map((client, index) => (
               <div 
                 key={index} 
-                className="text-2xl md:text-3xl font-bold text-muted-foreground/60 hover:text-foreground transition-colors duration-300"
+                className="text-2xl md:text-3xl font-bold text-muted-foreground/60 hover:text-rational-red transition-colors duration-300"
               >
                 {client}
               </div>
