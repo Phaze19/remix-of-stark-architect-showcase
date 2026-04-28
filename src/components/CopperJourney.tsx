@@ -136,22 +136,39 @@ const CopperJourney = () => {
             <Particles progress={progress} />
           </motion.div>
 
-          {/* Final catalogue reveal */}
+          {/* Final catalogue reveal — slides in, animated red underline, CTA swap */}
           <motion.div
-            style={{ opacity: catalogueOpacity, scale: catalogueScale }}
+            style={{ opacity: catalogueOpacity, y: catalogueY }}
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
           >
-            <div className="bg-card border border-rational-red/40 shadow-elegant rounded-lg px-8 py-6 text-center max-w-md">
+            <div className="pointer-events-auto bg-card border border-rational-red/40 shadow-elegant rounded-lg px-10 py-7 text-center max-w-md relative overflow-hidden">
               <div className="text-minimal text-rational-red mb-2">PRODUCT CATALOGUE</div>
-              <div className="text-xl font-medium text-foreground mb-3">
+              <div className="text-xl font-medium text-foreground mb-4">
                 Engineered. Certified. Delivered.
               </div>
-              <a
-                href="#products"
-                className="inline-block text-sm tracking-wider text-foreground border-b-2 border-rational-red pb-0.5 hover:text-rational-red transition-colors"
-              >
-                EXPLORE PRODUCTS →
-              </a>
+
+              {/* Animated red accent underline */}
+              <motion.div
+                style={{ scaleX: underlineScale }}
+                className="w-24 h-0.5 bg-rational-red mx-auto mb-4 origin-left"
+              />
+
+              {/* Swapping footer: label -> CTA */}
+              <div className="relative h-6">
+                <motion.div
+                  style={{ opacity: labelOpacity }}
+                  className="absolute inset-0 text-xs tracking-widest text-muted-foreground uppercase"
+                >
+                  Journey Complete
+                </motion.div>
+                <motion.a
+                  href="#products"
+                  style={{ opacity: ctaOpacity, y: ctaY }}
+                  className="absolute inset-0 text-sm font-medium tracking-wider text-foreground hover:text-rational-red transition-colors"
+                >
+                  EXPLORE PRODUCTS →
+                </motion.a>
+              </div>
             </div>
           </motion.div>
         </div>
