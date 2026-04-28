@@ -158,28 +158,54 @@ const CopperJourney = () => {
               }}
               className="w-64 md:w-96 rounded-full origin-center relative overflow-hidden"
             >
-              {/* Specular highlight streak */}
+              {/* Brushed-metal micro-streaks for realism */}
               <div
-                className="absolute left-0 right-0 top-[30%] h-[8%] rounded-full pointer-events-none"
+                className="absolute inset-0 pointer-events-none opacity-40 mix-blend-overlay"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, rgba(0,0,0,0.08) 1px 3px)",
+                }}
+              />
+              {/* Primary specular highlight (crisp) */}
+              <div
+                className="absolute left-0 right-0 top-[26%] h-[6%] rounded-full pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0))",
+                    "linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0))",
+                  filter: "blur(0.5px)",
+                }}
+              />
+              {/* Secondary soft highlight */}
+              <div
+                className="absolute left-0 right-0 top-[38%] h-[4%] rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(255,220,180,0.5), rgba(255,220,180,0))",
+                  filter: "blur(1.5px)",
+                }}
+              />
+              {/* Lower rim reflection */}
+              <div
+                className="absolute left-0 right-0 bottom-[12%] h-[4%] rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(255,180,120,0.35), rgba(255,180,120,0))",
                   filter: "blur(1px)",
                 }}
               />
               {/* Soft end caps for cylinder illusion */}
               <div
-                className="absolute inset-y-0 left-0 w-6 pointer-events-none"
+                className="absolute inset-y-0 left-0 w-8 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0))",
+                    "linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0))",
                 }}
               />
               <div
-                className="absolute inset-y-0 right-0 w-6 pointer-events-none"
+                className="absolute inset-y-0 right-0 w-8 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to left, rgba(0,0,0,0.4), rgba(0,0,0,0))",
+                    "linear-gradient(to left, rgba(0,0,0,0.55), rgba(0,0,0,0))",
                 }}
               />
             </motion.div>
