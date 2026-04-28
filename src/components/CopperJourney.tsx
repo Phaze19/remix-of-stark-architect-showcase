@@ -72,9 +72,17 @@ const CopperJourney = () => {
     [0, 30, 20, 0]
   );
 
-  // Final catalogue reveal
-  const catalogueOpacity = useTransform(progress, [0.85, 0.98], [0, 1]);
-  const catalogueScale = useTransform(progress, [0.85, 0.98], [0.8, 1]);
+  // Final catalogue reveal — slides up from below, fades in
+  const catalogueOpacity = useTransform(progress, [0.82, 0.92], [0, 1]);
+  const catalogueY = useTransform(progress, [0.82, 0.95], [60, 0]);
+  // Red accent underline grows from 0 -> full width
+  const underlineScale = useTransform(progress, [0.88, 0.98], [0, 1]);
+  // Smooth swap: label fades out, CTA fades in
+  const labelOpacity = useTransform(progress, [0.88, 0.93], [1, 0]);
+  const ctaOpacity = useTransform(progress, [0.93, 0.99], [0, 1]);
+  const ctaY = useTransform(progress, [0.93, 0.99], [10, 0]);
+  // Rod fades out as catalogue takes over
+  const rodOpacity = useTransform(progress, [0.82, 0.92], [1, 0]);
 
   return (
     <section
@@ -109,6 +117,7 @@ const CopperJourney = () => {
               x: rodX,
               y: swingY,
               rotate: swingRotate,
+              opacity: rodOpacity,
             }}
             className="relative"
           >
