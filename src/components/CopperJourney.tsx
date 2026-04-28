@@ -1,6 +1,25 @@
-import { useRef } from "react";
+import { useRef, RefObject } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { Flame, Droplets, Disc3, PackageCheck } from "lucide-react";
+
+/**
+ * shade(hex, amt)
+ * Lighten (+) or darken (-) a hex color by `amt` (0-100).
+ * Used to synthesize realistic metallic highlights/shadows on the rod.
+ */
+const shade = (hex: string, amt: number) => {
+  const h = hex.replace("#", "");
+  const n = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  const r = parseInt(n.slice(0, 2), 16);
+  const g = parseInt(n.slice(2, 4), 16);
+  const b = parseInt(n.slice(4, 6), 16);
+  const adj = (v: number) => {
+    const k = amt >= 0 ? (255 - v) * (amt / 100) : v * (amt / 100);
+    return Math.max(0, Math.min(255, Math.round(v + k)));
+  };
+  const to = (v: number) => v.toString(16).padStart(2, "0");
+  return `#${to(adj(r))}${to(adj(g))}${to(adj(b))}`;
+};
 
 /**
  * CopperJourney
@@ -104,7 +123,7 @@ const CopperJourney = () => {
         </div>
 
         {/* Stage grid (4 columns, active highlights by scroll progress) */}
-        <StageRow progress={progress} />
+        <StageRow progress={progress} containerRef={containerRef} />
 
         {/* Rod track */}
         <div className="flex-1 relative flex items-center justify-center">
@@ -124,14 +143,46 @@ const CopperJourney = () => {
             <motion.div
               style={{
                 height: rodHeight,
-                backgroundColor: rodColor,
+                // Realistic copper: dark edge -> bright highlight -> mid -> dark edge
+                // Tinted by rodColor via filter hue/lightness handled in wrapper's overlay
+                backgroundImage: useTransform(
+                  rodColor,
+                  (c) =>
+                    `linear-gradient(to bottom, ${shade(c, -45)} 0%, ${shade(c, -20)} 15%, ${shade(c, 35)} 45%, ${shade(c, 15)} 55%, ${shade(c, -25)} 85%, ${shade(c, -50)} 100%)`
+                ),
                 boxShadow: useTransform(
                   glow,
-                  (g) => `0 0 ${g * 2}px ${g}px rgba(239, 68, 68, 0.6)`
+                  (g) =>
+                    `0 0 ${g * 2}px ${g}px rgba(239, 68, 68, 0.55), inset 0 0 8px rgba(0,0,0,0.35)`
                 ),
               }}
-              className="w-64 md:w-96 rounded-full origin-center"
-            />
+              className="w-64 md:w-96 rounded-full origin-center relative overflow-hidden"
+            >
+              {/* Specular highlight streak */}
+              <div
+                className="absolute left-0 right-0 top-[30%] h-[8%] rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0))",
+                  filter: "blur(1px)",
+                }}
+              />
+              {/* Soft end caps for cylinder illusion */}
+              <div
+                className="absolute inset-y-0 left-0 w-6 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0))",
+                }}
+              />
+              <div
+                className="absolute inset-y-0 right-0 w-6 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to left, rgba(0,0,0,0.4), rgba(0,0,0,0))",
+                }}
+              />
+            </motion.div>
             {/* Sparks / particles during drawing + annealing */}
             <Particles progress={progress} />
           </motion.div>
@@ -180,13 +231,40 @@ const CopperJourney = () => {
   );
 };
 
-const StageRow = ({ progress }: { progress: MotionValue<number> }) => {
+const StageRow = ({
+  progress,
+  containerRef,
+}: {
+  progress: MotionValue<number>;
+  containerRef: RefObject<HTMLDivElement>;
+}) => {
+  // Scroll the window so the section's scrollYProgress lands at `target` (0..1).
+  // The section is 500vh tall with a sticky viewport, so scroll distance = (height - vh) * target.
+  const jumpTo = (target: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const sectionTop = rect.top + window.scrollY;
+    const scrollable = el.offsetHeight - window.innerHeight;
+    window.scrollTo({ top: sectionTop + scrollable * target, behavior: "smooth" });
+  };
+
   return (
     <div className="grid grid-cols-4 gap-2 md:gap-6 px-6 md:px-16 py-4 relative z-10">
       {stages.map((s, i) => {
         const start = 0.08 + i * 0.22;
         const end = start + 0.22;
-        return <StageChip key={s.id} stage={s} start={start} end={end} progress={progress} />;
+        const mid = (start + end) / 2;
+        return (
+          <StageChip
+            key={s.id}
+            stage={s}
+            start={start}
+            end={end}
+            progress={progress}
+            onClick={() => jumpTo(mid)}
+          />
+        );
       })}
     </div>
   );
@@ -197,27 +275,32 @@ const StageChip = ({
   start,
   end,
   progress,
+  onClick,
 }: {
   stage: (typeof stages)[number];
   start: number;
   end: number;
   progress: MotionValue<number>;
+  onClick: () => void;
 }) => {
   const opacity = useTransform(progress, [start - 0.05, start, end, end + 0.05], [0.3, 1, 1, 0.3]);
   const scale = useTransform(progress, [start - 0.05, start, end, end + 0.05], [0.95, 1.05, 1.05, 0.95]);
   const Icon = stage.icon;
   return (
-    <motion.div
+    <motion.button
+      type="button"
+      onClick={onClick}
       style={{ opacity, scale }}
-      className="flex flex-col items-center text-center gap-2"
+      aria-label={`Jump to ${stage.label} stage`}
+      className="flex flex-col items-center text-center gap-2 group cursor-pointer bg-transparent border-0 p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-rational-red rounded-md"
     >
-      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-rational-red/50 flex items-center justify-center bg-background">
+      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-rational-red/50 group-hover:border-rational-red group-hover:bg-rational-red/10 flex items-center justify-center bg-background transition-colors duration-300">
         <Icon className="w-5 h-5 md:w-6 md:h-6 text-rational-red" />
       </div>
-      <div className="text-[10px] md:text-xs tracking-widest uppercase text-foreground font-medium">
+      <div className="text-[10px] md:text-xs tracking-widest uppercase text-foreground group-hover:text-rational-red font-medium transition-colors duration-300">
         {stage.label}
       </div>
-    </motion.div>
+    </motion.button>
   );
 };
 
