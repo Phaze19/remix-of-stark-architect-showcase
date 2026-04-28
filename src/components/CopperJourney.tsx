@@ -204,20 +204,21 @@ const CopperJourney = () => {
                 className="w-24 h-0.5 bg-rational-red mx-auto mb-4 origin-left"
               />
 
-              {/* Swapping footer: label -> CTA */}
-              <div className="relative h-6">
+              {/* Swapping footer: label -> full CTA button */}
+              <div className="relative h-12 flex items-center justify-center">
                 <motion.div
                   style={{ opacity: labelOpacity }}
-                  className="absolute inset-0 text-xs tracking-widest text-muted-foreground uppercase"
+                  className="absolute text-xs tracking-widest text-muted-foreground uppercase"
                 >
                   Journey Complete
                 </motion.div>
                 <motion.a
                   href="#products"
                   style={{ opacity: ctaOpacity, y: ctaY }}
-                  className="absolute inset-0 text-sm font-medium tracking-wider text-foreground hover:text-rational-red transition-colors"
+                  className="absolute inline-flex items-center gap-2 bg-rational-red text-white px-8 py-3 text-sm font-medium tracking-wider uppercase shadow-[0_8px_24px_-8px_hsl(var(--rational-red)/0.6)] hover:bg-rational-red/90 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_hsl(var(--rational-red)/0.7)] transition-all duration-300"
                 >
-                  EXPLORE PRODUCTS →
+                  Explore Products
+                  <span aria-hidden>→</span>
                 </motion.a>
               </div>
             </div>
