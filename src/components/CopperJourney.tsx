@@ -104,7 +104,7 @@ const CopperJourney = () => {
         </div>
 
         {/* Stage grid (4 columns, active highlights by scroll progress) */}
-        <StageRow progress={progress} />
+        <StageRow progress={progress} containerRef={containerRef} />
 
         {/* Rod track */}
         <div className="flex-1 relative flex items-center justify-center">
@@ -124,14 +124,46 @@ const CopperJourney = () => {
             <motion.div
               style={{
                 height: rodHeight,
-                backgroundColor: rodColor,
+                // Realistic copper: dark edge -> bright highlight -> mid -> dark edge
+                // Tinted by rodColor via filter hue/lightness handled in wrapper's overlay
+                backgroundImage: useTransform(
+                  rodColor,
+                  (c) =>
+                    `linear-gradient(to bottom, ${shade(c, -45)} 0%, ${shade(c, -20)} 15%, ${shade(c, 35)} 45%, ${shade(c, 15)} 55%, ${shade(c, -25)} 85%, ${shade(c, -50)} 100%)`
+                ),
                 boxShadow: useTransform(
                   glow,
-                  (g) => `0 0 ${g * 2}px ${g}px rgba(239, 68, 68, 0.6)`
+                  (g) =>
+                    `0 0 ${g * 2}px ${g}px rgba(239, 68, 68, 0.55), inset 0 0 8px rgba(0,0,0,0.35)`
                 ),
               }}
-              className="w-64 md:w-96 rounded-full origin-center"
-            />
+              className="w-64 md:w-96 rounded-full origin-center relative overflow-hidden"
+            >
+              {/* Specular highlight streak */}
+              <div
+                className="absolute left-0 right-0 top-[30%] h-[8%] rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(255,255,255,0.55), rgba(255,255,255,0))",
+                  filter: "blur(1px)",
+                }}
+              />
+              {/* Soft end caps for cylinder illusion */}
+              <div
+                className="absolute inset-y-0 left-0 w-6 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0))",
+                }}
+              />
+              <div
+                className="absolute inset-y-0 right-0 w-6 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to left, rgba(0,0,0,0.4), rgba(0,0,0,0))",
+                }}
+              />
+            </motion.div>
             {/* Sparks / particles during drawing + annealing */}
             <Particles progress={progress} />
           </motion.div>
