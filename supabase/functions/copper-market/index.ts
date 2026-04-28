@@ -37,10 +37,13 @@ async function fetchCopperPrice() {
 
   if (!isFinite(close)) throw new Error("Invalid price");
 
-  // USD/lb -> USD/tonne (2204.62 lb per tonne) — LME-comparable approximation
+  // Stooq HG.F quotes copper in US cents per pound.
+  // Convert: cents/lb -> USD/lb -> USD/tonne (2204.62 lb/tonne)
   const POUNDS_PER_TONNE = 2204.62;
-  const usdPerTonne = close * POUNDS_PER_TONNE;
-  const usdPerTonneOpen = open * POUNDS_PER_TONNE;
+  const toUsdPerTonne = (centsPerLb: number) => (centsPerLb / 100) * POUNDS_PER_TONNE;
+
+  const usdPerTonne = toUsdPerTonne(close);
+  const usdPerTonneOpen = toUsdPerTonne(open);
   const change = usdPerTonne - usdPerTonneOpen;
   const changePct = (change / usdPerTonneOpen) * 100;
 
@@ -49,10 +52,10 @@ async function fetchCopperPrice() {
     source: "COMEX HG (front-month) via Stooq",
     unit: "USD/tonne",
     price: Math.round(usdPerTonne),
-    pricePerLb: close,
+    pricePerLb: Number((close / 100).toFixed(4)),
     open: Math.round(usdPerTonneOpen),
-    high: Math.round(high * POUNDS_PER_TONNE),
-    low: Math.round(low * POUNDS_PER_TONNE),
+    high: Math.round(toUsdPerTonne(high)),
+    low: Math.round(toUsdPerTonne(low)),
     change: Math.round(change),
     changePct: Number(changePct.toFixed(2)),
     asOf: `${date} ${time} UTC`,
