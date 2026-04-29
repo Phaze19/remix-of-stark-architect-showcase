@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Zap, Factory, Wind, Shield, CheckCircle, ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import productCtc from "@/assets/product-ctc-conductor.jpg";
+import productCtcPaper from "@/assets/product-ctc-paper.jpg";
+import productCtcBare from "@/assets/product-ctc-bare.jpg";
 import productPaperCovered from "@/assets/product-paper-covered.jpg";
 import productEnameled from "@/assets/product-enameled-wire.jpg";
 import productBareCopper from "@/assets/product-bare-copper.jpg";
@@ -29,34 +30,65 @@ const ProductShowcase = () => {
 
   const products: Product[] = [
     {
-      id: "ctc",
-      image: productCtc,
-      title: "CTC CONDUCTORS",
+      id: "ctc-paper",
+      image: productCtcPaper,
+      title: "CTC — PAPER COVERED",
       category: "TRANSFORMER WINDINGS",
-      description: "Continuously Transposed Conductors (CTC) designed for power transformer windings. Superior current-carrying capacity with reduced eddy current losses.",
+      description: "Continuously Transposed Conductors with multi-layer kraft paper insulation. Engineered for oil-filled power transformers requiring high dielectric strength and long-term thermal stability.",
       applications: [
-        "High-power distribution transformers",
-        "Generator step-up transformers",
+        "Oil-filled power transformers",
+        "Generator step-up (GSU) transformers",
         "HVDC converter transformers",
-        "Furnace transformers",
-        "Rectifier transformers"
+        "Furnace & rectifier transformers",
+        "Large distribution transformers"
       ],
       specifications: [
         { label: "Conductor Width", value: "5mm - 20mm" },
         { label: "Conductor Thickness", value: "1mm - 3mm" },
         { label: "Number of Strands", value: "5 - 80" },
-        { label: "Insulation", value: "Paper/Enamel/Nomex" }
+        { label: "Paper Insulation", value: "Kraft / DDP / Nomex" }
       ],
       whyUs: [
-        "Precision transposition with zero gaps",
-        "Uniform tension across all strands",
+        "Uniform half-lap paper covering",
+        "Zero moisture contamination process",
         "Custom dimensions for your transformer design",
         "100% electrical testing on every batch"
       ],
       industries: [
         { icon: Zap, name: "Power Generation" },
         { icon: Factory, name: "Heavy Industry" },
-        { icon: Wind, name: "Renewable Energy" }
+        { icon: Shield, name: "Utilities" }
+      ]
+    },
+    {
+      id: "ctc-bare",
+      image: productCtcBare,
+      title: "CTC — BARE TRANSPOSED",
+      category: "TRANSFORMER WINDINGS",
+      description: "Bare continuously transposed conductors with precision-aligned copper strands. Reduced eddy current losses and superior current-carrying capacity for high-efficiency transformer windings.",
+      applications: [
+        "High-efficiency power transformers",
+        "Reactor & shunt windings",
+        "Traction transformers",
+        "Wind & hydro generator transformers",
+        "Custom OEM winding assemblies"
+      ],
+      specifications: [
+        { label: "Strand Shape", value: "Rectangular, enamel-bonded" },
+        { label: "Number of Strands", value: "5 - 80" },
+        { label: "Transposition Pitch", value: "Custom per design" },
+        { label: "Copper Purity", value: "99.9%+ ETP" }
+      ],
+      whyUs: [
+        "Precision transposition with zero gaps",
+        "Uniform tension across all strands",
+        "Optimized fill factor for compact windings",
+        "Full traceability on every coil"
+      ],
+      industries: [
+        { icon: Zap, name: "Power Generation" },
+        { icon: Wind, name: "Renewable Energy" },
+        { icon: Factory, name: "Heavy Industry" }
       ]
     },
     {

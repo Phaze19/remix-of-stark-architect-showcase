@@ -1,4 +1,5 @@
-import productCtc from "@/assets/product-ctc-conductor.jpg";
+import productCtcPaper from "@/assets/product-ctc-paper.jpg";
+import productCtcBare from "@/assets/product-ctc-bare.jpg";
 import productPaperCovered from "@/assets/product-paper-covered.jpg";
 import productEnameled from "@/assets/product-enameled-wire.jpg";
 import productBareCopper from "@/assets/product-bare-copper.jpg";
@@ -8,10 +9,16 @@ import productWindingWire from "@/assets/product-winding-wire.jpg";
 const Portfolio = () => {
   const products = [
     {
-      image: productCtc,
-      title: "CTC CONDUCTORS",
+      image: productCtcPaper,
+      title: "CTC — PAPER COVERED",
       category: "TRANSFORMER WINDINGS",
-      description: "Continuously Transposed Conductors (CTC) designed for power transformer windings. Superior current-carrying capacity with reduced eddy current losses."
+      description: "Continuously Transposed Conductors with multi-layer kraft paper insulation. Engineered for oil-filled power transformers requiring high dielectric strength."
+    },
+    {
+      image: productCtcBare,
+      title: "CTC — BARE TRANSPOSED",
+      category: "TRANSFORMER WINDINGS",
+      description: "Bare continuously transposed conductors with precision-aligned copper strands. Reduced eddy current losses for high-efficiency transformer windings."
     },
     {
       image: productPaperCovered,
