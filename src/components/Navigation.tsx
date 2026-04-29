@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import CopperTicker from "@/components/CopperTicker";
 import logoLight from "@/assets/rational-logo-light.png";
 import logoDark from "@/assets/rational-logo-original.jpeg";
 
@@ -10,7 +9,6 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-rational-red/20">
-      <CopperTicker />
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img 
