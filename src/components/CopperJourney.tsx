@@ -143,69 +143,124 @@ const CopperJourney = () => {
             <motion.div
               style={{
                 height: rodHeight,
-                // Realistic copper: dark edge -> bright highlight -> mid -> dark edge
-                // Tinted by rodColor via filter hue/lightness handled in wrapper's overlay
+                // PHOTOREALISTIC copper cylinder:
+                // 7-stop vertical gradient simulating Fresnel falloff on a polished metal cylinder.
+                // Dark rim -> warm shadow -> mid copper -> bright specular core -> warm highlight -> mid -> dark rim
                 backgroundImage: useTransform(
                   rodColor,
                   (c) =>
-                    `linear-gradient(to bottom, ${shade(c, -45)} 0%, ${shade(c, -20)} 15%, ${shade(c, 35)} 45%, ${shade(c, 15)} 55%, ${shade(c, -25)} 85%, ${shade(c, -50)} 100%)`
+                    `linear-gradient(to bottom,
+                      ${shade(c, -60)} 0%,
+                      ${shade(c, -35)} 8%,
+                      ${shade(c, -10)} 22%,
+                      ${shade(c, 25)} 38%,
+                      ${shade(c, 55)} 46%,
+                      ${shade(c, 30)} 54%,
+                      ${shade(c, 5)} 65%,
+                      ${shade(c, -20)} 78%,
+                      ${shade(c, -45)} 90%,
+                      ${shade(c, -65)} 100%)`
                 ),
                 boxShadow: useTransform(
                   glow,
                   (g) =>
-                    `0 0 ${g * 2}px ${g}px rgba(239, 68, 68, 0.55), inset 0 0 8px rgba(0,0,0,0.35)`
+                    `0 ${Math.max(2, g * 0.4)}px ${Math.max(8, g * 1.5)}px rgba(0,0,0,0.45), 0 0 ${g * 2}px ${g}px rgba(239, 68, 68, 0.55), inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.4)`
                 ),
               }}
               className="w-64 md:w-96 rounded-full origin-center relative overflow-hidden"
             >
-              {/* Brushed-metal micro-streaks for realism */}
+              {/* Anisotropic brushed-metal axial streaks (very fine) */}
               <div
-                className="absolute inset-0 pointer-events-none opacity-40 mix-blend-overlay"
+                className="absolute inset-0 pointer-events-none opacity-50 mix-blend-overlay"
                 style={{
                   backgroundImage:
-                    "repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, rgba(0,0,0,0.08) 1px 3px)",
+                    "repeating-linear-gradient(90deg, rgba(255,240,220,0.10) 0 0.5px, rgba(0,0,0,0.10) 0.5px 1.5px, rgba(255,255,255,0.04) 1.5px 2.5px, rgba(0,0,0,0.06) 2.5px 4px)",
                 }}
               />
-              {/* Primary specular highlight (crisp) */}
+              {/* Subtle oxidation / patina mottling */}
               <div
-                className="absolute left-0 right-0 top-[26%] h-[6%] rounded-full pointer-events-none"
+                className="absolute inset-0 pointer-events-none opacity-25 mix-blend-multiply"
                 style={{
-                  background:
-                    "linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(255,255,255,0))",
-                  filter: "blur(0.5px)",
+                  backgroundImage:
+                    "radial-gradient(ellipse 30% 80% at 18% 50%, rgba(80,40,20,0.4), transparent 70%), radial-gradient(ellipse 25% 70% at 62% 50%, rgba(60,30,15,0.35), transparent 70%), radial-gradient(ellipse 20% 60% at 88% 50%, rgba(90,50,25,0.3), transparent 70%)",
                 }}
               />
-              {/* Secondary soft highlight */}
+              {/* Primary specular highlight — sharp, off-center */}
               <div
-                className="absolute left-0 right-0 top-[38%] h-[4%] rounded-full pointer-events-none"
+                className="absolute left-[3%] right-[3%] top-[40%] h-[8%] rounded-full pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to bottom, rgba(255,220,180,0.5), rgba(255,220,180,0))",
-                  filter: "blur(1.5px)",
+                    "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0) 100%)",
+                  filter: "blur(0.4px)",
+                  mixBlendMode: "screen",
                 }}
               />
-              {/* Lower rim reflection */}
+              {/* Secondary warm highlight (copper sheen) */}
               <div
-                className="absolute left-0 right-0 bottom-[12%] h-[4%] rounded-full pointer-events-none"
+                className="absolute left-0 right-0 top-[52%] h-[5%] rounded-full pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(255,180,120,0.35), rgba(255,180,120,0))",
+                    "linear-gradient(to bottom, rgba(255,210,160,0) 0%, rgba(255,210,160,0.6) 50%, rgba(255,210,160,0) 100%)",
+                  filter: "blur(1.2px)",
+                  mixBlendMode: "screen",
+                }}
+              />
+              {/* Lower rim warm reflection (light bouncing back up) */}
+              <div
+                className="absolute left-0 right-0 bottom-[14%] h-[5%] rounded-full pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(255,170,100,0) 0%, rgba(255,170,100,0.45) 60%, rgba(255,170,100,0) 100%)",
                   filter: "blur(1px)",
+                  mixBlendMode: "screen",
                 }}
               />
-              {/* Soft end caps for cylinder illusion */}
+              {/* Top micro-edge highlight */}
+              <div className="absolute left-[2%] right-[2%] top-0 h-px pointer-events-none bg-white/40" />
+              {/* Bottom micro-edge shadow */}
+              <div className="absolute left-[2%] right-[2%] bottom-0 h-px pointer-events-none bg-black/50" />
+              {/* Left end-cap: dark fresnel + elliptical face suggestion */}
               <div
-                className="absolute inset-y-0 left-0 w-8 pointer-events-none"
+                className="absolute inset-y-0 left-0 w-12 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0))",
+                    "linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(40,20,10,0.4) 40%, rgba(0,0,0,0) 100%)",
                 }}
               />
+              <motion.div
+                className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none"
+                style={{
+                  width: useTransform(rodHeight, (h) => h * 0.45),
+                  height: useTransform(rodHeight, (h) => h * 0.95),
+                  borderRadius: "50%",
+                  background: useTransform(
+                    rodColor,
+                    (c) =>
+                      `radial-gradient(ellipse at 65% 40%, ${shade(c, 20)} 0%, ${shade(c, -20)} 50%, ${shade(c, -60)} 100%)`
+                  ),
+                  boxShadow: "inset 1px 0 2px rgba(0,0,0,0.5)",
+                }}
+              />
+              {/* Right end-cap */}
               <div
-                className="absolute inset-y-0 right-0 w-8 pointer-events-none"
+                className="absolute inset-y-0 right-0 w-12 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(to left, rgba(0,0,0,0.55), rgba(0,0,0,0))",
+                    "linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(40,20,10,0.4) 40%, rgba(0,0,0,0) 100%)",
+                }}
+              />
+              <motion.div
+                className="absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none"
+                style={{
+                  width: useTransform(rodHeight, (h) => h * 0.45),
+                  height: useTransform(rodHeight, (h) => h * 0.95),
+                  borderRadius: "50%",
+                  background: useTransform(
+                    rodColor,
+                    (c) =>
+                      `radial-gradient(ellipse at 35% 40%, ${shade(c, 20)} 0%, ${shade(c, -20)} 50%, ${shade(c, -60)} 100%)`
+                  ),
+                  boxShadow: "inset -1px 0 2px rgba(0,0,0,0.5)",
                 }}
               />
             </motion.div>
