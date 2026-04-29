@@ -1,7 +1,7 @@
 import { Zap, Cog, Wind } from "lucide-react";
 import productBareCopper from "@/assets/product-bare-copper.jpg";
 import productBusbar from "@/assets/product-busbar.jpg";
-import productCtc from "@/assets/product-ctc-conductor.jpg";
+import productWindingWire from "@/assets/product-winding-wire.jpg";
 
 const IndustrialApplications = () => {
   const clusters = [
@@ -32,7 +32,7 @@ const IndustrialApplications = () => {
     {
       icon: Wind,
       label: "High-Stress & Continuous-Load Applications",
-      image: productCtc,
+      image: productWindingWire,
       applications: [
         "Windmill & hydro systems",
         "Traction / locomotive motors",

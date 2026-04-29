@@ -4,6 +4,7 @@ import TrustSignals from "@/components/TrustSignals";
 import IndustrialApplications from "@/components/IndustrialApplications";
 import Differentiation from "@/components/Differentiation";
 import CopperJourney from "@/components/CopperJourney";
+import CopperTicker from "@/components/CopperTicker";
 import MarketPulse from "@/components/MarketPulse";
 import ProductShowcase from "@/components/ProductShowcase";
 import NewsUpdates from "@/components/NewsUpdates";
@@ -35,6 +36,7 @@ const Index = () => {
         <MarketPulse />
       </ScrollReveal>
       <CopperJourney />
+      <CopperTicker />
       <ScrollReveal delay={0.1}>
         <div id="products">
           <ProductShowcase />
