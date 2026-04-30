@@ -82,7 +82,7 @@ const PriceCard = ({
     <div className="h-full bg-card border border-border hover:border-rational-red/40 transition-colors duration-500 rounded-lg p-8 flex flex-col">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <div className="text-minimal text-muted-foreground tracking-widest">COPPER · USD/TONNE</div>
+          <div className="text-minimal text-muted-foreground tracking-widest">LME COPPER · CASH SETTLEMENT</div>
           <div className="text-xs text-muted-foreground/70 mt-1">{price.source}</div>
         </div>
         <button
@@ -95,10 +95,14 @@ const PriceCard = ({
         </button>
       </div>
 
-      <div className="flex items-baseline gap-3 mb-2">
+      <div className="flex items-baseline gap-2 mb-2">
         <div className="text-5xl font-light text-foreground tabular-nums">
           ${price.price.toLocaleString()}
         </div>
+        <div className="text-xs uppercase tracking-widest text-muted-foreground">USD / tonne</div>
+      </div>
+      <div className="text-xs text-muted-foreground mb-3 tabular-nums">
+        ≈ ${price.pricePerLb.toFixed(2)} / lb
       </div>
 
       <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium w-fit ${trendBg}`}>
@@ -106,18 +110,18 @@ const PriceCard = ({
         <span className="tabular-nums">
           {price.change >= 0 ? "+" : ""}
           {price.change.toLocaleString()} ({price.changePct >= 0 ? "+" : ""}
-          {price.changePct}%)
+          {price.changePct}%) vs prev. day
         </span>
       </div>
 
       <div className="mt-6 pt-6 border-t border-border grid grid-cols-3 gap-4 text-sm">
-        <Stat label="Open" value={`$${price.open.toLocaleString()}`} />
-        <Stat label="High" value={`$${price.high.toLocaleString()}`} />
-        <Stat label="Low" value={`$${price.low.toLocaleString()}`} />
+        <Stat label="Prev. Close" value={`$${price.open.toLocaleString()}`} />
+        <Stat label="5-Day High" value={`$${price.high.toLocaleString()}`} />
+        <Stat label="5-Day Low" value={`$${price.low.toLocaleString()}`} />
       </div>
 
       <div className="mt-auto pt-6 text-[10px] text-muted-foreground/70 uppercase tracking-widest">
-        As of {price.asOf}
+        Settlement date: {price.asOf}
       </div>
     </div>
   );
