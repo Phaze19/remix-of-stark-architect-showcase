@@ -35,7 +35,7 @@ const MarketPulse = () => {
           </div>
 
           <p className="mt-8 text-center text-xs text-muted-foreground tracking-wide">
-            Prices are front-month COMEX copper futures (USD/tonne equivalent), updated every 5 minutes. News aggregated from Google News.
+            Prices are official LME Copper Cash-Settlement (USD/tonne), updated daily. News aggregated from Google News.
           </p>
         </div>
       </div>
