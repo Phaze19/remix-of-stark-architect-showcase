@@ -18,47 +18,55 @@ let priceCache: CacheEntry<unknown> | null = null;
 let newsCache: CacheEntry<unknown> | null = null;
 
 // --- Price ---------------------------------------------------------------
-// Stooq returns CSV like: Symbol,Date,Time,Open,High,Low,Close,Volume
-// HG.F = Copper front-month futures (USD/lb)
+// Westmetall publishes official LME Copper Cash-Settlement & 3-month prices (USD/tonne).
+// We scrape the public table (no API key required).
 async function fetchCopperPrice() {
-  const url = "https://stooq.com/q/l/?s=hg.f&f=sd2t2ohlcv&h&e=csv";
-  const res = await fetch(url);
-  const text = await res.text();
-  const lines = text.trim().split("\n");
-  if (lines.length < 2) throw new Error("Invalid stooq response");
-  const cols = lines[1].split(",");
-  // Columns: Symbol,Date,Time,Open,High,Low,Close,Volume
-  const open = parseFloat(cols[3]);
-  const high = parseFloat(cols[4]);
-  const low = parseFloat(cols[5]);
-  const close = parseFloat(cols[6]);
-  const date = cols[1];
-  const time = cols[2];
+  const url = "https://www.westmetall.com/en/markdaten.php?action=table&field=LME_Cu_cash";
+  const res = await fetch(url, {
+    headers: { "User-Agent": "Mozilla/5.0 (copper-market-bot)" },
+  });
+  const html = await res.text();
 
-  if (!isFinite(close)) throw new Error("Invalid price");
+  // Parse rows: <tr><td>DATE</td><td>CASH</td><td>3-MONTH</td><td class="last">STOCK</td></tr>
+  const rowRegex =
+    /<tr>\s*<td[^>]*>([^<]+)<\/td>\s*<td[^>]*>([\d.,]+)<\/td>\s*<td[^>]*>([\d.,]+)<\/td>\s*<td[^>]*class="last"[^>]*>([\d.,]+)<\/td>\s*<\/tr>/g;
+  const rows: Array<{ date: string; cash: number; threeMonth: number; stock: number }> = [];
+  let m: RegExpExecArray | null;
+  while ((m = rowRegex.exec(html)) !== null && rows.length < 5) {
+    const cash = parseFloat(m[2].replace(/,/g, ""));
+    const threeMonth = parseFloat(m[3].replace(/,/g, ""));
+    const stock = parseFloat(m[4].replace(/,/g, ""));
+    if (isFinite(cash)) {
+      rows.push({ date: m[1].trim(), cash, threeMonth, stock });
+    }
+  }
 
-  // Stooq HG.F quotes copper in US cents per pound.
-  // Convert: cents/lb -> USD/lb -> USD/tonne (2204.62 lb/tonne)
+  if (rows.length < 2) throw new Error("Could not parse LME copper data");
+
+  const latest = rows[0];
+  const prev = rows[1];
+  const change = latest.cash - prev.cash;
+  const changePct = (change / prev.cash) * 100;
+
+  // Open/High/Low aren't published for LME cash settlement; use a small window proxy.
+  const window = rows.slice(0, Math.min(5, rows.length));
+  const high = Math.max(...window.map((r) => r.cash));
+  const low = Math.min(...window.map((r) => r.cash));
+
   const POUNDS_PER_TONNE = 2204.62;
-  const toUsdPerTonne = (centsPerLb: number) => (centsPerLb / 100) * POUNDS_PER_TONNE;
-
-  const usdPerTonne = toUsdPerTonne(close);
-  const usdPerTonneOpen = toUsdPerTonne(open);
-  const change = usdPerTonne - usdPerTonneOpen;
-  const changePct = (change / usdPerTonneOpen) * 100;
 
   return {
     symbol: "COPPER",
-    source: "COMEX HG (front-month) via Stooq",
+    source: "LME Copper Cash-Settlement (via Westmetall)",
     unit: "USD/tonne",
-    price: Math.round(usdPerTonne),
-    pricePerLb: Number((close / 100).toFixed(4)),
-    open: Math.round(usdPerTonneOpen),
-    high: Math.round(toUsdPerTonne(high)),
-    low: Math.round(toUsdPerTonne(low)),
+    price: Math.round(latest.cash),
+    pricePerLb: Number((latest.cash / POUNDS_PER_TONNE).toFixed(4)),
+    open: Math.round(prev.cash),
+    high: Math.round(high),
+    low: Math.round(low),
     change: Math.round(change),
     changePct: Number(changePct.toFixed(2)),
-    asOf: `${date} ${time} UTC`,
+    asOf: latest.date,
   };
 }
 
