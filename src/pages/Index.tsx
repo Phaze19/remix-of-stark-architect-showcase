@@ -16,6 +16,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
+      <CopperTicker />
       <Hero />
       <ScrollReveal>
         <div id="trust">
@@ -33,7 +34,6 @@ const Index = () => {
         </div>
       </ScrollReveal>
       <CopperJourney />
-      <CopperTicker />
       <ScrollReveal delay={0.1}>
         <MarketPulse />
       </ScrollReveal>
