@@ -143,6 +143,8 @@ const CopperJourney = () => {
               y: swingY,
               rotate: swingRotate,
               opacity: rodOpacity,
+              scaleX: rodScaleX,
+              transformOrigin: rodTransformOrigin,
             }}
             className="relative"
           >
