@@ -276,9 +276,25 @@ const CopperJourney = () => {
             <Particles progress={progress} />
           </motion.div>
 
-          {/* Final catalogue reveal — slides in, animated red underline, CTA swap */}
+          {/* Merge glow — copper bloom at the point where rod coils into the catalogue */}
           <motion.div
-            style={{ opacity: catalogueOpacity, y: catalogueY }}
+            style={{ opacity: mergeGlow }}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            aria-hidden
+          >
+            <div
+              className="w-72 h-72 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(255,170,90,0.55) 0%, rgba(217,119,6,0.35) 30%, rgba(239,68,68,0.15) 55%, transparent 75%)",
+                filter: "blur(8px)",
+              }}
+            />
+          </motion.div>
+
+          {/* Final catalogue reveal — emerges from rod merge point with scale + glow */}
+          <motion.div
+            style={{ opacity: catalogueOpacity, y: catalogueY, scale: catalogueScale }}
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
           >
             <div className="pointer-events-auto bg-card border border-rational-red/40 shadow-elegant rounded-lg px-10 py-7 text-center max-w-md relative overflow-hidden">
