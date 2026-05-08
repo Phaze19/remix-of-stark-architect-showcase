@@ -91,17 +91,23 @@ const CopperJourney = () => {
     [0, 30, 20, 0]
   );
 
-  // Final catalogue reveal — slides up from below, fades in
-  const catalogueOpacity = useTransform(progress, [0.82, 0.92], [0, 1]);
-  const catalogueY = useTransform(progress, [0.82, 0.95], [60, 0]);
+  // Final catalogue reveal — emerges from rod's endpoint, scales up as rod coils into it
+  const catalogueOpacity = useTransform(progress, [0.84, 0.94], [0, 1]);
+  const catalogueScale = useTransform(progress, [0.82, 0.95], [0.35, 1]);
+  const catalogueY = useTransform(progress, [0.82, 0.95], [20, 0]);
   // Red accent underline grows from 0 -> full width
-  const underlineScale = useTransform(progress, [0.88, 0.98], [0, 1]);
+  const underlineScale = useTransform(progress, [0.9, 0.99], [0, 1]);
   // Smooth swap: label fades out, CTA fades in
-  const labelOpacity = useTransform(progress, [0.88, 0.93], [1, 0]);
-  const ctaOpacity = useTransform(progress, [0.93, 0.99], [0, 1]);
-  const ctaY = useTransform(progress, [0.93, 0.99], [10, 0]);
-  // Rod fades out as catalogue takes over
-  const rodOpacity = useTransform(progress, [0.82, 0.92], [1, 0]);
+  const labelOpacity = useTransform(progress, [0.9, 0.94], [1, 0]);
+  const ctaOpacity = useTransform(progress, [0.94, 0.99], [0, 1]);
+  const ctaY = useTransform(progress, [0.94, 0.99], [10, 0]);
+  // Rod merges into catalogue: shrinks horizontally toward right end (where catalogue forms),
+  // tightens vertically, then fades. Creates a "winding into spool" feel.
+  const rodOpacity = useTransform(progress, [0.86, 0.94], [1, 0]);
+  const rodScaleX = useTransform(progress, [0.8, 0.94], [1, 0.15]);
+  const rodTransformOrigin = "100% 50%";
+  // Copper glow blooms at the merge point
+  const mergeGlow = useTransform(progress, [0.8, 0.88, 0.95], [0, 1, 0]);
 
   return (
     <section
