@@ -74,7 +74,7 @@ async function fetchCopperPrice() {
 // Google News RSS: returns XML with <item><title/><link/><pubDate/><source/></item>
 async function fetchCopperNews() {
   const url =
-    "https://news.google.com/rss/search?q=LME+copper+OR+copper+price+OR+copper+market&hl=en-US&gl=US&ceid=US:en";
+    "https://news.google.com/rss/search?q=(LME+copper+OR+copper+price+OR+copper+market+OR+%22energy+sector%22+OR+%22power+grid%22+OR+%22electricity+demand%22+OR+%22renewable+energy%22)&hl=en-US&gl=US&ceid=US:en";
   const res = await fetch(url, {
     headers: { "User-Agent": "Mozilla/5.0 (copper-market-bot)" },
   });

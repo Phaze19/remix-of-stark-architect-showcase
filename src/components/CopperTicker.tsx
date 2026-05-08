@@ -10,7 +10,7 @@ const CopperTicker = () => {
 
   if (isLoading) {
     return (
-      <div className="w-full bg-foreground text-background text-xs tracking-wider uppercase py-2 px-6 flex items-center justify-center">
+      <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-foreground text-background text-xs tracking-wider uppercase py-2 px-6 flex items-center justify-center">
         <span className="opacity-60">Loading copper market data…</span>
       </div>
     );
@@ -30,7 +30,7 @@ const CopperTicker = () => {
   const headlines = news.slice(0, 8).map((n) => n.title).join("   •   ");
 
   return (
-    <div className="w-full bg-foreground text-background text-xs tracking-wide py-2 border-b border-background/10 relative overflow-hidden">
+    <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-foreground text-background text-xs tracking-wide py-2 border-b border-background/10 overflow-hidden shadow-md">
       <div className="flex items-center gap-4 px-4">
         {/* Price badge */}
         <div className="flex items-center gap-2 flex-shrink-0 font-medium">
