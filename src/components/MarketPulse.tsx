@@ -26,7 +26,7 @@ const MarketPulse = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Price card */}
             <div className="lg:col-span-1">
-              <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} />
+              <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
             </div>
 
             {/* News feed */}
@@ -35,7 +35,11 @@ const MarketPulse = () => {
             </div>
           </div>
 
-          <p className="mt-8 text-center text-xs text-muted-foreground tracking-wide">
+          <div className="mt-8 flex items-center justify-center">
+            <RefreshCountdown dataUpdatedAt={dataUpdatedAt} isRefreshing={isFetching} />
+          </div>
+
+          <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
             Prices are official LME Copper Cash-Settlement (USD/tonne), updated daily. News aggregated from Google News.
           </p>
         </div>
