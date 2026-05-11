@@ -54,12 +54,14 @@ const PriceCard = ({
   isError,
   onRefresh,
   isRefreshing,
+  dataUpdatedAt,
 }: {
   data: ReturnType<typeof useCopperMarket>["data"];
   isLoading: boolean;
   isError: boolean;
   onRefresh: () => void;
   isRefreshing: boolean;
+  dataUpdatedAt: number;
 }) => {
   if (isLoading) {
     return (
