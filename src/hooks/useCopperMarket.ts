@@ -28,6 +28,8 @@ export interface CopperMarketData {
   fetchedAt: string;
 }
 
+export const COPPER_REFRESH_MS = 3 * 60 * 1000; // refresh every 3 min
+
 export const useCopperMarket = () => {
   return useQuery<CopperMarketData>({
     queryKey: ["copper-market"],
@@ -36,7 +38,8 @@ export const useCopperMarket = () => {
       if (error) throw error;
       return data as CopperMarketData;
     },
-    refetchInterval: 5 * 60 * 1000, // refresh every 5 min
-    staleTime: 4 * 60 * 1000,
+    refetchInterval: COPPER_REFRESH_MS,
+    refetchIntervalInBackground: true,
+    staleTime: COPPER_REFRESH_MS - 10_000,
   });
 };
