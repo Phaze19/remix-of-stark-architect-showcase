@@ -127,8 +127,13 @@ const PriceCard = ({
         <Stat label="5-Day Low" value={`$${price.low.toLocaleString()}`} />
       </div>
 
-      <div className="mt-auto pt-6 text-[10px] text-muted-foreground/70 uppercase tracking-widest">
-        Settlement date: {price.asOf}
+      <div className="mt-auto pt-6 text-[10px] text-muted-foreground/70 uppercase tracking-widest flex items-center justify-between gap-2">
+        <span>Settlement date: {price.asOf}</span>
+        {dataUpdatedAt > 0 && (
+          <span className="normal-case tracking-normal text-muted-foreground/60">
+            Updated {formatDistanceToNow(new Date(dataUpdatedAt), { addSuffix: true })}
+          </span>
+        )}
       </div>
     </div>
   );
