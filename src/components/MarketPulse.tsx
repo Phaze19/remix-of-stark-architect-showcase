@@ -1,14 +1,15 @@
-import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity } from "lucide-react";
-import { useCopperMarket } from "@/hooks/useCopperMarket";
+import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity, Timer } from "lucide-react";
+import { useCopperMarket, COPPER_REFRESH_MS } from "@/hooks/useCopperMarket";
 import { formatDistanceToNow } from "date-fns";
+import { useEffect, useState } from "react";
 
 /**
  * MarketPulse
  * Homepage section showing live copper price card + copper news headlines.
- * Data refreshes every 5 minutes via react-query.
+ * Auto-refreshes on an interval; a visible countdown shows next refresh.
  */
 const MarketPulse = () => {
-  const { data, isLoading, isError, refetch, isFetching } = useCopperMarket();
+  const { data, isLoading, isError, refetch, isFetching, dataUpdatedAt } = useCopperMarket();
 
   return (
     <section className="py-24 bg-background border-y border-border" aria-label="Copper market pulse">
