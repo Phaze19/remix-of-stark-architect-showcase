@@ -229,4 +229,45 @@ const NewsFeed = ({
   );
 };
 
+const RefreshCountdown = ({
+  dataUpdatedAt,
+  isRefreshing,
+}: {
+  dataUpdatedAt: number;
+  isRefreshing: boolean;
+}) => {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  if (!dataUpdatedAt) return null;
+
+  const elapsed = now - dataUpdatedAt;
+  const remaining = Math.max(0, COPPER_REFRESH_MS - elapsed);
+  const mm = Math.floor(remaining / 60_000);
+  const ss = Math.floor((remaining % 60_000) / 1000);
+  const pct = Math.min(100, (elapsed / COPPER_REFRESH_MS) * 100);
+
+  return (
+    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-border bg-card text-xs text-muted-foreground">
+      <Timer className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin text-rational-red" : ""}`} />
+      <span className="uppercase tracking-widest">
+        {isRefreshing ? "Refreshing…" : "Next refresh in"}
+      </span>
+      <span className="tabular-nums font-medium text-foreground">
+        {String(mm).padStart(2, "0")}:{String(ss).padStart(2, "0")}
+      </span>
+      <span className="relative w-24 h-1 rounded-full bg-muted overflow-hidden">
+        <span
+          className="absolute inset-y-0 left-0 bg-rational-red transition-[width] duration-1000 ease-linear"
+          style={{ width: `${pct}%` }}
+        />
+      </span>
+    </div>
+  );
+};
+
 export default MarketPulse;
