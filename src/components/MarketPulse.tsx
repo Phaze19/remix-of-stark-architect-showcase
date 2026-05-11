@@ -1,14 +1,15 @@
-import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity } from "lucide-react";
-import { useCopperMarket } from "@/hooks/useCopperMarket";
+import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity, Timer } from "lucide-react";
+import { useCopperMarket, COPPER_REFRESH_MS } from "@/hooks/useCopperMarket";
 import { formatDistanceToNow } from "date-fns";
+import { useEffect, useState } from "react";
 
 /**
  * MarketPulse
  * Homepage section showing live copper price card + copper news headlines.
- * Data refreshes every 5 minutes via react-query.
+ * Auto-refreshes on an interval; a visible countdown shows next refresh.
  */
 const MarketPulse = () => {
-  const { data, isLoading, isError, refetch, isFetching } = useCopperMarket();
+  const { data, isLoading, isError, refetch, isFetching, dataUpdatedAt } = useCopperMarket();
 
   return (
     <section className="py-24 bg-background border-y border-border" aria-label="Copper market pulse">
@@ -25,7 +26,7 @@ const MarketPulse = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Price card */}
             <div className="lg:col-span-1">
-              <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} />
+              <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
             </div>
 
             {/* News feed */}
@@ -34,7 +35,11 @@ const MarketPulse = () => {
             </div>
           </div>
 
-          <p className="mt-8 text-center text-xs text-muted-foreground tracking-wide">
+          <div className="mt-8 flex items-center justify-center">
+            <RefreshCountdown dataUpdatedAt={dataUpdatedAt} isRefreshing={isFetching} />
+          </div>
+
+          <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
             Prices are official LME Copper Cash-Settlement (USD/tonne), updated daily. News aggregated from Google News.
           </p>
         </div>
@@ -49,12 +54,14 @@ const PriceCard = ({
   isError,
   onRefresh,
   isRefreshing,
+  dataUpdatedAt,
 }: {
   data: ReturnType<typeof useCopperMarket>["data"];
   isLoading: boolean;
   isError: boolean;
   onRefresh: () => void;
   isRefreshing: boolean;
+  dataUpdatedAt: number;
 }) => {
   if (isLoading) {
     return (
@@ -120,8 +127,13 @@ const PriceCard = ({
         <Stat label="5-Day Low" value={`$${price.low.toLocaleString()}`} />
       </div>
 
-      <div className="mt-auto pt-6 text-[10px] text-muted-foreground/70 uppercase tracking-widest">
-        Settlement date: {price.asOf}
+      <div className="mt-auto pt-6 text-[10px] text-muted-foreground/70 uppercase tracking-widest flex items-center justify-between gap-2">
+        <span>Settlement date: {price.asOf}</span>
+        {dataUpdatedAt > 0 && (
+          <span className="normal-case tracking-normal text-muted-foreground/60">
+            Updated {formatDistanceToNow(new Date(dataUpdatedAt), { addSuffix: true })}
+          </span>
+        )}
       </div>
     </div>
   );
@@ -213,6 +225,47 @@ const NewsFeed = ({
           );
         })}
       </ul>
+    </div>
+  );
+};
+
+const RefreshCountdown = ({
+  dataUpdatedAt,
+  isRefreshing,
+}: {
+  dataUpdatedAt: number;
+  isRefreshing: boolean;
+}) => {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  if (!dataUpdatedAt) return null;
+
+  const elapsed = now - dataUpdatedAt;
+  const remaining = Math.max(0, COPPER_REFRESH_MS - elapsed);
+  const mm = Math.floor(remaining / 60_000);
+  const ss = Math.floor((remaining % 60_000) / 1000);
+  const pct = Math.min(100, (elapsed / COPPER_REFRESH_MS) * 100);
+
+  return (
+    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-border bg-card text-xs text-muted-foreground">
+      <Timer className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin text-rational-red" : ""}`} />
+      <span className="uppercase tracking-widest">
+        {isRefreshing ? "Refreshing…" : "Next refresh in"}
+      </span>
+      <span className="tabular-nums font-medium text-foreground">
+        {String(mm).padStart(2, "0")}:{String(ss).padStart(2, "0")}
+      </span>
+      <span className="relative w-24 h-1 rounded-full bg-muted overflow-hidden">
+        <span
+          className="absolute inset-y-0 left-0 bg-rational-red transition-[width] duration-1000 ease-linear"
+          style={{ width: `${pct}%` }}
+        />
+      </span>
     </div>
   );
 };
