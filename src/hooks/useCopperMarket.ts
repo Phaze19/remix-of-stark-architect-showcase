@@ -60,15 +60,21 @@ export interface CopperMarketData {
 export const COPPER_REFRESH_MS = 3 * 60 * 1000; // refresh every 3 min
 
 export const useCopperMarket = () => {
+  const persisted = typeof window !== "undefined" ? readPersisted() : null;
+
   return useQuery<CopperMarketData>({
     queryKey: ["copper-market"],
     queryFn: async () => {
       const { data, error } = await supabase.functions.invoke("copper-market");
       if (error) throw error;
-      return data as CopperMarketData;
+      const result = data as CopperMarketData;
+      writePersisted(result, Date.now());
+      return result;
     },
     refetchInterval: COPPER_REFRESH_MS,
     refetchIntervalInBackground: true,
     staleTime: COPPER_REFRESH_MS - 10_000,
+    initialData: persisted?.data,
+    initialDataUpdatedAt: persisted?.updatedAt,
   });
 };
