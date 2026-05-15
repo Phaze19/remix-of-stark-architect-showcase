@@ -1,7 +1,8 @@
-import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity, Timer } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity, Timer, Landmark } from "lucide-react";
 import { useCopperMarket, COPPER_REFRESH_MS } from "@/hooks/useCopperMarket";
 import { formatDistanceToNow } from "date-fns";
 import { useEffect, useState } from "react";
+import { BME_COPPER } from "@/data/bmeBenchmark";
 
 /**
  * MarketPulse
@@ -24,9 +25,10 @@ const MarketPulse = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Price card */}
-            <div className="lg:col-span-1">
+            {/* Price cards */}
+            <div className="lg:col-span-1 flex flex-col gap-6">
               <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
+              <BmeCard />
             </div>
 
             {/* News feed */}
@@ -145,6 +147,59 @@ const Stat = ({ label, value }: { label: string; value: string }) => (
     <div className="text-base font-medium text-foreground tabular-nums mt-1">{value}</div>
   </div>
 );
+
+const BmeCard = () => {
+  const change = BME_COPPER.pricePerKg - BME_COPPER.prevPricePerKg;
+  const changePct = (change / BME_COPPER.prevPricePerKg) * 100;
+  const up = change > 0;
+  const down = change < 0;
+  const TrendIcon = up ? TrendingUp : down ? TrendingDown : Minus;
+  const trendBg = up
+    ? "bg-green-500/10 text-green-600"
+    : down
+    ? "bg-rational-red/10 text-rational-red"
+    : "bg-muted text-muted-foreground";
+
+  return (
+    <a
+      href={BME_COPPER.sourceUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block bg-card border border-border hover:border-rational-red/40 transition-colors duration-500 rounded-lg p-6"
+    >
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <Landmark className="w-4 h-4 text-rational-red" />
+          <div className="text-minimal text-muted-foreground tracking-widest">
+            BME · {BME_COPPER.metal.toUpperCase()}
+          </div>
+        </div>
+        <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-rational-red transition-colors" />
+      </div>
+
+      <div className="flex items-baseline gap-2 mb-2">
+        <div className="text-3xl font-light text-foreground tabular-nums">
+          ₹{BME_COPPER.pricePerKg.toLocaleString("en-IN")}
+        </div>
+        <div className="text-xs uppercase tracking-widest text-muted-foreground">INR / kg</div>
+      </div>
+
+      <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium w-fit ${trendBg}`}>
+        <TrendIcon className="w-3.5 h-3.5" />
+        <span className="tabular-nums">
+          {change >= 0 ? "+" : ""}
+          {change.toLocaleString("en-IN")} ({changePct >= 0 ? "+" : ""}
+          {changePct.toFixed(2)}%) vs prev. circular
+        </span>
+      </div>
+
+      <div className="mt-4 pt-4 border-t border-border text-[10px] text-muted-foreground/70 uppercase tracking-widest flex items-center justify-between gap-2">
+        <span>{BME_COPPER.circular}</span>
+        <span>As of {BME_COPPER.asOf}</span>
+      </div>
+    </a>
+  );
+};
 
 const NewsFeed = ({
   data,
