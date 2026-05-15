@@ -37,8 +37,17 @@ const MarketPulse = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex items-center justify-center">
+          <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
             <RefreshCountdown dataUpdatedAt={dataUpdatedAt} isRefreshing={isFetching} />
+            <button
+              type="button"
+              onClick={() => refetch()}
+              disabled={isFetching}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rational-red text-white text-xs uppercase tracking-widest font-medium hover:bg-rational-red/90 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${isFetching ? "animate-spin" : ""}`} />
+              {isFetching ? "Refreshing…" : "Refresh now"}
+            </button>
           </div>
 
           <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
