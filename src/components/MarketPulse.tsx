@@ -25,9 +25,10 @@ const MarketPulse = () => {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Price card */}
-            <div className="lg:col-span-1">
+            {/* Price cards */}
+            <div className="lg:col-span-1 flex flex-col gap-6">
               <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
+              <BmeCard />
             </div>
 
             {/* News feed */}
