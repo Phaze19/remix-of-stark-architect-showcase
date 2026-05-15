@@ -33,9 +33,9 @@ const CopperTicker = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-foreground text-background text-xs tracking-wide py-2 border-b border-background/10 overflow-hidden shadow-md">
       <div className="flex items-center gap-4 px-4">
-        {/* Price badge */}
+        {/* LME Price badge */}
         <div className="flex items-center gap-2 flex-shrink-0 font-medium">
-          <span className="uppercase tracking-widest text-background/60">Copper</span>
+          <span className="uppercase tracking-widest text-background/60">LME Cu</span>
           <span className="tabular-nums">${price.price.toLocaleString()}/t</span>
           <span className={`flex items-center gap-1 ${trendClass} tabular-nums`}>
             <TrendIcon className="w-3 h-3" />
@@ -43,8 +43,16 @@ const CopperTicker = () => {
             {price.change.toLocaleString()} ({price.changePct >= 0 ? "+" : ""}
             {price.changePct}%)
           </span>
+        </div>
+
+        <div className="w-px h-4 bg-background/20 flex-shrink-0" />
+
+        {/* BME badge */}
+        <div className="flex items-center gap-2 flex-shrink-0 font-medium">
+          <span className="uppercase tracking-widest text-background/60">BME Cu Billet</span>
+          <span className="tabular-nums">₹{BME_COPPER.pricePerKg.toLocaleString("en-IN")}/kg</span>
           <span className="hidden md:inline text-background/40 uppercase tracking-widest">
-            {price.source}
+            {BME_COPPER.asOf}
           </span>
         </div>
 
