@@ -201,7 +201,7 @@ const BmeCard = () => {
   );
 };
 
-
+const NewsFeed = ({
   data,
   isLoading,
   isError,
