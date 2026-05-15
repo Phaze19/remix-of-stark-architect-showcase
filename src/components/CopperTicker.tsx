@@ -1,5 +1,6 @@
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { useCopperMarket } from "@/hooks/useCopperMarket";
+import { BME_COPPER } from "@/data/bmeBenchmark";
 
 /**
  * Thin site-wide ticker showing live LME-comparable copper price
