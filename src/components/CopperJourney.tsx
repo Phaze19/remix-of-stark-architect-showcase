@@ -81,7 +81,7 @@ const CopperJourney = () => {
   const rodColor = useTransform(
     progress,
     [0.08, 0.3, 0.5, 0.7, 0.9],
-    ["#b87333", "#d97706", "#ef4444", "#1f2937", "#0f172a"]
+    ["#b87333", "#d97706", "#ea580c", "#3a2418", "#1a120b"]
   );
 
   // Glow intensity spikes during annealing
