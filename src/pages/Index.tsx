@@ -25,6 +25,9 @@ const Index = () => {
         </div>
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
+        <TrustCounters />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
         <div id="capabilities">
           <IndustrialApplications />
         </div>
@@ -34,7 +37,9 @@ const Index = () => {
           <Differentiation />
         </div>
       </ScrollReveal>
-      <CopperJourney />
+      <div id="journey">
+        <CopperJourney />
+      </div>
       <ScrollReveal delay={0.1}>
         <MarketPulse />
       </ScrollReveal>
