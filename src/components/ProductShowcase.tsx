@@ -304,7 +304,7 @@ const ProductShowcase = () => {
                   <p className="text-minimal text-muted-foreground mb-2">
                     {product.category}
                   </p>
-                  <h4 className="text-xl font-medium text-foreground mb-3">
+                  <h4 className="font-display text-lg font-bold uppercase tracking-wide text-foreground mb-3">
                     {product.title}
                   </h4>
                   <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
