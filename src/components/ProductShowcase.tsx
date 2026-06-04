@@ -249,30 +249,33 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <section id="products" className="py-32 bg-muted">
+    <section id="products" className="py-28 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20">
-            <h2 className="text-minimal text-muted-foreground mb-4">OUR PRODUCTS</h2>
-            <h3 className="text-4xl md:text-6xl font-light text-architectural">
-              Premium Copper Solutions
-            </h3>
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mt-4">
-              <p className="text-muted-foreground text-lg max-w-2xl">
-                Click any product to explore applications, specifications, and why industry leaders choose us.
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+            <div>
+              <div className="inline-flex items-center gap-4 mb-5">
+                <span className="h-[2px] w-12 bg-rational-red" />
+                <span className="font-display uppercase tracking-[0.4em] text-xs text-rational-red font-bold">
+                  Precision Conductors
+                </span>
+              </div>
+              <h2 className="font-display text-5xl md:text-6xl font-extrabold tracking-tighter text-foreground">
+                THE PORTFOLIO.
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mt-4">
+                Click any product to explore its real-world applications, technical
+                specifications, and why industry leaders choose us.
               </p>
-              <Button 
-                asChild
-                className="gap-2 shrink-0"
-                size="lg"
-              >
-                <a href={brochurePdf} download="Rational-Engineers-Brochure.pdf">
-                  <Download className="w-4 h-4" />
-                  Download Brochure
-                </a>
-              </Button>
             </div>
+            <Button asChild className="gap-2 shrink-0" size="lg">
+              <a href={brochurePdf} download="Rational-Engineers-Brochure.pdf">
+                <Download className="w-4 h-4" />
+                Download Brochure
+              </a>
+            </Button>
           </div>
+
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
