@@ -1,103 +1,117 @@
-import { Zap, Cog, Wind } from "lucide-react";
-import productBareCopper from "@/assets/product-bare-copper.jpg";
-import productBusbar from "@/assets/product-busbar.jpg";
-import productWindingWire from "@/assets/product-winding-wire.jpg";
+import { motion } from "framer-motion";
+import appRenewables from "@/assets/app-renewables.jpg";
+import appTraction from "@/assets/app-traction.jpg";
+import appPower from "@/assets/app-power.jpg";
 
 const IndustrialApplications = () => {
-  const clusters = [
+  const sectors = [
     {
-      icon: Zap,
-      label: "Power & Grid Infrastructure",
-      image: productBareCopper,
+      tag: "Power Systems",
+      title: "Distribution & Grid",
+      image: appPower,
       applications: [
-        "Oil-filled transformers",
-        "Dry-type transformers",
-        "Cast resin transformers",
-        "HVDC transformers",
-        "Generators"
-      ]
+        "Power & distribution transformers",
+        "HVDC converter transformers",
+        "High-voltage switchgear & busbars",
+        "Substation & generator step-up units",
+      ],
+      products: "CTC · Paper Covered · Busbars",
     },
     {
-      icon: Cog,
-      label: "Mission-Critical Electrical Machinery",
-      image: productBusbar,
+      tag: "Renewables",
+      title: "Wind & Hydro Generation",
+      image: appRenewables,
       applications: [
-        "Alternators",
-        "Transformer generators",
-        "High-voltage motors",
-        "Low-voltage motors",
-        "Turbines"
-      ]
+        "Wind turbine generator windings",
+        "Hydro & shunt reactor windings",
+        "Solar inverter & storage systems",
+        "Grid-scale interconnection busbars",
+      ],
+      products: "Bare CTC · Winding Wire · Strips",
     },
     {
-      icon: Wind,
-      label: "High-Stress & Continuous-Load Applications",
-      image: productWindingWire,
+      tag: "Mobility",
+      title: "Traction & Heavy Duty",
+      image: appTraction,
       applications: [
-        "Windmill & hydro systems",
-        "Traction / locomotive motors",
-        "Industrial generators"
-      ]
-    }
+        "Railway & metro traction motors",
+        "Locomotive transformers",
+        "High-efficiency industrial motors",
+        "EV charging infrastructure",
+      ],
+      products: "Enameled Wire · Fiberglass · Bare Copper",
+    },
   ];
 
   return (
-    <section className="py-32 bg-muted">
-      <div className="container mx-auto px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
-              APPLICATIONS
+    <section className="py-28 md:py-32 bg-[#080808]">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-20 items-end">
+          <div className="lg:col-span-8">
+            <div className="inline-flex items-center gap-4 mb-6">
+              <span className="h-[2px] w-12 bg-rational-red" />
+              <span className="font-display uppercase tracking-[0.4em] text-xs text-rational-red font-bold">
+                Applications
+              </span>
+            </div>
+            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white leading-[0.95] mb-6">
+              APPLIED
+              <br />
+              <span className="text-rational-red">INFRASTRUCTURE.</span>
             </h2>
-            <div className="w-12 h-0.5 bg-rational-red mx-auto mb-6" />
-            <h3 className="text-4xl md:text-5xl font-light text-architectural max-w-3xl mx-auto">
-              Built for Industries Where Failure Is Not an Option
-            </h3>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {clusters.map((cluster, index) => (
-              <div 
-                key={index} 
-                className="group bg-background rounded-lg border border-border hover:border-rational-red/40 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth overflow-hidden"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={cluster.image} 
-                    alt={cluster.label}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-smooth"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                   <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center group-hover:bg-rational-red/10 transition-colors duration-300">
-                    <cluster.icon className="w-6 h-6 text-foreground group-hover:text-rational-red transition-colors duration-300" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h4 className="text-xl font-medium mb-4 text-foreground group-hover:text-foreground/90 transition-colors duration-300">
-                    {cluster.label}
-                  </h4>
-                  <ul className="space-y-2">
-                    {cluster.applications.map((app, appIndex) => (
-                      <li 
-                        key={appIndex}
-                        className="text-muted-foreground text-sm flex items-center gap-3 group-hover:text-foreground/70 transition-colors duration-300"
-                        style={{ transitionDelay: `${appIndex * 50}ms` }}
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-rational-red group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
-                        {app}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground text-lg">
-              Our certifications aren't paperwork—they're <span className="text-foreground font-medium">risk insurance</span> for your projects.
+            <p className="text-lg md:text-xl text-white/50 max-w-xl leading-relaxed">
+              Our conductors power high-stress environments where failure is not an
+              option — from renewable grids to mass-transit propulsion and continental
+              power distribution.
             </p>
           </div>
+          <div className="lg:col-span-4 text-right hidden lg:block">
+            <div className="font-display text-[120px] font-bold leading-none text-white/5">
+              03
+            </div>
+          </div>
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/5">
+          {sectors.map((sector, index) => (
+            <motion.div
+              key={sector.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.12 }}
+              className="group relative aspect-[3/4] overflow-hidden bg-[#0a0a0a]"
+            >
+              <img
+                src={sector.image}
+                alt={sector.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-35 group-hover:scale-105 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="absolute bottom-0 p-8 lg:p-10">
+                <p className="font-display text-rational-red font-bold text-xs tracking-widest uppercase mb-3">
+                  {sector.tag}
+                </p>
+                <h3 className="font-display text-2xl lg:text-3xl font-bold mb-6 tracking-tight leading-tight text-white">
+                  {sector.title}
+                </h3>
+                <ul className="space-y-3 text-sm text-white/60 max-h-0 opacity-0 overflow-hidden group-hover:max-h-60 group-hover:opacity-100 transition-all duration-500">
+                  {sector.applications.map((app) => (
+                    <li key={app} className="flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 bg-rational-red flex-shrink-0" />
+                      {app}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 font-display text-[10px] uppercase tracking-[0.25em] text-white/40">
+                  {sector.products}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
