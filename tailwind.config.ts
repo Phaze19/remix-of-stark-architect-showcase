@@ -117,6 +117,8 @@ export default {
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-overlay': 'var(--gradient-overlay)',
+        'gradient-copper': 'var(--gradient-copper)',
+        'gradient-copper-text': 'var(--gradient-copper-text)',
       },
       boxShadow: {
         'architectural': 'var(--shadow-architectural)',
