@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TrustSignals from "@/components/TrustSignals";
+import TrustCounters from "@/components/TrustCounters";
 import IndustrialApplications from "@/components/IndustrialApplications";
 import Differentiation from "@/components/Differentiation";
 import CopperJourney from "@/components/CopperJourney";
