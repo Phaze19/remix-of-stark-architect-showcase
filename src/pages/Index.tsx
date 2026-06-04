@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TrustSignals from "@/components/TrustSignals";
+import TrustCounters from "@/components/TrustCounters";
 import IndustrialApplications from "@/components/IndustrialApplications";
 import Differentiation from "@/components/Differentiation";
 import CopperJourney from "@/components/CopperJourney";
@@ -24,6 +25,9 @@ const Index = () => {
         </div>
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
+        <TrustCounters />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
         <div id="capabilities">
           <IndustrialApplications />
         </div>
@@ -33,7 +37,9 @@ const Index = () => {
           <Differentiation />
         </div>
       </ScrollReveal>
-      <CopperJourney />
+      <div id="journey">
+        <CopperJourney />
+      </div>
       <ScrollReveal delay={0.1}>
         <MarketPulse />
       </ScrollReveal>

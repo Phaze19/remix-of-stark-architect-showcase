@@ -64,6 +64,14 @@ export default {
         "rational-red": {
           DEFAULT: "hsl(var(--rational-red))",
         },
+        copper: {
+          DEFAULT: "hsl(var(--copper))",
+          bright: "hsl(var(--copper-bright))",
+          deep: "hsl(var(--copper-deep))",
+        },
+        graphite: "hsl(var(--graphite))",
+        charcoal: "hsl(var(--charcoal))",
+        silver: "hsl(var(--silver))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -109,6 +117,8 @@ export default {
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-overlay': 'var(--gradient-overlay)',
+        'gradient-copper': 'var(--gradient-copper)',
+        'gradient-copper-text': 'var(--gradient-copper-text)',
       },
       boxShadow: {
         'architectural': 'var(--shadow-architectural)',
