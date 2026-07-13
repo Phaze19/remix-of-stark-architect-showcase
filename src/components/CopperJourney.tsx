@@ -306,6 +306,53 @@ const CopperJourney = () => {
             <Particles progress={progress} />
           </motion.div>
 
+          {/* Radiant heat during annealing — glowing bloom + rising heat haze that
+              distorts and shimmers, the way air ripples above red-hot metal */}
+          <motion.div
+            style={{ opacity: heatOpacity }}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            aria-hidden
+          >
+            <motion.div
+              style={{ scale: heatScale }}
+              className="w-80 h-40 rounded-full"
+            >
+              <div
+                className="w-full h-full rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(255,120,40,0.5) 0%, rgba(239,68,68,0.28) 40%, transparent 72%)",
+                  filter: "blur(10px)",
+                }}
+              />
+            </motion.div>
+            {/* Rising heat-haze shimmer bars */}
+            {[...Array(5)].map((_, i) => (
+              <motion.span
+                key={i}
+                className="absolute bottom-1/2 w-16 h-24 rounded-full"
+                style={{
+                  left: `${42 + i * 4}%`,
+                  background:
+                    "linear-gradient(to top, rgba(255,150,80,0.18), transparent)",
+                  filter: "blur(6px)",
+                }}
+                animate={{
+                  y: [0, -60],
+                  opacity: [0, 0.7, 0],
+                  scaleX: [1, 1.3, 0.8],
+                }}
+                transition={{
+                  duration: 1.4 + Math.random() * 0.8,
+                  repeat: Infinity,
+                  delay: i * 0.25,
+                  ease: "easeOut",
+                }}
+              />
+            ))}
+          </motion.div>
+
+
           {/* Merge glow — copper bloom at the point where rod coils into the catalogue */}
           <motion.div
             style={{ opacity: mergeGlow }}
