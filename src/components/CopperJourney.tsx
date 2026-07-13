@@ -1,5 +1,5 @@
 import { useRef, RefObject } from "react";
-import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useVelocity, MotionValue } from "framer-motion";
 import { Flame, Droplets, Disc3, PackageCheck } from "lucide-react";
 
 /**
@@ -109,6 +109,22 @@ const CopperJourney = () => {
   // Copper glow blooms at the merge point
   const mergeGlow = useTransform(progress, [0.8, 0.88, 0.95], [0, 1, 0]);
 
+  // ---- REALISM LAYER ----
+  // Velocity-based motion blur: the faster the user scrolls, the more the rod
+  // streaks horizontally (real objects blur along their travel axis when moving fast).
+  const velocity = useVelocity(progress);
+  const smoothVel = useSpring(velocity, { damping: 40, stiffness: 300 });
+  const motionBlur = useTransform(smoothVel, (v) => {
+    const b = Math.min(14, Math.abs(v) * 6);
+    return `blur(${b}px)`;
+  });
+  // Rod tilts very slightly with travel direction — physical inertia.
+  const inertiaSkew = useTransform(smoothVel, (v) => Math.max(-6, Math.min(6, v * 3)));
+
+  // Annealing heat: radiant glow, haze opacity and shimmer are strongest mid-anneal.
+  const heatOpacity = useTransform(progress, [0.28, 0.42, 0.6, 0.7], [0, 1, 0.7, 0]);
+  const heatScale = useTransform(progress, [0.28, 0.5, 0.7], [0.6, 1.15, 0.6]);
+
   return (
     <section
       ref={containerRef}
@@ -142,9 +158,11 @@ const CopperJourney = () => {
               x: rodX,
               y: swingY,
               rotate: swingRotate,
+              skewX: inertiaSkew,
               opacity: rodOpacity,
               scaleX: rodScaleX,
               transformOrigin: rodTransformOrigin,
+              filter: motionBlur,
             }}
             className="relative"
           >
@@ -184,6 +202,18 @@ const CopperJourney = () => {
                   backgroundImage:
                     "repeating-linear-gradient(90deg, rgba(255,240,220,0.10) 0 0.5px, rgba(0,0,0,0.10) 0.5px 1.5px, rgba(255,255,255,0.04) 1.5px 2.5px, rgba(0,0,0,0.06) 2.5px 4px)",
                 }}
+              />
+              {/* Rolling specular band — a moving glint that sweeps the surface,
+                  reading as the polished cylinder rotating as it rolls forward */}
+              <motion.div
+                className="absolute inset-y-0 w-1/3 pointer-events-none mix-blend-screen"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%)",
+                  filter: "blur(1px)",
+                }}
+                animate={{ x: ["-120%", "320%"] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
               />
               {/* Subtle oxidation / patina mottling */}
               <div
@@ -275,6 +305,53 @@ const CopperJourney = () => {
             {/* Sparks / particles during drawing + annealing */}
             <Particles progress={progress} />
           </motion.div>
+
+          {/* Radiant heat during annealing — glowing bloom + rising heat haze that
+              distorts and shimmers, the way air ripples above red-hot metal */}
+          <motion.div
+            style={{ opacity: heatOpacity }}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            aria-hidden
+          >
+            <motion.div
+              style={{ scale: heatScale }}
+              className="w-80 h-40 rounded-full"
+            >
+              <div
+                className="w-full h-full rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(255,120,40,0.5) 0%, rgba(239,68,68,0.28) 40%, transparent 72%)",
+                  filter: "blur(10px)",
+                }}
+              />
+            </motion.div>
+            {/* Rising heat-haze shimmer bars */}
+            {[...Array(5)].map((_, i) => (
+              <motion.span
+                key={i}
+                className="absolute bottom-1/2 w-16 h-24 rounded-full"
+                style={{
+                  left: `${42 + i * 4}%`,
+                  background:
+                    "linear-gradient(to top, rgba(255,150,80,0.18), transparent)",
+                  filter: "blur(6px)",
+                }}
+                animate={{
+                  y: [0, -60],
+                  opacity: [0, 0.7, 0],
+                  scaleX: [1, 1.3, 0.8],
+                }}
+                transition={{
+                  duration: 1.4 + Math.random() * 0.8,
+                  repeat: Infinity,
+                  delay: i * 0.25,
+                  ease: "easeOut",
+                }}
+              />
+            ))}
+          </motion.div>
+
 
           {/* Merge glow — copper bloom at the point where rod coils into the catalogue */}
           <motion.div
@@ -450,27 +527,47 @@ const Particles = ({ progress }: { progress: MotionValue<number> }) => {
   const opacity = useTransform(progress, [0.1, 0.25, 0.55, 0.65], [0, 1, 1, 0]);
   return (
     <motion.div style={{ opacity }} className="absolute inset-0 pointer-events-none">
-      {[...Array(8)].map((_, i) => (
-        <motion.span
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-rational-red"
-          style={{
-            top: `${50 + (Math.random() - 0.5) * 40}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -20 - Math.random() * 20, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 0.8 + Math.random() * 0.6,
-            repeat: Infinity,
-            delay: i * 0.1,
-          }}
-        />
-      ))}
+      {[...Array(22)].map((_, i) => {
+        // Each spark flies outward on a ballistic arc: fast initial burst up/out,
+        // then gravity pulls it back down and it cools (yellow -> orange -> dark).
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.6; // mostly upward, fanned
+        const speed = 40 + Math.random() * 90;
+        const dx = Math.cos(angle) * speed;
+        const rise = Math.sin(angle) * speed; // negative = up
+        const fall = 40 + Math.random() * 60;
+        const size = 0.5 + Math.random() * 1.8;
+        const dur = 0.6 + Math.random() * 0.7;
+        return (
+          <motion.span
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: size,
+              height: size,
+              top: "50%",
+              left: `${45 + Math.random() * 10}%`,
+              background:
+                "radial-gradient(circle, #fff7e6 0%, #ffb454 45%, #ef4444 80%, transparent 100%)",
+              boxShadow: "0 0 4px 1px rgba(255,170,80,0.8)",
+            }}
+            animate={{
+              x: [0, dx, dx * 1.15],
+              y: [0, rise, rise + fall],
+              opacity: [0, 1, 0],
+              scale: [1, 1, 0.3],
+            }}
+            transition={{
+              duration: dur,
+              repeat: Infinity,
+              delay: (i % 8) * 0.09 + Math.random() * 0.2,
+              ease: "easeOut",
+            }}
+          />
+        );
+      })}
     </motion.div>
   );
 };
+
 
 export default CopperJourney;
