@@ -40,20 +40,7 @@
     --ring: 0 0% 0%;
 
     --radius: 0.5rem;
-
-    /* Copper is the hero accent — token name kept for compatibility */
-    --rational-red: 24 64% 48%;
-    --copper: 24 64% 48%;
-    --copper-bright: 28 78% 60%;
-    --copper-deep: 20 55% 34%;
-    --graphite: 0 0% 6%;
-    --charcoal: 0 0% 10%;
-    --silver: 0 0% 78%;
-
-    --gradient-copper: linear-gradient(135deg, hsl(var(--copper-deep)), hsl(var(--copper)) 45%, hsl(var(--copper-bright)));
-    --gradient-copper-text: linear-gradient(120deg, hsl(var(--copper-bright)), hsl(var(--silver)) 60%, hsl(var(--copper)));
-    --glow-copper: 0 0 60px -10px hsl(var(--copper) / 0.55);
-    --shadow-copper: 0 20px 50px -20px hsl(var(--copper) / 0.6);
+    --rational-red: 0 78% 42%;
 
     --sidebar-background: 0 0% 98%;
 

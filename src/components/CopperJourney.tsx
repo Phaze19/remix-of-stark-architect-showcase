@@ -81,7 +81,7 @@ const CopperJourney = () => {
   const rodColor = useTransform(
     progress,
     [0.08, 0.3, 0.5, 0.7, 0.9],
-    ["#b87333", "#d97706", "#ea580c", "#3a2418", "#1a120b"]
+    ["#b87333", "#d97706", "#ef4444", "#1f2937", "#0f172a"]
   );
 
   // Glow intensity spikes during annealing
@@ -172,7 +172,7 @@ const CopperJourney = () => {
                 boxShadow: useTransform(
                   glow,
                   (g) =>
-                    `0 ${Math.max(2, g * 0.4)}px ${Math.max(8, g * 1.5)}px rgba(0,0,0,0.45), 0 0 ${g * 2}px ${g}px rgba(234,88,12,0.6), inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.4)`
+                    `0 ${Math.max(2, g * 0.4)}px ${Math.max(8, g * 1.5)}px rgba(0,0,0,0.45), 0 0 ${g * 2}px ${g}px rgba(239, 68, 68, 0.55), inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.4)`
                 ),
               }}
               className="w-64 md:w-96 rounded-full origin-center relative overflow-hidden"
@@ -286,7 +286,7 @@ const CopperJourney = () => {
               className="w-72 h-72 rounded-full"
               style={{
                 background:
-                  "radial-gradient(circle, rgba(255,170,90,0.55) 0%, rgba(217,119,6,0.35) 30%, rgba(234,88,12,0.18) 55%, transparent 75%)",
+                  "radial-gradient(circle, rgba(255,170,90,0.55) 0%, rgba(217,119,6,0.35) 30%, rgba(239,68,68,0.15) 55%, transparent 75%)",
                 filter: "blur(8px)",
               }}
             />
