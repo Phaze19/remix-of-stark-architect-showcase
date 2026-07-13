@@ -527,27 +527,47 @@ const Particles = ({ progress }: { progress: MotionValue<number> }) => {
   const opacity = useTransform(progress, [0.1, 0.25, 0.55, 0.65], [0, 1, 1, 0]);
   return (
     <motion.div style={{ opacity }} className="absolute inset-0 pointer-events-none">
-      {[...Array(8)].map((_, i) => (
-        <motion.span
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-rational-red"
-          style={{
-            top: `${50 + (Math.random() - 0.5) * 40}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -20 - Math.random() * 20, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 0.8 + Math.random() * 0.6,
-            repeat: Infinity,
-            delay: i * 0.1,
-          }}
-        />
-      ))}
+      {[...Array(22)].map((_, i) => {
+        // Each spark flies outward on a ballistic arc: fast initial burst up/out,
+        // then gravity pulls it back down and it cools (yellow -> orange -> dark).
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.6; // mostly upward, fanned
+        const speed = 40 + Math.random() * 90;
+        const dx = Math.cos(angle) * speed;
+        const rise = Math.sin(angle) * speed; // negative = up
+        const fall = 40 + Math.random() * 60;
+        const size = 0.5 + Math.random() * 1.8;
+        const dur = 0.6 + Math.random() * 0.7;
+        return (
+          <motion.span
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: size,
+              height: size,
+              top: "50%",
+              left: `${45 + Math.random() * 10}%`,
+              background:
+                "radial-gradient(circle, #fff7e6 0%, #ffb454 45%, #ef4444 80%, transparent 100%)",
+              boxShadow: "0 0 4px 1px rgba(255,170,80,0.8)",
+            }}
+            animate={{
+              x: [0, dx, dx * 1.15],
+              y: [0, rise, rise + fall],
+              opacity: [0, 1, 0],
+              scale: [1, 1, 0.3],
+            }}
+            transition={{
+              duration: dur,
+              repeat: Infinity,
+              delay: (i % 8) * 0.09 + Math.random() * 0.2,
+              ease: "easeOut",
+            }}
+          />
+        );
+      })}
     </motion.div>
   );
 };
+
 
 export default CopperJourney;
