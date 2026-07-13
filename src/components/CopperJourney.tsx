@@ -158,9 +158,11 @@ const CopperJourney = () => {
               x: rodX,
               y: swingY,
               rotate: swingRotate,
+              skewX: inertiaSkew,
               opacity: rodOpacity,
               scaleX: rodScaleX,
               transformOrigin: rodTransformOrigin,
+              filter: motionBlur,
             }}
             className="relative"
           >
