@@ -203,6 +203,18 @@ const CopperJourney = () => {
                     "repeating-linear-gradient(90deg, rgba(255,240,220,0.10) 0 0.5px, rgba(0,0,0,0.10) 0.5px 1.5px, rgba(255,255,255,0.04) 1.5px 2.5px, rgba(0,0,0,0.06) 2.5px 4px)",
                 }}
               />
+              {/* Rolling specular band — a moving glint that sweeps the surface,
+                  reading as the polished cylinder rotating as it rolls forward */}
+              <motion.div
+                className="absolute inset-y-0 w-1/3 pointer-events-none mix-blend-screen"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%)",
+                  filter: "blur(1px)",
+                }}
+                animate={{ x: ["-120%", "320%"] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
+              />
               {/* Subtle oxidation / patina mottling */}
               <div
                 className="absolute inset-0 pointer-events-none opacity-25 mix-blend-multiply"
