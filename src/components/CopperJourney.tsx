@@ -109,6 +109,22 @@ const CopperJourney = () => {
   // Copper glow blooms at the merge point
   const mergeGlow = useTransform(progress, [0.8, 0.88, 0.95], [0, 1, 0]);
 
+  // ---- REALISM LAYER ----
+  // Velocity-based motion blur: the faster the user scrolls, the more the rod
+  // streaks horizontally (real objects blur along their travel axis when moving fast).
+  const velocity = useVelocity(progress);
+  const smoothVel = useSpring(velocity, { damping: 40, stiffness: 300 });
+  const motionBlur = useTransform(smoothVel, (v) => {
+    const b = Math.min(14, Math.abs(v) * 6);
+    return `blur(${b}px)`;
+  });
+  // Rod tilts very slightly with travel direction — physical inertia.
+  const inertiaSkew = useTransform(smoothVel, (v) => Math.max(-6, Math.min(6, v * 3)));
+
+  // Annealing heat: radiant glow, haze opacity and shimmer are strongest mid-anneal.
+  const heatOpacity = useTransform(progress, [0.28, 0.42, 0.6, 0.7], [0, 1, 0.7, 0]);
+  const heatScale = useTransform(progress, [0.28, 0.5, 0.7], [0.6, 1.15, 0.6]);
+
   return (
     <section
       ref={containerRef}
