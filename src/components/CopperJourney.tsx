@@ -1,5 +1,5 @@
 import { useRef, RefObject } from "react";
-import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useVelocity, MotionValue } from "framer-motion";
 import { Flame, Droplets, Disc3, PackageCheck } from "lucide-react";
 
 /**
