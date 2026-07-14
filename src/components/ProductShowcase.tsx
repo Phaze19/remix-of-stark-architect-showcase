@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import productCtcPaper from "@/assets/product-ctc-paper.jpg";
 import productCtcBare from "@/assets/product-ctc-bare.jpg";
 import productPaperCovered from "@/assets/product-paper-covered.jpg";
-import productEnameled from "@/assets/product-enameled-wire.jpg";
+import productEnameledAsset from "@/assets/product-enameled-wire.jpg.asset.json";
 import productBareCopper from "@/assets/product-bare-copper.jpg";
 import productBusbar from "@/assets/product-busbar.jpg";
 import productWindingWire from "@/assets/product-winding-wire.jpg";
@@ -124,7 +124,7 @@ const ProductShowcase = () => {
     },
     {
       id: "enameled",
-      image: productEnameled,
+      image: productEnameledAsset.url,
       title: "ENAMELED WIRE",
       category: "MAGNET WIRE",
       description: "Premium enameled copper magnet wire with various coating options. Ideal for motors, generators, and electromagnetic applications.",
