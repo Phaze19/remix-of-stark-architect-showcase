@@ -1,14 +1,11 @@
 import { Zap, Cog, Wind } from "lucide-react";
-import productBareCopper from "@/assets/product-bare-copper.jpg";
-import productBusbar from "@/assets/product-busbar.jpg";
-import productWindingWire from "@/assets/product-winding-wire.jpg";
+import applicationsBackdrop from "@/assets/applications-backdrop.jpg";
 
 const IndustrialApplications = () => {
   const clusters = [
     {
       icon: Zap,
       label: "Power & Grid Infrastructure",
-      image: productBareCopper,
       applications: [
         "Oil-filled transformers",
         "Dry-type transformers",
@@ -20,7 +17,6 @@ const IndustrialApplications = () => {
     {
       icon: Cog,
       label: "Mission-Critical Electrical Machinery",
-      image: productBusbar,
       applications: [
         "Alternators",
         "Transformer generators",
@@ -32,7 +28,6 @@ const IndustrialApplications = () => {
     {
       icon: Wind,
       label: "High-Stress & Continuous-Load Applications",
-      image: productWindingWire,
       applications: [
         "Windmill & hydro systems",
         "Traction / locomotive motors",
@@ -42,62 +37,74 @@ const IndustrialApplications = () => {
   ];
 
   return (
-    <section className="py-32 bg-muted">
-      <div className="container mx-auto px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
-              APPLICATIONS
-            </h2>
-            <div className="w-12 h-0.5 bg-rational-red mx-auto mb-6" />
-            <h3 className="text-4xl md:text-5xl font-light text-architectural max-w-3xl mx-auto">
-              Built for Industries Where Failure Is Not an Option
-            </h3>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
+    <section className="relative overflow-hidden">
+      {/* Header band */}
+      <div className="bg-background py-24">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
+            APPLICATIONS
+          </h2>
+          <div className="w-12 h-0.5 bg-rational-red mx-auto mb-6" />
+          <h3 className="text-4xl md:text-5xl font-light text-architectural max-w-3xl mx-auto">
+            Built for Industries Where Failure Is Not an Option
+          </h3>
+        </div>
+      </div>
+
+      {/* Full-bleed image with numbered columns */}
+      <div className="relative">
+        <img
+          src={applicationsBackdrop}
+          alt="Power grid substation and transformer infrastructure at dusk"
+          width={1920}
+          height={900}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/70" />
+
+        <div className="relative container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-foreground/15">
             {clusters.map((cluster, index) => (
-              <div 
-                key={index} 
-                className="group bg-background rounded-lg border border-border hover:border-rational-red/40 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth overflow-hidden"
+              <div
+                key={index}
+                className="group px-6 md:px-8 py-16 md:py-24 transition-colors duration-500 hover:bg-foreground/[0.04]"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={cluster.image} 
-                    alt={cluster.label}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-smooth"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-                   <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center group-hover:bg-rational-red/10 transition-colors duration-300">
-                    <cluster.icon className="w-6 h-6 text-foreground group-hover:text-rational-red transition-colors duration-300" />
-                  </div>
+                <div className="flex items-baseline gap-3 mb-8">
+                  <span className="text-6xl md:text-7xl font-light text-rational-red leading-none">
+                    0{index + 1}
+                  </span>
+                  <cluster.icon className="w-6 h-6 text-foreground/60 group-hover:text-rational-red transition-colors duration-300" />
                 </div>
-                <div className="p-6">
-                  <h4 className="text-xl font-medium mb-4 text-foreground group-hover:text-foreground/90 transition-colors duration-300">
-                    {cluster.label}
-                  </h4>
-                  <ul className="space-y-2">
-                    {cluster.applications.map((app, appIndex) => (
-                      <li 
-                        key={appIndex}
-                        className="text-muted-foreground text-sm flex items-center gap-3 group-hover:text-foreground/70 transition-colors duration-300"
-                        style={{ transitionDelay: `${appIndex * 50}ms` }}
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 group-hover:bg-rational-red group-hover:scale-125 flex-shrink-0 transition-all duration-300" />
-                        {app}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+
+                <h4 className="text-2xl font-medium mb-6 text-foreground">
+                  {cluster.label}
+                </h4>
+
+                <ul className="space-y-3">
+                  {cluster.applications.map((app, appIndex) => (
+                    <li
+                      key={appIndex}
+                      className="text-muted-foreground flex items-center gap-3 group-hover:text-foreground/80 transition-colors duration-300"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-rational-red/70 flex-shrink-0" />
+                      {app}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
-          
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground text-lg">
-              Our certifications aren't paperwork—they're <span className="text-foreground font-medium">risk insurance</span> for your projects.
-            </p>
-          </div>
+        </div>
+      </div>
+
+      {/* Footer note */}
+      <div className="bg-background py-12">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-muted-foreground text-lg">
+            Our certifications aren't paperwork—they're{" "}
+            <span className="text-foreground font-medium">risk insurance</span> for your projects.
+          </p>
         </div>
       </div>
     </section>
