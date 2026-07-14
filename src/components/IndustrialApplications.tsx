@@ -54,8 +54,8 @@ const IndustrialApplications = () => {
       {/* Full-bleed image with numbered columns */}
       <div className="relative">
         <img
-          src={applicationsBackdrop}
-          alt="Power grid substation and transformer infrastructure at dusk"
+          src={windingWire.url}
+          alt="Copper winding wire spools for transformers and electrical machinery"
           width={1920}
           height={900}
           loading="lazy"
