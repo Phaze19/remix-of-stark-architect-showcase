@@ -1,5 +1,5 @@
 import { Zap, Cog, Wind } from "lucide-react";
-import applicationsBackdrop from "@/assets/applications-backdrop.jpg";
+import windingWire from "@/assets/winding-wire.jpg.asset.json";
 
 const IndustrialApplications = () => {
   const clusters = [
