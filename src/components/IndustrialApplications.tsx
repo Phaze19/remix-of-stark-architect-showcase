@@ -1,5 +1,5 @@
 import { Zap, Cog, Wind } from "lucide-react";
-import windingWire from "@/assets/winding-wire.jpg.asset.json";
+import applicationsBackdrop from "@/assets/applications-backdrop.jpg";
 
 const IndustrialApplications = () => {
   const clusters = [
@@ -54,8 +54,8 @@ const IndustrialApplications = () => {
       {/* Full-bleed image with numbered columns */}
       <div className="relative">
         <img
-          src={windingWire.url}
-          alt="Copper winding wire spools for transformers and electrical machinery"
+          src={applicationsBackdrop}
+          alt="Power grid substation and transformer infrastructure at dusk"
           width={1920}
           height={900}
           loading="lazy"
