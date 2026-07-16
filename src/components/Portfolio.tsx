@@ -2,9 +2,7 @@ import productCtcPaper from "@/assets/product-ctc-paper.jpg";
 import productCtcBare from "@/assets/product-ctc-bare.jpg";
 import productPaperCovered from "@/assets/product-paper-covered.jpg";
 import productEnameled from "@/assets/product-enameled-wire.jpg";
-import productBareCopper from "@/assets/product-bare-copper.jpg";
 import productBusbar from "@/assets/product-busbar.jpg";
-import productWindingWire from "@/assets/product-winding-wire.jpg";
 
 const Portfolio = () => {
   const products = [
