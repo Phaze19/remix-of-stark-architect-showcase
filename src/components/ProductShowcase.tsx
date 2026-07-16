@@ -152,37 +152,6 @@ const ProductShowcase = () => {
       ]
     },
     {
-      id: "bare-copper",
-      image: productBareCopper,
-      title: "BARE COPPER WIRE",
-      category: "RAW CONDUCTORS",
-      description: "High-purity bare copper wire and rods in various gauges. Perfect for grounding, electrical connections, and further processing.",
-      applications: [
-        "Grounding systems",
-        "Electrical connections",
-        "Braided conductors",
-        "Flexible connectors",
-        "Further wire processing"
-      ],
-      specifications: [
-        { label: "Purity", value: "99.9%+ OFHC" },
-        { label: "Diameter Range", value: "0.1mm - 12mm" },
-        { label: "Temper", value: "Soft/Half-Hard/Hard" },
-        { label: "Conductivity", value: "101% IACS minimum" }
-      ],
-      whyUs: [
-        "Ultra-high purity certified copper",
-        "Consistent conductivity throughout",
-        "Surface finish to your specification",
-        "Full material traceability"
-      ],
-      industries: [
-        { icon: Zap, name: "Electrical" },
-        { icon: Factory, name: "Manufacturing" },
-        { icon: Shield, name: "Grounding" }
-      ]
-    },
-    {
       id: "busbar",
       image: productBusbar,
       title: "COPPER BUSBARS",
@@ -211,37 +180,6 @@ const ProductShowcase = () => {
         { icon: Zap, name: "Switchgear" },
         { icon: Factory, name: "Panels" },
         { icon: Shield, name: "Substations" }
-      ]
-    },
-    {
-      id: "winding-wire",
-      image: productWindingWire,
-      title: "WINDING WIRE",
-      category: "TRANSFORMER COMPONENTS",
-      description: "Specialized copper winding wire for transformer manufacturing. Consistent quality for reliable electrical performance.",
-      applications: [
-        "Transformer primary/secondary windings",
-        "Inductor coils",
-        "Choke coils",
-        "Reactor windings",
-        "Custom electromagnetic applications"
-      ],
-      specifications: [
-        { label: "Shape", value: "Round/Rectangular/Square" },
-        { label: "Size Range", value: "0.5mm - 15mm" },
-        { label: "Corner Radius", value: "As per requirement" },
-        { label: "Tolerance", value: "IS/IEC/ASTM standards" }
-      ],
-      whyUs: [
-        "Optimized for high fill factors",
-        "Consistent cross-section throughout",
-        "Low surface roughness finish",
-        "Designed for automated winding"
-      ],
-      industries: [
-        { icon: Zap, name: "Transformers" },
-        { icon: Factory, name: "Inductors" },
-        { icon: Wind, name: "Reactors" }
       ]
     }
   ];
