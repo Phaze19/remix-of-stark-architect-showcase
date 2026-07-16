@@ -31,22 +31,10 @@ const Portfolio = () => {
       description: "Premium enameled copper magnet wire with various coating options. Ideal for motors, generators, and electromagnetic applications."
     },
     {
-      image: productBareCopper,
-      title: "BARE COPPER WIRE",
-      category: "RAW CONDUCTORS",
-      description: "High-purity bare copper wire and rods in various gauges. Perfect for grounding, electrical connections, and further processing."
-    },
-    {
       image: productBusbar,
       title: "COPPER BUSBARS",
       category: "FLAT CONDUCTORS",
       description: "Precision copper busbars and flat strips for power distribution. Available in standard and custom dimensions."
-    },
-    {
-      image: productWindingWire,
-      title: "WINDING WIRE",
-      category: "TRANSFORMER COMPONENTS",
-      description: "Specialized copper winding wire for transformer manufacturing. Consistent quality for reliable electrical performance."
     }
   ];
 
