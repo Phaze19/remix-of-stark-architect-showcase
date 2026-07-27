@@ -97,7 +97,7 @@ const CopperJourney = () => {
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col">
         {/* Heading */}
-        <header className="pt-28 md:pt-24 pb-5 text-center px-6 relative z-20">
+        <header className="pt-36 md:pt-32 pb-5 text-center px-6 relative z-20">
           <p className="text-minimal text-rational-red mb-2 tracking-[0.35em] text-[10px] md:text-xs">
             THE PROCESS
           </p>
