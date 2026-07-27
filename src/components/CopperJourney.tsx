@@ -65,14 +65,14 @@ const CopperJourney = () => {
   const dieGlow = useTransform(progress, [0.2, 0.32, 0.44], [0, 1, 0]);
 
   // ---------- STAGE 3: STRANDS (0.5 → 0.78) ----------
-  const strandsOpacity = useTransform(progress, [0.44, 0.54, 0.78, 0.85], [0, 1, 1, 0]);
+  const strandsOpacity = useTransform(progress, [0.44, 0.54, 0.71, 0.77], [0, 1, 1, 0]);
   const strandsSpread = useTransform(progress, [0.5, 0.7], [0, 1]);
   const strandsColor = useTransform(progress, [0.5, 0.65], ["#c68343", "#b87333"]);
   // rod fades out as strands appear
   const rodFinalOpacity = useTransform(progress, [0.42, 0.5], [1, 0]);
 
   // ---------- STAGE 4: BUNDLE + CATALOGUE (0.78 → 1.0) ----------
-  const bundleOpacity = useTransform(progress, [0.75, 0.82, 0.92], [0, 1, 1]);
+  const bundleOpacity = useTransform(progress, [0.78, 0.85, 0.92], [0, 1, 1]);
   const bundleScale = useTransform(progress, [0.78, 0.88], [0.72, 1]);
   const paperWrapX = useTransform(progress, [0.82, 0.9], ["-120%", "0%"]);
 
