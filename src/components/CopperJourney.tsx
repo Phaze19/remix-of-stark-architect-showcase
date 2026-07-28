@@ -507,8 +507,7 @@ const StageRow = ({
         </div>
         <div className="relative grid grid-cols-4 gap-2 md:gap-6">
           {stages.map((s, i) => {
-            const start = i * 0.25;
-            const end = start + 0.25;
+            const { start, end } = stageBand(i);
             const mid = (start + end) / 2;
             return (
               <StageChip
@@ -540,8 +539,8 @@ const StageChip = ({
   progress: MotionValue<number>;
   onClick: () => void;
 }) => {
-  const opacity = useTransform(progress, [start - 0.06, start, end, end + 0.06], [0.45, 1, 1, 0.45]);
-  const dotScale = useTransform(progress, [start - 0.06, start, end, end + 0.06], [1, 1.25, 1.25, 1]);
+  const opacity = useTransform(progress, [start - FADE, start, end - FADE * 0.3, end], [0.4, 1, 1, 0.4]);
+  const dotScale = useTransform(progress, [start - FADE, start, end - FADE * 0.3, end], [1, 1.25, 1.25, 1]);
   const Icon = stage.icon;
   return (
     <motion.button
@@ -569,8 +568,7 @@ const StageCopy = ({ progress }: { progress: MotionValue<number> }) => {
   return (
     <div className="relative h-24 md:h-20 px-6 pb-6 pt-2">
       {stages.map((s, i) => {
-        const start = i * 0.25;
-        const end = start + 0.25;
+        const { start, end } = stageBand(i);
         return <StageCopyItem key={s.id} copy={s.copy} start={start} end={end} progress={progress} />;
       })}
     </div>
@@ -588,8 +586,8 @@ const StageCopyItem = ({
   end: number;
   progress: MotionValue<number>;
 }) => {
-  const opacity = useTransform(progress, [start - 0.03, start + 0.03, end - 0.03, end + 0.03], [0, 1, 1, 0]);
-  const y = useTransform(progress, [start - 0.03, start + 0.03], [12, 0]);
+  const opacity = useTransform(progress, [start - FADE * 0.5, start + FADE * 0.5, end - FADE * 0.5, end + FADE * 0.5], [0, 1, 1, 0]);
+  const y = useTransform(progress, [start - FADE * 0.5, start + FADE * 0.5], [12, 0]);
   return (
     <motion.p
       style={{ opacity, y }}
