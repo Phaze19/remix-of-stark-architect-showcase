@@ -42,6 +42,16 @@ const stages = [
   },
 ];
 
+/**
+ * Single source of truth for stage timing.
+ * The visuals, the stage copy and the 01–04 rail all read from these bands,
+ * so the animation is exactly in sync with the section the rail is pointing at.
+ */
+const SEG = 1 / stages.length; // 0.25
+export const stageBand = (i: number) => ({ start: i * SEG, end: (i + 1) * SEG });
+// blend window used for cross-fades between neighbouring stages
+const FADE = SEG * 0.22;
+
 const CopperJourney = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -50,41 +60,59 @@ const CopperJourney = () => {
   });
   const progress = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
 
-  // ---------- STAGE 1: COPPER ROD (0.00 → 0.28) ----------
-  const rodOpacity = useTransform(progress, [0, 0.02, 0.32, 0.4], [0, 1, 1, 0]);
-  const rodY = useTransform(progress, [0, 0.06], [-60, 0]);
-  const rodRotate = useTransform(progress, [0, 0.06, 0.28], [-10, 0, 0]);
-  // rod stretches into wire between 0.18 → 0.4
-  const rodWidth = useTransform(progress, [0.05, 0.28, 0.42], [260, 520, 620]);
-  const rodHeight = useTransform(progress, [0.05, 0.28, 0.42], [46, 14, 6]);
+  const b0 = stageBand(0); // 0.00 → 0.25  rod
+  const b1 = stageBand(1); // 0.25 → 0.50  drawing
+  const b2 = stageBand(2); // 0.50 → 0.75  strands
+  const b3 = stageBand(3); // 0.75 → 1.00  bundle + catalogue
+
+  // ---------- STAGE 1: COPPER ROD ----------
+  const rodOpacity = useTransform(
+    progress,
+    [b0.start, b0.start + FADE * 0.3, b1.end - FADE, b1.end],
+    [0, 1, 1, 0]
+  );
+  const rodY = useTransform(progress, [b0.start, b0.start + FADE], [-60, 0]);
+  const rodRotate = useTransform(progress, [b0.start, b0.start + FADE, b0.end], [-10, 0, 0]);
+  // rod holds its billet form through stage 1, then stretches across stage 2
+  const rodWidth = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [260, 520, 620]);
+  const rodHeight = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [46, 14, 6]);
   const rodCapWidth = useTransform(rodHeight, (h) => Math.max(4, (h as number) * 0.35));
-  const rodSheenX = useTransform(progress, [0, 0.4], ["-60%", "140%"]);
+  const rodSheenX = useTransform(progress, [b0.start, b1.end], ["-60%", "140%"]);
 
-  // ---------- STAGE 2: DRAWING (0.28 → 0.5) — draw die pinch ----------
-  const dieOpacity = useTransform(progress, [0.16, 0.24, 0.44, 0.52], [0, 1, 1, 0]);
-  const dieGlow = useTransform(progress, [0.2, 0.32, 0.44], [0, 1, 0]);
+  // ---------- STAGE 2: DRAWING — draw die pinch ----------
+  const dieOpacity = useTransform(
+    progress,
+    [b1.start - FADE * 1.5, b1.start, b1.end - FADE, b1.end + FADE * 0.4],
+    [0, 1, 1, 0]
+  );
+  const dieGlow = useTransform(progress, [b1.start, (b1.start + b1.end) / 2, b1.end - FADE], [0, 1, 0]);
 
-  // ---------- STAGE 3: STRANDS (0.5 → 0.78) ----------
-  const strandsOpacity = useTransform(progress, [0.44, 0.54, 0.71, 0.77], [0, 1, 1, 0]);
-  const strandsSpread = useTransform(progress, [0.5, 0.7], [0, 1]);
-  const strandsColor = useTransform(progress, [0.5, 0.65], ["#c68343", "#b87333"]);
-  // rod fades out as strands appear
-  const rodFinalOpacity = useTransform(progress, [0.42, 0.5], [1, 0]);
+  // ---------- STAGE 3: STRANDS ----------
+  const strandsOpacity = useTransform(
+    progress,
+    [b2.start - FADE, b2.start + FADE, b2.end - FADE, b2.end],
+    [0, 1, 1, 0]
+  );
+  const strandsSpread = useTransform(progress, [b2.start, b2.end - FADE], [0, 1]);
+  const strandsColor = useTransform(progress, [b2.start, (b2.start + b2.end) / 2], ["#c68343", "#b87333"]);
+  // rod fades out exactly as strands take over at the stage 2 → 3 boundary
+  const rodFinalOpacity = useTransform(progress, [b2.start - FADE, b2.start + FADE * 0.5], [1, 0]);
 
-  // ---------- STAGE 4: BUNDLE + CATALOGUE (0.78 → 1.0) ----------
-  const bundleOpacity = useTransform(progress, [0.78, 0.85, 0.92], [0, 1, 1]);
-  const bundleScale = useTransform(progress, [0.78, 0.88], [0.72, 1]);
-  const paperWrapX = useTransform(progress, [0.82, 0.9], ["-120%", "0%"]);
+  // ---------- STAGE 4: BUNDLE + CATALOGUE ----------
+  const bundleOpacity = useTransform(progress, [b3.start - FADE * 0.4, b3.start + FADE, b3.end], [0, 1, 1]);
+  const bundleScale = useTransform(progress, [b3.start, b3.start + FADE * 2], [0.72, 1]);
+  const paperWrapX = useTransform(progress, [b3.start + FADE, b3.start + FADE * 2.6], ["-120%", "0%"]);
 
-  // Catalogue reveal
-  const catalogueOpacity = useTransform(progress, [0.9, 0.97], [0, 1]);
-  const catalogueScale = useTransform(progress, [0.88, 0.98], [0.82, 1]);
-  const catalogueY = useTransform(progress, [0.88, 0.98], [24, 0]);
-  const bundleFadeOut = useTransform(progress, [0.9, 0.97], [1, 0]);
-  const underlineScale = useTransform(progress, [0.93, 0.99], [0, 1]);
-  const labelOpacity = useTransform(progress, [0.9, 0.94], [1, 0]);
-  const ctaOpacity = useTransform(progress, [0.94, 0.99], [0, 1]);
-  const ctaY = useTransform(progress, [0.94, 0.99], [10, 0]);
+  // Catalogue reveal — final third of stage 4
+  const catRevealStart = b3.start + SEG * 0.55;
+  const catalogueOpacity = useTransform(progress, [catRevealStart, b3.end - 0.03], [0, 1]);
+  const catalogueScale = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.02], [0.82, 1]);
+  const catalogueY = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.02], [24, 0]);
+  const bundleFadeOut = useTransform(progress, [catRevealStart, b3.end - 0.03], [1, 0]);
+  const underlineScale = useTransform(progress, [catRevealStart + 0.03, b3.end - 0.01], [0, 1]);
+  const labelOpacity = useTransform(progress, [catRevealStart, catRevealStart + 0.04], [1, 0]);
+  const ctaOpacity = useTransform(progress, [catRevealStart + 0.04, b3.end - 0.01], [0, 1]);
+  const ctaY = useTransform(progress, [catRevealStart + 0.04, b3.end - 0.01], [10, 0]);
 
   const railScale = useTransform(progress, [0, 1], [0.02, 1]);
 
@@ -479,8 +507,7 @@ const StageRow = ({
         </div>
         <div className="relative grid grid-cols-4 gap-2 md:gap-6">
           {stages.map((s, i) => {
-            const start = i * 0.25;
-            const end = start + 0.25;
+            const { start, end } = stageBand(i);
             const mid = (start + end) / 2;
             return (
               <StageChip
@@ -512,8 +539,8 @@ const StageChip = ({
   progress: MotionValue<number>;
   onClick: () => void;
 }) => {
-  const opacity = useTransform(progress, [start - 0.06, start, end, end + 0.06], [0.45, 1, 1, 0.45]);
-  const dotScale = useTransform(progress, [start - 0.06, start, end, end + 0.06], [1, 1.25, 1.25, 1]);
+  const opacity = useTransform(progress, [start - FADE, start, end - FADE * 0.3, end], [0.4, 1, 1, 0.4]);
+  const dotScale = useTransform(progress, [start - FADE, start, end - FADE * 0.3, end], [1, 1.25, 1.25, 1]);
   const Icon = stage.icon;
   return (
     <motion.button
@@ -541,8 +568,7 @@ const StageCopy = ({ progress }: { progress: MotionValue<number> }) => {
   return (
     <div className="relative h-24 md:h-20 px-6 pb-6 pt-2">
       {stages.map((s, i) => {
-        const start = i * 0.25;
-        const end = start + 0.25;
+        const { start, end } = stageBand(i);
         return <StageCopyItem key={s.id} copy={s.copy} start={start} end={end} progress={progress} />;
       })}
     </div>
@@ -560,8 +586,8 @@ const StageCopyItem = ({
   end: number;
   progress: MotionValue<number>;
 }) => {
-  const opacity = useTransform(progress, [start - 0.03, start + 0.03, end - 0.03, end + 0.03], [0, 1, 1, 0]);
-  const y = useTransform(progress, [start - 0.03, start + 0.03], [12, 0]);
+  const opacity = useTransform(progress, [start - FADE * 0.5, start + FADE * 0.5, end - FADE * 0.5, end + FADE * 0.5], [0, 1, 1, 0]);
+  const y = useTransform(progress, [start - FADE * 0.5, start + FADE * 0.5], [12, 0]);
   return (
     <motion.p
       style={{ opacity, y }}
