@@ -41,8 +41,8 @@ const stages = [
     id: "bundle",
     num: "04",
     icon: PackageCheck,
-    label: "Finished Conductor",
-    copy: "Strands are transposed and paper-wrapped — delivered as the CTC copper conductors trusted by ABB, Siemens and India's grid leaders.",
+    label: "Product Portfolio",
+    copy: "Transposed and paper-wrapped, the drawn copper becomes our product portfolio — CTC conductors, enameled wire and busbars trusted by India's grid leaders.",
   },
 ];
 
