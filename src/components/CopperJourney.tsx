@@ -316,7 +316,7 @@ const CopperJourney = () => {
 
             {/* ============ STAGE 3: FLAT STRANDS ============ */}
             <motion.div
-              style={{ opacity: strandsOpacity }}
+              style={{ opacity: strandsOpacity, scale: S }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
               <div className="relative w-[26rem] md:w-[30rem] h-24 flex items-center justify-center">
@@ -331,7 +331,8 @@ const CopperJourney = () => {
               style={{ opacity: bundleOpacity, scale: bundleScale }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
-              <motion.div style={{ opacity: bundleFadeOut }} className="relative">
+              <motion.div style={{ opacity: bundleFadeOut, scale: S }} className="relative">
+
                 {/* Stacked copper strips (edge view, CTC reference) */}
                 <div className="relative w-72 h-28 flex flex-col items-center justify-center gap-[2px]">
                   {[...Array(11)].map((_, i) => (
