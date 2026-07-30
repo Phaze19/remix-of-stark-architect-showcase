@@ -175,7 +175,7 @@ const CopperJourney = () => {
             THE PROCESS
           </p>
           <h3 className="text-2xl md:text-4xl font-light text-architectural text-foreground">
-            From <span className="font-medium">Copper Rod</span> to Finished Conductor
+            From <span className="font-medium">Copper Rod</span> to Our Product Portfolio
           </h3>
         </header>
 
