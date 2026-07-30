@@ -162,7 +162,7 @@ const CopperJourney = () => {
     <section
       ref={containerRef}
       className="relative bg-background"
-      style={{ height: "420vh" }}
+      style={{ height: cfg.height }}
       aria-label="Copper manufacturing journey"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col">
