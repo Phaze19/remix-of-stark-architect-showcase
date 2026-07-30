@@ -544,7 +544,12 @@ const Strand = ({
 };
 
 const DrawSparks = ({ progress }: { progress: MotionValue<number> }) => {
-  const opacity = useTransform(progress, [0.22, 0.3, 0.42, 0.48], [0, 1, 1, 0]);
+  const b1 = stageBand(1);
+  const opacity = useTransform(
+    progress,
+    [b1.start - FADE * 0.5, b1.start + FADE, b1.end - FADE * 1.5, b1.end - FADE * 0.4],
+    [0, 1, 1, 0]
+  );
   return (
     <motion.div
       style={{ opacity }}
