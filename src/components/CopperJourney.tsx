@@ -145,16 +145,19 @@ const CopperJourney = () => {
   const bundleScale = useTransform(progress, [b3.start, b3.start + FADE * 2], [0.72, 1]);
   const paperWrapX = useTransform(progress, [b3.start + FADE, b3.start + FADE * 2.6], ["-120%", "0%"]);
 
-  // Catalogue reveal — final third of stage 4
-  const catRevealStart = b3.start + SEG * 0.55;
-  const catalogueOpacity = useTransform(progress, [catRevealStart, b3.end - 0.03], [0, 1]);
-  const catalogueScale = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.02], [0.82, 1]);
-  const catalogueY = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.02], [24, 0]);
-  const bundleFadeOut = useTransform(progress, [catRevealStart, b3.end - 0.03], [1, 0]);
-  const underlineScale = useTransform(progress, [catRevealStart + 0.03, b3.end - 0.01], [0, 1]);
-  const labelOpacity = useTransform(progress, [catRevealStart, catRevealStart + 0.04], [1, 0]);
-  const ctaOpacity = useTransform(progress, [catRevealStart + 0.04, b3.end - 0.01], [0, 1]);
-  const ctaY = useTransform(progress, [catRevealStart + 0.04, b3.end - 0.01], [10, 0]);
+  // Catalogue / portfolio reveal — final part of stage 4
+  const catRevealStart = b3.start + SEG * 0.5;
+  const catalogueOpacity = useTransform(progress, [catRevealStart, b3.end - 0.06], [0, 1]);
+  const catalogueScale = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.05], [0.82, 1]);
+  const catalogueY = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.05], [24, 0]);
+  const bundleFadeOut = useTransform(progress, [catRevealStart, b3.end - 0.06], [1, 0]);
+  const underlineScale = useTransform(progress, [catRevealStart + 0.02, b3.end - 0.05], [0, 1]);
+  // product tiles fan in one after another as the conductor becomes the portfolio
+  const tilesStart = catRevealStart + SEG * 0.12;
+  const tilesEnd = b3.end - 0.02;
+  const labelOpacity = useTransform(progress, [tilesStart, tilesStart + 0.03], [1, 0]);
+  const ctaOpacity = useTransform(progress, [tilesStart + 0.03, b3.end - 0.01], [0, 1]);
+  const ctaY = useTransform(progress, [tilesStart + 0.03, b3.end - 0.01], [10, 0]);
 
   const railScale = useTransform(progress, [0, 1], [0.02, 1]);
 
