@@ -1,6 +1,10 @@
-import { useRef, RefObject } from "react";
+import { useRef, RefObject, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { Cylinder, Waves, Layers, PackageCheck } from "lucide-react";
+import productCtcPaper from "@/assets/product-ctc-paper.jpg";
+import productCtcBare from "@/assets/product-ctc-bare.jpg";
+import productEnameled from "@/assets/product-enameled-wire.jpg";
+import productBusbar from "@/assets/product-busbar.jpg";
 
 /**
  * CopperJourney — ROD → CONDUCTOR EDITION
