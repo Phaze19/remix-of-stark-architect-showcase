@@ -115,8 +115,9 @@ const CopperJourney = () => {
   const rodY = useTransform(progress, [b0.start, b0.start + FADE], [-60, 0]);
   const rodRotate = useTransform(progress, [b0.start, b0.start + FADE, b0.end], [-10, 0, 0]);
   // rod holds its billet form through stage 1, then stretches across stage 2
-  const rodWidth = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [260, 520, 620]);
-  const rodHeight = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [46, 14, 6]);
+  const S = cfg.scale;
+  const rodWidth = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [260 * S, 520 * S, 620 * S]);
+  const rodHeight = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [46 * S, 14 * S, 6 * S]);
   const rodCapWidth = useTransform(rodHeight, (h) => Math.max(4, (h as number) * 0.35));
   const rodSheenX = useTransform(progress, [b0.start, b1.end], ["-60%", "140%"]);
 
