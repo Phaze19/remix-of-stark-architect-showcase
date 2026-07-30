@@ -385,22 +385,38 @@ const CopperJourney = () => {
               </motion.div>
             </motion.div>
 
-            {/* Final catalogue reveal */}
+            {/* Final reveal — bundle resolves into the product portfolio */}
             <motion.div
               style={{ opacity: catalogueOpacity, y: catalogueY, scale: catalogueScale }}
-              className="absolute inset-0 flex items-center justify-center pointer-events-none px-6"
+              className="absolute inset-0 flex items-center justify-center pointer-events-none px-4 md:px-6"
             >
-              <div className="pointer-events-auto bg-card/95 backdrop-blur-sm border border-border shadow-elegant rounded-lg px-8 md:px-10 py-7 text-center max-w-md relative overflow-hidden">
+              <div className="pointer-events-auto bg-card/95 backdrop-blur-sm border border-border shadow-elegant rounded-lg px-5 sm:px-8 md:px-10 py-6 md:py-7 text-center w-full max-w-[22rem] sm:max-w-lg md:max-w-2xl relative overflow-hidden">
                 <div className="text-minimal text-rational-red mb-2 tracking-[0.3em] text-[10px]">
-                  PRODUCT CATALOGUE
+                  PRODUCT PORTFOLIO
                 </div>
-                <div className="text-lg md:text-xl font-medium text-foreground mb-4">
+                <div className="text-base md:text-xl font-medium text-foreground mb-4">
                   Engineered. Certified. Delivered.
                 </div>
                 <motion.div
                   style={{ scaleX: underlineScale }}
                   className="w-20 h-0.5 bg-rational-red mx-auto mb-5 origin-left"
                 />
+
+                {/* the drawn conductor resolving into finished products */}
+                <div className="grid grid-cols-4 gap-2 md:gap-3 mb-5">
+                  {portfolio.map((p, i) => (
+                    <ProductTile
+                      key={p.title}
+                      product={p}
+                      index={i}
+                      total={portfolio.length}
+                      progress={progress}
+                      start={tilesStart}
+                      end={tilesEnd}
+                    />
+                  ))}
+                </div>
+
                 <div className="relative h-12 flex items-center justify-center">
                   <motion.div
                     style={{ opacity: labelOpacity }}
@@ -411,7 +427,7 @@ const CopperJourney = () => {
                   <motion.a
                     href="#products"
                     style={{ opacity: ctaOpacity, y: ctaY }}
-                    className="absolute inline-flex items-center gap-2 bg-rational-red text-primary-foreground px-8 py-3 text-xs font-medium tracking-[0.2em] uppercase shadow-[0_8px_24px_-8px_hsl(var(--rational-red)/0.6)] hover:bg-rational-red/90 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_hsl(var(--rational-red)/0.7)] transition-all duration-300"
+                    className="absolute inline-flex items-center gap-2 bg-rational-red text-primary-foreground px-6 md:px-8 py-3 text-[11px] md:text-xs font-medium tracking-[0.2em] uppercase shadow-[0_8px_24px_-8px_hsl(var(--rational-red)/0.6)] hover:bg-rational-red/90 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-8px_hsl(var(--rational-red)/0.7)] transition-all duration-300"
                   >
                     Explore Products
                     <span aria-hidden>→</span>
