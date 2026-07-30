@@ -56,13 +56,50 @@ export const stageBand = (i: number) => ({ start: i * SEG, end: (i + 1) * SEG })
 // blend window used for cross-fades between neighbouring stages
 const FADE = SEG * 0.22;
 
+/** Products the journey resolves into at the end of the sequence. */
+const portfolio = [
+  { image: productCtcPaper, title: "CTC — Paper Covered" },
+  { image: productCtcBare, title: "CTC — Bare Transposed" },
+  { image: productEnameled, title: "Enameled Wire" },
+  { image: productBusbar, title: "Copper Busbars" },
+];
+
+/**
+ * Responsive scroll timing.
+ * Each breakpoint gets its own scroll length and visual scale so the four
+ * 25% bands land on the same beats on mobile, tablet and desktop.
+ */
+type BP = "mobile" | "tablet" | "desktop";
+const BREAKPOINT_CONFIG: Record<BP, { height: string; scale: number; damping: number; stiffness: number }> = {
+  // shorter scroll on touch devices (momentum scrolling covers more per gesture)
+  mobile: { height: "300vh", scale: 0.56, damping: 26, stiffness: 130 },
+  tablet: { height: "380vh", scale: 0.78, damping: 28, stiffness: 115 },
+  desktop: { height: "460vh", scale: 1, damping: 30, stiffness: 100 },
+};
+
+const useBreakpoint = (): BP => {
+  const [bp, setBp] = useState<BP>("desktop");
+  useEffect(() => {
+    const read = () => {
+      const w = window.innerWidth;
+      setBp(w < 768 ? "mobile" : w < 1280 ? "tablet" : "desktop");
+    };
+    read();
+    window.addEventListener("resize", read);
+    return () => window.removeEventListener("resize", read);
+  }, []);
+  return bp;
+};
+
 const CopperJourney = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const bp = useBreakpoint();
+  const cfg = BREAKPOINT_CONFIG[bp];
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const progress = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
+  const progress = useSpring(scrollYProgress, { damping: cfg.damping, stiffness: cfg.stiffness });
 
   const b0 = stageBand(0); // 0.00 → 0.25  rod
   const b1 = stageBand(1); // 0.25 → 0.50  drawing
