@@ -466,6 +466,51 @@ const darken = (hex: string, amt: number) => {
   return toHex(r * (1 - amt / 100), g * (1 - amt / 100), b * (1 - amt / 100));
 };
 
+/** A finished product emerging from the drawn conductor, staggered by scroll. */
+const ProductTile = ({
+  product,
+  index,
+  total,
+  progress,
+  start,
+  end,
+}: {
+  product: { image: string; title: string };
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  start: number;
+  end: number;
+}) => {
+  const span = end - start;
+  const step = span / (total + 1);
+  const a = start + step * index;
+  const b = a + step * 1.6;
+  const opacity = useTransform(progress, [a, b], [0, 1]);
+  const y = useTransform(progress, [a, b], [18, 0]);
+  const scale = useTransform(progress, [a, b], [0.85, 1]);
+  return (
+    <motion.a
+      href="#products"
+      style={{ opacity, y, scale }}
+      className="group block rounded-md overflow-hidden border border-border/70 bg-muted"
+      aria-label={product.title}
+    >
+      <div className="aspect-square overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.title}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="px-1 py-1.5 text-[8px] md:text-[9px] tracking-[0.12em] uppercase text-muted-foreground truncate">
+        {product.title}
+      </div>
+    </motion.a>
+  );
+};
+
 const Strand = ({
   index,
   total,
