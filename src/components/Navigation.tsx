@@ -11,15 +11,15 @@ const Navigation = () => {
     <nav className="fixed top-8 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-rational-red/20">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <img 
-            src={logoDark} 
-            alt="Rational Engineers" 
-            className="h-12 w-auto block dark:hidden"
+          <img
+            src={logoDark}
+            alt="Rational Engineers"
+            className="h-24 md:h-28 w-auto block dark:hidden"
           />
-          <img 
-            src={logoLight} 
-            alt="Rational Engineers" 
-            className="h-12 w-auto hidden dark:block"
+          <img
+            src={logoLight}
+            alt="Rational Engineers"
+            className="h-24 md:h-28 w-auto hidden dark:block"
           />
         </a>
         
