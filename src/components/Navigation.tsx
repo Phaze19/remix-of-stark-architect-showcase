@@ -8,8 +8,9 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-8 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-rational-red/20">
+    <nav className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b-2 border-rational-red">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
+
         <a href="/" className="flex items-center">
           <img
             src={logoDark}
@@ -46,7 +47,14 @@ const Navigation = () => {
 
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
+          <a
+            href="/contact"
+            className="bg-rational-red text-white px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-foreground transition-colors duration-300"
+          >
+            Request Quote
+          </a>
         </div>
+
 
         <Button
           variant="ghost"
