@@ -1,60 +1,78 @@
 import heroImage from "@/assets/hero-copper-wires.jpg";
-import rationalLogo from "@/assets/rational-logo-original.jpeg";
+
+const stats = [
+  { value: "35+", label: "Years of manufacturing" },
+  { value: "12,000 T", label: "Annual capacity" },
+  { value: "ISO 9001", label: "Certified quality systems" },
+  { value: "40+", label: "OEM partners served" },
+];
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-foreground">
       {/* Background Image */}
       <img
         src={heroImage}
-        alt="Copper manufacturing facility"
+        alt="Copper wire rod coils on the Rational Engineers manufacturing floor"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      
-      {/* Overlay */}
-      <div className="absolute inset-0 hero-overlay" />
-      
+
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40" />
+
       {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
-        {/* Logo */}
-        <div className="mb-8 reveal">
-          <div className="inline-block bg-white/20 backdrop-blur-md rounded-lg px-6 py-3 mb-4 border border-white/30 shadow-lg">
-            <img 
-              src={rationalLogo} 
-              alt="Rational Engineers" 
-              className="h-14 md:h-20 w-auto"
-            />
-          </div>
-          <div className="block">
-            <span className="text-sm md:text-base tracking-[0.4em] text-white/60 uppercase font-light">
+      <div className="relative z-10 w-full container mx-auto px-6 pt-40 pb-0">
+        <div className="max-w-3xl">
+          <div className="flex items-center gap-4 mb-8 reveal">
+            <span className="h-px w-12 bg-rational-red" />
+            <span className="text-xs md:text-sm tracking-[0.35em] text-white/70 uppercase font-medium">
               Established 1989
             </span>
           </div>
-          <div className="w-16 h-0.5 bg-rational-red mx-auto mt-4" />
+
+          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light text-white text-architectural mb-8 reveal">
+            Copper Manufacturing Built for
+            <br />
+            <span className="font-bold">Consistency, Scale &amp; Zero Compromise</span>
+          </h1>
+
+          <p className="text-base md:text-xl text-white/70 font-light max-w-xl mb-10 reveal-delayed leading-relaxed">
+            Supplying high-performance copper conductors to India&apos;s leading transformer
+            and infrastructure manufacturers since 1989.
+          </p>
+
+          <div className="flex flex-wrap gap-4 reveal-delayed">
+            <a
+              href="#trust"
+              className="inline-block bg-rational-red text-white px-10 py-5 text-xs font-bold tracking-[0.15em] uppercase hover:-translate-y-0.5 hover:bg-rational-red/90 transition-all duration-300"
+            >
+              Why ABB &amp; Siemens trust us
+            </a>
+            <a
+              href="#products"
+              className="inline-block border border-white/25 text-white px-10 py-5 text-xs font-bold tracking-[0.15em] uppercase hover:bg-white/10 transition-all duration-300"
+            >
+              Product portfolio
+            </a>
+          </div>
         </div>
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white text-architectural mb-6 reveal leading-tight">
-          Copper Manufacturing Built for
-          <br />
-          <span className="font-medium">Consistency, Scale & Zero Compromise</span>
-        </h1>
-        <p className="text-lg md:text-xl text-white/80 font-light tracking-wide max-w-3xl mx-auto mb-10 reveal-delayed">
-          Supplying high-performance copper conductors to India's leading transformer 
-          and infrastructure manufacturers since 1989.
-        </p>
-        <a 
-          href="#trust" 
-          className="inline-block bg-rational-red text-white px-8 py-4 text-sm font-medium tracking-wider hover:bg-rational-red/90 transition-colors duration-300 reveal-delayed"
-        >
-          WHY COMPANIES LIKE ABB & SIEMENS TRUST US
-        </a>
-      </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 reveal-delayed">
-        <div className="w-px h-16 bg-white/40" />
-        <div className="text-minimal text-white/60 mt-4 rotate-90 origin-center">
-          SCROLL
+        {/* Stat rail */}
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 border-t border-white/15 reveal-delayed">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="py-6 lg:py-8 px-1 lg:px-6 border-b lg:border-b-0 border-r last:border-r-0 border-white/15"
+            >
+              <div className="font-display text-2xl md:text-3xl font-bold text-white">
+                {stat.value}
+              </div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white/50 mt-2">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
