@@ -47,7 +47,14 @@ const Navigation = () => {
 
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
+          <a
+            href="/contact"
+            className="bg-rational-red text-white px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-foreground transition-colors duration-300"
+          >
+            Request Quote
+          </a>
         </div>
+
 
         <Button
           variant="ghost"
