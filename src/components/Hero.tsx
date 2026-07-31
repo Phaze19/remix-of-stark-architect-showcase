@@ -23,7 +23,7 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full container mx-auto px-6 pt-40 pb-0">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <div className="flex items-center gap-4 mb-8 reveal">
             <span className="h-px w-12 bg-rational-red" />
             <span className="text-xs md:text-sm tracking-[0.35em] text-white/70 uppercase font-medium">
@@ -31,7 +31,7 @@ const Hero = () => {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light text-white text-architectural mb-8 reveal">
+          <h1 className="text-5xl md:text-7xl lg:text-[4.5rem] font-light text-white text-architectural mb-8 reveal">
             Copper Manufacturing Built for
             <br />
             <span className="font-bold">Consistency, Scale &amp; Zero Compromise</span>
