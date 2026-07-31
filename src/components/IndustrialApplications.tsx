@@ -1,110 +1,133 @@
-import { Zap, Cog, Wind } from "lucide-react";
-import applicationsBackdrop from "@/assets/applications-backdrop.jpg";
+import { TowerControl, Zap, Cog, TrainFront, Sun, ShieldCheck, Link2, CheckCircle2, Flame, Star } from "lucide-react";
+import appPower from "@/assets/app-power-transmission.jpg";
+import appTransformers from "@/assets/app-transformers.jpg";
+import appMotors from "@/assets/app-motors.jpg";
+import appRailways from "@/assets/app-railways.jpg";
+import appRenewable from "@/assets/app-renewable.jpg";
+
+const applications = [
+  {
+    icon: TowerControl,
+    image: appPower,
+    alt: "High voltage transmission towers at sunset",
+    title: ["POWER TRANSMISSION", "& DISTRIBUTION"],
+    products: ["CTC Conductors", "Bare Copper Cables", "Covered Copper Cables", "PICC Conductors"],
+    description: "Reliable power flow for grids, substations, and distribution networks.",
+  },
+  {
+    icon: Zap,
+    image: appTransformers,
+    alt: "Industrial power transformers in a substation",
+    title: ["TRANSFORMERS", "& REACTORS"],
+    products: ["CTC Conductors", "PICC Conductors", "Bare Copper Cables"],
+    description: "Efficient winding solutions that ensure low losses, high efficiency, and long equipment life.",
+  },
+  {
+    icon: Cog,
+    image: appMotors,
+    alt: "Row of industrial electric motors inside a factory",
+    title: ["MOTORS", "& GENERATORS"],
+    products: ["CTC Conductors", "PICC Conductors", "Covered Copper Cables"],
+    description: "High conductivity conductors for superior performance in rotating electrical machines.",
+  },
+  {
+    icon: TrainFront,
+    image: appRailways,
+    alt: "Modern metro train on elevated track with city skyline",
+    title: ["RAILWAYS", "& METRO SYSTEMS"],
+    products: ["Covered Copper Cables", "PICC Conductors", "Bare Copper Cables"],
+    description: "Durable and flame-retardant cables for traction, signaling, and on-board applications.",
+  },
+  {
+    icon: Sun,
+    image: appRenewable,
+    alt: "Wind turbines and solar panels at sunset",
+    title: ["RENEWABLE ENERGY", "& SOLAR"],
+    products: ["Bare Copper Cables", "Covered Copper Cables", "PICC Conductors"],
+    description: "High-performance solutions for solar plants, wind farms, and energy storage systems.",
+  },
+];
+
+const benefits = [
+  { icon: ShieldCheck, lines: ["High Conductivity", "for Maximum Efficiency"] },
+  { icon: Link2, lines: ["Durability in Harsh &", "Demanding Environments"] },
+  { icon: CheckCircle2, lines: ["Reliable Performance", "with Long Service Life"] },
+  { icon: Flame, lines: ["Flame-Retardant &", "Environment-Friendly Options"] },
+  { icon: Star, lines: ["Custom Solutions", "for Every Application"] },
+];
 
 const IndustrialApplications = () => {
-  const clusters = [
-    {
-      icon: Zap,
-      label: "Power & Grid Infrastructure",
-      applications: [
-        "Oil-filled transformers",
-        "Dry-type transformers",
-        "Cast resin transformers",
-        "HVDC transformers",
-        "Generators"
-      ]
-    },
-    {
-      icon: Cog,
-      label: "Mission-Critical Electrical Machinery",
-      applications: [
-        "Alternators",
-        "Transformer generators",
-        "High-voltage motors",
-        "Low-voltage motors",
-        "Turbines"
-      ]
-    },
-    {
-      icon: Wind,
-      label: "High-Stress & Continuous-Load Applications",
-      applications: [
-        "Windmill & hydro systems",
-        "Traction / locomotive motors",
-        "Industrial generators"
-      ]
-    }
-  ];
-
   return (
-    <section className="relative overflow-hidden">
-      {/* Header band */}
-      <div className="bg-background py-24">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
-            APPLICATIONS
-          </h2>
-          <div className="w-12 h-0.5 bg-rational-red mx-auto mb-6" />
-          <h3 className="text-4xl md:text-5xl font-light text-architectural max-w-3xl mx-auto">
-            Built for Industries Where Failure Is Not an Option
-          </h3>
-        </div>
+    <section className="bg-background">
+      {/* Header */}
+      <div className="container mx-auto px-6 pt-20 pb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-light text-foreground leading-tight">
+          Applications That Power
+          <span className="block text-rational-red">Performance &amp; Reliability</span>
+        </h2>
+        <p className="mt-5 text-muted-foreground text-lg max-w-2xl mx-auto">
+          Our conductors and cables are engineered for critical applications across industries where
+          uninterrupted power and efficiency matter most.
+        </p>
       </div>
 
-      {/* Full-bleed image with numbered columns */}
-      <div className="relative">
-        <img
-          src={applicationsBackdrop}
-          alt="Power grid substation and transformer infrastructure at dusk"
-          width={1920}
-          height={900}
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-background/70" />
+      {/* Columns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t border-border">
+        {applications.map((app, i) => (
+          <div
+            key={i}
+            className="group relative flex flex-col border-b lg:border-b-0 border-r-0 sm:border-r border-border last:border-r-0"
+          >
+            <div className="relative h-64 overflow-hidden">
+              <img
+                src={app.image}
+                alt={app.alt}
+                width={800}
+                height={700}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-background shadow-lg flex items-center justify-center z-10">
+                <app.icon className="w-7 h-7 text-rational-red" strokeWidth={1.5} />
+              </div>
+            </div>
 
-        <div className="relative container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-foreground/15">
-            {clusters.map((cluster, index) => (
-              <div
-                key={index}
-                className="group px-6 md:px-8 py-16 md:py-24 transition-colors duration-500 hover:bg-foreground/[0.04]"
-              >
-                <div className="flex items-baseline gap-3 mb-8">
-                  <span className="text-6xl md:text-7xl font-light text-rational-red leading-none">
-                    0{index + 1}
-                  </span>
-                  <cluster.icon className="w-6 h-6 text-foreground/60 group-hover:text-rational-red transition-colors duration-300" />
-                </div>
+            <div className="px-6 pt-14 pb-10 text-center flex flex-col flex-1">
+              <h3 className="text-base font-semibold tracking-wide text-foreground leading-snug">
+                {app.title[0]}
+                <span className="block">{app.title[1]}</span>
+              </h3>
 
-                <h4 className="text-2xl font-medium mb-6 text-foreground">
-                  {cluster.label}
-                </h4>
+              <p className="mt-4 text-sm text-rational-red font-medium">Products Used:</p>
+              <ul className="mt-3 space-y-1.5 text-left inline-block mx-auto">
+                {app.products.map((p, pi) => (
+                  <li key={pi} className="text-sm text-foreground/80 flex items-start gap-2">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-rational-red flex-shrink-0" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
 
-                <ul className="space-y-3">
-                  {cluster.applications.map((app, appIndex) => (
-                    <li
-                      key={appIndex}
-                      className="text-muted-foreground flex items-center gap-3 group-hover:text-foreground/80 transition-colors duration-300"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-rational-red/70 flex-shrink-0" />
-                      {app}
-                    </li>
-                  ))}
-                </ul>
+              <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{app.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Benefits strip */}
+      <div className="border-y border-border">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-border">
+            {benefits.map((b, i) => (
+              <div key={i} className="flex items-center gap-3 px-5 py-7 justify-center">
+                <b.icon className="w-7 h-7 text-foreground flex-shrink-0" strokeWidth={1.25} />
+                <p className="text-sm text-foreground/85 leading-snug">
+                  {b.lines[0]}
+                  <span className="block">{b.lines[1]}</span>
+                </p>
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Footer note */}
-      <div className="bg-background py-12">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-muted-foreground text-lg">
-            Our certifications aren't paperwork—they're{" "}
-            <span className="text-foreground font-medium">risk insurance</span> for your projects.
-          </p>
         </div>
       </div>
     </section>
