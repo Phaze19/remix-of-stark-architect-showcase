@@ -61,6 +61,10 @@ export default {
           DEFAULT: "hsl(var(--rational-red))",
         },
       },
+      fontFamily: {
+        sans: ["'DM Sans'", "system-ui", "sans-serif"],
+        display: ["'Space Grotesk'", "'DM Sans'", "sans-serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
