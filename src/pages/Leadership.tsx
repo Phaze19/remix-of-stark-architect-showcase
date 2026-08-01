@@ -95,7 +95,7 @@ const leaders: Leader[] = [
     facts: ["5 Board Positions", "Multiple Board Committees", "Banking & Finance"],
   },
   {
-    name: "Nilesh Bhogilal Gandhi",
+    name: "Nilesh Vedak",
     role: "Director",
     org: "Rational Engineers Limited · Appointed April 2022",
     image: nilesh,
