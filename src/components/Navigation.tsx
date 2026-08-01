@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import QuoteDialog from "@/components/QuoteDialog";
-import logoLight from "@/assets/rational-logo-light.png";
 import logoDark from "@/assets/rational-logo-original.jpeg";
 
 const Navigation = () => {
