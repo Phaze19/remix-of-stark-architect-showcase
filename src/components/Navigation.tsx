@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import QuoteDialog from "@/components/QuoteDialog";
 import logoLight from "@/assets/rational-logo-light.png";
 import logoDark from "@/assets/rational-logo-original.jpeg";
@@ -17,12 +16,7 @@ const Navigation = () => {
           <img
             src={logoDark}
             alt="Rational Engineers"
-            className="h-24 md:h-28 w-auto block dark:hidden"
-          />
-          <img
-            src={logoLight}
-            alt="Rational Engineers"
-            className="h-24 md:h-28 w-auto hidden dark:block"
+            className="h-24 md:h-28 w-auto"
           />
         </a>
         
