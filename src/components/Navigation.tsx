@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import QuoteDialog from "@/components/QuoteDialog";
 import logoLight from "@/assets/rational-logo-light.png";
 import logoDark from "@/assets/rational-logo-original.jpeg";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
     <nav className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b-2 border-rational-red">
@@ -47,13 +49,15 @@ const Navigation = () => {
 
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          <a
-            href="/contact"
+          <button
+            onClick={() => setIsQuoteOpen(true)}
             className="bg-rational-red text-white px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-foreground transition-colors duration-300"
           >
             Request Quote
-          </a>
+          </button>
         </div>
+
+        <QuoteDialog open={isQuoteOpen} onOpenChange={setIsQuoteOpen} />
 
 
         <Button
