@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import aboutFacility from "@/assets/about-facility.jpg";
 import aboutLeadership from "@/assets/about-leadership.jpg";
+import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
 
 const About = () => {
   return (
@@ -269,6 +270,91 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder's Journey */}
+      <section className="border-t border-border bg-muted/30 py-24">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1fr] lg:items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative mx-auto w-full max-w-sm"
+            >
+              <div className="absolute -left-4 -top-4 h-2/3 w-2/3 bg-rational-red/10" />
+              <img
+                src={founderPortrait}
+                alt="Shri. Mahendra K. Jain, Chairman & Managing Director of Rational Engineers Limited"
+                className="relative w-full object-cover"
+                loading="lazy"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
+              <div className="mb-6 flex items-center gap-4">
+                <span className="h-px w-12 bg-rational-red" />
+                <span className="text-minimal tracking-[0.3em] text-muted-foreground">
+                  FOUNDER'S JOURNEY
+                </span>
+              </div>
+              <h3 className="text-3xl font-light text-architectural md:text-5xl">
+                Shri. Mahendra K. Jain
+              </h3>
+              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-rational-red">
+                Chairman &amp; Managing Director
+              </p>
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+                Building businesses. Creating value. Transforming lives — three decades of
+                entrepreneurship across engineering, metals, infrastructure, finance and
+                aviation, from Business Management in 1992 to the greenfield factory at
+                Vadodara in 2025.
+              </p>
+
+              <div className="mt-8 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
+                {[
+                  { v: "₹1,600+ Cr", l: "Group Revenue FY 25-26" },
+                  { v: "800+", l: "Strong Workforce" },
+                  { v: "5", l: "Manufacturing Facilities" },
+                ].map((s) => (
+                  <div key={s.l} className="bg-background px-5 py-6">
+                    <p className="text-2xl font-light text-foreground">{s.v}</p>
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                      {s.l}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="/founder"
+                  className="bg-rational-red px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-primary-foreground hover:bg-foreground transition-colors duration-300"
+                >
+                  Explore the full journey
+                </a>
+                <a
+                  href="/leadership"
+                  className="border border-foreground/20 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-foreground hover:border-rational-red hover:text-rational-red transition-colors duration-300"
+                >
+                  Meet the leadership
+                </a>
+                <a
+                  href="/csr"
+                  className="border border-foreground/20 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-foreground hover:border-rational-red hover:text-rational-red transition-colors duration-300"
+                >
+                  CSR activities
+                </a>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
