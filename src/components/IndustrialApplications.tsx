@@ -1,50 +1,34 @@
-import { TowerControl, Zap, Cog, TrainFront, Sun, ShieldCheck, Link2, CheckCircle2, Flame, Star } from "lucide-react";
-import appPower from "@/assets/app-power-transmission.jpg";
-import appTransformers from "@/assets/app-transformers.jpg";
-import appMotors from "@/assets/app-motors.jpg";
-import appRailways from "@/assets/app-railways.jpg";
-import appRenewable from "@/assets/app-renewable.jpg";
+import { TowerControl, Zap, Cog, Sun, ShieldCheck, Link2, CheckCircle2, Flame, Star } from "lucide-react";
+import appsBackdrop from "@/assets/applications-cinematic.jpg";
 
 const applications = [
   {
+    num: "01.",
     icon: TowerControl,
-    image: appPower,
-    alt: "High voltage transmission towers at sunset",
-    title: ["POWER TRANSMISSION", "& DISTRIBUTION"],
-    products: ["CTC Conductors", "Bare Copper Cables", "Covered Copper Cables", "PICC Conductors"],
-    description: "Reliable power flow for grids, substations, and distribution networks.",
+    title: "Power Transmission",
+    products: ["Bare Cable", "Insulated Cable", "Copper Busbar & Flat Strips"],
+    description: "Reliable power flow for grids, substations and distribution networks.",
   },
   {
+    num: "02.",
     icon: Zap,
-    image: appTransformers,
-    alt: "Industrial power transformers in a substation",
-    title: ["TRANSFORMERS", "& REACTORS"],
-    products: ["CTC Conductors", "PICC Conductors", "Bare Copper Cables"],
-    description: "Efficient winding solutions that ensure low losses, high efficiency, and long equipment life.",
+    title: "Transformers & Reactors",
+    products: ["Continuously Transposed Conductor (CTC)", "Paper Insulated Copper Conductor (PICC)", "Copper Busbar & Flat Strips"],
+    description: "Low-loss winding solutions that ensure high efficiency and long equipment life.",
   },
   {
+    num: "03.",
     icon: Cog,
-    image: appMotors,
-    alt: "Row of industrial electric motors inside a factory",
-    title: ["MOTORS", "& GENERATORS"],
-    products: ["CTC Conductors", "PICC Conductors", "Covered Copper Cables"],
-    description: "High conductivity conductors for superior performance in rotating electrical machines.",
+    title: "Motors & Generators",
+    products: ["Enamelled Copper — Round & Rectangle", "Enamelled Aluminium — Round & Rectangle", "Fiber Glass Insulated Copper & Aluminium"],
+    description: "High-conductivity conductors for superior performance in rotating machines.",
   },
   {
-    icon: TrainFront,
-    image: appRailways,
-    alt: "Modern metro train on elevated track with city skyline",
-    title: ["RAILWAYS", "& METRO SYSTEMS"],
-    products: ["Covered Copper Cables", "PICC Conductors", "Bare Copper Cables"],
-    description: "Durable and flame-retardant cables for traction, signaling, and on-board applications.",
-  },
-  {
+    num: "04.",
     icon: Sun,
-    image: appRenewable,
-    alt: "Wind turbines and solar panels at sunset",
-    title: ["RENEWABLE ENERGY", "& SOLAR"],
-    products: ["Bare Copper Cables", "Covered Copper Cables", "PICC Conductors"],
-    description: "High-performance solutions for solar plants, wind farms, and energy storage systems.",
+    title: "Renewables & High Frequency",
+    products: ["High Frequency Copper Litz Wires", "High Frequency Aluminium Litz Wires", "Mica & Polyimide Insulated Copper"],
+    description: "Engineered for solar plants, wind farms, EV and energy-storage systems.",
   },
 ];
 
@@ -71,47 +55,44 @@ const IndustrialApplications = () => {
         </p>
       </div>
 
-      {/* Columns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t border-border">
-        {applications.map((app, i) => (
-          <div
-            key={i}
-            className="group relative flex flex-col border-b lg:border-b-0 border-r-0 sm:border-r border-border last:border-r-0"
-          >
-            <div className="relative h-64 overflow-hidden">
-              <img
-                src={app.image}
-                alt={app.alt}
-                width={800}
-                height={700}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-background shadow-lg flex items-center justify-center z-10">
-                <app.icon className="w-7 h-7 text-rational-red" strokeWidth={1.5} />
+      {/* Cinematic overlay grid */}
+      <div className="relative isolate overflow-hidden">
+        <img
+          src={appsBackdrop}
+          alt="Substation transformers, transmission towers, wind turbines and solar panels at dusk"
+          width={1920}
+          height={1088}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[hsl(0_0%_5%/0.72)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(0_0%_5%/0.9)] via-transparent to-[hsl(0_0%_5%/0.55)]" />
+
+        <div className="relative container mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
+            {applications.map((app) => (
+              <div key={app.num} className="group px-6 py-14 lg:py-24 flex flex-col">
+                <app.icon className="w-8 h-8 text-rational-red mb-6" strokeWidth={1.5} />
+                <span className="text-4xl md:text-5xl font-semibold text-primary-foreground/95 leading-none">
+                  {app.num}
+                </span>
+                <h3 className="mt-5 text-xl font-semibold text-primary-foreground">{app.title}</h3>
+                <span className="mt-4 block h-px w-10 bg-rational-red transition-all duration-500 group-hover:w-20" />
+                <p className="mt-5 text-sm text-primary-foreground/70 leading-relaxed">
+                  {app.description}
+                </p>
+                <ul className="mt-6 space-y-2">
+                  {app.products.map((p) => (
+                    <li key={p} className="text-sm text-primary-foreground/85 flex items-start gap-2">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-rational-red flex-shrink-0" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-
-            <div className="px-6 pt-14 pb-10 text-center flex flex-col flex-1">
-              <h3 className="text-base font-semibold tracking-wide text-foreground leading-snug">
-                {app.title[0]}
-                <span className="block">{app.title[1]}</span>
-              </h3>
-
-              <p className="mt-4 text-sm text-rational-red font-medium">Products Used:</p>
-              <ul className="mt-3 space-y-1.5 text-left inline-block mx-auto">
-                {app.products.map((p, pi) => (
-                  <li key={pi} className="text-sm text-foreground/80 flex items-start gap-2">
-                    <span className="mt-1.5 w-1 h-1 rounded-full bg-rational-red flex-shrink-0" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-6 text-sm text-muted-foreground leading-relaxed">{app.description}</p>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
 
       {/* Benefits strip */}
