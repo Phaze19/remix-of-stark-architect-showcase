@@ -32,13 +32,13 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-[4.5rem] font-light text-white text-architectural mb-8 reveal">
-            Copper Manufacturing Built for
+            Empowering Transmission
             <br />
-            <span className="font-bold">Consistency, Scale &amp; Zero Compromise</span>
+            <span className="font-bold">By Powering Transmission&nbsp;</span>
           </h1>
 
           <p className="text-base md:text-xl text-white/70 font-light max-w-xl mb-10 reveal-delayed leading-relaxed">
-            Supplying high-performance copper conductors to India&apos;s leading transformer
+            Supplying high performance copper conductors to India&apos;s leading transformer
             and infrastructure manufacturers since 1989.
           </p>
 
