@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import QuoteDialog from "@/components/QuoteDialog";
 import logoLight from "@/assets/rational-logo-light.png";
 import logoDark from "@/assets/rational-logo-original.jpeg";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
     <nav className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b-2 border-rational-red">
