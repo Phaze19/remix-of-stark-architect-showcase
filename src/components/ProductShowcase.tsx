@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Zap, Factory, Wind, Shield, CheckCircle, ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import QuoteDialog from "@/components/QuoteDialog";
 import ctcImg from "@/assets/cat-ctc.jpg";
 import bareCableImg from "@/assets/cat-bare-cable.jpg";
 import insulatedCableImg from "@/assets/cat-insulated-cable.jpg";
