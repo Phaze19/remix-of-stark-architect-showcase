@@ -10,7 +10,7 @@ const Navigation = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
-    <nav className="fixed top-8 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b-2 border-rational-red">
+    <nav className="fixed top-8 left-0 right-0 z-50 bg-background backdrop-blur-md border-b-2 border-rational-red">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
 
         <a href="/" className="flex items-center">
