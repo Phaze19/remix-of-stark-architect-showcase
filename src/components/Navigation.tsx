@@ -42,7 +42,6 @@ const Navigation = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <ThemeToggle />
           <button
             onClick={() => setIsQuoteOpen(true)}
             className="bg-rational-red text-white px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-foreground transition-colors duration-300"
@@ -87,11 +86,8 @@ const Navigation = () => {
               CONTACT
             </a>
             
-            {/* Mobile Theme Toggle */}
-            <div className="pt-4 border-t border-border">
-              <ThemeToggle />
-            </div>
           </div>
+
         </div>
       )}
     </nav>
