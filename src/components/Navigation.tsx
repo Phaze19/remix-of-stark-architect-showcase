@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import QuoteDialog from "@/components/QuoteDialog";
-import logoLight from "@/assets/rational-logo-light.png";
 import logoDark from "@/assets/rational-logo-original.jpeg";
 
 const Navigation = () => {
@@ -17,12 +15,7 @@ const Navigation = () => {
           <img
             src={logoDark}
             alt="Rational Engineers"
-            className="h-24 md:h-28 w-auto block dark:hidden"
-          />
-          <img
-            src={logoLight}
-            alt="Rational Engineers"
-            className="h-24 md:h-28 w-auto hidden dark:block"
+            className="h-24 md:h-28 w-auto"
           />
         </a>
         
@@ -48,7 +41,6 @@ const Navigation = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
-          <ThemeToggle />
           <button
             onClick={() => setIsQuoteOpen(true)}
             className="bg-rational-red text-white px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-foreground transition-colors duration-300"
@@ -93,11 +85,8 @@ const Navigation = () => {
               CONTACT
             </a>
             
-            {/* Mobile Theme Toggle */}
-            <div className="pt-4 border-t border-border">
-              <ThemeToggle />
-            </div>
           </div>
+
         </div>
       )}
     </nav>
