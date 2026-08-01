@@ -5,11 +5,8 @@ import logoDark from "@/assets/rational-logo-original.jpeg";
 
 const navLinks = [
   { href: "#capabilities", label: "CAPABILITIES" },
-  { href: "#trust", label: "WHY LEADERS CHOOSE US" },
-  { href: "#quality", label: "QUALITY SYSTEMS" },
   { href: "/founder", label: "FOUNDER'S JOURNEY" },
   { href: "/certifications", label: "CERTIFICATIONS" },
-  { href: "/gallery", label: "GALLERY" },
   { href: "/contact", label: "CONTACT" },
 ];
 
