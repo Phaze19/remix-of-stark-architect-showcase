@@ -34,7 +34,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl lg:text-[4.5rem] font-light text-white text-architectural mb-8 reveal">
             Empowering Transmission
             <br />
-            <span className="font-bold">By Powering Transmission&nbsp;</span>
+            <span className="font-bold">By<br />Powering Transformer&nbsp;&nbsp;</span>
           </h1>
 
           <p className="text-base md:text-xl text-white/70 font-light max-w-xl mb-10 reveal-delayed leading-relaxed">
