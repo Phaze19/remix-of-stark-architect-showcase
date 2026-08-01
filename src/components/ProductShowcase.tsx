@@ -2,18 +2,18 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Zap, Factory, Wind, Shield, CheckCircle, ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ctcAsset from "@/assets/cat-ctc.jpg.asset.json";
-import bareCableAsset from "@/assets/cat-bare-cable.jpg.asset.json";
-import insulatedCableAsset from "@/assets/cat-insulated-cable.jpg.asset.json";
-import enamCopperAsset from "@/assets/cat-enamelled-copper.jpg.asset.json";
-import enamAluAsset from "@/assets/cat-enamelled-aluminium.jpg.asset.json";
-import piccAsset from "@/assets/cat-picc.jpg.asset.json";
-import micaAsset from "@/assets/cat-mica.jpg.asset.json";
-import kaptonAsset from "@/assets/cat-kapton.jpg.asset.json";
-import fiberglassAsset from "@/assets/cat-fiberglass.jpg.asset.json";
-import litzCuAsset from "@/assets/cat-litz-copper.jpg.asset.json";
-import litzAlAsset from "@/assets/cat-litz-aluminium.jpg.asset.json";
-import busbarAsset from "@/assets/cat-busbar.jpg.asset.json";
+import ctcImg from "@/assets/cat-ctc.jpg";
+import bareCableImg from "@/assets/cat-bare-cable.jpg";
+import insulatedCableImg from "@/assets/cat-insulated-cable.jpg";
+import enamCopperImg from "@/assets/cat-enamelled-copper.jpg";
+import enamAluImg from "@/assets/cat-enamelled-aluminium.jpg";
+import piccImg from "@/assets/cat-picc.jpg";
+import micaImg from "@/assets/cat-mica.jpg";
+import kaptonImg from "@/assets/cat-kapton.jpg";
+import fiberglassImg from "@/assets/cat-fiberglass.jpg";
+import litzCuImg from "@/assets/cat-litz-copper.jpg";
+import litzAlImg from "@/assets/cat-litz-aluminium.jpg";
+import busbarImg from "@/assets/cat-busbar.jpg";
 
 // Brochure PDF path - will work once the user uploads the file
 const brochurePdf = "/rational-engineers-brochure.pdf";
@@ -36,7 +36,7 @@ const ProductShowcase = () => {
   const products: Product[] = [
     {
       id: "ctc",
-      image: ctcAsset.url,
+      image: ctcImg,
       title: "CONTINUOUSLY TRANSPOSED CONDUCTOR (CTC)",
       category: "TRANSFORMER WINDINGS",
       description:
@@ -73,7 +73,7 @@ const ProductShowcase = () => {
     },
     {
       id: "bare-cable",
-      image: bareCableAsset.url,
+      image: bareCableImg,
       title: "BARE CABLE",
       category: "STRANDED CONDUCTORS",
       description:
@@ -104,7 +104,7 @@ const ProductShowcase = () => {
     },
     {
       id: "insulated-cable",
-      image: insulatedCableAsset.url,
+      image: insulatedCableImg,
       title: "INSULATED CABLE",
       category: "INSULATED CONDUCTORS",
       description:
@@ -136,7 +136,7 @@ const ProductShowcase = () => {
     },
     {
       id: "enamelled-copper",
-      image: enamCopperAsset.url,
+      image: enamCopperImg,
       title: "ENAMELLED COPPER — ROUND & RECTANGLE",
       category: "MAGNET WIRE",
       description:
@@ -169,7 +169,7 @@ const ProductShowcase = () => {
     },
     {
       id: "enamelled-aluminium",
-      image: enamAluAsset.url,
+      image: enamAluImg,
       title: "ENAMELLED ALUMINIUM — ROUND & RECTANGLE",
       category: "MAGNET WIRE",
       description:
@@ -202,7 +202,7 @@ const ProductShowcase = () => {
     },
     {
       id: "picc",
-      image: piccAsset.url,
+      image: piccImg,
       title: "PAPER INSULATED COPPER CONDUCTOR (PICC)",
       category: "INSULATED CONDUCTORS",
       description:
@@ -237,7 +237,7 @@ const ProductShowcase = () => {
     },
     {
       id: "mica",
-      image: micaAsset.url,
+      image: micaImg,
       title: "MICA INSULATED COPPER CONDUCTOR",
       category: "HIGH VOLTAGE INSULATION",
       description:
@@ -268,7 +268,7 @@ const ProductShowcase = () => {
     },
     {
       id: "kapton",
-      image: kaptonAsset.url,
+      image: kaptonImg,
       title: "POLYIMIDE / KAPTON INSULATED COPPER",
       category: "HIGH TEMPERATURE INSULATION",
       description:
@@ -300,7 +300,7 @@ const ProductShowcase = () => {
     },
     {
       id: "fiberglass",
-      image: fiberglassAsset.url,
+      image: fiberglassImg,
       title: "FIBER GLASS INSULATED COPPER & ALUMINIUM",
       category: "HIGH TEMPERATURE INSULATION",
       description:
@@ -333,7 +333,7 @@ const ProductShowcase = () => {
     },
     {
       id: "litz-copper",
-      image: litzCuAsset.url,
+      image: litzCuImg,
       title: "HIGH FREQUENCY COPPER LITZ WIRES & CABLES",
       category: "HIGH FREQUENCY CONDUCTORS",
       description:
@@ -365,7 +365,7 @@ const ProductShowcase = () => {
     },
     {
       id: "litz-aluminium",
-      image: litzAlAsset.url,
+      image: litzAlImg,
       title: "HIGH FREQUENCY ALUMINIUM LITZ WIRES & CABLES",
       category: "HIGH FREQUENCY CONDUCTORS",
       description:
@@ -397,7 +397,7 @@ const ProductShowcase = () => {
     },
     {
       id: "busbar",
-      image: busbarAsset.url,
+      image: busbarImg,
       title: "COPPER BUSBAR & COPPER FLAT STRIPS",
       category: "FLAT CONDUCTORS",
       description:
