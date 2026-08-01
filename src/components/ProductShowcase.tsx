@@ -604,13 +604,16 @@ const ProductShowcase = () => {
 
                 {/* CTA */}
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <a
-                    href="/contact"
+                  <button
+                    onClick={() => {
+                      setQuoteProduct(selectedProduct);
+                      setQuoteOpen(true);
+                    }}
                     className="inline-flex items-center gap-2 bg-rational-red text-white px-6 py-3 rounded-sm hover:bg-foreground transition-colors duration-300"
                   >
                     Request Quote
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </button>
                   <button
                     onClick={() => setSelectedProduct(null)}
                     className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-sm hover:border-foreground/50 transition-colors duration-300"
@@ -623,6 +626,13 @@ const ProductShowcase = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <QuoteDialog
+        open={quoteOpen}
+        onOpenChange={setQuoteOpen}
+        productTitle={quoteProduct?.title}
+        specifications={quoteProduct?.specifications}
+      />
     </section>
   );
 };
