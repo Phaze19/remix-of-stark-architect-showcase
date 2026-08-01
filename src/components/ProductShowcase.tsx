@@ -33,6 +33,8 @@ interface Product {
 
 const ProductShowcase = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  const [quoteProduct, setQuoteProduct] = useState<Product | null>(null);
 
   const products: Product[] = [
     {
