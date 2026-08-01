@@ -26,11 +26,11 @@ const Navigation = () => {
           <img
             src={logoDark}
             alt="Rational Engineers"
-            className="h-16 w-auto md:h-20 lg:h-24"
+            className="h-16 w-auto md:h-20 xl:h-24"
           />
         </a>
 
-        <div className="hidden items-center gap-6 lg:flex xl:gap-10">
+        <div className="hidden items-center gap-4 lg:flex xl:gap-8">
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} className={desktopLinkClass}>
               {link.label}
