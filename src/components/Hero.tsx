@@ -32,12 +32,12 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-[4.5rem] font-light text-white text-architectural mb-8 reveal">
-            Empowering Transformation&nbsp;
+            Empowering Transformation
             <br />
             <span className="font-bold">
               By
               <br />
-              Powering Transmision&nbsp;&nbsp;
+              Powering Transmission&nbsp;&nbsp;
             </span>
           </h1>
 
