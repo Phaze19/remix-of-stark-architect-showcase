@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import aboutFacility from "@/assets/rational-facility-exterior.png.asset.json";
 import aboutLeadershipAsset from "@/assets/leadership-mj-jj.png.asset.json";
 import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
+import brandLogo from "@/assets/rational-logo.png";
+import brandLogoWhite from "@/assets/rational-logo-white.png";
+
 
 const About = () => {
   return (
@@ -16,6 +19,13 @@ const About = () => {
 
       {/* Hero Banner */}
       <section className="relative pt-14 pb-20 bg-background overflow-hidden">
+        {/* Brand watermark */}
+        <img
+          src={brandLogo}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-10 top-0 hidden w-[420px] opacity-[0.05] md:block"
+        />
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -23,14 +33,20 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                ABOUT US
-              </h1>
+              <div className="mb-5 flex items-center gap-4">
+                <img src={brandLogo} alt="Rational Engineers Limited" className="h-10 w-auto md:h-12" />
+                <span className="h-8 w-px bg-border" />
+                <h1 className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
+                  ABOUT US
+                </h1>
+              </div>
+              <span className="mb-6 block h-[3px] w-16 bg-rational-red" />
               <h2 className="mb-8 max-w-4xl text-4xl font-light leading-[1.05] tracking-tight text-architectural md:text-6xl">
                 A Legacy Built on Copper
               </h2>
               <div className="max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
                 <p>
+
                   Founded in <span className="font-semibold text-foreground">1989</span>, Rational
                   Engineers Limited (REL) is an ISO 9001:2015 certified manufacturer and one of
                   India's leading producers of transformer winding conductors — continuously
@@ -385,7 +401,54 @@ const About = () => {
         </div>
       </section>
 
+      {/* Brand Band */}
+      <section className="relative overflow-hidden bg-foreground py-20">
+        <img
+          src={brandLogoWhite}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-16 -right-8 w-[520px] brightness-0 invert opacity-[0.07]"
+        />
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-6xl">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid gap-10 md:grid-cols-[1fr_auto] md:items-center"
+            >
+              <div>
+                <div className="mb-6 flex items-center gap-4">
+                  <span className="h-px w-12 bg-rational-red" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-background/60">
+                    RATIONAL ENGINEERS LIMITED
+                  </span>
+                </div>
+                <p className="max-w-2xl text-2xl font-light leading-[1.2] tracking-tight text-background md:text-4xl">
+                  Empowering Transformation — precision copper conductors engineered for the
+                  world&apos;s transformer manufacturers.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] font-bold uppercase tracking-[0.2em] text-background/60">
+                  <span>ISO 9001:2015 CERTIFIED</span>
+                  <span className="hidden h-3 w-px bg-background/25 sm:block" />
+                  <span>SINCE 1989</span>
+                  <span className="hidden h-3 w-px bg-background/25 sm:block" />
+                  <span>MADE IN INDIA</span>
+                </div>
+              </div>
+              <img
+                src={brandLogoWhite}
+                alt="Rational Engineers Limited logo"
+                className="h-20 w-auto brightness-0 invert md:h-28"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
+
     </div>
   );
 };
