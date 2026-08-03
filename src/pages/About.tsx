@@ -25,7 +25,7 @@ const About = () => {
             >
               <h1 className="text-minimal text-muted-foreground mb-4 tracking-widest">ABOUT US</h1>
               <h2 className="text-4xl md:text-6xl font-light text-architectural mb-6">
-                A Legacy Built on Copper
+                A Legacy Built on Copper&nbsp;
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl whitespace-pre-line">
                 Founded in:
