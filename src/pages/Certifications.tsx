@@ -55,7 +55,7 @@ const certifications = [
     icon: Gauge,
     title: "CPRI Approved",
     subtitle: "Central Power Research Institute",
-    description: "Products tested and approved by CPRI — India's apex body for applied research in electrical power engineering.",
+    description: "Products tested and approved by CPRI \nIndia's apex body for applied research in electrical power engineering.",
     scope: "Type testing and performance validation of transformer-grade copper conductors",
     status: "Active",
   },
