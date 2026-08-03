@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import aboutFacility from "@/assets/about-facility.jpg";
+import aboutFacility from "@/assets/rational-facility-exterior.png.asset.json";
 import aboutLeadership from "@/assets/about-leadership.jpg";
 import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
 
