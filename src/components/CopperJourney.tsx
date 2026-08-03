@@ -1,7 +1,7 @@
 import { useRef, RefObject, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { Cylinder, Waves, Flame, Disc3 } from "lucide-react";
-import CopperScene from "@/components/journey/CopperScene";
+import CopperLine2D from "@/components/journey/CopperLine2D";
 import productCtcPaper from "@/assets/product-ctc-paper.jpg";
 import productCtcBare from "@/assets/product-ctc-bare.jpg";
 import productEnameled from "@/assets/product-enameled-wire.jpg";
@@ -25,12 +25,13 @@ const stages = [
     copy: "High-purity copper rod enters the line on driven rollers — the raw stock behind every conductor we ship.",
   },
   {
-    id: "draw",
+    id: "roll",
     num: "02",
     icon: Waves,
-    label: "Wire Drawing",
-    copy: "The rod is pulled through a hardened die and capstan — reduced, elongated and held to exact conductor gauge.",
+    label: "Hot Rolling",
+    copy: "The rod runs through the rolling mill — paired hardened rolls reduce the gauge and elongate it to precise section.",
   },
+
   {
     id: "anneal",
     num: "03",
@@ -179,7 +180,7 @@ const CopperJourney = () => {
             <div className="absolute left-8 right-8 top-[64%] h-px bg-white/10" />
 
             {/* ============ STAGES 01–04: REAL-TIME 3D ROLLING RIG ============ */}
-            <CopperScene progress={progress} scale={cfg.scale} />
+            <CopperLine2D progress={progress} />
 
 
             {/* Final reveal — bundle resolves into the product portfolio */}
