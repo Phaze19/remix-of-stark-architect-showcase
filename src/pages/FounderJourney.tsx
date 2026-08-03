@@ -101,7 +101,7 @@ const FounderJourney = () => {
       </div>
 
       {/* Hero */}
-      <section className="pt-40 pb-16 md:pt-48 md:pb-24">
+      <section className="pt-14 pb-16 md:pt-20 md:pb-24">
         <div className="container mx-auto px-6">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-end">
             <motion.div

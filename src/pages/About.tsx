@@ -15,7 +15,7 @@ const About = () => {
       </div>
 
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 bg-background overflow-hidden">
+      <section className="relative pt-14 pb-20 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div

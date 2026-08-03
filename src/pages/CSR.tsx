@@ -79,7 +79,7 @@ const CSR = () => {
       </div>
 
       {/* Hero */}
-      <section className="pt-40 pb-16 md:pt-48">
+      <section className="pt-14 pb-16 md:pt-20">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
