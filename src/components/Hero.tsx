@@ -64,17 +64,19 @@ const Hero = () => {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="py-6 lg:py-8 px-1 lg:px-6 border-b lg:border-b-0 border-r last:border-r-0 border-white/15"
+              className="group py-6 lg:py-10 px-1 lg:px-6 border-b lg:border-b-0 border-r last:border-r-0 border-white/15 transition-colors duration-500 hover:bg-white/[0.04]"
             >
-              <div className="font-display text-2xl md:text-3xl font-bold text-white">
+              <div className="font-display text-3xl md:text-4xl font-bold text-white">
                 {stat.value}
               </div>
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white/50 mt-2">
+              <div className="mt-3 h-px w-8 bg-rational-red transition-all duration-500 group-hover:w-14" />
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white/50 mt-3">
                 {stat.label}
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
