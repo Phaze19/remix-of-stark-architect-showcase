@@ -1,113 +1,171 @@
-import { TowerControl, Zap, Cog, Sun, ShieldCheck, Link2, CheckCircle2, Flame, Star } from "lucide-react";
-import appsBackdrop from "@/assets/applications-cinematic.jpg";
+import {
+  TowerControl,
+  Cog,
+  TrainFront,
+  Cable,
+  BatteryCharging,
+  SlidersHorizontal,
+  ShieldCheck,
+  Thermometer,
+  BadgeCheck,
+  Settings,
+} from "lucide-react";
 
 const applications = [
   {
-    num: "01.",
     icon: TowerControl,
-    title: "Power Transmission",
-    products: ["Bare Cable", "Insulated Cable", "Copper Busbar & Flat Strips"],
-    description: "Reliable power flow for grids, substations and distribution networks.",
+    title: "Power Transformers",
+    application: "Power generation, transmission & distribution transformers",
+    products: [
+      "Continuously Transposed Conductor (CTC)",
+      "Paper Insulated Copper Conductor (PICC)",
+      "Flexible Multi-Strand Copper Covered Cables",
+      "Enamelled Strips",
+      "Fiberglass Dry Type",
+    ],
   },
   {
-    num: "02.",
-    icon: Zap,
-    title: "Transformers & Reactors",
-    products: ["Continuously Transposed Conductor (CTC)", "Paper Insulated Copper Conductor (PICC)", "Copper Busbar & Flat Strips"],
-    description: "Low-loss winding solutions that ensure high efficiency and long equipment life.",
-  },
-  {
-    num: "03.",
     icon: Cog,
-    title: "Motors & Generators",
-    products: ["Enamelled Copper — Round & Rectangle", "Enamelled Aluminium — Round & Rectangle", "Fiber Glass Insulated Copper & Aluminium"],
-    description: "High-conductivity conductors for superior performance in rotating machines.",
+    title: "Motors",
+    application: "HT & LT motors for industrial, commercial & OEM use",
+    products: [
+      "Fiberglass Covered Copper Conductors",
+      "Enamelled Wire",
+      "Mica Covered Copper Conductors",
+    ],
   },
   {
-    num: "04.",
-    icon: Sun,
-    title: "Renewables & High Frequency",
-    products: ["High Frequency Copper Litz Wires", "High Frequency Aluminium Litz Wires", "Mica & Polyimide Insulated Copper"],
-    description: "Engineered for solar plants, wind farms, EV and energy-storage systems.",
+    icon: TrainFront,
+    title: "Locomotive & Traction",
+    application: "Locomotive, traction motors, auxiliary equipment & railway systems",
+    products: [
+      "Kapton Covered Copper Conductors",
+      "Nomex Covered Round Enamelled Wire",
+      "CTC Enamel Strips or CTC Enamel Wire",
+    ],
+  },
+  {
+    icon: Cable,
+    title: "Earthing Cable",
+    application: "Earthing & grounding systems for electrical installations",
+    products: ["Flexible Braided Earthing Copper Cable"],
+  },
+  {
+    icon: BatteryCharging,
+    title: "High Frequency Components / EV Battery Charging",
+    application:
+      "High-frequency components, inverters, converters & EV battery charging systems",
+    products: ["Litz Wire"],
+  },
+  {
+    icon: SlidersHorizontal,
+    title: "On-Load Tap Changers",
+    application: "On-load tap changers in power transformers for voltage regulation",
+    products: ["Bare Solid Copper Conductors", "Paper Covered Solid Copper Conductors"],
   },
 ];
 
 const benefits = [
-  { icon: ShieldCheck, lines: ["High Conductivity", "for Maximum Efficiency"] },
-  { icon: Link2, lines: ["Durability in Harsh &", "Demanding Environments"] },
-  { icon: CheckCircle2, lines: ["Reliable Performance", "with Long Service Life"] },
-  { icon: Flame, lines: ["Flame-Retardant &", "Environment-Friendly Options"] },
-  { icon: Star, lines: ["Custom Solutions", "for Every Application"] },
+  { icon: ShieldCheck, lines: ["High Conductivity for", "Superior Performance"] },
+  { icon: Thermometer, lines: ["High Thermal", "Resistance & Insulation"] },
+  { icon: BadgeCheck, lines: ["Reliable. Durable.", "Engineered for Excellence."] },
+  { icon: Settings, lines: ["Custom Solutions for", "Diverse Industrial Needs"] },
 ];
 
 const IndustrialApplications = () => {
   return (
     <section className="bg-background">
       {/* Header */}
-      <div className="container mx-auto px-6 pt-20 pb-12 text-center">
-        <h2 className="text-4xl md:text-5xl font-light text-foreground leading-tight">
-          Applications That Power
-          <span className="block text-rational-red">Performance &amp; Reliability</span>
-        </h2>
-        <p className="mt-5 text-muted-foreground text-lg max-w-2xl mx-auto">
-          Our conductors and cables are engineered for critical applications across industries where
-          uninterrupted power and efficiency matter most.
-        </p>
-      </div>
-
-      {/* Cinematic overlay grid */}
-      <div className="relative isolate overflow-hidden">
-        <img
-          src={appsBackdrop}
-          alt="Substation transformers, transmission towers, wind turbines and solar panels at dusk"
-          width={1920}
-          height={1088}
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[hsl(0_0%_5%/0.72)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(0_0%_5%/0.9)] via-transparent to-[hsl(0_0%_5%/0.55)]" />
-
-        <div className="relative container mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
-            {applications.map((app) => (
-              <div key={app.num} className="group px-6 py-14 lg:py-24 flex flex-col">
-                <app.icon className="w-8 h-8 text-rational-red mb-6" strokeWidth={1.5} />
-                <span className="text-4xl md:text-5xl font-semibold text-primary-foreground/95 leading-none">
-                  {app.num}
-                </span>
-                <h3 className="mt-5 text-xl font-semibold text-primary-foreground">{app.title}</h3>
-                <span className="mt-4 block h-px w-10 bg-rational-red transition-all duration-500 group-hover:w-20" />
-                <p className="mt-5 text-sm text-primary-foreground/70 leading-relaxed">
-                  {app.description}
-                </p>
-                <ul className="mt-6 space-y-2">
-                  {app.products.map((p) => (
-                    <li key={p} className="text-sm text-primary-foreground/85 flex items-start gap-2">
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-rational-red flex-shrink-0" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+      <div className="container mx-auto px-6 pt-20 pb-12">
+        <div className="mx-auto max-w-7xl">
+          <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-rational-red">
+            Products &amp; Services
+          </p>
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+            <h2 className="text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-6xl">
+              Product Portfolio &amp;
+              <span className="block font-normal text-rational-red">its Applications</span>
+            </h2>
+            <p className="border-l-2 border-rational-red pl-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              Specialized copper conductor solutions engineered to deliver performance, efficiency,
+              and reliability across critical applications.
+            </p>
           </div>
+          <span className="mt-8 block h-1 w-24 bg-rational-red" />
         </div>
       </div>
 
-      {/* Benefits strip */}
-      <div className="border-y border-border">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-border">
-            {benefits.map((b, i) => (
-              <div key={i} className="flex items-center gap-3 px-5 py-7 justify-center">
-                <b.icon className="w-7 h-7 text-foreground flex-shrink-0" strokeWidth={1.25} />
-                <p className="text-sm text-foreground/85 leading-snug">
-                  {b.lines[0]}
-                  <span className="block">{b.lines[1]}</span>
-                </p>
+      {/* Application cards */}
+      <div className="container mx-auto px-6 pb-16">
+        <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {applications.map((app) => (
+            <article
+              key={app.title}
+              className="group relative flex flex-col overflow-hidden border border-border bg-card p-7 transition-all duration-500 hover:-translate-y-1 hover:border-rational-red/50 hover:shadow-elegant"
+            >
+              <div className="flex items-start gap-4">
+                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-rational-red">
+                  <app.icon className="h-6 w-6 text-primary-foreground" strokeWidth={1.75} />
+                </span>
+                <h3 className="text-lg font-bold uppercase leading-tight tracking-tight text-foreground">
+                  {app.title}
+                </h3>
               </div>
-            ))}
+
+              <span className="mt-6 flex items-center gap-2">
+                <span className="h-px w-16 bg-rational-red transition-all duration-500 group-hover:w-28" />
+                <span className="h-1.5 w-1.5 rounded-full bg-rational-red" />
+              </span>
+
+              <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.18em] text-rational-red">
+                Applications
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {app.application}
+              </p>
+
+              <div className="my-6 border-t border-dashed border-border" />
+
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-rational-red">
+                Products
+              </p>
+              <ul className="mt-3 space-y-2">
+                {app.products.map((p) => (
+                  <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                    <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* Benefits strip + tagline */}
+      <div className="border-y border-border bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto grid max-w-7xl items-stretch lg:grid-cols-[1fr_auto]">
+            <div className="grid grid-cols-1 divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+              {benefits.map((b) => (
+                <div key={b.lines[0]} className="flex items-center gap-3 px-5 py-7">
+                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border-2 border-rational-red">
+                    <b.icon className="h-5 w-5 text-rational-red" strokeWidth={1.75} />
+                  </span>
+                  <p className="text-sm font-medium leading-snug text-foreground">
+                    {b.lines[0]}
+                    <span className="block font-normal text-muted-foreground">{b.lines[1]}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center bg-rational-red px-8 py-7">
+              <p className="text-sm font-bold uppercase leading-relaxed tracking-[0.08em] text-primary-foreground">
+                Powering Progress.
+                <span className="block">Connecting Possibilities.</span>
+                <span className="block">Delivering Performance.</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
