@@ -1,31 +1,38 @@
+import { useState } from "react";
 import { MapPin, Globe, Factory, Warehouse, Building2, Users } from "lucide-react";
+import WorldMap from "@/components/footprint/WorldMap";
 
 const locations = [
   {
     num: "01",
+    pin: "india",
     title: "Thane HQ, Maharashtra",
     label: "Headquarters & Manufacturing Hub",
     desc: "Central command for engineering, quality systems and customer partnerships.",
   },
   {
     num: "02",
+    pin: "india",
     title: "Wada, Daman & Vadodara",
     label: "Domestic Manufacturing Plants",
     desc: "Three plants delivering CTC, PICC and specialty winding conductors at scale.",
   },
   {
     num: "03",
+    pin: "dubai",
     title: "REL Metal Trading Co, Dubai",
     label: "Global Trade & Distribution Hub",
     desc: "International trade arm driving distribution across the Middle East, Africa and emerging markets worldwide.",
   },
   {
     num: "04",
+    pin: "germany",
     title: "Germany — Warehousing",
     label: "European Warehousing Hub",
     desc: "Dedicated European warehouse enabling rapid fulfillment and streamlined supply across the continent.",
   },
 ];
+
 
 const glance = [
   { icon: Globe, value: "16+", label: "Countries Served" },
