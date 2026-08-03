@@ -47,9 +47,15 @@ const CopperLine2D = ({ progress }: { progress: MotionValue<number> }) => {
   const sparks = useTransform(progress, band(1, 0.1, 0.35), [0, off]);
 
   /* 03 — annealing furnace */
-  const furnaceHeat = useTransform(progress, band(2, 0, 0.45), [0, 1]);
+  const furnaceHeat = useTransform(progress, band(2, 0, 0.35), [0, 1]);
+  const coreHeat = useTransform(progress, band(2, 0.05, 0.5), [0, 1]);
+  const bloom = useTransform(progress, band(2, 0.1, 0.55), [0, 0.85]);
   const annealedLen = useTransform(progress, band(2, 0.05, 1), [0, 420]);
   const haze = useTransform(progress, band(2, 0.1, 0.5), [0, 0.6 * off]);
+  /* smooth hot → soft-temper colour crossfade on the strand */
+  const hotWire = useTransform(progress, band(2, 0.35, 0.95), [1, 0]);
+  const mouthGlow = useTransform(progress, band(2, 0.02, 0.3), [0, 1]);
+
 
   /* 04 — finished coil */
   const coilSpin = useTransform(progress, band(3, 0, 1.2), [0, 1100 * off]);
