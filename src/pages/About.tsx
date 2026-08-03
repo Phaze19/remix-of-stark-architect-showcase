@@ -23,31 +23,35 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-minimal text-muted-foreground mb-4 tracking-widest">ABOUT US</h1>
-              <h2 className="text-4xl md:text-6xl font-light text-architectural mb-6">
-                A Legacy Built on Copper&nbsp;
+              <h1 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
+                ABOUT US
+              </h1>
+              <h2 className="mb-8 max-w-4xl text-4xl font-light leading-[1.05] tracking-tight text-architectural md:text-6xl">
+                A Legacy Built on Copper
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl whitespace-pre-line">
-                Founded in:
-
-                1989, Rational Engineers Limited (REL) is an ISO 9001:2015 certified manufacturer and one of India's leading producers of transformer winding conductors : continuously transposed conductors (CTC), paper-covered copper conductors (PICC) and other various&nbsp; insulation solutions for the power and distribution transformer industry.
-
-                With 35+ years of manufacturing excellence, REL has earned the trust of transformer manufacturers across India and international markets by delivering precision-engineered products, consistent quality, and dependable supply solutions.
-
-                Founded under the visionary leadership of Mr. Mahendra Jain,
-
-                whose family brings over four decades of expertise in the copper
-
-                Industry
-
-                &nbsp;REL continues to build on a legacy of innovation,
-
-                engineering excellence, and long-term customer partnerships,
-
-                strengthening its position as a preferred global supplier to the
-
-                &nbsp;transformer industry.
-              </p>
+              <div className="max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+                <p>
+                  Founded in <span className="font-semibold text-foreground">1989</span>, Rational
+                  Engineers Limited (REL) is an ISO 9001:2015 certified manufacturer and one of
+                  India's leading producers of transformer winding conductors — continuously
+                  transposed conductors (CTC), paper-covered copper conductors (PICC) and a range of
+                  insulation solutions for the power and distribution transformer industry.
+                </p>
+                <p>
+                  With <span className="font-semibold text-foreground">35+ years</span> of
+                  manufacturing excellence, REL has earned the trust of transformer manufacturers
+                  across India and international markets by delivering precision-engineered
+                  products, consistent quality, and dependable supply.
+                </p>
+                <p>
+                  Founded under the visionary leadership of{" "}
+                  <span className="font-semibold text-foreground">Mr. Mahendra Jain</span>, whose
+                  family brings over four decades of expertise in the copper industry, REL continues
+                  to build on a legacy of innovation, engineering excellence, and long-term customer
+                  partnerships — strengthening its position as a preferred global supplier to the
+                  transformer industry.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -84,26 +88,26 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">OUR STORY</h3>
-                <h4 className="text-3xl md:text-4xl font-light text-architectural mb-10">
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">OUR STORY</h3>
+                <h4 className="mb-10 text-3xl font-light leading-[1.1] tracking-tight text-architectural md:text-4xl">
                   From Vision to Industry Leadership
                 </h4>
 
                 <div className="space-y-6">
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     Rational Engineers Limited was established in <span className="text-foreground font-semibold">1989</span> and 
                     was later taken over by{" "}
                     <span className="text-foreground font-semibold">Mr. Mahendra Jain (B.E Mech)</span>{" "}
                     in 2006 with a vision of transforming the production and distribution landscape of copper.
                   </p>
 
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     His son{" "}
                     <span className="text-foreground font-semibold">Mr. Jubin Jain (B.E Electrical)</span>{" "}
                     became a part of this vision in 2018 — bringing fresh energy and technical expertise to propel the company forward.
                   </p>
 
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     As a family enterprise, we have been a part of the copper business for over 
                     50 years, and have successfully managed, enhanced and transformed it since.
                   </p>
@@ -129,15 +133,15 @@ const About = () => {
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border">
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
-                      <p className="font-semibold text-foreground text-lg">Mr. Mahendra Khyalilal&nbsp; Jain</p>
-                      <p className="text-muted-foreground text-sm">Chairman &amp;&nbsp; Managing Director&nbsp;</p>
+                      <p className="text-base font-semibold tracking-tight text-foreground md:text-lg">Mr. Mahendra Khyalilal&nbsp; Jain</p>
+                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Chairman &amp;&nbsp; Managing Director&nbsp;</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border">
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
-                      <p className="font-semibold text-foreground text-lg">Mr. Jubin Jain</p>
-                      <p className="text-muted-foreground text-sm">Executive Director&nbsp;</p>
+                      <p className="text-base font-semibold tracking-tight text-foreground md:text-lg">Mr. Jubin Jain</p>
+                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Executive Director&nbsp;</p>
                     </div>
                   </div>
                 </div>
@@ -158,8 +162,8 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">WHY REL</h3>
-              <h4 className="text-3xl md:text-4xl font-light text-architectural max-w-2xl mx-auto">
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">WHY REL</h3>
+              <h4 className="mx-auto max-w-2xl text-3xl font-light leading-[1.1] tracking-tight text-architectural md:text-4xl">
                 Excellence Through Commitment
               </h4>
             </motion.div>
@@ -172,12 +176,12 @@ const About = () => {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
               >
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                   REL's futuristic and modern manufacturing facilities combined with 
                   uncompromising machinery and latest equipment makes it a{" "}
                   <span className="text-foreground font-medium">pioneer for stakeholders everywhere</span>.
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                   Maintaining high standards of ethics and professionalism in every aspect 
                   of our business, we provide a complete range of copper products with one 
                   objective in mind — <span className="text-foreground font-medium">exceeding customer expectations</span>.
@@ -204,7 +208,7 @@ const About = () => {
                       transition={{ duration: 0.4, delay: 0.1 * i }}
                       className="border-l-2 border-foreground/30 pl-6 hover:border-foreground transition-colors duration-300"
                     >
-                      <h5 className="text-lg font-medium mb-1 text-foreground">{item.title}</h5>
+                      <h5 className="mb-1 text-lg font-medium tracking-tight text-foreground">{item.title}</h5>
                       <p className="text-muted-foreground">{item.desc}</p>
                     </motion.div>
                   ))}
@@ -228,8 +232,8 @@ const About = () => {
                   { label: "NEXT GEN SINCE", value: "2018" },
                 ].map((stat) => (
                   <div key={stat.label}>
-                    <p className="text-3xl md:text-4xl font-light text-foreground mb-2">{stat.value}</p>
-                    <p className="text-minimal text-muted-foreground tracking-widest">{stat.label}</p>
+                    <p className="mb-2 text-3xl font-light tracking-tight text-foreground md:text-4xl">{stat.value}</p>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -248,8 +252,8 @@ const About = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">OUR JOURNEY</h3>
-              <h4 className="text-3xl md:text-4xl font-light text-architectural">
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">OUR JOURNEY</h3>
+              <h4 className="text-3xl font-light leading-[1.1] tracking-tight text-architectural md:text-4xl">
                 Milestones That Define Us
               </h4>
             </motion.div>
@@ -283,7 +287,7 @@ const About = () => {
                   {/* Content */}
                   <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                     <span className="text-sm font-semibold text-foreground tracking-widest">{milestone.year}</span>
-                    <h5 className="text-xl font-medium text-foreground mt-1 mb-2">{milestone.title}</h5>
+                    <h5 className="mb-2 mt-1 text-lg font-medium tracking-tight text-foreground md:text-xl">{milestone.title}</h5>
                     <p className="text-muted-foreground leading-relaxed">{milestone.desc}</p>
                   </div>
 
@@ -324,17 +328,17 @@ const About = () => {
             >
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-px w-12 bg-rational-red" />
-                <span className="text-minimal tracking-[0.3em] text-muted-foreground">
+                <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
                   FOUNDER'S JOURNEY
                 </span>
               </div>
-              <h3 className="text-3xl font-light text-architectural md:text-5xl">
+              <h3 className="text-3xl font-light leading-[1.05] tracking-tight text-architectural md:text-5xl">
                 Shri. Mahendra K. Jain
               </h3>
               <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-rational-red">
                 Chairman &amp; Managing Director
               </p>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
                 Building businesses. Creating value. Transforming lives — three decades of
                 entrepreneurship across engineering, metals, infrastructure, finance and
                 aviation, from Business Management in 1992 to the greenfield factory at
