@@ -189,7 +189,7 @@ const CopperLine2D = ({ progress }: { progress: MotionValue<number> }) => {
                 ry="12"
                 fill="rgba(255,180,110,0.28)"
                 filter="url(#soft)"
-                animate={{ cy: [252, 196], opacity: [0.5, 0] }}
+                animate={{ y: [0, -56], opacity: [0.5, 0] }}
                 transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.7, ease: "easeOut" }}
               />
             ))}
