@@ -60,6 +60,26 @@ const leaders: Leader[] = [
     ],
   },
   {
+    name: "Kajol Mahendra Jain",
+    role: "Director",
+    org: "Rational Engineers Limited",
+    din: "08014510",
+    image: kajolAsset.url,
+    quote:
+      "Success is not defined by profit alone, but by the value we create for people, communities, and future generations.",
+    bio: [
+      "The Finance Mind — with sharp financial acumen and strategic foresight, Kajol Mahendra Jain ensures the financial strength, transparency and sustainability of the Group. Her disciplined approach to finance drives growth, optimizes value and builds a strong foundation for the future.",
+      "Champion of CSR — believing in responsible business beyond boundaries, she actively supports CSR initiatives that empower communities, promote education, healthcare and sustainable development. A strong advocate of social impact, she proudly supports the noble initiatives of JITO Trust, Thane, working towards uplifting lives and creating positive change in society.",
+    ],
+    facts: [
+      "Finance & Strategy Leadership",
+      "Governance & Transparency",
+      "CSR & Community Development",
+      "Proud Supporter of JITO Trust Thane",
+    ],
+  },
+  {
+
     name: "Nilesh Pramod Vedak",
     role: "EXECUTIVE DIRECTOR",
     org: "Rational Engineers Limited",
