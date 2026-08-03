@@ -241,22 +241,6 @@ const CopperJourney = () => {
 };
 
 // ---------- helpers ----------
-const clamp = (v: number) => Math.max(0, Math.min(255, v));
-const parseHex = (hex: string) => {
-  const h = hex.replace("#", "");
-  const n = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
-  return [parseInt(n.slice(0, 2), 16), parseInt(n.slice(2, 4), 16), parseInt(n.slice(4, 6), 16)];
-};
-const toHex = (r: number, g: number, b: number) =>
-  `#${[r, g, b].map((v) => clamp(v).toString(16).padStart(2, "0")).join("")}`;
-const lighten = (hex: string, amt: number) => {
-  const [r, g, b] = parseHex(hex);
-  return toHex(r + (255 - r) * (amt / 100), g + (255 - g) * (amt / 100), b + (255 - b) * (amt / 100));
-};
-const darken = (hex: string, amt: number) => {
-  const [r, g, b] = parseHex(hex);
-  return toHex(r * (1 - amt / 100), g * (1 - amt / 100), b * (1 - amt / 100));
-};
 
 /** A finished product emerging from the drawn conductor, staggered by scroll. */
 const ProductTile = ({
