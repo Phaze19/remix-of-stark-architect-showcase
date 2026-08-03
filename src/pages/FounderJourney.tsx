@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
@@ -95,6 +96,9 @@ const FounderJourney = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <div className="pt-32 md:pt-40">
+        <AboutSubNav />
+      </div>
 
       {/* Hero */}
       <section className="pt-40 pb-16 md:pt-48 md:pb-24">

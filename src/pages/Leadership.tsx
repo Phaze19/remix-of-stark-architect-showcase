@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import founder from "@/assets/founder-mahendra-jain.jpg";
@@ -120,6 +121,9 @@ const Leadership = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <div className="pt-32 md:pt-40">
+        <AboutSubNav />
+      </div>
 
       <section className="pt-40 pb-16 md:pt-48">
         <div className="container mx-auto px-6">
