@@ -46,7 +46,7 @@ const About = () => {
               className="rounded-xl overflow-hidden"
             >
               <img
-                src={aboutFacility}
+                src={aboutFacility.url}
                 alt="Rational Engineers copper manufacturing facility"
                 className="w-full h-[300px] md:h-[450px] object-cover"
               />
