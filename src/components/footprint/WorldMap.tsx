@@ -50,35 +50,8 @@ const project = ([lon, lat]: [number, number]) => [
   ((90 - lat) / 180) * VH,
 ] as const;
 
-/* Stylised low-detail continent silhouettes (equirectangular, 1000x500) */
-const CONTINENTS = [
-  // North America
-  "M120 70 L215 62 L268 78 L262 105 L288 112 L272 140 L238 150 L226 178 L204 196 L186 178 L172 150 L150 138 L128 112 L112 92 Z",
-  // Greenland
-  "M300 40 L342 34 L356 58 L336 82 L306 72 Z",
-  // Central America
-  "M226 196 L252 206 L268 226 L256 236 L236 216 Z",
-  // South America
-  "M282 232 L318 226 L336 254 L330 296 L314 340 L296 378 L280 396 L268 372 L266 330 L272 292 L266 262 Z",
-  // Africa
-  "M470 178 L520 168 L556 176 L570 200 L562 232 L548 262 L534 300 L516 336 L500 350 L486 330 L482 296 L470 262 L458 226 L462 198 Z",
-  // Europe
-  "M470 96 L512 86 L546 92 L556 112 L536 132 L506 142 L482 136 L466 118 Z",
-  // Middle East
-  "M566 150 L612 146 L640 160 L664 180 L648 200 L616 196 L586 178 Z",
-  // Russia / North Asia
-  "M556 66 L660 56 L760 60 L840 70 L890 86 L866 108 L800 118 L730 112 L666 118 L606 112 L570 96 Z",
-  // South Asia
-  "M660 170 L706 166 L724 182 L716 206 L700 224 L686 206 L668 188 Z",
-  // East Asia
-  "M730 122 L800 126 L836 142 L842 168 L812 186 L772 182 L740 162 Z",
-  // SE Asia islands
-  "M796 200 L836 206 L862 220 L840 236 L804 228 L788 214 Z",
-  // Australia
-  "M840 300 L900 292 L932 308 L928 344 L896 360 L858 348 L836 326 Z",
-  // New Zealand
-  "M950 350 L968 344 L974 366 L956 374 Z",
-];
+/* Real country outlines (Natural Earth 110m), equirectangular 1000x500 */
+
 
 type Props = {
   activeId: string | null;
