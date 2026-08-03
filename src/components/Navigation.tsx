@@ -170,77 +170,8 @@ const Navigation = () => {
         </div>
       </div>
 
+      <QuoteDialog open={isQuoteOpen} onOpenChange={setIsQuoteOpen} />
 
-        <div className="hidden items-center gap-4 lg:flex xl:gap-8">
-          {navLinks.map((link) =>
-            link.children ? (
-              <div
-                key={link.label}
-                className="relative"
-                onMouseEnter={() => setOpenDropdown(link.label)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                <a
-                  href={link.href}
-                  className={`${desktopLinkClass} flex items-center gap-1.5`}
-                >
-                  {link.label}
-                  <ChevronDown size={13} className="mt-px" />
-                </a>
-
-                {openDropdown === link.label && (
-                  <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5">
-                    <div className="w-[520px] overflow-hidden border-t-2 border-rational-red bg-[linear-gradient(135deg,#1a0f0a_0%,#3d1f10_45%,#0d0d0d_100%)] shadow-2xl">
-                      <div className="grid grid-cols-2 gap-px bg-white/10">
-                        {link.children.map((child) => (
-                          <a
-                            key={child.href}
-                            href={child.href}
-                            className="group block bg-[#140c08]/95 px-6 py-6 transition-colors duration-300 hover:bg-[#4a2612]/80"
-                          >
-                            <span className="block font-display text-lg font-light text-[#f5e2d2] group-hover:text-white">
-                              {child.label}
-                            </span>
-                            <span className="mt-2 block h-px w-full origin-left scale-x-100 bg-gradient-to-r from-[#c87b48] to-transparent transition-transform duration-300 group-hover:from-rational-red" />
-                            <span className="mt-2 block text-[11px] uppercase tracking-[0.14em] text-[#c9a58c]">
-                              {child.desc}
-                            </span>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <a key={link.href} href={link.href} className={desktopLinkClass}>
-                {link.label}
-              </a>
-            )
-          )}
-        </div>
-
-        <div className="hidden shrink-0 items-center lg:flex">
-          <button
-            onClick={() => setIsQuoteOpen(true)}
-            className="whitespace-nowrap bg-rational-red px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] text-primary-foreground hover:bg-foreground transition-colors duration-300"
-          >
-            Request Quote
-          </button>
-        </div>
-
-        <QuoteDialog open={isQuoteOpen} onOpenChange={setIsQuoteOpen} />
-
-        <button
-          type="button"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="-mr-1 shrink-0 p-2 text-foreground hover:text-rational-red transition-colors duration-300 lg:hidden"
-        >
-          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
 
       {/* Mobile / tablet menu */}
       {isMenuOpen && (
