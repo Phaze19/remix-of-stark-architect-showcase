@@ -62,21 +62,22 @@ const Navigation = () => {
             {contactItems.map((item) => {
               const Body = (
                 <div className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-rational-red/10">
-                    <item.icon className="h-4 w-4 text-rational-red" />
+                  <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-rational-red/10">
+                    <item.icon className="h-5 w-5 text-rational-red" />
                   </span>
                   <div>
-                    <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-rational-red">
+                    <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-rational-red">
                       {item.label}
                     </span>
                     {item.lines.map((line) => (
-                      <span key={line} className="block text-xs leading-relaxed text-foreground/75">
+                      <span key={line} className="block text-[13px] leading-relaxed text-foreground/75">
                         {line}
                       </span>
                     ))}
                   </div>
                 </div>
               );
+
               return (
                 <div
                   key={item.label}
