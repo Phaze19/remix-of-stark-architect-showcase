@@ -27,7 +27,8 @@ const navLinks: NavLink[] = [
 ];
 
 const desktopLinkClass =
-  "relative whitespace-nowrap text-minimal text-white/80 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-6px] after:left-0 after:bg-white after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left";
+  "relative whitespace-nowrap text-[13px] font-semibold uppercase tracking-[0.14em] text-white/80 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-8px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left";
+
 
 const contactItems = [
   {
@@ -47,35 +48,37 @@ const Navigation = () => {
   return (
     <nav className="fixed top-8 left-0 right-0 z-50">
       {/* Tier 1 — logo band + contact strip */}
-      <div className="relative bg-background">
-        <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-2 md:px-6 lg:px-8">
+      <div className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
+        <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-4 md:px-6 md:py-5 lg:px-8">
           <a href="/" className="relative z-10 flex shrink-0 items-center">
             <img
               src={logoDark}
               alt="Rational Engineers"
-              className="h-14 w-auto md:h-16 xl:h-20"
+              className="h-16 w-auto md:h-24 xl:h-28"
             />
           </a>
+
 
           <div className="hidden items-stretch gap-8 lg:flex">
             {contactItems.map((item) => {
               const Body = (
                 <div className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-sm bg-rational-red/10">
-                    <item.icon className="h-4 w-4 text-rational-red" />
+                  <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-rational-red/10">
+                    <item.icon className="h-5 w-5 text-rational-red" />
                   </span>
                   <div>
-                    <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-rational-red">
+                    <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-rational-red">
                       {item.label}
                     </span>
                     {item.lines.map((line) => (
-                      <span key={line} className="block text-xs leading-relaxed text-foreground/75">
+                      <span key={line} className="block text-[13px] leading-relaxed text-foreground/75">
                         {line}
                       </span>
                     ))}
                   </div>
                 </div>
               );
+
               return (
                 <div
                   key={item.label}
@@ -113,7 +116,7 @@ const Navigation = () => {
         />
 
         <div className="container mx-auto flex items-center justify-between gap-6 px-4 md:px-6 lg:px-8">
-          <div className="relative z-10 flex items-center gap-6 py-4 xl:gap-9">
+          <div className="relative z-10 flex items-center gap-7 py-6 xl:gap-11">
             {navLinks.map((link) =>
               link.children ? (
                 <div
@@ -164,7 +167,7 @@ const Navigation = () => {
 
           <button
             onClick={() => setIsQuoteOpen(true)}
-            className="relative z-10 shrink-0 whitespace-nowrap bg-background px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] text-rational-red hover:bg-foreground hover:text-white transition-colors duration-300"
+            className="relative z-10 shrink-0 whitespace-nowrap bg-background px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.18em] text-rational-red hover:bg-foreground hover:text-white transition-colors duration-300"
           >
             Request Quote
           </button>

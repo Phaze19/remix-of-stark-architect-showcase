@@ -65,10 +65,16 @@
     /* Elegant Shadows */
     --shadow-architectural: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
     --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.15);
-    
+    --shadow-premium: 0 32px 80px -32px hsl(0 0% 0% / 0.28);
+
+    /* Premium accents */
+    --gradient-premium: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 97%));
+    --gradient-signal: linear-gradient(90deg, hsl(var(--rational-red)), hsl(var(--rational-red) / 0));
+
     /* Smooth Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
   }
 
   .dark {
@@ -131,11 +137,19 @@
   .text-minimal {
     @apply tracking-wide uppercase text-xs font-medium;
   }
-  
+
+  /* Premium surface card */
+  .card-premium {
+    background: var(--gradient-premium);
+    box-shadow: var(--shadow-premium);
+    @apply border border-border/70;
+  }
+
   /* Hero Image Overlay */
   .hero-overlay {
     background: var(--gradient-overlay);
   }
+
   
   /* Smooth Reveal Animation */
   .reveal {

@@ -22,27 +22,28 @@ const TrustSignals = () => {
   ];
 
   return (
-    <section className="py-20 bg-background border-b border-border">
+    <section className="py-24 bg-background border-b border-border">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-minimal text-rational-red mb-4 tracking-widest">
+          <div className="text-center mb-14">
+            <h2 className="text-minimal text-rational-red mb-4 tracking-[0.3em]">
               TRUSTED BY INDUSTRY LEADERS
             </h2>
             <div className="w-12 h-0.5 bg-rational-red mx-auto" />
           </div>
-          
+
           {/* Client Logos */}
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-border mb-14">
             {clients.map((client, index) => (
-              <div 
-                key={index} 
-                className="text-2xl md:text-3xl font-bold text-muted-foreground/60 hover:text-rational-red transition-colors duration-300"
+              <div
+                key={index}
+                className="flex items-center justify-center bg-background py-8 text-xl md:text-2xl font-display font-bold tracking-tight text-muted-foreground/50 hover:bg-muted hover:text-rational-red transition-all duration-500"
               >
                 {client}
               </div>
             ))}
           </div>
+
           
           {/* Certifications & Since */}
           <div className="flex flex-wrap justify-center items-center gap-8 pt-8 border-t border-border">
