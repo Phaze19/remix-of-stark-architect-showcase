@@ -65,17 +65,18 @@ const Rig = ({ progress, s }: { progress: MotionValue<number>; s: number }) => {
   const paper = useRef<THREE.Mesh>(null!);
   const root = useRef<THREE.Group>(null!);
 
-  const copperMat = useMemo(
-    () =>
+  /** strands and bundle need SEPARATE materials — a shared instance would
+   *  let one group's cross-fade opacity clobber the other's. */
+  const makeCopper = () =>
       new THREE.MeshPhysicalMaterial({
         color: new THREE.Color(COPPER),
         metalness: 1,
         roughness: 0.26,
         clearcoat: 0.35,
         clearcoatRoughness: 0.4,
-      }),
-    []
-  );
+      });
+  const strandMat = useMemo(makeCopper, []);
+  const bundleMat = useMemo(makeCopper, []);
 
   const steelMat = useMemo(
     () =>
@@ -239,7 +240,7 @@ const Rig = ({ progress, s }: { progress: MotionValue<number>; s: number }) => {
       {/* ---------- flat strands ---------- */}
       <group ref={strands}>
         {Array.from({ length: strandCount }).map((_, i) => (
-          <mesh key={i} material={copperMat}>
+          <mesh key={i} material={strandMat}>
             <boxGeometry args={[6, 0.14, 0.55]} />
           </mesh>
         ))}
@@ -248,7 +249,7 @@ const Rig = ({ progress, s }: { progress: MotionValue<number>; s: number }) => {
       {/* ---------- transposed bundle ---------- */}
       <group ref={bundle}>
         {Array.from({ length: stripCount }).map((_, i) => (
-          <mesh key={i} material={copperMat}>
+          <mesh key={i} material={bundleMat}>
             <boxGeometry args={[4.6, 0.1, 1.5]} />
           </mesh>
         ))}
