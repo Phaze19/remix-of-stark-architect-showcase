@@ -2,7 +2,7 @@ import heroImage from "@/assets/hero-copper-wires.jpg";
 
 const stats = [
   { value: "35+", label: "Years of manufacturing" },
-  { value: "20,000 T", label: "Annual capacity" },
+  { value: "33,000 T", label: "Annual capacity" },
   { value: "ISO 9001", label: "Certified quality systems" },
   { value: "40+", label: "OEM partners served" },
 ];
@@ -46,7 +46,7 @@ const Hero = () => {
               href="#trust"
               className="inline-block bg-rational-red text-white px-10 py-5 text-xs font-bold tracking-[0.15em] uppercase hover:-translate-y-0.5 hover:bg-rational-red/90 transition-all duration-300"
             >
-              Why ABB &amp; Siemens trust us
+              WHY TRUST US
             </a>
             <a
               href="#products"
