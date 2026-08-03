@@ -301,9 +301,7 @@ const Rig = ({ progress, s }: { progress: MotionValue<number>; s: number }) => {
           <mesh position={[0, 4.6, 0]} material={steelMat}>
             <boxGeometry args={[0.3, 0.3, 12]} />
           </mesh>
-          <mesh position={[0, 1.6, 5.6]} material={steelMat}>
-            <boxGeometry args={[0.26, 6.2, 0.26]} />
-          </mesh>
+          {/* rear column only — a front column would block the camera's view of the line */}
           <mesh position={[0, 1.6, -5.6]} material={steelMat}>
             <boxGeometry args={[0.26, 6.2, 0.26]} />
           </mesh>
