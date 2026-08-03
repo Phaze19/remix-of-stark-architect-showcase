@@ -1,5 +1,5 @@
 import { useRef, RefObject, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useReducedMotion, MotionValue } from "framer-motion";
 import { Cylinder, Waves, Flame, Disc3 } from "lucide-react";
 import CopperLine2D from "@/components/journey/CopperLine2D";
 import productCtcPaper from "@/assets/product-ctc-paper.jpg";
@@ -97,12 +97,17 @@ const useBreakpoint = (): BP => {
 const CopperJourney = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const bp = useBreakpoint();
+  const reduce = useReducedMotion();
   const cfg = BREAKPOINT_CONFIG[bp];
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const progress = useSpring(scrollYProgress, { damping: cfg.damping, stiffness: cfg.stiffness });
+  const smoothed = useSpring(scrollYProgress, { damping: cfg.damping, stiffness: cfg.stiffness });
+  // Reduced motion: read scroll directly (no springy easing) and shorten the
+  // scroll distance so the sequence is a compact, low-motion walkthrough.
+  const progress = reduce ? scrollYProgress : smoothed;
+  const sectionHeight = reduce ? "200vh" : cfg.height;
 
   const b0 = stageBand(0); // 0.00 → 0.25  rod
   const b1 = stageBand(1); // 0.25 → 0.50  drawing
