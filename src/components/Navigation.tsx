@@ -27,7 +27,8 @@ const navLinks: NavLink[] = [
 ];
 
 const desktopLinkClass =
-  "relative whitespace-nowrap text-minimal text-white/80 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-6px] after:left-0 after:bg-white after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left";
+  "relative whitespace-nowrap text-[13px] font-semibold uppercase tracking-[0.14em] text-white/80 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-8px] after:left-0 after:bg-rational-red after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left";
+
 
 const contactItems = [
   {
