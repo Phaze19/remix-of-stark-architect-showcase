@@ -64,16 +64,18 @@ const WorldMap = ({ activeId, onHover }: Props) => {
   return (
     <div className="relative w-full">
       <svg
-        viewBox={`0 0 ${VW} ${VH}`}
+        viewBox="0 20 1000 415"
         className="h-auto w-full"
         role="img"
         aria-label="World map showing Rational Engineers manufacturing in India, a trading hub in Dubai and a warehouse in Germany"
       >
-        <g className="fill-muted-foreground/25">
-          {CONTINENTS.map((d, i) => (
-            <path key={i} d={d} className="stroke-background" strokeWidth={1.5} />
-          ))}
-        </g>
+        <path
+          d={WORLD_PATH}
+          className="fill-muted-foreground/25 stroke-background"
+          strokeWidth={0.6}
+          fillRule="evenodd"
+        />
+
 
         {pins.map((pin, i) => {
           const [x, y] = project(pin.coords);
