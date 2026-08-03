@@ -19,9 +19,6 @@ const About = () => {
 
       {/* Hero Banner */}
       <section className="relative pt-14 pb-20 bg-background overflow-hidden">
-        <div className="container mx-auto px-6">
-      {/* Hero Banner */}
-      <section className="relative pt-14 pb-20 bg-background overflow-hidden">
         {/* Brand watermark */}
         <img
           src={brandLogo}
