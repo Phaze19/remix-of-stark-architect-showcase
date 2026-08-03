@@ -7,7 +7,13 @@ const TrustSignals = () => {
     "Toshiba",
     "TBEA",
     "Crompton",
-    "BHEL"
+    "BHEL",
+    "CG Power",
+    "Voltamp",
+    "Schneider",
+    "GE",
+    "Hitachi",
+    "EMCO"
   ];
 
   const certifications = [
