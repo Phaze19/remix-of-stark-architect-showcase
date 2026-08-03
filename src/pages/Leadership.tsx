@@ -182,7 +182,7 @@ const Leadership = () => {
                   <img
                     src={leader.image}
                     alt={`${leader.name}, ${leader.role} at ${leader.org}`}
-                    className="relative w-full object-cover"
+                    className="relative aspect-[4/5] w-full object-cover object-top"
                     loading="lazy"
                   />
                 </figure>
