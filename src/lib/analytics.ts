@@ -2,6 +2,13 @@
 // Measurement ID is a publishable key — safe to keep in the codebase.
 const GA_MEASUREMENT_ID = "G-7QVFB7309F";
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export function initAnalytics() {
   if (typeof window === "undefined") return;
   if (window.location.hostname === "localhost") return; // skip in dev
