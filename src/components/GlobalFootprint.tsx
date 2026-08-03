@@ -35,7 +35,7 @@ const locations = [
 
 
 const glance = [
-  { icon: Globe, value: "33+", label: "Countries Served" },
+  { icon: Globe, value: "30+", label: "Countries Served" },
   { icon: MapPin, value: "6", label: "Continents" },
   { icon: Factory, value: "3", label: "Manufacturing Locations" },
   { icon: Warehouse, value: "4", label: "Operational Hubs" },
