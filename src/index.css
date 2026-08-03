@@ -137,11 +137,19 @@
   .text-minimal {
     @apply tracking-wide uppercase text-xs font-medium;
   }
-  
+
+  /* Premium surface card */
+  .card-premium {
+    background: var(--gradient-premium);
+    box-shadow: var(--shadow-premium);
+    @apply border border-border/70;
+  }
+
   /* Hero Image Overlay */
   .hero-overlay {
     background: var(--gradient-overlay);
   }
+
   
   /* Smooth Reveal Animation */
   .reveal {
