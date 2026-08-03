@@ -133,15 +133,15 @@ const About = () => {
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border">
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
-                      <p className="font-semibold text-foreground text-lg">Mr. Mahendra Khyalilal&nbsp; Jain</p>
-                      <p className="text-muted-foreground text-sm">Chairman &amp;&nbsp; Managing Director&nbsp;</p>
+                      <p className="text-base font-semibold tracking-tight text-foreground md:text-lg">Mr. Mahendra Khyalilal&nbsp; Jain</p>
+                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Chairman &amp;&nbsp; Managing Director&nbsp;</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border">
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
-                      <p className="font-semibold text-foreground text-lg">Mr. Jubin Jain</p>
-                      <p className="text-muted-foreground text-sm">Executive Director&nbsp;</p>
+                      <p className="text-base font-semibold tracking-tight text-foreground md:text-lg">Mr. Jubin Jain</p>
+                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Executive Director&nbsp;</p>
                     </div>
                   </div>
                 </div>
@@ -208,7 +208,7 @@ const About = () => {
                       transition={{ duration: 0.4, delay: 0.1 * i }}
                       className="border-l-2 border-foreground/30 pl-6 hover:border-foreground transition-colors duration-300"
                     >
-                      <h5 className="text-lg font-medium mb-1 text-foreground">{item.title}</h5>
+                      <h5 className="mb-1 text-lg font-medium tracking-tight text-foreground">{item.title}</h5>
                       <p className="text-muted-foreground">{item.desc}</p>
                     </motion.div>
                   ))}
