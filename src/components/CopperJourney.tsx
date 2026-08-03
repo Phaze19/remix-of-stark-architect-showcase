@@ -106,44 +106,9 @@ const CopperJourney = () => {
   const b2 = stageBand(2); // 0.50 → 0.75  strands
   const b3 = stageBand(3); // 0.75 → 1.00  bundle + catalogue
 
-  // ---------- STAGE 1: COPPER ROD ----------
-  const rodOpacity = useTransform(
-    progress,
-    [b0.start, b0.start + FADE * 0.3, b1.end - FADE, b1.end],
-    [0, 1, 1, 0]
-  );
-  const rodY = useTransform(progress, [b0.start, b0.start + FADE], [-60, 0]);
-  const rodRotate = useTransform(progress, [b0.start, b0.start + FADE, b0.end], [-10, 0, 0]);
-  // rod holds its billet form through stage 1, then stretches across stage 2
-  const S = cfg.scale;
-  const rodWidth = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [260 * S, 520 * S, 620 * S]);
-  const rodHeight = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [46 * S, 14 * S, 6 * S]);
-  const rodCapWidth = useTransform(rodHeight, (h) => Math.max(4, (h as number) * 0.35));
-  const rodSheenX = useTransform(progress, [b0.start, b1.end], ["-60%", "140%"]);
+  // Stages 01–04 are rendered by the real-time 3D rig (CopperScene),
+  // which reads the same progress value and the same 25% stage bands.
 
-  // ---------- STAGE 2: DRAWING — draw die pinch ----------
-  const dieOpacity = useTransform(
-    progress,
-    [b1.start - FADE * 1.5, b1.start, b1.end - FADE, b1.end + FADE * 0.4],
-    [0, 1, 1, 0]
-  );
-  const dieGlow = useTransform(progress, [b1.start, (b1.start + b1.end) / 2, b1.end - FADE], [0, 1, 0]);
-
-  // ---------- STAGE 3: STRANDS ----------
-  const strandsOpacity = useTransform(
-    progress,
-    [b2.start - FADE, b2.start + FADE, b2.end - FADE, b2.end],
-    [0, 1, 1, 0]
-  );
-  const strandsSpread = useTransform(progress, [b2.start, b2.end - FADE], [0, 1]);
-  const strandsColor = useTransform(progress, [b2.start, (b2.start + b2.end) / 2], ["#c68343", "#b87333"]);
-  // rod fades out exactly as strands take over at the stage 2 → 3 boundary
-  const rodFinalOpacity = useTransform(progress, [b2.start - FADE, b2.start + FADE * 0.5], [1, 0]);
-
-  // ---------- STAGE 4: BUNDLE + CATALOGUE ----------
-  const bundleOpacity = useTransform(progress, [b3.start - FADE * 0.4, b3.start + FADE, b3.end], [0, 1, 1]);
-  const bundleScale = useTransform(progress, [b3.start, b3.start + FADE * 2], [0.72, 1]);
-  const paperWrapX = useTransform(progress, [b3.start + FADE, b3.start + FADE * 2.6], ["-120%", "0%"]);
 
   // Catalogue / portfolio reveal — final part of stage 4
   const catRevealStart = b3.start + SEG * 0.5;
