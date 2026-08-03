@@ -3,7 +3,7 @@ import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import aboutFacility from "@/assets/rational-facility-exterior.png.asset.json";
-import aboutLeadership from "@/assets/about-leadership.jpg";
+import aboutLeadershipAsset from "@/assets/leadership-mj-jj.png.asset.json";
 import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
 
 const About = () => {
@@ -102,7 +102,7 @@ const About = () => {
               >
                 <div className="rounded-xl overflow-hidden shadow-elegant">
                   <img
-                    src={aboutLeadership}
+                    src={aboutLeadershipAsset.url}
                     alt="Mr. Mahendra Jain and Mr. Jubin Jain - Leadership at Rational Engineers"
                     className="w-full h-auto object-cover"
                   />
