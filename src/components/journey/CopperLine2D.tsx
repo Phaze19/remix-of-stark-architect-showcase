@@ -196,27 +196,66 @@ const CopperLine2D = ({ progress }: { progress: MotionValue<number> }) => {
             <rect x="0" y="330" width="300" height="64" fill="url(#machine)" />
             <rect x="46" y="148" width="20" height="48" fill="#20252b" />
             <rect x="234" y="148" width="20" height="48" fill="#20252b" />
-            {/* inner heat */}
-            <motion.rect x="0" y="272" width="300" height="58" fill="url(#heat)" style={{ opacity: furnaceHeat }} />
-            <motion.ellipse cx="150" cy="299" rx="160" ry="40" fill="url(#heat)" filter="url(#soft)" style={{ opacity: furnaceHeat }} />
-            {/* annealed wire crossing the tunnel */}
-            <motion.rect x="-20" y="294" height="11" rx="5.5" fill="url(#cuHot)" style={{ width: annealedLen }} />
+            {/* outer bloom spilling out of the tunnel */}
+            <motion.ellipse
+              cx="150"
+              cy="299"
+              rx="215"
+              ry="62"
+              fill="url(#heat)"
+              filter="url(#bigBloom)"
+              style={{ opacity: bloom }}
+            />
+            {/* chamber core — graduated hot band */}
+            <motion.rect x="0" y="268" width="300" height="66" fill="url(#furnaceCore)" style={{ opacity: furnaceHeat }} />
+            <motion.rect
+              x="0"
+              y="284"
+              width="300"
+              height="32"
+              fill="url(#furnaceCore)"
+              filter="url(#soft)"
+              style={{ opacity: coreHeat }}
+            />
+            {/* glowing entry / exit mouths */}
+            <motion.ellipse cx="0" cy="299" rx="30" ry="42" fill="url(#mouth)" filter="url(#soft)" style={{ opacity: mouthGlow }} />
+            <motion.ellipse cx="300" cy="299" rx="30" ry="42" fill="url(#mouth)" filter="url(#soft)" style={{ opacity: bloom }} />
+            {/* strand crossing the tunnel — cooled base with hot layer crossfading out */}
+            <motion.rect x="-20" y="294" height="11" rx="5.5" fill="url(#cuSoft)" style={{ width: annealedLen }} />
+            <motion.rect
+              x="-20"
+              y="294"
+              height="11"
+              rx="5.5"
+              fill="url(#cuHot)"
+              style={{ width: annealedLen, opacity: hotWire }}
+            />
+            <motion.rect
+              x="-20"
+              y="290"
+              height="19"
+              rx="9.5"
+              fill="url(#heat)"
+              filter="url(#soft)"
+              style={{ width: annealedLen, opacity: coreHeat }}
+            />
             {/* rising haze */}
             <motion.g style={{ opacity: haze }}>
-              {[70, 150, 230].map((x, i) => (
+              {[40, 105, 170, 235, 290].map((x, i) => (
                 <motion.ellipse
                   key={x}
                   cx={x}
-                  cy={276}
-                  rx="24"
-                  ry="11"
-                  fill="rgba(255,180,110,0.3)"
+                  cy={274}
+                  rx={20 + (i % 2) * 8}
+                  ry="10"
+                  fill="rgba(255,170,95,0.28)"
                   filter="url(#soft)"
-                  animate={{ y: [0, -74], opacity: [0.55, 0] }}
-                  transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.7, ease: "easeOut" }}
+                  animate={{ y: [0, -90], opacity: [0.5, 0], scale: [0.85, 1.5] }}
+                  transition={{ duration: 2.8 + i * 0.2, repeat: Infinity, delay: i * 0.5, ease: "easeOut" }}
                 />
               ))}
             </motion.g>
+
             <text x="0" y="530" fill="rgba(255,255,255,0.35)" fontSize="13" letterSpacing="3.5">
               ANNEALING · SOFT TEMPER
             </text>
