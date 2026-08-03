@@ -1,31 +1,38 @@
+import { useState } from "react";
 import { MapPin, Globe, Factory, Warehouse, Building2, Users } from "lucide-react";
+import WorldMap from "@/components/footprint/WorldMap";
 
 const locations = [
   {
     num: "01",
+    pin: "india",
     title: "Thane HQ, Maharashtra",
     label: "Headquarters & Manufacturing Hub",
     desc: "Central command for engineering, quality systems and customer partnerships.",
   },
   {
     num: "02",
+    pin: "india",
     title: "Wada, Daman & Vadodara",
     label: "Domestic Manufacturing Plants",
     desc: "Three plants delivering CTC, PICC and specialty winding conductors at scale.",
   },
   {
     num: "03",
+    pin: "dubai",
     title: "REL Metal Trading Co, Dubai",
     label: "Global Trade & Distribution Hub",
     desc: "International trade arm driving distribution across the Middle East, Africa and emerging markets worldwide.",
   },
   {
     num: "04",
+    pin: "germany",
     title: "Germany — Warehousing",
     label: "European Warehousing Hub",
     desc: "Dedicated European warehouse enabling rapid fulfillment and streamlined supply across the continent.",
   },
 ];
+
 
 const glance = [
   { icon: Globe, value: "16+", label: "Countries Served" },
@@ -37,6 +44,8 @@ const glance = [
 ];
 
 const GlobalFootprint = () => {
+  const [activeId, setActiveId] = useState<string | null>(null);
+
   return (
     <section id="footprint" className="bg-background py-20 md:py-28">
       <div className="container mx-auto px-6">
@@ -55,28 +64,37 @@ const GlobalFootprint = () => {
           </p>
         </div>
 
-        {/* Locations */}
-        <div className="mt-14 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
-          {locations.map((l) => (
-            <div
-              key={l.num}
-              className="group flex gap-5 bg-background p-7 transition-colors hover:bg-muted/50 md:p-9"
-            >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                {l.num}
-              </span>
-              <div>
-                <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-foreground">
-                  {l.title}
-                </h3>
-                <p className="mt-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
-                  {l.label}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l.desc}</p>
+        {/* Map + locations */}
+        <div className="mt-14 grid items-start gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
+          <WorldMap activeId={activeId} onHover={setActiveId} />
+
+          <div className="grid gap-px overflow-hidden border border-border bg-border">
+            {locations.map((l) => (
+              <div
+                key={l.num}
+                onMouseEnter={() => setActiveId(l.pin)}
+                onMouseLeave={() => setActiveId(null)}
+                className={`group flex gap-5 p-7 transition-colors md:p-8 ${
+                  activeId === l.pin ? "bg-muted/60" : "bg-background hover:bg-muted/40"
+                }`}
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                  {l.num}
+                </span>
+                <div>
+                  <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-foreground">
+                    {l.title}
+                  </h3>
+                  <p className="mt-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
+                    {l.label}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l.desc}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
 
         {/* At a glance */}
         <div className="mt-12 bg-muted/60 px-6 py-10 md:px-10">
