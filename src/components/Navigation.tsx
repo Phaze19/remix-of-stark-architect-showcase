@@ -116,7 +116,7 @@ const Navigation = () => {
         />
 
         <div className="container mx-auto flex items-center justify-between gap-6 px-4 md:px-6 lg:px-8">
-          <div className="relative z-10 flex items-center gap-6 py-4 xl:gap-9">
+          <div className="relative z-10 flex items-center gap-7 py-6 xl:gap-11">
             {navLinks.map((link) =>
               link.children ? (
                 <div
