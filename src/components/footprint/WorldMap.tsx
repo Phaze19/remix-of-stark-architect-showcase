@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { WORLD_PATH } from "./worldPath";
 
 export type FootprintPin = {
   id: string;
