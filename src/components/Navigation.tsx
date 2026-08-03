@@ -106,11 +106,12 @@ const Navigation = () => {
       </div>
 
       {/* Tier 2 — nav bar */}
-      <div className="relative hidden bg-rational-red lg:block">
+      <div className="relative hidden overflow-hidden bg-foreground lg:block">
         <div
-          className="absolute inset-y-0 left-0 w-[26%] bg-foreground"
-          style={{ clipPath: "polygon(0 0, 100% 0, calc(100% - 28px) 100%, 0 100%)" }}
+          className="absolute inset-y-0 right-0 w-[30%] bg-rational-red"
+          style={{ clipPath: "polygon(56px 0, 100% 0, 100% 100%, 0 100%)" }}
         />
+
         <div className="container mx-auto flex items-center justify-between gap-6 px-4 md:px-6 lg:px-8">
           <div className="relative z-10 flex items-center gap-6 py-4 xl:gap-9">
             {navLinks.map((link) =>
