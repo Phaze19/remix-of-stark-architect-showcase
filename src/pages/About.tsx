@@ -102,7 +102,7 @@ const About = () => {
               >
                 <div className="rounded-xl overflow-hidden shadow-elegant">
                   <img
-                    src={aboutLeadership}
+                    src={aboutLeadershipAsset.url}
                     alt="Mr. Mahendra Jain and Mr. Jubin Jain - Leadership at Rational Engineers"
                     className="w-full h-auto object-cover"
                   />
