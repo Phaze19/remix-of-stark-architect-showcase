@@ -12,8 +12,7 @@ const TrustSignals = () => {
     "Voltamp",
     "Schneider",
     "GE",
-    "Hitachi",
-    "EMCO"
+    "Hitachi"
   ];
 
   const certifications = [
