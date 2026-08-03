@@ -4,10 +4,9 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import founder from "@/assets/founder-mahendra-jain.jpg";
 import jubin from "@/assets/director-jubin-jain.jpg";
-import parth from "@/assets/director-parth-jain.jpg";
-import mukul from "@/assets/director-mukul-srivastava.jpg";
 import ajit from "@/assets/director-ajit-venugopalan.jpg";
-import nilesh from "@/assets/director-nilesh-gandhi.jpg";
+import gandhi from "@/assets/director-nilesh-gandhi.jpg";
+import vedakAsset from "@/assets/director-nilesh-vedak.jpg.asset.json";
 import bipin from "@/assets/director-bipin-joshi.jpg";
 
 type Leader = {
