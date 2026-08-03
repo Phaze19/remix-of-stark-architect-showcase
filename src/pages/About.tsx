@@ -401,7 +401,54 @@ const About = () => {
         </div>
       </section>
 
+      {/* Brand Band */}
+      <section className="relative overflow-hidden bg-foreground py-20">
+        <img
+          src={brandLogoWhite}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-16 -right-8 w-[520px] opacity-[0.06]"
+        />
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-6xl">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid gap-10 md:grid-cols-[1fr_auto] md:items-center"
+            >
+              <div>
+                <div className="mb-6 flex items-center gap-4">
+                  <span className="h-px w-12 bg-rational-red" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-background/60">
+                    RATIONAL ENGINEERS LIMITED
+                  </span>
+                </div>
+                <p className="max-w-2xl text-2xl font-light leading-[1.2] tracking-tight text-background md:text-4xl">
+                  Empowering Transformation — precision copper conductors engineered for the
+                  world&apos;s transformer manufacturers.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] font-bold uppercase tracking-[0.2em] text-background/60">
+                  <span>ISO 9001:2015 CERTIFIED</span>
+                  <span className="hidden h-3 w-px bg-background/25 sm:block" />
+                  <span>SINCE 1989</span>
+                  <span className="hidden h-3 w-px bg-background/25 sm:block" />
+                  <span>MADE IN INDIA</span>
+                </div>
+              </div>
+              <img
+                src={brandLogoWhite}
+                alt="Rational Engineers Limited logo"
+                className="h-20 w-auto md:h-28"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
+
     </div>
   );
 };
