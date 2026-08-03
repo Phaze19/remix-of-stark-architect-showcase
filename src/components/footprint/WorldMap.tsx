@@ -96,7 +96,7 @@ const WorldMap = ({ activeId, onHover }: Props) => {
         role="img"
         aria-label="World map showing Rational Engineers manufacturing in India, a trading hub in Dubai and a warehouse in Germany"
       >
-        <g className="fill-muted">
+        <g className="fill-muted-foreground/25">
           {CONTINENTS.map((d, i) => (
             <path key={i} d={d} className="stroke-background" strokeWidth={1.5} />
           ))}
@@ -109,8 +109,8 @@ const WorldMap = ({ activeId, onHover }: Props) => {
           const ly = y + oy;
           const isActive = activeId === pin.id;
           const isManu = pin.kind === "manufacturing";
-          const colorClass = isManu ? "fill-primary" : "fill-foreground";
-          const strokeClass = isManu ? "stroke-primary" : "stroke-foreground";
+          const colorClass = isManu ? "fill-rational-red" : "fill-foreground";
+          const strokeClass = isManu ? "stroke-rational-red" : "stroke-foreground";
 
           return (
             <motion.g
@@ -196,7 +196,7 @@ const WorldMap = ({ activeId, onHover }: Props) => {
                 x={pin.labelAlign === "end" ? lx - 14 : lx + 14}
                 y={ly + 14}
                 textAnchor={pin.labelAlign === "end" ? "end" : "start"}
-                className="hidden fill-primary text-[13px] font-bold uppercase tracking-[0.14em] sm:block"
+                className="hidden fill-rational-red text-[13px] font-bold uppercase tracking-[0.14em] sm:block"
               >
                 {pin.sub}
               </text>
@@ -208,7 +208,7 @@ const WorldMap = ({ activeId, onHover }: Props) => {
       {/* Legend */}
       <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
         <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
-          <svg viewBox="0 0 20 26" className="h-5 w-4 fill-primary" aria-hidden>
+          <svg viewBox="0 0 20 26" className="h-5 w-4 fill-rational-red" aria-hidden>
             <path d="M10 26 C0 12 0.5 0 10 0 C19.5 0 20 12 10 26 Z" />
             <circle cx="10" cy="9" r="3.6" className="fill-background" />
           </svg>
