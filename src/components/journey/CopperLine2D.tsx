@@ -1,4 +1,4 @@
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { motion, MotionValue, useTransform, useReducedMotion } from "framer-motion";
 
 /**
  * CopperLine2D — flat, technical 2D production line.
@@ -26,26 +26,33 @@ const Roller = ({ x, y, r, spin }: { x: number; y: number; r: number; spin: Moti
 );
 
 const CopperLine2D = ({ progress }: { progress: MotionValue<number> }) => {
+  /**
+   * Reduced motion: keep the scroll-driven story (camera pan, growing strand,
+   * heat glow) but drop the purely decorative spinning, sparks and heat haze.
+   */
+  const reduce = useReducedMotion();
+  const off = reduce ? 0 : 1;
+
   /* camera pans down the line — one station per 25% band */
   const camX = useTransform(progress, [0, 0.25, 0.5, 0.75, 1], [0, -110, -580, -890, -960]);
 
   /* 01 — rod feeding in */
   const rodX = useTransform(progress, band(0, 0.05, 1), [-300, 40]);
-  const spin = useTransform(progress, [0, 1], [0, 2600]);
+  const spin = useTransform(progress, [0, 1], [0, 2600 * off]);
 
   /* 02 — rolling mill */
-  const millSpin = useTransform(progress, band(1, 0, 1.4), [0, 900]);
+  const millSpin = useTransform(progress, band(1, 0, 1.4), [0, 900 * off]);
   const rolledLen = useTransform(progress, band(1, 0.1, 1), [0, 430]);
   const millGlow = useTransform(progress, band(1, 0.08, 0.4), [0, 1]);
-  const sparks = useTransform(progress, band(1, 0.1, 0.35), [0, 1]);
+  const sparks = useTransform(progress, band(1, 0.1, 0.35), [0, off]);
 
   /* 03 — annealing furnace */
   const furnaceHeat = useTransform(progress, band(2, 0, 0.45), [0, 1]);
   const annealedLen = useTransform(progress, band(2, 0.05, 1), [0, 420]);
-  const haze = useTransform(progress, band(2, 0.1, 0.5), [0, 0.6]);
+  const haze = useTransform(progress, band(2, 0.1, 0.5), [0, 0.6 * off]);
 
   /* 04 — finished coil */
-  const coilSpin = useTransform(progress, band(3, 0, 1.2), [0, 1100]);
+  const coilSpin = useTransform(progress, band(3, 0, 1.2), [0, 1100 * off]);
   const feedLen = useTransform(progress, band(3, 0, 0.55), [0, 320]);
   const layer = (i: number) =>
     useTransform(progress, band(3, 0.05 + i * 0.11, 0.2 + i * 0.11), [0, 1]);

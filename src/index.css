@@ -154,3 +154,23 @@
     }
   }
 }
+
+/* ---------- Accessibility: reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  /* Decorative CSS animations (marquee ticker, pulses, hover scaling) are
+     disabled; scroll-driven storytelling is simplified in JS instead. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hover-scale:hover {
+    transform: none !important;
+  }
+}
