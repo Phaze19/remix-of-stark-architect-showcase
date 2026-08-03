@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import aboutFacility from "@/assets/about-facility.jpg";
@@ -9,9 +10,12 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
+      <div className="pt-32 md:pt-40">
+        <AboutSubNav />
+      </div>
 
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 bg-background overflow-hidden">
+      <section className="relative pt-14 pb-20 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
