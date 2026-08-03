@@ -1,6 +1,6 @@
 import { useRef, RefObject, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
-import { Cylinder, Waves, Layers, PackageCheck } from "lucide-react";
+import { Cylinder, Waves, Flame, Disc3 } from "lucide-react";
 import CopperScene from "@/components/journey/CopperScene";
 import productCtcPaper from "@/assets/product-ctc-paper.jpg";
 import productCtcBare from "@/assets/product-ctc-bare.jpg";
@@ -8,12 +8,12 @@ import productEnameled from "@/assets/product-enameled-wire.jpg";
 import productBusbar from "@/assets/product-busbar.jpg";
 
 /**
- * CopperJourney — ROD → CONDUCTOR EDITION
- * Scroll-driven cinematic sequence, staged inside a dark studio panel:
- *   1. A solid copper rod appears (billet stock)
- *   2. Rod is drawn / elongated into a thin copper wire
- *   3. Wire multiplies into parallel flat strands
- *   4. Strands transpose and bundle into finished CTC copper conductor → catalogue
+ * CopperJourney — ROD → FINISHED COIL EDITION
+ * Scroll-driven walk down a working production line:
+ *   1. Copper rod stock runs in on the conveyor
+ *   2. Drawing die pulls the rod down to conductor gauge
+ *   3. Annealing oven softens and brightens the wire
+ *   4. The wire winds onto the finished coil → product portfolio
  */
 
 const stages = [
@@ -22,30 +22,31 @@ const stages = [
     num: "01",
     icon: Cylinder,
     label: "Copper Rod",
-    copy: "It starts with a solid, high-purity copper rod — the raw stock that feeds every winding, busbar and conductor we ship.",
+    copy: "High-purity copper rod enters the line on driven rollers — the raw stock behind every conductor we ship.",
   },
   {
     id: "draw",
     num: "02",
     icon: Waves,
-    label: "Drawing & Rolling",
-    copy: "The rod is drawn and rolled — stretched thinner, longer, precise — the moment copper becomes conductor-grade wire.",
+    label: "Wire Drawing",
+    copy: "The rod is pulled through a hardened die and capstan — reduced, elongated and held to exact conductor gauge.",
   },
   {
-    id: "strands",
+    id: "anneal",
     num: "03",
-    icon: Layers,
-    label: "Flat Strands",
-    copy: "The wire is flattened and multiplied into parallel rectangular strands, ready to be transposed into CTC cable.",
+    icon: Flame,
+    label: "Annealing",
+    copy: "The drawn wire runs hot through the annealing furnace, relieving work hardening for soft, high-conductivity copper.",
   },
   {
-    id: "bundle",
+    id: "coil",
     num: "04",
-    icon: PackageCheck,
-    label: "Product Portfolio",
-    copy: "Transposed and paper-wrapped, the drawn copper becomes our product portfolio — CTC conductors, enameled wire and busbars trusted by India's grid leaders.",
+    icon: Disc3,
+    label: "Finished Coil",
+    copy: "The wire is laid onto the winder coil by coil — finished stock ready to become CTC conductors, enameled wire and busbars.",
   },
 ];
+
 
 /**
  * Single source of truth for stage timing.
