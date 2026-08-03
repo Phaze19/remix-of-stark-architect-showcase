@@ -1,6 +1,7 @@
 import { useRef, RefObject, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
 import { Cylinder, Waves, Layers, PackageCheck } from "lucide-react";
+import CopperScene from "@/components/journey/CopperScene";
 import productCtcPaper from "@/assets/product-ctc-paper.jpg";
 import productCtcBare from "@/assets/product-ctc-bare.jpg";
 import productEnameled from "@/assets/product-enameled-wire.jpg";
@@ -106,51 +107,16 @@ const CopperJourney = () => {
   const b2 = stageBand(2); // 0.50 → 0.75  strands
   const b3 = stageBand(3); // 0.75 → 1.00  bundle + catalogue
 
-  // ---------- STAGE 1: COPPER ROD ----------
-  const rodOpacity = useTransform(
-    progress,
-    [b0.start, b0.start + FADE * 0.3, b1.end - FADE, b1.end],
-    [0, 1, 1, 0]
-  );
-  const rodY = useTransform(progress, [b0.start, b0.start + FADE], [-60, 0]);
-  const rodRotate = useTransform(progress, [b0.start, b0.start + FADE, b0.end], [-10, 0, 0]);
-  // rod holds its billet form through stage 1, then stretches across stage 2
-  const S = cfg.scale;
-  const rodWidth = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [260 * S, 520 * S, 620 * S]);
-  const rodHeight = useTransform(progress, [b0.start + FADE, b0.end, b1.end], [46 * S, 14 * S, 6 * S]);
-  const rodCapWidth = useTransform(rodHeight, (h) => Math.max(4, (h as number) * 0.35));
-  const rodSheenX = useTransform(progress, [b0.start, b1.end], ["-60%", "140%"]);
+  // Stages 01–04 are rendered by the real-time 3D rig (CopperScene),
+  // which reads the same progress value and the same 25% stage bands.
 
-  // ---------- STAGE 2: DRAWING — draw die pinch ----------
-  const dieOpacity = useTransform(
-    progress,
-    [b1.start - FADE * 1.5, b1.start, b1.end - FADE, b1.end + FADE * 0.4],
-    [0, 1, 1, 0]
-  );
-  const dieGlow = useTransform(progress, [b1.start, (b1.start + b1.end) / 2, b1.end - FADE], [0, 1, 0]);
-
-  // ---------- STAGE 3: STRANDS ----------
-  const strandsOpacity = useTransform(
-    progress,
-    [b2.start - FADE, b2.start + FADE, b2.end - FADE, b2.end],
-    [0, 1, 1, 0]
-  );
-  const strandsSpread = useTransform(progress, [b2.start, b2.end - FADE], [0, 1]);
-  const strandsColor = useTransform(progress, [b2.start, (b2.start + b2.end) / 2], ["#c68343", "#b87333"]);
-  // rod fades out exactly as strands take over at the stage 2 → 3 boundary
-  const rodFinalOpacity = useTransform(progress, [b2.start - FADE, b2.start + FADE * 0.5], [1, 0]);
-
-  // ---------- STAGE 4: BUNDLE + CATALOGUE ----------
-  const bundleOpacity = useTransform(progress, [b3.start - FADE * 0.4, b3.start + FADE, b3.end], [0, 1, 1]);
-  const bundleScale = useTransform(progress, [b3.start, b3.start + FADE * 2], [0.72, 1]);
-  const paperWrapX = useTransform(progress, [b3.start + FADE, b3.start + FADE * 2.6], ["-120%", "0%"]);
 
   // Catalogue / portfolio reveal — final part of stage 4
   const catRevealStart = b3.start + SEG * 0.5;
   const catalogueOpacity = useTransform(progress, [catRevealStart, b3.end - 0.06], [0, 1]);
   const catalogueScale = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.05], [0.82, 1]);
   const catalogueY = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.05], [24, 0]);
-  const bundleFadeOut = useTransform(progress, [catRevealStart, b3.end - 0.06], [1, 0]);
+  
   const underlineScale = useTransform(progress, [catRevealStart + 0.02, b3.end - 0.05], [0, 1]);
   // product tiles fan in one after another as the conductor becomes the portfolio
   const tilesStart = catRevealStart + SEG * 0.12;
@@ -211,183 +177,9 @@ const CopperJourney = () => {
             {/* horizon line */}
             <div className="absolute left-8 right-8 top-[64%] h-px bg-white/10" />
 
-            {/* ============ STAGE 1+2: COPPER ROD → WIRE ============ */}
-            <motion.div
-              style={{ opacity: rodOpacity, y: rodY, rotate: rodRotate }}
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            >
-              <motion.div style={{ opacity: rodFinalOpacity }} className="relative">
-                <motion.div
-                  style={{
-                    width: rodWidth,
-                    height: rodHeight,
-                    background:
-                      "linear-gradient(180deg,#3a1d0c 0%,#7a3f18 8%,#b87333 22%,#e39a52 40%,#ffc98a 50%,#e39a52 60%,#b87333 78%,#7a3f18 92%,#2a1408 100%)",
-                    boxShadow:
-                      "0 18px 40px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,220,180,0.6), inset 0 -2px 4px rgba(0,0,0,0.5)",
-                    borderRadius: 999,
-                  }}
-                  className="relative overflow-hidden"
-                >
-                  {/* axial brushed streaks */}
-                  <div
-                    className="absolute inset-0 opacity-40"
-                    style={{
-                      background:
-                        "repeating-linear-gradient(90deg, rgba(255,240,210,0.18) 0 1px, transparent 1px 4px)",
-                    }}
-                  />
-                  {/* moving specular sheen */}
-                  <motion.div style={{ x: rodSheenX }} className="absolute inset-y-0 w-1/3">
-                    <div
-                      className="w-full h-full"
-                      style={{
-                        background:
-                          "linear-gradient(90deg, transparent 0%, rgba(255,245,220,0.55) 50%, transparent 100%)",
-                        mixBlendMode: "screen",
-                      }}
-                    />
-                  </motion.div>
-                  {/* top/bottom micro highlights */}
-                  <div className="absolute inset-x-0 top-0 h-px bg-white/60" />
-                  <div className="absolute inset-x-0 bottom-0 h-px bg-black/50" />
-                </motion.div>
+            {/* ============ STAGES 01–04: REAL-TIME 3D ROLLING RIG ============ */}
+            <CopperScene progress={progress} scale={cfg.scale} />
 
-                {/* End caps for cylindrical realism */}
-                <motion.div
-                  style={{
-                    height: rodHeight,
-                    width: rodCapWidth,
-                    background:
-                      "radial-gradient(ellipse at 40% 40%, #ffd89a 0%, #c98548 50%, #4a2410 100%)",
-                    boxShadow: "inset 0 0 4px rgba(0,0,0,0.5)",
-                    borderRadius: "50%",
-                  }}
-                  className="absolute left-0 top-0 -translate-x-1/2"
-                />
-                <motion.div
-                  style={{
-                    height: rodHeight,
-                    width: rodCapWidth,
-                    background:
-                      "radial-gradient(ellipse at 40% 40%, #ffd89a 0%, #c98548 50%, #4a2410 100%)",
-                    boxShadow: "inset 0 0 4px rgba(0,0,0,0.5)",
-                    borderRadius: "50%",
-                  }}
-                  className="absolute right-0 top-0 translate-x-1/2"
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* ============ Drawing die pinch ============ */}
-            <motion.div
-              style={{ opacity: dieOpacity }}
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            >
-              <div className="relative w-24 h-24 flex items-center justify-center">
-                {/* die body */}
-                <div
-                  className="absolute inset-0 rounded-md"
-                  style={{
-                    background: "linear-gradient(180deg, #1f1f1f 0%, #3a3a3a 50%, #141414 100%)",
-                    boxShadow:
-                      "inset 0 2px 4px rgba(255,255,255,0.1), inset 0 -3px 6px rgba(0,0,0,0.6), 0 8px 18px rgba(0,0,0,0.5)",
-                    clipPath:
-                      "polygon(0 0, 100% 0, 100% 40%, 55% 50%, 100% 60%, 100% 100%, 0 100%, 0 60%, 45% 50%, 0 40%)",
-                  }}
-                />
-                {/* hot friction glow at pinch point */}
-                <motion.div
-                  style={{ opacity: dieGlow }}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-4 rounded-full"
-                >
-                  <div
-                    className="w-full h-full"
-                    style={{
-                      background:
-                        "radial-gradient(ellipse at center, #fff4c8 0%, #ff9a3d 50%, transparent 100%)",
-                      boxShadow: "0 0 20px 6px rgba(255,150,60,0.7)",
-                    }}
-                  />
-                </motion.div>
-                <DrawSparks progress={progress} />
-              </div>
-            </motion.div>
-
-            {/* ============ STAGE 3: FLAT STRANDS ============ */}
-            <motion.div
-              style={{ opacity: strandsOpacity, scale: S }}
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            >
-              <div className="relative w-[26rem] md:w-[30rem] h-24 flex items-center justify-center">
-                {[...Array(9)].map((_, i) => (
-                  <Strand key={i} index={i} total={9} spread={strandsSpread} color={strandsColor} />
-                ))}
-              </div>
-            </motion.div>
-
-            {/* ============ STAGE 4: BUNDLE (strands stacked + paper wrap) ============ */}
-            <motion.div
-              style={{ opacity: bundleOpacity, scale: bundleScale }}
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            >
-              <motion.div style={{ opacity: bundleFadeOut, scale: S }} className="relative">
-
-                {/* Stacked copper strips (edge view, CTC reference) */}
-                <div className="relative w-72 h-28 flex flex-col items-center justify-center gap-[2px]">
-                  {[...Array(11)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-full h-1.5 rounded-sm relative overflow-hidden"
-                      style={{
-                        background:
-                          "linear-gradient(90deg, #5a2e12 0%, #a15726 15%, #d97428 35%, #ffb066 50%, #d97428 65%, #a15726 85%, #5a2e12 100%)",
-                        boxShadow:
-                          "inset 0 1px 0 rgba(255,220,180,0.5), inset 0 -1px 0 rgba(0,0,0,0.45)",
-                      }}
-                    />
-                  ))}
-                  {/* Kraft paper wrap sliding in */}
-                  <motion.div
-                    style={{ x: paperWrapX }}
-                    className="absolute left-1/2 -translate-x-1/2 w-52 h-16 rounded-sm"
-                  >
-                    <div
-                      className="w-full h-full rounded-sm"
-                      style={{
-                        background: "linear-gradient(180deg, #dcb280 0%, #b8895a 55%, #7d5a35 100%)",
-                        boxShadow:
-                          "inset 0 2px 4px rgba(255,220,180,0.35), inset 0 -3px 6px rgba(0,0,0,0.35), 0 8px 16px rgba(0,0,0,0.4)",
-                      }}
-                    />
-                    {/* paper grain */}
-                    <div
-                      className="absolute inset-0 opacity-30 mix-blend-multiply rounded-sm"
-                      style={{
-                        background:
-                          "repeating-linear-gradient(90deg, rgba(0,0,0,0.15) 0 1px, transparent 1px 3px)",
-                      }}
-                    />
-                  </motion.div>
-                  {/* sheen */}
-                  <div
-                    className="absolute inset-0 pointer-events-none mix-blend-screen"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(255,240,200,0.3) 0%, transparent 40%, transparent 60%, rgba(255,180,100,0.22) 100%)",
-                    }}
-                  />
-                </div>
-                {/* warm rim glow */}
-                <div
-                  className="absolute inset-0 -z-10 blur-2xl"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at center, rgba(255,150,80,0.45) 0%, transparent 70%)",
-                  }}
-                />
-              </motion.div>
-            </motion.div>
 
             {/* Final reveal — bundle resolves into the product portfolio */}
             <motion.div
@@ -449,22 +241,6 @@ const CopperJourney = () => {
 };
 
 // ---------- helpers ----------
-const clamp = (v: number) => Math.max(0, Math.min(255, v));
-const parseHex = (hex: string) => {
-  const h = hex.replace("#", "");
-  const n = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
-  return [parseInt(n.slice(0, 2), 16), parseInt(n.slice(2, 4), 16), parseInt(n.slice(4, 6), 16)];
-};
-const toHex = (r: number, g: number, b: number) =>
-  `#${[r, g, b].map((v) => clamp(v).toString(16).padStart(2, "0")).join("")}`;
-const lighten = (hex: string, amt: number) => {
-  const [r, g, b] = parseHex(hex);
-  return toHex(r + (255 - r) * (amt / 100), g + (255 - g) * (amt / 100), b + (255 - b) * (amt / 100));
-};
-const darken = (hex: string, amt: number) => {
-  const [r, g, b] = parseHex(hex);
-  return toHex(r * (1 - amt / 100), g * (1 - amt / 100), b * (1 - amt / 100));
-};
 
 /** A finished product emerging from the drawn conductor, staggered by scroll. */
 const ProductTile = ({
@@ -511,83 +287,6 @@ const ProductTile = ({
   );
 };
 
-const Strand = ({
-  index,
-  total,
-  spread,
-  color,
-}: {
-  index: number;
-  total: number;
-  spread: MotionValue<number>;
-  color: MotionValue<string>;
-}) => {
-  const offset = index - (total - 1) / 2;
-  const y = useTransform(spread, (s) => offset * s * 10);
-  const rotate = useTransform(spread, (s) => offset * s * 1.5);
-  const bg = useTransform(
-    color,
-    (c) => `linear-gradient(180deg, ${lighten(c, 25)} 0%, ${c} 45%, ${darken(c, 35)} 100%)`
-  );
-  return (
-    <motion.div
-      style={{
-        y,
-        rotate,
-        backgroundImage: bg,
-        boxShadow:
-          "inset 0 1px 0 rgba(255,220,180,0.5), inset 0 -1px 0 rgba(0,0,0,0.4), 0 2px 6px rgba(0,0,0,0.45)",
-      }}
-      className="absolute w-full h-2 rounded-sm"
-    />
-  );
-};
-
-const DrawSparks = ({ progress }: { progress: MotionValue<number> }) => {
-  const b1 = stageBand(1);
-  const opacity = useTransform(
-    progress,
-    [b1.start - FADE * 0.5, b1.start + FADE, b1.end - FADE * 1.5, b1.end - FADE * 0.4],
-    [0, 1, 1, 0]
-  );
-  return (
-    <motion.div
-      style={{ opacity }}
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-16 pointer-events-none"
-    >
-      {[...Array(16)].map((_, i) => {
-        const angle = (Math.random() - 0.5) * 1.6;
-        const speed = 40 + Math.random() * 60;
-        const dx = Math.cos(angle) * speed * (i % 2 === 0 ? 1 : -1);
-        const dy = Math.sin(angle) * speed * 0.4;
-        return (
-          <motion.span
-            key={i}
-            className="absolute top-1/2 left-1/2 rounded-full"
-            style={{
-              width: 2 + Math.random() * 2,
-              height: 2 + Math.random() * 2,
-              background: "radial-gradient(circle, #fff2a8 0%, #ff9a3d 55%, #d43a0a 100%)",
-              boxShadow: "0 0 6px 2px rgba(255,150,60,0.8)",
-            }}
-            animate={{
-              x: [0, dx],
-              y: [0, dy, dy + 30],
-              opacity: [0, 1, 0],
-              scale: [1, 1, 0.3],
-            }}
-            transition={{
-              duration: 0.6 + Math.random() * 0.5,
-              repeat: Infinity,
-              delay: (i % 8) * 0.06 + Math.random() * 0.25,
-              ease: "easeOut",
-            }}
-          />
-        );
-      })}
-    </motion.div>
-  );
-};
 
 const StageRow = ({
   progress,
