@@ -6,6 +6,7 @@ import Differentiation from "@/components/Differentiation";
 import CopperJourney from "@/components/CopperJourney";
 import CopperTicker from "@/components/CopperTicker";
 import MarketPulse from "@/components/MarketPulse";
+import GlobalFootprint from "@/components/GlobalFootprint";
 import ProductShowcase from "@/components/ProductShowcase";
 import NewsUpdates from "@/components/NewsUpdates";
 import Testimonials from "@/components/Testimonials";
@@ -37,6 +38,9 @@ const Index = () => {
         <div id="quality">
           <Differentiation />
         </div>
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <GlobalFootprint />
       </ScrollReveal>
       <CopperJourney />
       <ScrollReveal delay={0.1}>

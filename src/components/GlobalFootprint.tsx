@@ -87,7 +87,7 @@ const GlobalFootprint = () => {
             {glance.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
-                className="flex flex-col items-center border-border text-center lg:not-last:border-r"
+                className="flex flex-col items-center text-center"
               >
                 <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
                 <span className="mt-3 text-2xl font-light text-foreground md:text-3xl">
