@@ -144,18 +144,19 @@ const CopperLine2D = ({ progress }: { progress: MotionValue<number> }) => {
               {[...Array(16)].map((_, i) => (
                 <motion.circle
                   key={i}
-                  cx={86 + i * 5}
+                  cx={86}
                   cy={299}
                   r={1.6}
                   fill="#ffd08a"
                   animate={{
-                    cx: [86, 130 + i * 9],
-                    cy: [299, 299 + (i % 2 ? 1 : -1) * (30 + i * 4)],
+                    x: [0, 44 + i * 9],
+                    y: [0, (i % 2 ? 1 : -1) * (30 + i * 4)],
                     opacity: [1, 0],
                   }}
                   transition={{ duration: 0.7 + i * 0.05, repeat: Infinity, delay: i * 0.06, ease: "easeOut" }}
                 />
               ))}
+
             </motion.g>
           </motion.g>
           <text x="-70" y="520" fill="rgba(255,255,255,0.35)" fontSize="15" letterSpacing="6">
