@@ -374,28 +374,38 @@ const Rig = ({ progress, s }: { progress: MotionValue<number>; s: number }) => {
         <cylinderGeometry args={[0.3, 0.3, OVEN_IN - DIE_X - 0.6, 24]} />
       </mesh>
 
-      {/* ============ 03 annealing oven ============ */}
+      {/* ============ 03 annealing furnace (open tunnel: hood + bed) ============ */}
       <group position={[(OVEN_IN + OVEN_OUT) / 2, 0, 0]}>
-        <mesh position={[0, 0.9, 0]} material={darkMat}>
-          <boxGeometry args={[OVEN_OUT - OVEN_IN, 2.4, 2.8]} />
+        {/* hood above the wire path */}
+        <mesh position={[0, 1.5, 0]} material={darkMat}>
+          <boxGeometry args={[OVEN_OUT - OVEN_IN, 1.6, 2.8]} />
         </mesh>
-        <mesh position={[0, 2.2, 0]} material={accentMat}>
+        <mesh position={[0, 2.36, 0]} material={accentMat}>
           <boxGeometry args={[OVEN_OUT - OVEN_IN + 0.2, 0.14, 2.9]} />
         </mesh>
+        {/* heated bed below the wire path */}
+        <mesh position={[0, -1.05, 0]} material={darkMat}>
+          <boxGeometry args={[OVEN_OUT - OVEN_IN, 1.2, 2.8]} />
+        </mesh>
+        {/* rear refractory wall */}
+        <mesh position={[0, 0.2, -1.3]} material={darkMat}>
+          <boxGeometry args={[OVEN_OUT - OVEN_IN, 1.4, 0.24]} />
+        </mesh>
         {/* exhaust stacks */}
-        <mesh position={[-0.8, 2.9, 0]} material={steelMat}>
+        <mesh position={[-0.8, 3.1, 0]} material={steelMat}>
           <cylinderGeometry args={[0.2, 0.24, 1.4, 18]} />
         </mesh>
-        <mesh position={[0.8, 2.9, 0]} material={steelMat}>
+        <mesh position={[0.8, 3.1, 0]} material={steelMat}>
           <cylinderGeometry args={[0.2, 0.24, 1.4, 18]} />
         </mesh>
-        {/* glowing furnace mouth */}
-        <mesh ref={ovenGlow} position={[0, -0.15, 0]}>
-          <boxGeometry args={[OVEN_OUT - OVEN_IN + 0.1, 0.9, 0.9]} />
+        {/* glowing furnace throat around the wire */}
+        <mesh ref={ovenGlow} position={[0, 0.05, -0.35]}>
+          <boxGeometry args={[OVEN_OUT - OVEN_IN + 0.1, 1.05, 0.6]} />
           <meshBasicMaterial color="#ff7a22" transparent opacity={0.4} depthWrite={false} />
         </mesh>
-        <pointLight ref={ovenLight} position={[0, 0, 1]} color="#ff7318" intensity={8} distance={9} />
+        <pointLight ref={ovenLight} position={[0, 0, 0.4]} color="#ff7318" intensity={8} distance={9} />
       </group>
+
       <mesh
         ref={wireHot}
         position={[(OVEN_IN + OVEN_OUT) / 2, 0, 0]}
