@@ -10,6 +10,12 @@ import {
   BadgeCheck,
   Settings,
 } from "lucide-react";
+import appTransformers from "@/assets/app-transformers.jpg";
+import appMotors from "@/assets/app-motors.jpg";
+import appRailways from "@/assets/app-railways.jpg";
+import appEarthing from "@/assets/app-earthing.jpg";
+import appEvHf from "@/assets/app-ev-hf.jpg";
+import appTapChanger from "@/assets/app-tap-changer.jpg";
 
 const applications = [
   {
