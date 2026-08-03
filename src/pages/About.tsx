@@ -440,7 +440,7 @@ const About = () => {
               <img
                 src={brandLogoWhite}
                 alt="Rational Engineers Limited logo"
-                className="h-20 w-auto md:h-28"
+                className="h-20 w-auto brightness-0 invert md:h-28"
               />
             </motion.div>
           </div>
