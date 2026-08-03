@@ -47,15 +47,16 @@ const Navigation = () => {
   return (
     <nav className="fixed top-8 left-0 right-0 z-50">
       {/* Tier 1 — logo band + contact strip */}
-      <div className="relative bg-background">
-        <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-2 md:px-6 lg:px-8">
+      <div className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
+        <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-4 md:px-6 md:py-5 lg:px-8">
           <a href="/" className="relative z-10 flex shrink-0 items-center">
             <img
               src={logoDark}
               alt="Rational Engineers"
-              className="h-14 w-auto md:h-16 xl:h-20"
+              className="h-16 w-auto md:h-24 xl:h-28"
             />
           </a>
+
 
           <div className="hidden items-stretch gap-8 lg:flex">
             {contactItems.map((item) => {
