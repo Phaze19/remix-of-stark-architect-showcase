@@ -138,7 +138,7 @@ const CopperJourney = () => {
     <section
       ref={containerRef}
       className="relative bg-background"
-      style={{ height: cfg.height }}
+      style={{ height: sectionHeight }}
       aria-label="Copper manufacturing journey"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col">
@@ -304,13 +304,18 @@ const StageRow = ({
   containerRef: RefObject<HTMLDivElement>;
   railScale: MotionValue<number>;
 }) => {
+  const reduce = useReducedMotion();
   const jumpTo = (target: number) => {
     const el = containerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
     const sectionTop = rect.top + window.scrollY;
     const scrollable = el.offsetHeight - window.innerHeight;
-    window.scrollTo({ top: sectionTop + scrollable * target, behavior: "smooth" });
+    // Reduced motion: jump instantly instead of a long smooth scroll animation.
+    window.scrollTo({
+      top: sectionTop + scrollable * target,
+      behavior: reduce ? "auto" : "smooth",
+    });
   };
 
   return (
