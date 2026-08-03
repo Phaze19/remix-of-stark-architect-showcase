@@ -27,8 +27,26 @@ const About = () => {
               <h2 className="text-4xl md:text-6xl font-light text-architectural mb-6">
                 A Legacy Built on Copper
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                50+ years of excellence in copper conductor manufacturing — a family enterprise transforming an industry.
+              <p className="text-xl text-muted-foreground max-w-2xl whitespace-pre-line">
+                Founded in:
+
+                1989, Rational Engineers Limited (REL) is an ISO 9001:2015 certified manufacturer and one of India's leading producers of transformer winding conductors : continuously transposed conductors (CTC), paper-covered copper conductors (PICC) and other various&nbsp; insulation solutions for the power and distribution transformer industry.
+
+                With 35+ years of manufacturing excellence, REL has earned the trust of transformer manufacturers across India and international markets by delivering precision-engineered products, consistent quality, and dependable supply solutions.
+
+                Founded under the visionary leadership of Mr. Mahendra Jain,
+
+                whose family brings over four decades of expertise in the copper
+
+                Industry
+
+                &nbsp;REL continues to build on a legacy of innovation,
+
+                engineering excellence, and long-term customer partnerships,
+
+                strengthening its position as a preferred global supplier to the
+
+                &nbsp;transformer industry.
               </p>
             </motion.div>
           </div>
