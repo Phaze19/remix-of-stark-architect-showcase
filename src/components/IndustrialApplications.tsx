@@ -20,6 +20,7 @@ import appTapChanger from "@/assets/app-tap-changer.jpg";
 const applications = [
   {
     icon: TowerControl,
+    image: appTransformers,
     title: "Power Transformers",
     application: "Power generation, transmission & distribution transformers",
     products: [
@@ -32,6 +33,7 @@ const applications = [
   },
   {
     icon: Cog,
+    image: appMotors,
     title: "Motors",
     application: "HT & LT motors for industrial, commercial & OEM use",
     products: [
@@ -42,6 +44,7 @@ const applications = [
   },
   {
     icon: TrainFront,
+    image: appRailways,
     title: "Locomotive & Traction",
     application: "Locomotive, traction motors, auxiliary equipment & railway systems",
     products: [
@@ -52,12 +55,14 @@ const applications = [
   },
   {
     icon: Cable,
+    image: appEarthing,
     title: "Earthing Cable",
     application: "Earthing & grounding systems for electrical installations",
     products: ["Flexible Braided Earthing Copper Cable"],
   },
   {
     icon: BatteryCharging,
+    image: appEvHf,
     title: "High Frequency Components / EV Battery Charging",
     application:
       "High-frequency components, inverters, converters & EV battery charging systems",
@@ -65,6 +70,7 @@ const applications = [
   },
   {
     icon: SlidersHorizontal,
+    image: appTapChanger,
     title: "On-Load Tap Changers",
     application: "On-load tap changers in power transformers for voltage regulation",
     products: ["Bare Solid Copper Conductors", "Paper Covered Solid Copper Conductors"],
@@ -109,16 +115,26 @@ const IndustrialApplications = () => {
               key={app.title}
               className="group relative flex flex-col overflow-hidden border border-border bg-card p-7 transition-all duration-500 hover:-translate-y-1 hover:border-rational-red/50 hover:shadow-elegant"
             >
-              <div className="flex items-start gap-4">
-                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-rational-red">
-                  <app.icon className="h-6 w-6 text-primary-foreground" strokeWidth={1.75} />
+              <div className="relative -mx-7 -mt-7 mb-7 h-44 overflow-hidden">
+                <img
+                  src={app.image}
+                  alt={`${app.title} copper conductor application`}
+                  loading="lazy"
+                  width={1024}
+                  height={768}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+                <span className="absolute bottom-4 left-7 flex h-11 w-11 items-center justify-center bg-rational-red">
+                  <app.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.75} />
                 </span>
-                <h3 className="text-lg font-bold uppercase leading-tight tracking-tight text-foreground">
-                  {app.title}
-                </h3>
               </div>
 
-              <span className="mt-6 flex items-center gap-2">
+              <h3 className="text-lg font-bold uppercase leading-tight tracking-tight text-foreground">
+                {app.title}
+              </h3>
+
+              <span className="mt-5 flex items-center gap-2">
                 <span className="h-px w-16 bg-rational-red transition-all duration-500 group-hover:w-28" />
                 <span className="h-1.5 w-1.5 rounded-full bg-rational-red" />
               </span>
