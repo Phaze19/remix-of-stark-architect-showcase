@@ -42,7 +42,7 @@ const leaders: Leader[] = [
   },
   {
     name: "Jubin Mahendra Jain",
-    role: "Director",
+    role: "WHOLE TIME DIRECTOR",
     org: "Rational Engineers Limited",
     din: "754430",
     image: jubin,
@@ -60,7 +60,7 @@ const leaders: Leader[] = [
   },
   {
     name: "Nilesh Pramod Vedak",
-    role: "Director",
+    role: "EXECUTIVE DIRECTOR",
     org: "Rational Engineers Limited",
     din: "07874351",
     image: vedakAsset.url,
@@ -81,7 +81,7 @@ const leaders: Leader[] = [
   },
   {
     name: "Ajit E Venugopalan",
-    role: "Director",
+    role: "EXECUTIVE DIRECTOR",
     org: "Rational Engineers Limited",
     image: ajit,
     bio: [
