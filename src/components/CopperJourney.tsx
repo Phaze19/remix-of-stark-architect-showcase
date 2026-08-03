@@ -116,7 +116,7 @@ const CopperJourney = () => {
   const catalogueOpacity = useTransform(progress, [catRevealStart, b3.end - 0.06], [0, 1]);
   const catalogueScale = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.05], [0.82, 1]);
   const catalogueY = useTransform(progress, [catRevealStart - 0.02, b3.end - 0.05], [24, 0]);
-  const bundleFadeOut = useTransform(progress, [catRevealStart, b3.end - 0.06], [1, 0]);
+  
   const underlineScale = useTransform(progress, [catRevealStart + 0.02, b3.end - 0.05], [0, 1]);
   // product tiles fan in one after another as the conductor becomes the portfolio
   const tilesStart = catRevealStart + SEG * 0.12;
