@@ -111,15 +111,15 @@ const About = () => {
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border">
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
-                      <p className="font-semibold text-foreground text-lg">Mr. Mahendra Jain</p>
-                      <p className="text-muted-foreground text-sm">B.E Mechanical · Managing Director · Since 2006</p>
+                      <p className="font-semibold text-foreground text-lg">Mr. Mahendra Khyalilal&nbsp; Jain</p>
+                      <p className="text-muted-foreground text-sm">Chairman &amp;&nbsp; Managing Director&nbsp;</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border">
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
                       <p className="font-semibold text-foreground text-lg">Mr. Jubin Jain</p>
-                      <p className="text-muted-foreground text-sm">B.E Electrical · Director · Since 2018</p>
+                      <p className="text-muted-foreground text-sm">Executive Director&nbsp;</p>
                     </div>
                   </div>
                 </div>
