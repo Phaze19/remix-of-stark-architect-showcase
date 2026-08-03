@@ -407,7 +407,7 @@ const About = () => {
           src={brandLogoWhite}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -bottom-16 -right-8 w-[520px] opacity-[0.06]"
+          className="pointer-events-none absolute -bottom-16 -right-8 w-[520px] brightness-0 invert opacity-[0.07]"
         />
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-6xl">
