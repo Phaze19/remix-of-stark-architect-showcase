@@ -8,6 +8,15 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    // Lovable CDN assets (/__l5e/assets-v1/...) are served by hosting, not Vite.
+    // Proxy them in dev so .asset.json-backed images render in the sandbox preview too.
+    proxy: {
+      "/__l5e": {
+        target: "https://rationalengineers.lovable.app",
+        changeOrigin: true,
+        secure: true,
+      },
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
