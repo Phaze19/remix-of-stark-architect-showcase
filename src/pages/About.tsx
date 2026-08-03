@@ -88,26 +88,26 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">OUR STORY</h3>
-                <h4 className="text-3xl md:text-4xl font-light text-architectural mb-10">
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">OUR STORY</h3>
+                <h4 className="mb-10 text-3xl font-light leading-[1.1] tracking-tight text-architectural md:text-4xl">
                   From Vision to Industry Leadership
                 </h4>
 
                 <div className="space-y-6">
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     Rational Engineers Limited was established in <span className="text-foreground font-semibold">1989</span> and 
                     was later taken over by{" "}
                     <span className="text-foreground font-semibold">Mr. Mahendra Jain (B.E Mech)</span>{" "}
                     in 2006 with a vision of transforming the production and distribution landscape of copper.
                   </p>
 
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     His son{" "}
                     <span className="text-foreground font-semibold">Mr. Jubin Jain (B.E Electrical)</span>{" "}
                     became a part of this vision in 2018 — bringing fresh energy and technical expertise to propel the company forward.
                   </p>
 
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     As a family enterprise, we have been a part of the copper business for over 
                     50 years, and have successfully managed, enhanced and transformed it since.
                   </p>
@@ -162,8 +162,8 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">WHY REL</h3>
-              <h4 className="text-3xl md:text-4xl font-light text-architectural max-w-2xl mx-auto">
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">WHY REL</h3>
+              <h4 className="mx-auto max-w-2xl text-3xl font-light leading-[1.1] tracking-tight text-architectural md:text-4xl">
                 Excellence Through Commitment
               </h4>
             </motion.div>
@@ -176,12 +176,12 @@ const About = () => {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
               >
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                   REL's futuristic and modern manufacturing facilities combined with 
                   uncompromising machinery and latest equipment makes it a{" "}
                   <span className="text-foreground font-medium">pioneer for stakeholders everywhere</span>.
                 </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                   Maintaining high standards of ethics and professionalism in every aspect 
                   of our business, we provide a complete range of copper products with one 
                   objective in mind — <span className="text-foreground font-medium">exceeding customer expectations</span>.
@@ -232,8 +232,8 @@ const About = () => {
                   { label: "NEXT GEN SINCE", value: "2018" },
                 ].map((stat) => (
                   <div key={stat.label}>
-                    <p className="text-3xl md:text-4xl font-light text-foreground mb-2">{stat.value}</p>
-                    <p className="text-minimal text-muted-foreground tracking-widest">{stat.label}</p>
+                    <p className="mb-2 text-3xl font-light tracking-tight text-foreground md:text-4xl">{stat.value}</p>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -252,8 +252,8 @@ const About = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">OUR JOURNEY</h3>
-              <h4 className="text-3xl md:text-4xl font-light text-architectural">
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">OUR JOURNEY</h3>
+              <h4 className="text-3xl font-light leading-[1.1] tracking-tight text-architectural md:text-4xl">
                 Milestones That Define Us
               </h4>
             </motion.div>
@@ -287,7 +287,7 @@ const About = () => {
                   {/* Content */}
                   <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                     <span className="text-sm font-semibold text-foreground tracking-widest">{milestone.year}</span>
-                    <h5 className="text-xl font-medium text-foreground mt-1 mb-2">{milestone.title}</h5>
+                    <h5 className="mb-2 mt-1 text-lg font-medium tracking-tight text-foreground md:text-xl">{milestone.title}</h5>
                     <p className="text-muted-foreground leading-relaxed">{milestone.desc}</p>
                   </div>
 
@@ -328,17 +328,17 @@ const About = () => {
             >
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-px w-12 bg-rational-red" />
-                <span className="text-minimal tracking-[0.3em] text-muted-foreground">
+                <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
                   FOUNDER'S JOURNEY
                 </span>
               </div>
-              <h3 className="text-3xl font-light text-architectural md:text-5xl">
+              <h3 className="text-3xl font-light leading-[1.05] tracking-tight text-architectural md:text-5xl">
                 Shri. Mahendra K. Jain
               </h3>
               <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-rational-red">
                 Chairman &amp; Managing Director
               </p>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
                 Building businesses. Creating value. Transforming lives — three decades of
                 entrepreneurship across engineering, metals, infrastructure, finance and
                 aviation, from Business Management in 1992 to the greenfield factory at
