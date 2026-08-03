@@ -167,7 +167,7 @@ const Navigation = () => {
 
           <button
             onClick={() => setIsQuoteOpen(true)}
-            className="relative z-10 shrink-0 whitespace-nowrap bg-background px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] text-rational-red hover:bg-foreground hover:text-white transition-colors duration-300"
+            className="relative z-10 shrink-0 whitespace-nowrap bg-background px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.18em] text-rational-red hover:bg-foreground hover:text-white transition-colors duration-300"
           >
             Request Quote
           </button>
