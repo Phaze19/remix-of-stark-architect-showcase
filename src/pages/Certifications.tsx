@@ -62,7 +62,7 @@ const certifications = [
 ];
 
 const qualityHighlights = [
-  { label: "Copper Purity", value: "99.97%", desc: "Electrolytic grade" },
+  { label: "Copper Purity", value: "99.99%", desc: "Electrolytic grade" },
   { label: "On-Time Delivery", value: "98%+", desc: "Across all orders" },
   { label: "Rejection Rate", value: "<0.1%", desc: "Industry-leading quality" },
   { label: "Testing Parameters", value: "50+", desc: "Per production batch" },
