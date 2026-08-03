@@ -107,10 +107,35 @@ const CopperLine2D = ({ progress }: { progress: MotionValue<number> }) => {
             <stop offset="45%" stopColor="#ff6b1a" stopOpacity="0.45" />
             <stop offset="100%" stopColor="#ff4d00" stopOpacity="0" />
           </radialGradient>
+          {/* furnace chamber core — hottest at the centre line */}
+          <linearGradient id="furnaceCore" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#ff5c00" stopOpacity="0" />
+            <stop offset="30%" stopColor="#ff7a14" stopOpacity="0.55" />
+            <stop offset="50%" stopColor="#ffe1a8" stopOpacity="0.95" />
+            <stop offset="70%" stopColor="#ff7a14" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#ff5c00" stopOpacity="0" />
+          </linearGradient>
+          {/* soft-temper annealed copper (cooled, satin) */}
+          <linearGradient id="cuSoft" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#7c3a18" />
+            <stop offset="26%" stopColor="#c67a41" />
+            <stop offset="50%" stopColor="#ffd9ae" />
+            <stop offset="74%" stopColor="#c0703a" />
+            <stop offset="100%" stopColor="#5e2b12" />
+          </linearGradient>
+          <radialGradient id="mouth" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#fff0cf" stopOpacity="0.9" />
+            <stop offset="55%" stopColor="#ff8324" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#ff5200" stopOpacity="0" />
+          </radialGradient>
           <filter id="soft" x="-70%" y="-70%" width="240%" height="240%">
             <feGaussianBlur stdDeviation="9" />
           </filter>
+          <filter id="bigBloom" x="-120%" y="-160%" width="340%" height="420%">
+            <feGaussianBlur stdDeviation="26" />
+          </filter>
         </defs>
+
 
         <motion.g style={{ x: camX }}>
           {/* floor lines */}
