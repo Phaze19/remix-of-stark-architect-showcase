@@ -93,7 +93,7 @@ const Portfolio = () => {
     },
     {
       image: busbarImg,
-      title: "Bare / Tin Coated Busbar ",
+      title: "BARE / TIN COATED BUSBAR \n ",
       category: "FLAT CONDUCTORS",
       description:
         "Precision busbars and flat strips for power distribution, machined and finished to customer drawing.",
