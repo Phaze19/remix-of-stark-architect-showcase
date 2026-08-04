@@ -1,5 +1,3 @@
-import { Shield } from "lucide-react";
-
 const TrustSignals = () => {
   const clients = [
     "ABB",
@@ -13,10 +11,6 @@ const TrustSignals = () => {
     "Schneider",
     "GE",
     "Hitachi"
-  ];
-
-  const certifications = [
-    { icon: Shield, label: "ISO 9001:2015" }
   ];
 
   return (
@@ -42,16 +36,6 @@ const TrustSignals = () => {
             ))}
           </div>
 
-          
-          {/* Certifications & Since */}
-          <div className="flex flex-wrap justify-center items-center gap-8 pt-8 border-t border-border">
-            {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center gap-2 text-muted-foreground hover:text-rational-red transition-colors duration-300">
-                <cert.icon className="w-5 h-5" />
-                <span className="text-sm font-medium">{cert.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
