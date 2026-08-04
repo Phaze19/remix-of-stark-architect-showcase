@@ -225,6 +225,20 @@ const Navigation = () => {
                 )}
               </div>
             ))}
+            <div className="flex items-center gap-3 pt-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/40">
+                Follow
+              </span>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Rational Engineers on LinkedIn"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-foreground/15 text-foreground/70 transition-all duration-300 hover:border-rational-red hover:bg-rational-red hover:text-white"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
             <button
               onClick={() => {
                 setIsMenuOpen(false);
