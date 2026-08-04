@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import TrustSignals from "@/components/TrustSignals";
 import IndustrialApplications from "@/components/IndustrialApplications";
 import Differentiation from "@/components/Differentiation";
-import CopperJourney from "@/components/CopperJourney";
+
 import CopperTicker from "@/components/CopperTicker";
 import MarketPulse from "@/components/MarketPulse";
 import GlobalFootprint from "@/components/GlobalFootprint";
@@ -41,7 +41,6 @@ const Index = () => {
       <ScrollReveal delay={0.1}>
         <GlobalFootprint />
       </ScrollReveal>
-      <CopperJourney />
       <ScrollReveal delay={0.1}>
         <MarketPulse />
       </ScrollReveal>
