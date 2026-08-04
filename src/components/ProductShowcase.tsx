@@ -403,7 +403,7 @@ const ProductShowcase = () => {
     {
       id: "busbar",
       image: busbarImg,
-      title: "COPPER BUSBAR & COPPER FLAT STRIPS",
+      title: "Bare / Tin Coated Busbar ",
       category: "FLAT CONDUCTORS",
       description:
         "Precision copper busbars and flat strips for power distribution, supplied in standard and custom dimensions with machining and surface finishing options.",
