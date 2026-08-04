@@ -16,9 +16,7 @@ const TrustSignals = () => {
   ];
 
   const certifications = [
-    { icon: Shield, label: "ISO 9001:2015" },
-    { icon: Award, label: "ISO 14001:2015" },
-    { icon: Shield, label: "OHSAS 18001" }
+    { icon: Shield, label: "ISO 9001:2015" }
   ];
 
   return (
