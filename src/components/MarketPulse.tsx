@@ -18,21 +18,14 @@ const MarketPulse = () => {
           <div className="text-center mb-12">
             <h2 className="text-minimal text-rational-red mb-3 tracking-widest">MARKET PULSE</h2>
             <h3 className="text-4xl md:text-5xl font-light text-architectural text-foreground">
-              Live Copper Prices & <span className="font-medium">Global Market News</span>
+              Live LME <span className="font-medium">Copper Prices</span>
             </h3>
             <div className="w-12 h-0.5 bg-rational-red mx-auto mt-4" />
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Price cards */}
-            <div className="lg:col-span-1 flex flex-col gap-6">
-              <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
-            </div>
-
-            {/* News feed */}
-            <div className="lg:col-span-2">
-              <NewsFeed data={data} isLoading={isLoading} isError={isError} />
-            </div>
+          <div className="max-w-md mx-auto">
+            {/* Price card */}
+            <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
           </div>
 
           <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
@@ -49,7 +42,7 @@ const MarketPulse = () => {
           </div>
 
           <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
-            Prices are official LME Copper Cash-Settlement (USD/tonne), updated daily. News aggregated from Google News.
+            Prices are official LME Copper Cash-Settlement (USD/tonne), updated daily.
           </p>
         </div>
       </div>
