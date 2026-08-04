@@ -102,7 +102,7 @@ const leaders: Leader[] = [
   },
   {
     name: "Ajit E Venugopalan",
-    role: "EXECUTIVE DIRECTOR",
+    role: "INDEPENDENT DIRECTOR",
     org: "Rational Engineers Limited",
     image: ajit,
     bio: [
@@ -139,7 +139,7 @@ const leaders: Leader[] = [
 
   {
     name: "Bipin Joshi",
-    role: "Advocate, Bombay High Court",
+    role: "INDEPENDANT DIRECTOR - ADVOCATE, BOMBAY HIGH COURT",
     org: "Legal Counsel · B.A., LL.B.",
     image: bipin,
     bio: [
