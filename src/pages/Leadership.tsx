@@ -38,7 +38,7 @@ const leaders: Leader[] = [
       "₹1,600+ Cr Group Revenue (FY 25-26)",
       "800+ Strong Workforce",
       "5 Manufacturing Facilities",
-      "India | UAE | Germany",
+      "India | UAE",
     ],
   },
   {

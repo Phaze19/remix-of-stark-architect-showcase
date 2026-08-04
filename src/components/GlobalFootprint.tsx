@@ -24,13 +24,6 @@ const locations = [
     label: "Global Trade & Distribution Hub",
     desc: "International trade arm driving distribution across the Middle East, Africa and emerging markets worldwide.",
   },
-  {
-    num: "04",
-    pin: "germany",
-    title: "Germany — Warehousing",
-    label: "European Warehousing Hub",
-    desc: "Dedicated European warehouse enabling rapid fulfillment and streamlined supply across the continent.",
-  },
 ];
 
 
@@ -38,7 +31,7 @@ const glance = [
   { icon: Globe, value: "30+", label: "Countries Served" },
   { icon: MapPin, value: "6", label: "Continents" },
   { icon: Factory, value: "3", label: "Manufacturing Locations" },
-  { icon: Warehouse, value: "4", label: "Operational Hubs" },
+  { icon: Warehouse, value: "3", label: "Operational Hubs" },
   { icon: Building2, value: "400+", label: "Customers" },
   { icon: Users, value: "3+", label: "Strategic Regions" },
 ];
@@ -60,7 +53,7 @@ const GlobalFootprint = () => {
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
             Serving customers in 50+ countries across 6 continents with a robust global
-            network of plants, trading hubs and warehousing.
+            network of plants and trading hubs.
           </p>
         </div>
 
