@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity, Timer } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, RefreshCw, Activity, Timer } from "lucide-react";
 import { useCopperMarket, COPPER_REFRESH_MS } from "@/hooks/useCopperMarket";
 import { formatDistanceToNow } from "date-fns";
 import { useEffect, useState } from "react";
