@@ -9,7 +9,8 @@ import kaptonImg from "@/assets/cat-kapton.jpg";
 import fiberglassImg from "@/assets/cat-fiberglass.jpg";
 import litzCuImg from "@/assets/cat-litz-copper.jpg";
 import litzAlImg from "@/assets/cat-litz-aluminium.jpg";
-import busbarImg from "@/assets/cat-busbar.jpg";
+import busbarAsset from "@/assets/cat-busbar-new.png.asset.json";
+const busbarImg = busbarAsset.url;
 
 const Portfolio = () => {
   const products = [
