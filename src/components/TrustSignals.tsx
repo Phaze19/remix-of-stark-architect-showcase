@@ -51,10 +51,6 @@ const TrustSignals = () => {
                 <span className="text-sm font-medium">{cert.label}</span>
               </div>
             ))}
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Calendar className="w-5 h-5" />
-              <span className="text-sm font-medium">Since 1989</span>
-            </div>
           </div>
         </div>
       </div>
