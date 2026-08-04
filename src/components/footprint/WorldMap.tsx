@@ -32,15 +32,6 @@ export const pins: FootprintPin[] = [
     labelOffset: [-130, -6],
     labelAlign: "end",
   },
-  {
-    id: "germany",
-    label: "Germany",
-    sub: "Warehousing",
-    coords: [10, 51],
-    kind: "presence",
-    labelOffset: [-120, -10],
-    labelAlign: "end",
-  },
 ];
 
 const VW = 1000;
@@ -68,7 +59,7 @@ const WorldMap = ({ activeId, onHover }: Props) => {
         viewBox="0 20 1000 415"
         className="h-auto w-full"
         role="img"
-        aria-label="World map showing Rational Engineers manufacturing in India, a trading hub in Dubai and a warehouse in Germany"
+        aria-label="World map showing Rational Engineers manufacturing in India and a trading hub in Dubai"
       >
         <path
           d={WORLD_PATH}
