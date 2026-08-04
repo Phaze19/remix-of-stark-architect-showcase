@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown, Minus, ExternalLink, RefreshCw, Activity, Timer } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, RefreshCw, Activity, Timer } from "lucide-react";
 import { useCopperMarket, COPPER_REFRESH_MS } from "@/hooks/useCopperMarket";
 import { formatDistanceToNow } from "date-fns";
 import { useEffect, useState } from "react";
@@ -18,21 +18,14 @@ const MarketPulse = () => {
           <div className="text-center mb-12">
             <h2 className="text-minimal text-rational-red mb-3 tracking-widest">MARKET PULSE</h2>
             <h3 className="text-4xl md:text-5xl font-light text-architectural text-foreground">
-              Live Copper Prices & <span className="font-medium">Global Market News</span>
+              Live LME <span className="font-medium">Copper Prices</span>
             </h3>
             <div className="w-12 h-0.5 bg-rational-red mx-auto mt-4" />
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Price cards */}
-            <div className="lg:col-span-1 flex flex-col gap-6">
-              <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
-            </div>
-
-            {/* News feed */}
-            <div className="lg:col-span-2">
-              <NewsFeed data={data} isLoading={isLoading} isError={isError} />
-            </div>
+          <div className="max-w-md mx-auto">
+            {/* Price card */}
+            <PriceCard data={data} isLoading={isLoading} isError={isError} onRefresh={() => refetch()} isRefreshing={isFetching} dataUpdatedAt={dataUpdatedAt} />
           </div>
 
           <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
@@ -49,7 +42,7 @@ const MarketPulse = () => {
           </div>
 
           <p className="mt-3 text-center text-xs text-muted-foreground tracking-wide">
-            Prices are official LME Copper Cash-Settlement (USD/tonne), updated daily. News aggregated from Google News.
+            Prices are official LME Copper Cash-Settlement (USD/tonne), updated daily.
           </p>
         </div>
       </div>
@@ -155,89 +148,6 @@ const Stat = ({ label, value }: { label: string; value: string }) => (
   </div>
 );
 
-
-const NewsFeed = ({
-  data,
-  isLoading,
-  isError,
-}: {
-  data: ReturnType<typeof useCopperMarket>["data"];
-  isLoading: boolean;
-  isError: boolean;
-}) => {
-  if (isLoading) {
-    return (
-      <div className="h-full bg-card border border-border rounded-lg p-8 space-y-4">
-        {[...Array(4)].map((_, i) => (
-          <div key={i} className="h-12 bg-muted/50 animate-pulse rounded" />
-        ))}
-      </div>
-    );
-  }
-
-  if (isError || !data || data.news.length === 0) {
-    return (
-      <div className="h-full bg-card border border-border rounded-lg p-8 flex items-center justify-center text-sm text-muted-foreground">
-        News feed temporarily unavailable.
-      </div>
-    );
-  }
-
-  return (
-    <div className="h-full bg-card border border-border rounded-lg overflow-hidden">
-      <div className="px-6 py-4 border-b border-border flex items-center justify-between">
-        <div>
-          <div className="text-minimal text-rational-red tracking-widest">LIVE UPDATES</div>
-          <div className="text-sm font-medium text-foreground mt-0.5">Copper Market Headlines</div>
-        </div>
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rational-red opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-rational-red" />
-          </span>
-          <span className="uppercase tracking-widest">Live</span>
-        </div>
-      </div>
-
-      <ul className="divide-y divide-border max-h-[420px] overflow-y-auto">
-        {data.news.slice(0, 8).map((n, i) => {
-          let timeAgo = "";
-          try {
-            timeAgo = formatDistanceToNow(new Date(n.pubDate), { addSuffix: true });
-          } catch {
-            timeAgo = "";
-          }
-          return (
-            <li key={i}>
-              <a
-                href={n.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-4 px-6 py-4 hover:bg-muted/40 transition-colors"
-              >
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm text-foreground group-hover:text-rational-red transition-colors line-clamp-2 leading-snug">
-                    {n.title}
-                  </div>
-                  <div className="mt-1.5 flex items-center gap-2 text-[11px] text-muted-foreground uppercase tracking-widest">
-                    <span className="truncate max-w-[180px]">{n.source}</span>
-                    {timeAgo && (
-                      <>
-                        <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
-                        <span>{timeAgo}</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-rational-red flex-shrink-0 mt-0.5 transition-colors" />
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
 
 const RefreshCountdown = ({
   dataUpdatedAt,
