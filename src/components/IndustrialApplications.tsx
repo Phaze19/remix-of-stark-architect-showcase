@@ -5,6 +5,7 @@ import {
   Cable,
   BatteryCharging,
   SlidersHorizontal,
+  Gauge,
   ShieldCheck,
   Thermometer,
   BadgeCheck,
@@ -16,6 +17,7 @@ import appRailways from "@/assets/app-railways.jpg";
 import appEarthing from "@/assets/app-earthing.jpg";
 import appEvHf from "@/assets/app-ev-hf.jpg";
 import appTapChanger from "@/assets/app-tap-changer.jpg";
+import appCtPt from "@/assets/app-ct-pt.jpg";
 
 const applications = [
   {
@@ -74,6 +76,18 @@ const applications = [
     title: "On-Load Tap Changers",
     application: "On-load tap changers in power transformers for voltage regulation",
     products: ["Bare Solid Copper Conductors", "Paper Covered Solid Copper Conductors"],
+  },
+  {
+    icon: Gauge,
+    image: appCtPt,
+    title: "CT / PT Transformers",
+    application: "Current & potential instrument transformers for metering, protection & control",
+    products: [
+      "Enamelled Wire",
+      "Enamelled Strips",
+      "Paper Insulated Copper Conductor (PICC)",
+      "Fiberglass Covered Copper Conductors",
+    ],
   },
 ];
 
