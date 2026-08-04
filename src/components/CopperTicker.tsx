@@ -1,6 +1,5 @@
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 import { useCopperMarket } from "@/hooks/useCopperMarket";
-import { BME_COPPER } from "@/data/bmeBenchmark";
 
 /**
  * Thin site-wide ticker showing live LME-comparable copper price
@@ -42,17 +41,6 @@ const CopperTicker = () => {
             {price.change >= 0 ? "+" : ""}
             {price.change.toLocaleString()} ({price.changePct >= 0 ? "+" : ""}
             {price.changePct}%)
-          </span>
-        </div>
-
-        <div className="w-px h-4 bg-background/20 flex-shrink-0" />
-
-        {/* BME badge */}
-        <div className="flex items-center gap-2 flex-shrink-0 font-medium">
-          <span className="uppercase tracking-widest text-background/60">BME Cu Billet</span>
-          <span className="tabular-nums">₹{BME_COPPER.pricePerKg.toLocaleString("en-IN")}/kg</span>
-          <span className="hidden md:inline text-background/40 uppercase tracking-widest">
-            {BME_COPPER.asOf}
           </span>
         </div>
 
