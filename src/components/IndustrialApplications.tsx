@@ -5,6 +5,7 @@ import {
   Cable,
   BatteryCharging,
   SlidersHorizontal,
+  Gauge,
   ShieldCheck,
   Thermometer,
   BadgeCheck,
@@ -16,6 +17,7 @@ import appRailways from "@/assets/app-railways.jpg";
 import appEarthing from "@/assets/app-earthing.jpg";
 import appEvHf from "@/assets/app-ev-hf.jpg";
 import appTapChanger from "@/assets/app-tap-changer.jpg";
+import appCtPt from "@/assets/app-ct-pt.jpg";
 
 const applications = [
   {
