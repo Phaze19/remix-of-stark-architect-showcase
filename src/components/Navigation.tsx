@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown, MapPin, Phone, Mail } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import QuoteDialog from "@/components/QuoteDialog";
 import logoDark from "@/assets/rational-logo-original.jpeg";
+
+const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
 
 type NavLink = {
   href: string;
