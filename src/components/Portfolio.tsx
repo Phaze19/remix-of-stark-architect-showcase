@@ -1,5 +1,6 @@
 import ctcImg from "@/assets/cat-ctc.jpg";
-import bareCableImg from "@/assets/cat-bare-cable.jpg";
+import bareCableAsset from "@/assets/cat-bare-cable-new.jpg.asset.json";
+const bareCableImg = bareCableAsset.url;
 import insulatedCableImg from "@/assets/cat-insulated-cable.jpg";
 import enamCopperImg from "@/assets/cat-enamelled-copper.jpg";
 import enamAluImg from "@/assets/cat-enamelled-aluminium.jpg";
