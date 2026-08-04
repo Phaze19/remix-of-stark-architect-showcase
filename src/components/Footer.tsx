@@ -17,10 +17,19 @@ const Footer = () => {
                 <img src={logoDark} alt="Rational Engineers" className="h-12 w-auto hidden dark:block" />
               </div>
               <p className="text-background/70 leading-relaxed max-w-xl">
-                Rational Engineers is a leading copper conductor manufacturer delivering 
-                consistent quality, process control, and long-term supply reliability 
+                Rational Engineers is a leading copper conductor manufacturer delivering
+                consistent quality, process control, and long-term supply reliability
                 for critical industrial applications.
               </p>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Rational Engineers on LinkedIn"
+                className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-rational-red/40 text-background/70 transition-colors duration-300 hover:border-rational-red hover:bg-rational-red hover:text-background"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
             </div>
             
             {/* Contact */}
