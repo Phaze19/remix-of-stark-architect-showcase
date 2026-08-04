@@ -1,5 +1,3 @@
-import { Shield } from "lucide-react";
-
 const TrustSignals = () => {
   const clients = [
     "ABB",
@@ -13,10 +11,6 @@ const TrustSignals = () => {
     "Schneider",
     "GE",
     "Hitachi"
-  ];
-
-  const certifications = [
-    { icon: Shield, label: "ISO 9001:2015" }
   ];
 
   return (
