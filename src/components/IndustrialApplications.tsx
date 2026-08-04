@@ -36,7 +36,7 @@ const applications = [
   {
     icon: Cog,
     image: appMotors,
-    title: "Motors",
+    title: "HT / LT MOTORS",
     application: "HT & LT motors for industrial, commercial & OEM use",
     products: [
       "Fiberglass Covered Copper Conductors",
