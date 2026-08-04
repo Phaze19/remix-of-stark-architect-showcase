@@ -1,6 +1,8 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import logoLight from "@/assets/rational-logo-light.png";
 import logoDark from "@/assets/rational-logo-real.jpg";
+
+const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
 
 const Footer = () => {
   return (
