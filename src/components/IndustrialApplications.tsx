@@ -77,6 +77,18 @@ const applications = [
     application: "On-load tap changers in power transformers for voltage regulation",
     products: ["Bare Solid Copper Conductors", "Paper Covered Solid Copper Conductors"],
   },
+  {
+    icon: Gauge,
+    image: appCtPt,
+    title: "CT / PT Transformers",
+    application: "Current & potential instrument transformers for metering, protection & control",
+    products: [
+      "Enamelled Wire",
+      "Enamelled Strips",
+      "Paper Insulated Copper Conductor (PICC)",
+      "Fiberglass Covered Copper Conductors",
+    ],
+  },
 ];
 
 const benefits = [
