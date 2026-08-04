@@ -1,4 +1,4 @@
-import { Shield, Award, Calendar } from "lucide-react";
+import { Shield } from "lucide-react";
 
 const TrustSignals = () => {
   const clients = [
