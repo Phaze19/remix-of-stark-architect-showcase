@@ -98,6 +98,23 @@ const Navigation = () => {
             })}
           </div>
 
+          {/* Social icons */}
+          <div className="hidden items-center gap-3 lg:flex">
+            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/40">
+              Follow
+            </span>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Rational Engineers on LinkedIn"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-foreground/15 text-foreground/70 transition-all duration-300 hover:border-rational-red hover:bg-rational-red hover:text-white"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+          </div>
+
+
           <button
             type="button"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
