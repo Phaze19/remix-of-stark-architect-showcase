@@ -46,9 +46,6 @@ const Index = () => {
         <MarketPulse />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
-        <NewsUpdates />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
         <Testimonials />
       </ScrollReveal>
       <ScrollReveal>
