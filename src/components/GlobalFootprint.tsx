@@ -39,7 +39,7 @@ const glance = [
   { icon: MapPin, value: "6", label: "Continents" },
   { icon: Factory, value: "3", label: "Manufacturing Locations" },
   { icon: Warehouse, value: "4", label: "Operational Hubs" },
-  { icon: Building2, value: "100+", label: "Customers" },
+  { icon: Building2, value: "200+", label: "Customers" },
   { icon: Users, value: "3+", label: "Strategic Regions" },
 ];
 
