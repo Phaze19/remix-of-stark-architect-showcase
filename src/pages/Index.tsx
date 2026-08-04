@@ -8,7 +8,6 @@ import CopperTicker from "@/components/CopperTicker";
 import MarketPulse from "@/components/MarketPulse";
 import GlobalFootprint from "@/components/GlobalFootprint";
 import ProductShowcase from "@/components/ProductShowcase";
-import NewsUpdates from "@/components/NewsUpdates";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -45,9 +44,6 @@ const Index = () => {
       <CopperJourney />
       <ScrollReveal delay={0.1}>
         <MarketPulse />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <NewsUpdates />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <Testimonials />
