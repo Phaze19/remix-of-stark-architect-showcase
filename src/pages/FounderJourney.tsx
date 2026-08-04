@@ -28,7 +28,7 @@ const milestones: Milestone[] = [
   },
   {
     year: "2006",
-    title: "Rational Engineers Limited",
+    title: "Acquired -\u00a0Rational Engineers Limited",
     desc: "Founded with a vision to deliver engineering solutions of excellence in copper and aluminium windings.",
   },
   {
@@ -38,7 +38,7 @@ const milestones: Milestone[] = [
   },
   {
     year: "2010",
-    title: "Gemini Instratech Limited",
+    title: "Acquired - Gemini Instratech Limited",
     desc: "Strengthened presence in technology and infrastructure solutions.",
   },
   {
@@ -58,27 +58,27 @@ const milestones: Milestone[] = [
   },
   {
     year: "2020",
-    title: "K Patel Copper & Aluminium",
+    title: "Acquired - K Patel Copper & Aluminium",
     desc: "Stepped into the metal industry, strengthening core capabilities.",
   },
   {
     year: "2021",
-    title: "Skylink Aero",
+    title: "Acquired - Skylink Aero",
     desc: "Entered the aviation sector, soaring towards new horizons.",
   },
   {
     year: "2022",
-    title: "GIC",
+    title: "Acquired - GIC Insuflex Conductor Private Limited (",
     desc: "Ventured into global opportunities, expanding the international footprint.",
   },
   {
     year: "2024",
-    title: "HMTD Engineering Motors",
+    title: "Acquired - HMTD Engineering Private Limited\u00a0",
     desc: "Expanding engineering excellence and driving industrial progress.",
   },
   {
     year: "2025",
-    title: "Greenfield Factory — Vadodara",
+    title: "Greenfield Factory\u00a0 -\u00a0 Vadodara",
     desc: "Building for the future with innovation, sustainability and growth.",
   },
 ];
