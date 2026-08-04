@@ -10,7 +10,8 @@ const TrustSignals = () => {
     "Voltamp",
     "Schneider",
     "GE",
-    "Hitachi"
+    "Hitachi",
+    "Alfanar"
   ];
 
   return (
