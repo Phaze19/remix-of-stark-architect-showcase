@@ -20,48 +20,24 @@ const CopperTicker = () => {
     return null; // fail silent — don't break the page
   }
 
-  const { price, news } = data;
+  const { price } = data;
   const up = price.change > 0;
   const down = price.change < 0;
   const TrendIcon = up ? TrendingUp : down ? TrendingDown : Minus;
   const trendClass = up ? "text-green-400" : down ? "text-rational-red" : "text-background/70";
 
-  // Build a single ticker string of headlines
-  const headlines = news.slice(0, 8).map((n) => n.title).join("   •   ");
-
   return (
     <div className="fixed top-0 left-0 right-0 z-[60] w-full bg-foreground text-background text-sm tracking-wide py-3 border-b border-background/10 overflow-hidden shadow-md">
-      <div className="flex items-center gap-4 px-4">
-        {/* LME Price badge */}
-        <div className="flex items-center gap-2.5 flex-shrink-0 font-semibold">
-          <span className="uppercase tracking-widest text-background/60 text-xs">LME Cu</span>
-          <span className="tabular-nums text-base">${price.price.toLocaleString()}/t</span>
-          <span className={`flex items-center gap-1 ${trendClass} tabular-nums text-sm`}>
-            <TrendIcon className="w-4 h-4" />
-            {price.change >= 0 ? "+" : ""}
-            {price.change.toLocaleString()} ({price.changePct >= 0 ? "+" : ""}
-            {price.changePct}%)
-          </span>
-        </div>
-
-        <div className="w-px h-6 bg-background/20 flex-shrink-0" />
-
-        {/* Scrolling headlines */}
-        <div className="flex-1 overflow-hidden">
-          <div
-            className="whitespace-nowrap inline-block animate-[marquee_120s_linear_infinite] text-background/80"
-          >
-            {headlines} &nbsp;•&nbsp; {headlines}
-          </div>
-        </div>
+      <div className="flex items-center justify-center gap-2.5 px-4 font-semibold">
+        <span className="uppercase tracking-widest text-background/60 text-xs">LME Cu</span>
+        <span className="tabular-nums text-base">${price.price.toLocaleString()}/t</span>
+        <span className={`flex items-center gap-1 ${trendClass} tabular-nums text-sm`}>
+          <TrendIcon className="w-4 h-4" />
+          {price.change >= 0 ? "+" : ""}
+          {price.change.toLocaleString()} ({price.changePct >= 0 ? "+" : ""}
+          {price.changePct}%)
+        </span>
       </div>
-
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 };
