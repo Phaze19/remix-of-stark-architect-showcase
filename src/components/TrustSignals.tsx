@@ -1,6 +1,5 @@
 const TrustSignals = () => {
   const clients = [
-    "ABB",
     "Siemens",
     "Toshiba",
     "TBEA",
@@ -9,7 +8,7 @@ const TrustSignals = () => {
     "CG Power",
     "Voltamp",
     "Schneider",
-    "GE",
+    "GE Vernova\u00a0",
     "Hitachi",
     "Alfanar"
   ];
