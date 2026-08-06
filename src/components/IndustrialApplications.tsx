@@ -27,7 +27,7 @@ const applications = [
     application: "Power generation, transmission & distribution transformers",
     products: [
       "Continuously Transposed Conductor (CTC)\u00a0",
-      "PIAC Paper Insulated Copper Conductor",
+      "PICC Paper Insulated Copper Conductor",
       "Flexible Multi-Strand Copper Covered Cables",
       "Fiberglass Covered Copper Conductors\u00a0",
       "Rectangular Enamelled Conductors\u00a0",
