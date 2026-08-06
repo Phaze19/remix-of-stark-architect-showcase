@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
+import facilityExterior from "@/assets/rational-facility-exterior.png";
 
 type Milestone = {
   year: string;
@@ -12,84 +12,47 @@ type Milestone = {
 
 const milestones: Milestone[] = [
   {
-    year: "1992",
-    title: "Academic Excellence",
-    desc: "Completed Business Management, laying the foundation for a lifetime of enterprise building.",
-  },
-  {
-    year: "Early Years",
-    title: "Family Trading Business",
-    desc: "Joined and independently managed the family trading business.",
-  },
-  {
-    year: "1995–2012",
-    title: "Aditya Vidut Appliances Limited",
-    desc: "Played a pivotal role in the growth and expansion of the company.",
+    year: "1989",
+    title: "Rational Engineers Limited Founded",
+    desc: "Established with a commitment to precision-engineered copper and aluminium winding solutions for the electrical industry.",
   },
   {
     year: "2006",
     title: "Acquired -\u00a0Rational Engineers Limited",
-    desc: "Founded with a vision to deliver engineering solutions of excellence in copper and aluminium windings.",
-  },
-  {
-    year: "2008",
-    title: "Kajol Leasing & Finance Pvt. Ltd.",
-    desc: "Ventured into financial services, driving growth and opportunities.",
-  },
-  {
-    year: "2010",
-    title: "Acquired - Gemini Instratech Limited",
-    desc: "Strengthened presence in technology and infrastructure solutions.",
-  },
-  {
-    year: "2016",
-    title: "Kiaara Banquets",
-    desc: "Diversified into hospitality, creating memorable experiences.",
+    desc: "Taken over by Mr. Mahendra Jain with a vision to transform the production and distribution landscape of copper conductors.",
   },
   {
     year: "2018",
-    title: "Leadership & Community Impact",
-    desc: "Taking leadership roles and supporting social initiatives.",
-  },
-  {
-    year: "2019",
-    title: "Healthcare Contribution",
-    desc: "Committed towards improving healthcare and community well-being.",
+    title: "Next-Generation Leadership",
+    desc: "Mr. Jubin Jain joined the business, bringing electrical engineering expertise and a drive for modern manufacturing excellence.",
   },
   {
     year: "2020",
     title: "Acquired - K Patel Copper & Aluminium",
-    desc: "Stepped into the metal industry, strengthening core capabilities.",
-  },
-  {
-    year: "2021",
-    title: "Acquired - Skylink Aero",
-    desc: "Entered the aviation sector, soaring towards new horizons.",
+    desc: "Strengthened metal processing capabilities and expanded the product portfolio for transformer and motor winding applications.",
   },
   {
     year: "2022",
-    title: "Acquired - GIC Insuflex Conductor Private Limited (",
-    desc: "Ventured into global opportunities, expanding the international footprint.",
+    title: "Acquired - GIC Insuflex Conductor Private Limited",
+    desc: "Added specialised insulated conductor manufacturing, enhancing REL's ability to serve global OEMs and utilities.",
   },
   {
     year: "2024",
-    title: "Acquired - HMTD Engineering Private Limited\u00a0",
-    desc: "Expanding engineering excellence and driving industrial progress.",
+    title: "Acquired - HMTD Engineering Private Limited",
+    desc: "Expanded engineering depth and industrial reach to support large-scale infrastructure and power projects.",
   },
   {
     year: "2025",
-    title: "Greenfield Factory\u00a0 -\u00a0 Vadodara",
-    desc: "Building for the future with innovation, sustainability and growth.",
+    title: "Greenfield Factory - Vadodara",
+    desc: "Building a state-of-the-art manufacturing facility for the future — driven by innovation, sustainability and growth.",
   },
 ];
 
 const groupCompanies = [
   "Rational Engineers Limited",
-  "Gemini Instratech Limited",
-  "HMTD Engineering Private Limited",
-  "Skylink Aero",
   "K Patel Copper & Aluminium",
-  "Kajol Leasing & Finance",
+  "GIC Insuflex Conductor Private Limited",
+  "HMTD Engineering Private Limited",
 ];
 
 const FounderJourney = () => {
