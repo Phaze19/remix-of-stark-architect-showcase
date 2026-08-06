@@ -75,19 +75,18 @@ const FounderJourney = () => {
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-px w-12 bg-rational-red" />
                 <span className="text-minimal tracking-[0.3em] text-muted-foreground">
-                  THE JOURNEY OF
+                  OUR EVOLUTION
                 </span>
               </div>
               <h1 className="mb-6 text-4xl font-light text-architectural md:text-6xl">
-                Shri. Mahendra K. Jain
+                The Rational Journey
                 <span className="mt-3 block text-lg font-medium tracking-[0.15em] text-rational-red md:text-xl">
-                  FOUNDER & MANAGING DIRECTOR
+                  FROM 1989 TO TODAY
                 </span>
               </h1>
               <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
-                Building businesses. Creating value. Transforming lives — three decades
-                of entrepreneurship across engineering, metals, infrastructure, finance
-                and aviation.
+                Decades of engineering focus, strategic growth and an unwavering commitment
+                to quality copper and aluminium winding solutions for the global power industry.
               </p>
             </motion.div>
 
@@ -99,8 +98,8 @@ const FounderJourney = () => {
             >
               <div className="absolute -left-4 -top-4 h-2/3 w-2/3 bg-rational-red/10" />
               <img
-                src={founderPortrait}
-                alt="Shri. Mahendra K. Jain, Founder and Managing Director of Rational Engineers Limited"
+                src={facilityExterior}
+                alt="Rational Engineers Limited manufacturing facility"
                 className="relative w-full object-cover"
               />
             </motion.div>
