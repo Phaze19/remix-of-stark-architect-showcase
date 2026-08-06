@@ -75,7 +75,7 @@ const applications = [
     image: appTapChanger,
     title: "On-Load Tap Changers",
     application: "On-load tap changers in power transformers for voltage regulation",
-    products: ["Bare Solid Copper Conductors", "Paper Covered Solid Copper Conductors"],
+    products: ["Bare Covered or Paper Covered\u00a0 Copper Conductors", "\n"],
   },
   {
     icon: Gauge,
