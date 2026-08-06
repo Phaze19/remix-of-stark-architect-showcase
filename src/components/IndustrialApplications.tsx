@@ -91,6 +91,16 @@ const applications = [
       "PIAC -Paper Covered Aluminium Conductor\u00a0",
     ],
   },
+  {
+    icon: CircuitBoard,
+    image: appBusbar,
+    title: "Switchgear & Busbar Systems",
+    application: "Switchgear, switchboards, control panels, busducts & power distribution boards",
+    products: [
+      "Bare / Tin Coated Busbar\u00a0",
+      "Copper Flat Strips\u00a0",
+    ],
+  },
 ];
 
 const benefits = [
