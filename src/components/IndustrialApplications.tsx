@@ -6,6 +6,7 @@ import {
   BatteryCharging,
   SlidersHorizontal,
   Gauge,
+  CircuitBoard,
   ShieldCheck,
   Thermometer,
   BadgeCheck,
@@ -18,6 +19,7 @@ import appEarthing from "@/assets/app-earthing.jpg";
 import appEvHf from "@/assets/app-ev-hf.jpg";
 import appTapChanger from "@/assets/app-tap-changer.jpg";
 import appCtPt from "@/assets/app-ct-pt.jpg";
+import appBusbar from "@/assets/app-busbar.jpg";
 
 const applications = [
   {
