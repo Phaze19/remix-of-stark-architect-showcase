@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import facilityExterior from "@/assets/rational-facility-exterior.png";
+import facilityAsset from "@/assets/rational-facility-exterior.png.asset.json";
+const facilityExterior = facilityAsset.url;
 
 type Milestone = {
   year: string;
