@@ -85,6 +85,7 @@ const applications = [
     products: [
       "Enamelled Copper Conductor\u00a0",
       "Enamelled Aluminium Conductors\u00a0",
+      "Fibreglass covered Aluminium Conductor\u00a0",
     ],
   },
 ];
