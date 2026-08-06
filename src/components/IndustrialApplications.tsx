@@ -165,8 +165,10 @@ const IndustrialApplications = () => {
               </p>
               <ul className="mt-3 space-y-2">
                 {app.products.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                    <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
+                  <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/85 min-h-[1.25rem]">
+                    {p !== "\n" && (
+                      <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
+                    )}
                     {p}
                   </li>
                 ))}
