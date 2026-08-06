@@ -39,8 +39,8 @@ const applications = [
     application: "HT & LT motors for industrial, commercial & OEM use",
     products: [
       "Fiberglass Covered Copper Conductors",
-      "Enamelled Wire",
-      "Mica Covered Copper Conductors",
+      "Enamelled Conductor\u00a0",
+      "Mica Covered Copper Conductors\n\n",
     ],
   },
   {
