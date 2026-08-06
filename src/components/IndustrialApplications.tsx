@@ -6,6 +6,7 @@ import {
   BatteryCharging,
   SlidersHorizontal,
   Gauge,
+  CircuitBoard,
   ShieldCheck,
   Thermometer,
   BadgeCheck,
@@ -18,6 +19,7 @@ import appEarthing from "@/assets/app-earthing.jpg";
 import appEvHf from "@/assets/app-ev-hf.jpg";
 import appTapChanger from "@/assets/app-tap-changer.jpg";
 import appCtPt from "@/assets/app-ct-pt.jpg";
+import appBusbar from "@/assets/app-busbar.jpg";
 
 const applications = [
   {
@@ -87,6 +89,16 @@ const applications = [
       "Enamelled Aluminium Conductors\u00a0",
       "Fibreglass Covered Aluminium Conductor\u00a0",
       "PIAC -Paper Covered Aluminium Conductor\u00a0",
+    ],
+  },
+  {
+    icon: CircuitBoard,
+    image: appBusbar,
+    title: "Switchgear & Busbar Systems",
+    application: "Switchgear, switchboards, control panels, busducts & power distribution boards",
+    products: [
+      "Bare / Tin Coated Busbar\u00a0",
+      "Copper Flat Strips\u00a0",
     ],
   },
 ];
