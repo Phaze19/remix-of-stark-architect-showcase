@@ -26,7 +26,7 @@ const applications = [
     title: "Power Transformers",
     application: "Power generation, transmission & distribution transformers",
     products: [
-      "Continuously Transposed Conductor (CTC)",
+      "Continuously Transposed Conductor (CTC)\u00a0",
       "Paper Insulated Copper Conductor (PICC)",
       "Flexible Multi-Strand Copper Covered Cables",
       "Fiberglass Covered Copper Conductors\u00a0",
