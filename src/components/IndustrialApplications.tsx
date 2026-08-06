@@ -30,6 +30,7 @@ const applications = [
       "Paper Insulated Copper Conductor (PICC)",
       "Flexible Multi-Strand Copper Covered Cables",
       "Fiberglass Covered Copper Conductors\u00a0",
+      "Rectangular Enamelled Conductors\u00a0",
     ],
   },
   {
