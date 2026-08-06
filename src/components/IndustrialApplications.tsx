@@ -83,10 +83,8 @@ const applications = [
     title: "CT / PT Transformers",
     application: "Current & potential instrument transformers for metering, protection & control",
     products: [
-      "Enamelled Wire",
-      "Enamelled Strips",
-      "Paper Insulated Copper Conductor (PICC)",
-      "Fiberglass Covered Copper Conductors",
+      "Enamelled Copper Conductor\u00a0",
+      "Enamelled Aluminium Conductors\u00a0",
     ],
   },
 ];
