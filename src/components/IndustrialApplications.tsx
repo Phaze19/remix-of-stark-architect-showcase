@@ -28,7 +28,7 @@ const applications = [
     products: [
       "Continuously Transposed Conductor (CTC)\u00a0",
       "PICC Paper Insulated Copper Conductor",
-      "Flexible Multi-Strand Copper Covered Cables",
+      "Flexible\u00a0 Braided Copper or Extra Flexible Braided Copper Conductor\u00a0",
       "Fiberglass Covered Copper Conductors\u00a0",
       "Rectangular Enamelled Conductors\u00a0",
     ],
@@ -51,7 +51,7 @@ const applications = [
     application: "Locomotive, traction motors, auxiliary equipment & railway systems",
     products: [
       "Kapton Covered Copper Conductors",
-      "Nomex Covered Enamelled or Nomex Covered\u00a0 Round Enamelled Conductor\u00a0",
+      "Nomex Covered Enamelled Copper Conductor\u00a0 or Nomex Covered\u00a0 Round Enamelled Copper Conductor\u00a0",
       "Continuous Transposed Conductor\u00a0 (CTC)",
     ],
   },
@@ -80,13 +80,13 @@ const applications = [
   {
     icon: Gauge,
     image: appCtPt,
-    title: "CT / PT Transformers",
+    title: "DISTRIBUTION TRANSFORMERS (CT / PT)",
     application: "Current & potential instrument transformers for metering, protection & control",
     products: [
       "Enamelled Copper Conductor\u00a0",
       "Enamelled Aluminium Conductors\u00a0",
-      "Fibreglass covered Aluminium Conductor\u00a0",
-      "Paper covered aluminium strips",
+      "Fibreglass Covered Aluminium Conductor\u00a0",
+      "PIAC -Paper Covered Aluminium Conductor\u00a0",
     ],
   },
 ];
