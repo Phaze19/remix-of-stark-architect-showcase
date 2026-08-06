@@ -26,7 +26,7 @@ const applications = [
     title: "Power Transformers",
     application: "Power generation, transmission & distribution transformers",
     products: [
-      "Continuously Transposed Conductor (CTC)",
+      "Continuously Transposed Conductor (CTC)\u00a0",
       "Paper Insulated Copper Conductor (PICC)",
       "Flexible Multi-Strand Copper Covered Cables",
       "Fiberglass Covered Copper Conductors\u00a0",
@@ -39,7 +39,7 @@ const applications = [
     application: "HT & LT motors for industrial, commercial & OEM use",
     products: [
       "Fiberglass Covered Copper Conductors",
-      "Enamelled Conductor\u00a0",
+      "Enamelled Copper Conductor\u00a0",
       "Mica Covered Copper Conductors\n\n",
     ],
   },
@@ -50,8 +50,8 @@ const applications = [
     application: "Locomotive, traction motors, auxiliary equipment & railway systems",
     products: [
       "Kapton Covered Copper Conductors",
-      "Nomex Covered Round Enamelled Wire",
-      "CTC Enamel Strips or CTC Enamel Wire",
+      "Nomex Covered Enamelled or\u00a0 Round Enamelled Conductor\u00a0",
+      "Continuous Transposed Conductor\u00a0\u00a0",
     ],
   },
   {
