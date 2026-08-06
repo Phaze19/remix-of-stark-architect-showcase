@@ -51,8 +51,8 @@ const applications = [
     application: "Locomotive, traction motors, auxiliary equipment & railway systems",
     products: [
       "Kapton Covered Copper Conductors",
-      "Nomex Covered Enamelled or\u00a0 Round Enamelled Conductor\u00a0",
-      "Continuous Transposed Conductor\u00a0\u00a0",
+      "Nomex Covered Enamelled or Nomex Covered\u00a0 Round Enamelled Conductor\u00a0",
+      "Continuous Transposed Conductor\u00a0 (CTC)",
     ],
   },
   {
