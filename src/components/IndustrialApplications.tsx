@@ -29,7 +29,7 @@ const applications = [
       "Continuously Transposed Conductor (CTC)",
       "Paper Insulated Copper Conductor (PICC)",
       "Flexible Multi-Strand Copper Covered Cables",
-      "Enamelled Strips",
+      "PIA",
       "Fiberglass Dry Type",
     ],
   },
