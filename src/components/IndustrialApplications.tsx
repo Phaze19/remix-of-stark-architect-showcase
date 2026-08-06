@@ -40,7 +40,7 @@ const applications = [
     application: "HT & LT motors for industrial, commercial & OEM use",
     products: [
       "Fiberglass Covered Copper Conductors",
-      "Enamelled Copper Conductor\u00a0",
+      "Round Enamelled Copper Conductor\u00a0",
       "Mica Covered Copper Conductors\n\n",
     ],
   },
@@ -51,8 +51,8 @@ const applications = [
     application: "Locomotive, traction motors, auxiliary equipment & railway systems",
     products: [
       "Kapton Covered Copper Conductors",
-      "Nomex Covered Enamelled or\u00a0 Round Enamelled Conductor\u00a0",
-      "Continuous Transposed Conductor\u00a0\u00a0",
+      "Nomex Covered Enamelled or Nomex Covered\u00a0 Round Enamelled Conductor\u00a0",
+      "Continuous Transposed Conductor\u00a0 (CTC)",
     ],
   },
   {
@@ -75,7 +75,7 @@ const applications = [
     image: appTapChanger,
     title: "On-Load Tap Changers",
     application: "On-load tap changers in power transformers for voltage regulation",
-    products: ["Bare Solid Copper Conductors", "Paper Covered Solid Copper Conductors"],
+    products: ["Bare Covered or Paper Covered\u00a0 Copper Conductors", "\n"],
   },
   {
     icon: Gauge,
@@ -165,8 +165,10 @@ const IndustrialApplications = () => {
               </p>
               <ul className="mt-3 space-y-2">
                 {app.products.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                    <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
+                  <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/85 min-h-[1.25rem]">
+                    {p !== "\n" && (
+                      <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
+                    )}
                     {p}
                   </li>
                 ))}
