@@ -65,7 +65,7 @@ const Work = () => {
               className="mb-12"
             >
               <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
-                CERTIFICATIONS & CAPABILITIES
+                CERTIFICATIONS
               </h2>
               <h1 className="text-5xl md:text-7xl font-light text-architectural mb-8">
                 Quality You Can<br />
