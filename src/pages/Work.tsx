@@ -10,14 +10,14 @@ const Work = () => {
       title: "ISO 9001:2015",
       description: "Quality Management System certified, ensuring consistent quality across all products and processes.",
       scope: "Manufacturing & Quality Control",
-      status: "Inactive"
+      status: "ACTIVE"
     },
     {
       icon: FlaskConical,
       title: "ISO 14001:2015",
       description: "Environmental Management System certified, demonstrating our commitment to sustainable manufacturing.",
       scope: "Environmental Compliance",
-      status: "Inactive"
+      status: "ACTIVE"
     }
   ];
 
@@ -122,7 +122,7 @@ const Work = () => {
               className="text-center mb-16"
             >
               <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
-                INACTIVE CERTIFICATIONS
+                CERTIFICATIONS
               </h2>
               <h3 className="text-4xl md:text-5xl font-light text-architectural">
                 Internationally Recognized Standards
@@ -140,13 +140,13 @@ const Work = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="group bg-muted/50 p-8 rounded-lg border border-dashed border-border hover:border-muted-foreground/30 transition-all duration-500 opacity-80"
+                  className="group bg-muted/50 p-8 rounded-lg border border-border hover:border-rational-red/30 transition-all duration-500"
                 >
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center">
                       <cert.icon className="w-7 h-7 text-muted-foreground" />
                     </div>
-                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-muted-foreground/10 text-muted-foreground border border-muted-foreground/20">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-rational-red/10 text-rational-red border border-rational-red/20">
                       {cert.status}
                     </span>
                   </div>
