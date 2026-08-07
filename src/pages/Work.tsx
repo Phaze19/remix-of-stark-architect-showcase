@@ -182,13 +182,13 @@ const Work = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="group bg-muted p-8 rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant transition-all duration-500"
+                  className="group bg-muted/50 p-8 rounded-lg border border-dashed border-border hover:border-muted-foreground/30 transition-all duration-500 opacity-80"
                 >
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <cert.icon className="w-7 h-7 text-foreground" />
+                    <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center">
+                      <cert.icon className="w-7 h-7 text-muted-foreground" />
                     </div>
-                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-foreground/10 text-foreground">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-muted-foreground/10 text-muted-foreground border border-muted-foreground/20">
                       {cert.status}
                     </span>
                   </div>
