@@ -70,12 +70,9 @@ const Contact = () => {
             <h1 className="text-minimal text-muted-foreground mb-4 tracking-widest">POWERING INFRASTRUCTURE</h1>
             <h2 className="text-4xl md:text-6xl font-light text-foreground mb-6">
               Copper Solutions for
-              <br />
-              <span className="text-muted-foreground">Renewable Energy</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl">
-              From wind farms to power grids, our copper conductors enable the infrastructure 
-              that powers the future.
+              {"\n"}
             </p>
           </div>
         </div>
