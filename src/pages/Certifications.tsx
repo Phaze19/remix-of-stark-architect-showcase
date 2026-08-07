@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Shield, Award, FileCheck, Download, ExternalLink, CheckCircle, FlaskConical, Ruler, Gauge } from "lucide-react";
+import { Shield, FileCheck, Download, ExternalLink, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const certifications = [
@@ -12,7 +12,7 @@ const certifications = [
     subtitle: "Quality Management System",
     description: "Internationally recognised standard ensuring consistent quality in design, development, production, and delivery of copper conductors.",
     scope: "Manufacturing of CTC conductors, paper covered copper strips/wires, enameled copper wires, bare copper wires & strips",
-    status: "Active",
+    status: "Inactive",
   },
   {
     id: "iso-14001",
@@ -21,43 +21,7 @@ const certifications = [
     subtitle: "Environmental Management System",
     description: "Demonstrates our commitment to minimising environmental impact across all manufacturing processes and waste management.",
     scope: "Environmental management across all production facilities and supply chain operations",
-    status: "Active",
-  },
-  {
-    id: "iso-45001",
-    icon: CheckCircle,
-    title: "ISO 45001:2018",
-    subtitle: "Occupational Health & Safety",
-    description: "Ensures a safe and healthy workplace for all employees, contractors, and visitors at our manufacturing facilities.",
-    scope: "Health and safety management for all operational sites and manufacturing units",
-    status: "Active",
-  },
-  {
-    id: "bis",
-    icon: Award,
-    title: "BIS Certification",
-    subtitle: "Bureau of Indian Standards",
-    description: "Product certification from India's national standards body, verifying conformity to Indian quality benchmarks for copper conductors.",
-    scope: "Copper winding wires and strips as per IS standards",
-    status: "Active",
-  },
-  {
-    id: "nabl",
-    icon: Ruler,
-    title: "NABL Accredited Lab",
-    subtitle: "National Accreditation Board",
-    description: "Our in-house testing laboratory is NABL accredited, ensuring all test results meet international measurement standards.",
-    scope: "Mechanical, electrical, and dimensional testing of copper conductors and insulation materials",
-    status: "Active",
-  },
-  {
-    id: "cpri",
-    icon: Gauge,
-    title: "CPRI Approved",
-    subtitle: "Central Power Research Institute",
-    description: "Products tested and approved by CPRI \nIndia's apex body for applied research in electrical power engineering.",
-    scope: "Type testing and performance validation of transformer-grade copper conductors",
-    status: "Active",
+    status: "Inactive",
   },
 ];
 
@@ -126,7 +90,7 @@ const Certifications = () => {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">ACTIVE CERTIFICATIONS</h3>
+              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">INACTIVE CERTIFICATIONS</h3>
               <h4 className="text-3xl md:text-4xl font-light text-architectural">
                 Standards We Uphold
               </h4>
