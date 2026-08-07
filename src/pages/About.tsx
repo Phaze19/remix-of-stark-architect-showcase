@@ -46,10 +46,9 @@ const About = () => {
               </h2>
               <div className="max-w-3xl space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
                 <p>
-
                   Founded in <span className="font-semibold text-foreground">1989</span>, Rational
                   Engineers Limited (REL) is an ISO 9001:2015 certified manufacturer and one of
-                  India's leading producers of transformer winding conductors — continuously
+                  India's leading producers of transformer winding conductors&nbsp; continuously
                   transposed conductors (CTC), paper-covered copper conductors (PICC) and a range of
                   insulation solutions for the power and distribution transformer industry.
                 </p>
@@ -151,8 +150,8 @@ const About = () => {
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 border border-border">
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
-                      <p className="text-base font-semibold tracking-tight text-foreground md:text-lg">Mr. Jubin Jain</p>
-                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">E DIRECTOR&nbsp;</p>
+                      <p className="text-base font-semibold tracking-tight text-foreground md:text-lg">Mr. Jubin&nbsp; M. Jain</p>
+                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">CEO & WHOLETIME DIRECTOR&nbsp;</p>
                     </div>
                   </div>
                 </div>
