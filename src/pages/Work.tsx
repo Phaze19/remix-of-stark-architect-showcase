@@ -140,7 +140,7 @@ const Work = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="group bg-muted/50 p-8 rounded-lg border border-dashed border-border hover:border-muted-foreground/30 transition-all duration-500 opacity-80"
+                  className="group bg-muted/50 p-8 rounded-lg border border-border hover:border-rational-red/30 transition-all duration-500"
                 >
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center">
