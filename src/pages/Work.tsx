@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Shield, FlaskConical, Factory, FileCheck, Microscope } from "lucide-react";
-import productBareCopper from "@/assets/product-bare-copper.jpg";
-import productBusbar from "@/assets/product-busbar.jpg";
-import productCtc from "@/assets/product-ctc-conductor.jpg";
+import { Shield, FlaskConical } from "lucide-react";
 
 const Work = () => {
   const certifications = [
