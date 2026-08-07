@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown, MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import QuoteDialog from "@/components/QuoteDialog";
 import logoDark from "@/assets/rational-logo-original.jpeg";
