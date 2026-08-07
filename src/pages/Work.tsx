@@ -21,45 +21,6 @@ const Work = () => {
     }
   ];
 
-  const capabilities = [
-    {
-      icon: Factory,
-      title: "Advanced Manufacturing",
-      image: productBareCopper,
-      features: [
-        "State-of-the-art wire drawing lines",
-        "Precision paper/film wrapping machines",
-        "Automated CTC transposition lines",
-        "Temperature-controlled annealing furnaces",
-        "Clean room insulation facilities"
-      ]
-    },
-    {
-      icon: FlaskConical,
-      title: "In-House Testing Lab",
-      image: productBusbar,
-      features: [
-        "Conductivity & resistivity testing",
-        "Tensile strength measurement",
-        "Elongation analysis",
-        "Insulation breakdown voltage testing",
-        "Dimensional precision verification"
-      ]
-    },
-    {
-      icon: Microscope,
-      title: "Quality Assurance",
-      image: productCtc,
-      features: [
-        "100% incoming material inspection",
-        "In-process quality checks",
-        "Statistical process control (SPC)",
-        "Final product certification",
-        "Full material traceability"
-      ]
-    }
-  ];
-
   const stats = [
     { value: "25+", label: "Years of Excellence" },
     { value: "99.9%", label: "Purity Copper" },
