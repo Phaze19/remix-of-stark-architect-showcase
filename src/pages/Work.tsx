@@ -146,7 +146,7 @@ const Work = () => {
                     <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center">
                       <cert.icon className="w-7 h-7 text-muted-foreground" />
                     </div>
-                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-muted-foreground/10 text-muted-foreground border border-muted-foreground/20">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-rational-red/10 text-rational-red border border-rational-red/20">
                       {cert.status}
                     </span>
                   </div>
