@@ -46,9 +46,29 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+
+  // Header should not stay frozen over the content: it slides away while
+  // scrolling down and returns as soon as the user scrolls back up.
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      const goingDown = y > lastY.current;
+      lastY.current = y;
+      if (isMenuOpen) return;
+      setHidden(goingDown && y > 220);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isMenuOpen]);
 
   return (
-    <nav className="fixed top-8 left-0 right-0 z-50">
+    <nav
+      className={`fixed top-8 left-0 right-0 z-50 transition-transform duration-500 ease-out will-change-transform ${
+        hidden ? "-translate-y-[calc(100%+2rem)]" : "translate-y-0"
+      }`}
+    >
       {/* Tier 1 — logo band + contact strip */}
       <div className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
         <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-4 md:px-6 md:py-5 lg:px-8">
