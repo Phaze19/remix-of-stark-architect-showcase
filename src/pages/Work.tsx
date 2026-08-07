@@ -258,7 +258,7 @@ const Work = () => {
                           key={featureIndex}
                           className="text-muted-foreground text-sm flex items-start gap-3"
                         >
-                          <Gauge className="w-4 h-4 text-foreground/60 mt-0.5 flex-shrink-0" />
+                          <FileCheck className="w-4 h-4 text-foreground/60 mt-0.5 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
