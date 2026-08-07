@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Shield, Award, FileCheck, Download, ExternalLink, CheckCircle, FlaskConical, Ruler, Gauge } from "lucide-react";
+import { Shield, FileCheck, Download, ExternalLink, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const certifications = [
@@ -90,7 +90,7 @@ const Certifications = () => {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">ACTIVE CERTIFICATIONS</h3>
+              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">INACTIVE CERTIFICATIONS</h3>
               <h4 className="text-3xl md:text-4xl font-light text-architectural">
                 Standards We Uphold
               </h4>
