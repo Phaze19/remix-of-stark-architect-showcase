@@ -119,7 +119,7 @@ const About = () => {
                   <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                     His son{" "}
                     <span className="text-foreground font-semibold">Mr. Jubin Jain (B.E Electrical)</span>{" "}
-                    became a part of this vision in 2018 — bringing fresh energy and technical expertise to propel the company forward.
+                    became a part of this vision in 2018 ,bringing fresh energy and technical expertise to propel the company forward.
                   </p>
 
                   <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
