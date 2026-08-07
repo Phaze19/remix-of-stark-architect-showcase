@@ -51,7 +51,7 @@ const milestones: Milestone[] = [
 
 const groupCompanies = [
   "Rational Engineers Limited",
-  "K Patel Copper & Aluminium",
+  "GEMINI INSTRATECH",
   "SKYLINK AERO\u00a0",
   "HMTD Engineering Private Limited",
 ];
