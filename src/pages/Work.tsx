@@ -10,14 +10,14 @@ const Work = () => {
       title: "ISO 9001:2015",
       description: "Quality Management System certified, ensuring consistent quality across all products and processes.",
       scope: "Manufacturing & Quality Control",
-      status: "Inactive"
+      status: "ACTIVE"
     },
     {
       icon: FlaskConical,
       title: "ISO 14001:2015",
       description: "Environmental Management System certified, demonstrating our commitment to sustainable manufacturing.",
       scope: "Environmental Compliance",
-      status: "Inactive"
+      status: "ACTIVE"
     }
   ];
 
