@@ -131,22 +131,41 @@ const Services = () => {
               </p>
             </div>
 
-            {/* Industry Tabs */}
-            <div className="flex flex-wrap gap-3 mb-12">
-              {industries.map((ind, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndustry(i)}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-all duration-300 border ${
-                    activeIndustry === i
-                      ? "bg-foreground text-background border-foreground"
-                      : "bg-background text-muted-foreground border-border hover:border-foreground/40 hover:text-foreground"
-                  }`}
-                >
-                  <ind.icon className="w-4 h-4" />
-                  {ind.title}
-                </button>
-              ))}
+            {/* Industry selector cards */}
+            <div className="mb-12 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
+              {industries.map((ind, i) => {
+                const isActive = activeIndustry === i;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIndustry(i)}
+                    aria-pressed={isActive}
+                    className={`group relative flex flex-col items-start gap-4 p-6 text-left transition-colors duration-300 ${
+                      isActive
+                        ? "bg-foreground text-background"
+                        : "bg-background text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    <span
+                      className={`absolute inset-x-0 top-0 h-[3px] origin-left bg-rational-red transition-transform duration-500 ${
+                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                    <div className="flex w-full items-center justify-between">
+                      <ind.icon className={`h-6 w-6 ${isActive ? "text-rational-red" : "text-rational-red/80"}`} />
+                      <span className="text-[11px] font-semibold tracking-[0.2em] opacity-50">
+                        0{i + 1}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-base font-medium tracking-tight">{ind.title}</span>
+                      <span className={`mt-1 block text-xs ${isActive ? "text-background/60" : "text-muted-foreground"}`}>
+                        {ind.tagline}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Active Industry Detail */}
