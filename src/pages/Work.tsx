@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Shield, FlaskConical, Factory, FileCheck, Microscope } from "lucide-react";
-import productBareCopper from "@/assets/product-bare-copper.jpg";
-import productBusbar from "@/assets/product-busbar.jpg";
-import productCtc from "@/assets/product-ctc-conductor.jpg";
+import { Shield, FlaskConical } from "lucide-react";
 
 const Work = () => {
   const certifications = [
@@ -21,45 +18,6 @@ const Work = () => {
       description: "Environmental Management System certified, demonstrating our commitment to sustainable manufacturing.",
       scope: "Environmental Compliance",
       status: "Inactive"
-    }
-  ];
-
-  const capabilities = [
-    {
-      icon: Factory,
-      title: "Advanced Manufacturing",
-      image: productBareCopper,
-      features: [
-        "State-of-the-art wire drawing lines",
-        "Precision paper/film wrapping machines",
-        "Automated CTC transposition lines",
-        "Temperature-controlled annealing furnaces",
-        "Clean room insulation facilities"
-      ]
-    },
-    {
-      icon: FlaskConical,
-      title: "In-House Testing Lab",
-      image: productBusbar,
-      features: [
-        "Conductivity & resistivity testing",
-        "Tensile strength measurement",
-        "Elongation analysis",
-        "Insulation breakdown voltage testing",
-        "Dimensional precision verification"
-      ]
-    },
-    {
-      icon: Microscope,
-      title: "Quality Assurance",
-      image: productCtc,
-      features: [
-        "100% incoming material inspection",
-        "In-process quality checks",
-        "Statistical process control (SPC)",
-        "Final product certification",
-        "Full material traceability"
-      ]
     }
   ];
 
@@ -107,7 +65,7 @@ const Work = () => {
               className="mb-12"
             >
               <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
-                CERTIFICATIONS & CAPABILITIES
+                CERTIFICATIONS
               </h2>
               <h1 className="text-5xl md:text-7xl font-light text-architectural mb-8">
                 Quality You Can<br />
@@ -202,72 +160,6 @@ const Work = () => {
                     <span className="text-xs text-muted-foreground uppercase tracking-wide">
                       {cert.scope}
                     </span>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Capabilities Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-6">
-          <div className="max-w-7xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
-                CAPABILITIES
-              </h2>
-              <h3 className="text-4xl md:text-5xl font-light text-architectural">
-                World-Class Manufacturing Infrastructure
-              </h3>
-            </motion.div>
-            
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="grid lg:grid-cols-3 gap-8"
-            >
-              {capabilities.map((capability, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="group bg-background rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant overflow-hidden transition-all duration-500"
-                >
-                  <div className="relative h-56 overflow-hidden">
-                    <img 
-                      src={capability.image} 
-                      alt={capability.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                    <div className="absolute bottom-4 left-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center">
-                      <capability.icon className="w-6 h-6 text-foreground" />
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="text-xl font-medium mb-4 text-foreground">
-                      {capability.title}
-                    </h4>
-                    <ul className="space-y-3">
-                      {capability.features.map((feature, featureIndex) => (
-                        <li 
-                          key={featureIndex}
-                          className="text-muted-foreground text-sm flex items-start gap-3"
-                        >
-                          <FileCheck className="w-4 h-4 text-foreground/60 mt-0.5 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 </motion.div>
               ))}
