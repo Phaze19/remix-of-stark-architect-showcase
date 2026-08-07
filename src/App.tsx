@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import Index from "./pages/Index";
 import Work from "./pages/Work";
-import Services from "./pages/Services";
+
 import About from "./pages/About";
 import FounderJourney from "./pages/FounderJourney";
 import Leadership from "./pages/Leadership";
@@ -39,7 +39,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work" element={<Work />} />
-          <Route path="/services" element={<Services />} />
+          
           <Route path="/about" element={<About />} />
           <Route path="/founder" element={<FounderJourney />} />
           <Route path="/leadership" element={<Leadership />} />

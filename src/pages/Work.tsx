@@ -301,7 +301,7 @@ const Work = () => {
                   Request Certification Details
                 </a>
                 <a 
-                  href="/services" 
+                  href="/#products" 
                   className="inline-flex items-center gap-2 border border-foreground text-foreground px-8 py-4 rounded-sm hover:bg-foreground hover:text-background transition-colors duration-300"
                 >
                   View Our Products
