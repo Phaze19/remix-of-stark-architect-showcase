@@ -152,7 +152,7 @@ const About = () => {
                     <div className="w-2 h-12 bg-foreground/80 rounded-full" />
                     <div>
                       <p className="text-base font-semibold tracking-tight text-foreground md:text-lg">Mr. Jubin Jain</p>
-                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Executive Director&nbsp;</p>
+                      <p className="mt-0.5 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">E DIRECTOR&nbsp;</p>
                     </div>
                   </div>
                 </div>
