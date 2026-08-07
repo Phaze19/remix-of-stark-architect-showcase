@@ -27,14 +27,14 @@ const newsItems = [
     excerpt:
       "Our Jaipur facility now operates an additional high-speed paper-covering line, increasing output capacity by 30% to meet growing orders from transformer OEMs across South Asia.",
   },
-  {
-    date: "November 2025",
-    tag: "MARKET INSIGHT",
-    icon: TrendingUp,
-    title: "Global Copper Winding Wire Market Poised for 6.2% CAGR",
-    excerpt:
-      "Industry analysts project robust growth driven by electrification of transport and grid modernisation — sectors where Rational Engineers is strategically positioned with BIS and NABL-backed product lines.",
-  },
+    {
+      date: "November 2025",
+      tag: "MARKET INSIGHT",
+      icon: TrendingUp,
+      title: "Global Copper Winding Wire Market Poised for 6.2% CAGR",
+      excerpt:
+        "Industry analysts project robust growth driven by electrification of transport and grid modernisation — sectors where Rational Engineers is strategically positioned with ISO-backed product lines.",
+    },
 ];
 
 const NewsUpdates = () => {

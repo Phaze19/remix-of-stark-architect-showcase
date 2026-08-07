@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Shield, Award, FlaskConical, Factory, CheckCircle, FileCheck, Microscope, Gauge } from "lucide-react";
+import { Shield, FlaskConical, Factory, FileCheck, Microscope } from "lucide-react";
 import productBareCopper from "@/assets/product-bare-copper.jpg";
 import productBusbar from "@/assets/product-busbar.jpg";
 import productCtc from "@/assets/product-ctc-conductor.jpg";
@@ -12,25 +12,15 @@ const Work = () => {
       icon: Shield,
       title: "ISO 9001:2015",
       description: "Quality Management System certified, ensuring consistent quality across all products and processes.",
-      scope: "Manufacturing & Quality Control"
+      scope: "Manufacturing & Quality Control",
+      status: "Inactive"
     },
     {
-      icon: Award,
+      icon: FlaskConical,
       title: "ISO 14001:2015",
       description: "Environmental Management System certified, demonstrating our commitment to sustainable manufacturing.",
-      scope: "Environmental Compliance"
-    },
-    {
-      icon: FileCheck,
-      title: "IEC Standards",
-      description: "Products tested and certified to international electrotechnical standards for transformers and electrical equipment.",
-      scope: "Product Compliance"
-    },
-    {
-      icon: CheckCircle,
-      title: "NABL Accredited Testing",
-      description: "In-house laboratory accredited for dimensional, mechanical, and electrical testing.",
-      scope: "Testing & Validation"
+      scope: "Environmental Compliance",
+      status: "Inactive"
     }
   ];
 
@@ -174,7 +164,7 @@ const Work = () => {
               className="text-center mb-16"
             >
               <h2 className="text-minimal text-muted-foreground mb-4 tracking-widest">
-                CERTIFICATIONS
+                INACTIVE CERTIFICATIONS
               </h2>
               <h3 className="text-4xl md:text-5xl font-light text-architectural">
                 Internationally Recognized Standards
@@ -186,7 +176,7 @@ const Work = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+              className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto"
             >
               {certifications.map((cert, index) => (
                 <motion.div
@@ -194,8 +184,13 @@ const Work = () => {
                   variants={itemVariants}
                   className="group bg-muted p-8 rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant transition-all duration-500"
                 >
-                  <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <cert.icon className="w-7 h-7 text-foreground" />
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <cert.icon className="w-7 h-7 text-foreground" />
+                    </div>
+                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-foreground/10 text-foreground">
+                      {cert.status}
+                    </span>
                   </div>
                   <h4 className="text-xl font-medium mb-3 text-foreground">
                     {cert.title}
@@ -268,7 +263,7 @@ const Work = () => {
                           key={featureIndex}
                           className="text-muted-foreground text-sm flex items-start gap-3"
                         >
-                          <Gauge className="w-4 h-4 text-foreground/60 mt-0.5 flex-shrink-0" />
+                          <FileCheck className="w-4 h-4 text-foreground/60 mt-0.5 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
