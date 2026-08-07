@@ -184,8 +184,13 @@ const Work = () => {
                   variants={itemVariants}
                   className="group bg-muted p-8 rounded-lg border border-border hover:border-foreground/30 hover:shadow-elegant transition-all duration-500"
                 >
-                  <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <cert.icon className="w-7 h-7 text-foreground" />
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 rounded-full bg-background flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <cert.icon className="w-7 h-7 text-foreground" />
+                    </div>
+                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-foreground/10 text-foreground">
+                      {cert.status}
+                    </span>
                   </div>
                   <h4 className="text-xl font-medium mb-3 text-foreground">
                     {cert.title}
