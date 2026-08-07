@@ -24,7 +24,7 @@ const Work = () => {
   const stats = [
     { value: "25+", label: "Years of Excellence" },
     { value: "99.9%", label: "Purity Copper" },
-    { value: "500+", label: "OEM Clients Served" },
+    { value: "300+", label: "OEM Clients Served" },
     { value: "0", label: "Tolerance for Defects" }
   ];
 
