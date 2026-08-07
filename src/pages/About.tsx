@@ -352,7 +352,7 @@ const About = () => {
                 Building businesses. Creating value. Transforming lives — three decades of
                 entrepreneurship across engineering, metals, infrastructure, finance and
                 aviation, from Business Management in 1992 to the greenfield factory at
-                Vadodara in 2025.
+                Vadodara in 2026.
               </p>
 
               <div className="mt-8 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
