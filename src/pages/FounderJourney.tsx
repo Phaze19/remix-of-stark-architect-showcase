@@ -29,13 +29,13 @@ const milestones: Milestone[] = [
   },
   {
     year: "2020",
-    title: "Acquired - K Patel Copper & Aluminium",
+    title: "Acquired - Gemini Instratech",
     desc: "Strengthened metal processing capabilities and expanded the product portfolio for transformer and motor winding applications.",
   },
   {
     year: "2022",
-    title: "Acquired - GIC Insuflex Conductor Private Limited",
-    desc: "Added specialised insulated conductor manufacturing, enhancing REL's ability to serve global OEMs and utilities.",
+    title: "Acquired - Skylink Aero",
+    desc: "Diversified into aviation services, broadening the group's presence beyond engineering and metals.",
   },
   {
     year: "2024",
