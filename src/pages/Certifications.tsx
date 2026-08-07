@@ -104,13 +104,13 @@ const Certifications = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="group bg-muted/30 border border-border rounded-xl p-8 hover:border-foreground/30 hover:shadow-elegant hover:-translate-y-1 transition-all duration-500 ease-smooth flex flex-col"
+                  className="group bg-muted/30 border border-dashed border-border rounded-xl p-8 hover:border-muted-foreground/30 transition-all duration-500 ease-smooth flex flex-col opacity-80"
                 >
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 rounded-full bg-muted group-hover:bg-foreground/10 flex items-center justify-center transition-colors duration-300">
-                      <cert.icon className="w-7 h-7 text-foreground group-hover:scale-110 transition-transform duration-300" />
+                    <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center">
+                      <cert.icon className="w-7 h-7 text-muted-foreground" />
                     </div>
-                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-foreground/10 text-foreground">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-muted-foreground/10 text-muted-foreground border border-muted-foreground/20">
                       {cert.status}
                     </span>
                   </div>
