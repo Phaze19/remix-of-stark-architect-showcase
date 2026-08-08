@@ -62,8 +62,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["'DM Sans'", "system-ui", "sans-serif"],
-        display: ["'Space Grotesk'", "'DM Sans'", "sans-serif"],
+        sans: ["'IBM Plex Sans'", "system-ui", "sans-serif"],
+        display: ["'Libre Baskerville'", "'IBM Plex Sans'", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
