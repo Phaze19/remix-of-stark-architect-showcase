@@ -20,7 +20,7 @@ const locations = [
   {
     num: "03",
     pin: "dubai",
-    title: "REL Metal Trading Co, Dubai",
+    title: "REL METALS TRADING LLC, UAE",
     label: "Global Trade & Distribution Hub",
     desc: "International trade arm driving distribution across the Middle East, Africa and emerging markets worldwide.",
   },

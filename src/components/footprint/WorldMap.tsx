@@ -25,8 +25,8 @@ export const pins: FootprintPin[] = [
   },
   {
     id: "dubai",
-    label: "REL Metal Trading Co",
-    sub: "Dubai",
+    label: "REL METALS TRADING LLC",
+    sub: "UAE",
     coords: [55, 25],
     kind: "presence",
     labelOffset: [-130, -6],
