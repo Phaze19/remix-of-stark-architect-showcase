@@ -25,8 +25,8 @@ export const pins: FootprintPin[] = [
   },
   {
     id: "dubai",
-    label: "REL Metal Trading Co",
-    sub: "Dubai",
+    label: "REL METALS TRADING LLC",
+    sub: "UAE",
     coords: [55, 25],
     kind: "presence",
     labelOffset: [-130, -6],
@@ -59,7 +59,7 @@ const WorldMap = ({ activeId, onHover }: Props) => {
         viewBox="0 20 1000 415"
         className="h-auto w-full"
         role="img"
-        aria-label="World map showing Rational Engineers manufacturing in India and a trading hub in Dubai"
+        aria-label="World map showing Rational Engineers manufacturing in India and a trading hub in UAE"
       >
         <path
           d={WORLD_PATH}
