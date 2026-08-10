@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import facilityAsset from "@/assets/rational-facility-exterior.png.asset.json";
 const facilityExterior = facilityAsset.url;
 
