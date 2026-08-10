@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import facilityAsset from "@/assets/rational-facility-exterior.png.asset.json";
 const facilityExterior = facilityAsset.url;
 
@@ -57,6 +58,8 @@ const groupCompanies = [
 ];
 
 const FounderJourney = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -118,6 +121,7 @@ const FounderJourney = () => {
             <div className="space-y-14 md:space-y-24">
               {milestones.map((item, i) => {
                 const isRight = i % 2 === 1;
+                const isActive = activeIndex === i;
                 return (
                   <motion.div
                     key={item.year + item.title}
@@ -125,21 +129,40 @@ const FounderJourney = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="relative pl-12 md:grid md:grid-cols-2 md:gap-16 md:pl-0"
+                    onClick={() => setActiveIndex(isActive ? null : i)}
+                    className={[
+                      "relative cursor-pointer rounded-xl pl-12 transition-all duration-300 ease-smooth md:grid md:grid-cols-2 md:gap-16 md:pl-0",
+                      "hover:bg-rational-red/5",
+                      isActive
+                        ? "bg-rational-red/[0.07] shadow-elegant"
+                        : "bg-transparent"
+                    ].join(" ")}
                   >
                     {/* Node */}
                     <span className="absolute left-3 top-3 z-10 -translate-x-1/2 md:left-1/2">
-                      <span className="block h-3.5 w-3.5 rounded-full border-2 border-rational-red bg-background" />
+                      <span
+                        className={[
+                          "block rounded-full border-2 border-rational-red bg-background transition-all duration-300",
+                          isActive ? "h-5 w-5 shadow-[0_0_0_6px_hsl(var(--rational-red)/0.12)]" : "h-3.5 w-3.5"
+                        ].join(" ")}
+                      />
                     </span>
 
                     <div
-                      className={
+                      className={[
+                        "py-6 transition-all duration-300",
                         isRight
                           ? "md:col-start-2 md:pl-4 md:text-left"
-                          : "md:col-start-1 md:pr-4 md:text-right"
-                      }
+                          : "md:col-start-1 md:pr-4 md:text-right",
+                        isActive ? "translate-x-1" : ""
+                      ].join(" ")}
                     >
-                      <p className="font-display text-4xl font-light text-rational-red md:text-5xl">
+                      <p
+                        className={[
+                          "font-display text-4xl font-light text-rational-red transition-all duration-300 md:text-5xl",
+                          isActive ? "scale-105" : ""
+                        ].join(" ")}
+                      >
                         {item.year}
                       </p>
                       <h2 className="mt-2 text-xl font-semibold text-foreground md:text-2xl">
