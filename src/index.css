@@ -40,6 +40,10 @@
     --ring: 0 0% 0%;
 
     --radius: 0.5rem;
+
+    /* Typography presets (see src/lib/fontPresets.ts) */
+    --font-display: 'Instrument Serif', 'Work Sans', serif;
+    --font-sans: 'Work Sans', system-ui, sans-serif;
     --rational-red: 358 75% 48%;
 
     --sidebar-background: 0 0% 98%;
