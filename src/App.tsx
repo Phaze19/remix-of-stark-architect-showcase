@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
+import FontPresetSwitcher from "@/components/FontPresetSwitcher";
 import Index from "./pages/Index";
 import Work from "./pages/Work";
 
@@ -53,6 +54,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <FontPresetSwitcher />
     </TooltipProvider>
   </QueryClientProvider>
 );

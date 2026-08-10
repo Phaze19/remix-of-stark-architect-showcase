@@ -62,8 +62,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["'Work Sans'", "system-ui", "sans-serif"],
-        display: ["'Instrument Serif'", "'Work Sans'", "serif"],
+        sans: ["var(--font-sans)", "'Work Sans'", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "'Instrument Serif'", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
