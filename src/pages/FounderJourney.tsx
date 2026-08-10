@@ -58,6 +58,8 @@ const groupCompanies = [
 ];
 
 const FounderJourney = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
