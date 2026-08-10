@@ -43,7 +43,7 @@ export const FONT_PRESETS: FontPreset[] = [
   },
 ];
 
-export const DEFAULT_FONT_PRESET: FontPresetId = "editorial-serif";
+export const DEFAULT_FONT_PRESET: FontPresetId = "modern-industrial";
 export const FONT_PRESET_STORAGE_KEY = "rational-font-preset";
 
 export const applyFontPreset = (id: FontPresetId) => {
