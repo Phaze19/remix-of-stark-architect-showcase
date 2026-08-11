@@ -2,7 +2,7 @@ import ctcAsset from "@/assets/cat2-ctc.jpg.asset.json";
 import bareCableAsset from "@/assets/cat2-bare-cable.jpg.asset.json";
 import insulatedCableAsset from "@/assets/cat2-insulated-cable.jpg.asset.json";
 import enamCopperAsset from "@/assets/cat2-enam-copper.jpg.asset.json";
-import enamAluAsset from "@/assets/cat2-enam-alu.jpg.asset.json";
+import enamAluAsset from "@/assets/cat2-enam-alu-new.jpg.asset.json";
 import piccAsset from "@/assets/cat2-picc.jpg.asset.json";
 import micaAsset from "@/assets/cat2-mica.jpg.asset.json";
 import kaptonAsset from "@/assets/cat2-kapton.jpg.asset.json";
