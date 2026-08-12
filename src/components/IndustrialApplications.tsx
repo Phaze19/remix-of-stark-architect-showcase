@@ -20,7 +20,8 @@ import appEvHf from "@/assets/app-ev-hf.jpg";
 import appTapChanger from "@/assets/app-tap-changer.jpg";
 import appCtPt from "@/assets/app-ct-pt.jpg";
 import appBusbar from "@/assets/app-busbar.jpg";
-import applicationsBg from "@/assets/applications-energy-bg.jpg";
+import applicationsBgAsset from "@/assets/applications-energy-bg.jpg.asset.json";
+const applicationsBg = applicationsBgAsset.url;
 
 const applications = [
   {
