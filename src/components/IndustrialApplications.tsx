@@ -133,64 +133,71 @@ const IndustrialApplications = () => {
         </div>
       </div>
 
-      {/* Application cards */}
-      <div className="container mx-auto px-6 pb-16">
-        <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {applications.map((app) => (
-            <article
-              key={app.title}
-              className="group relative flex flex-col overflow-hidden border border-border bg-card p-7 transition-all duration-500 hover:-translate-y-1 hover:border-rational-red/50 hover:shadow-elegant"
-            >
-              <div className="relative -mx-7 -mt-7 mb-7 h-44 overflow-hidden">
-                <img
-                  src={app.image}
-                  alt={`${app.title} copper conductor application`}
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
-                <span className="absolute bottom-4 left-7 flex h-11 w-11 items-center justify-center bg-rational-red">
-                  <app.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.75} />
-                </span>
-              </div>
+      {/* Cinematic application band */}
+      <div className="relative isolate overflow-hidden">
+        <img
+          src={applicationsBg}
+          alt="Renewable energy and power transmission infrastructure at dusk"
+          loading="lazy"
+          width={1920}
+          height={1088}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-foreground/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/40 to-foreground/70" />
 
-              <h3 className="text-lg font-bold uppercase leading-tight tracking-tight text-foreground">
-                {app.title}
-              </h3>
+        <div className="relative container mx-auto px-6 py-20">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-y-16">
+            {applications.map((app, i) => (
+              <article
+                key={app.title}
+                className="group relative px-0 sm:px-8 sm:[&:not(:nth-child(2n+1))]:border-l lg:[&:not(:nth-child(4n+1))]:border-l sm:border-primary-foreground/15 lg:border-primary-foreground/15 transition-colors duration-500"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-4xl font-light tracking-tight text-primary-foreground md:text-5xl">
+                    {String(i + 1).padStart(2, "0")}
+                    <span className="text-rational-red">.</span>
+                  </span>
+                  <span className="flex h-10 w-10 items-center justify-center border border-primary-foreground/25 bg-primary-foreground/5 transition-colors duration-500 group-hover:border-rational-red group-hover:bg-rational-red">
+                    <app.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.75} />
+                  </span>
+                </div>
 
-              <span className="mt-5 flex items-center gap-2">
-                <span className="h-px w-16 bg-rational-red transition-all duration-500 group-hover:w-28" />
-                <span className="h-1.5 w-1.5 rounded-full bg-rational-red" />
-              </span>
+                <h3 className="mt-6 text-base font-bold uppercase leading-tight tracking-tight text-primary-foreground">
+                  {app.title}
+                </h3>
 
-              <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.18em] text-rational-red">
-                Applications
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {app.application}
-              </p>
+                <span className="mt-4 block h-px w-14 bg-rational-red transition-all duration-500 group-hover:w-24" />
 
-              <div className="my-6 border-t border-dashed border-border" />
+                <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.18em] text-rational-red">
+                  Applications
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">
+                  {app.application}
+                </p>
 
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-rational-red">
-                Products
-              </p>
-              <ul className="mt-3 space-y-2">
-                {app.products.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/85 min-h-[1.25rem]">
-                    {p !== "\n" && (
-                      <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
-                    )}
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+                <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.18em] text-rational-red">
+                  Products
+                </p>
+                <ul className="mt-3 space-y-2">
+                  {app.products.map((p) => (
+                    <li
+                      key={p}
+                      className="flex items-start gap-2.5 text-sm leading-relaxed text-primary-foreground/90 min-h-[1.25rem]"
+                    >
+                      {p !== "\n" && (
+                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
+                      )}
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
+
 
       {/* Benefits strip + tagline */}
       <div className="border-y border-border bg-muted/30">
