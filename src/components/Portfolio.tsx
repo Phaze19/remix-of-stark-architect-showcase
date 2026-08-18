@@ -130,13 +130,14 @@ const Portfolio = () => {
                 key={index}
                 className="group bg-background rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:ring-1 hover:ring-rational-red/20"
               >
-                <div className="relative overflow-hidden aspect-square bg-white">
+                <div className="relative overflow-hidden aspect-[4/3] bg-white">
                   <img
                     src={product.image}
                     alt={product.title}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain p-3 transition-transform duration-700 group-hover:scale-105"
                   />
+
                 </div>
 
                 <div className="p-6">
