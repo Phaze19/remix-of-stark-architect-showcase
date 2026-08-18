@@ -530,7 +530,7 @@ const ProductShowcase = () => {
                 <img
                   src={selectedProduct.image}
                   alt={selectedProduct.title}
-                  className="w-full h-64 md:h-80 object-cover bg-white"
+                  className="w-full h-64 md:h-80 object-contain bg-white p-4"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                 <button
