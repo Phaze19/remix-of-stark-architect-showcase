@@ -12,7 +12,7 @@ const certifications = [
     subtitle: "Quality Management System",
     description: "Internationally recognised standard ensuring consistent quality in design, development, production, and delivery of copper conductors.",
     scope: "Manufacturing of CTC conductors, paper covered copper strips/wires, enameled copper wires, bare copper wires & strips",
-    status: "Inactive",
+    status: "ACTIVE",
   },
   {
     id: "iso-14001",
@@ -21,7 +21,7 @@ const certifications = [
     subtitle: "Environmental Management System",
     description: "Demonstrates our commitment to minimising environmental impact across all manufacturing processes and waste management.",
     scope: "Environmental management across all production facilities and supply chain operations",
-    status: "Inactive",
+    status: "ACTIVE",
   },
 ];
 
@@ -90,7 +90,7 @@ const Certifications = () => {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">INACTIVE CERTIFICATIONS</h3>
+              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">ACTIVE CERTIFICATIONS</h3>
               <h4 className="text-3xl md:text-4xl font-light text-architectural">
                 Standards We Uphold
               </h4>
@@ -104,13 +104,13 @@ const Certifications = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="group bg-muted/30 border border-dashed border-border rounded-xl p-8 hover:border-muted-foreground/30 transition-all duration-500 ease-smooth flex flex-col opacity-80"
+                  className="group bg-muted/30 border border-border rounded-xl p-8 hover:border-rational-red/30 transition-all duration-500 ease-smooth flex flex-col"
                 >
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center">
-                      <cert.icon className="w-7 h-7 text-muted-foreground" />
+                      <cert.icon className="w-7 h-7 text-foreground" />
                     </div>
-                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-muted-foreground/10 text-muted-foreground border border-muted-foreground/20">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-rational-red/10 text-rational-red border border-rational-red/20">
                       {cert.status}
                     </span>
                   </div>
