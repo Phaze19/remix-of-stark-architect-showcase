@@ -4,9 +4,11 @@ import App from "./App.tsx";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { FontPresetProvider } from "@/components/FontPresetProvider";
 import { initAnalytics } from "@/lib/analytics";
+import { initImageFallback } from "@/lib/imageFallback";
 import "./index.css";
 
 initAnalytics();
+initImageFallback();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
