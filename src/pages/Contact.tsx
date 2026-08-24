@@ -111,7 +111,7 @@ const Contact = () => {
                     <address className="text-xl not-italic leading-relaxed">
                       <strong>RATIONAL ENGINEERS LIMITED</strong>
                       <br />
-                      103, Dhanalaxmi Residency, 1st Floor
+                      103, Dhanlaxmi Residency, 1st Floor
                       <br />
                       Near Tip Top Plaza, Naupada
                       <br />
