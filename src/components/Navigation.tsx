@@ -36,7 +36,7 @@ const contactItems = [
   {
     icon: MapPin,
     label: "Visit Us",
-    lines: ["103, Dhanalaxmi Residency, Naupada,", "L.B.S. Marg, Thane West, MH 400604"],
+    lines: ["103, Dhanlaxmi Residency, Naupada,", "L.B.S. Marg, Thane West, MH 400604"],
   },
   { icon: Phone, label: "Call Us", lines: ["+91 91686 43114"], href: "tel:+919168643114" },
   { icon: Mail, label: "Mail Us", lines: ["info@rationalengineers.com"], href: "mailto:info@rationalengineers.com" },
