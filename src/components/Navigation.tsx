@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown, MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import QuoteDialog from "@/components/QuoteDialog";
+import { Button } from "@/components/ui/button";
 import logoDark from "@/assets/rational-logo-original.jpeg";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
@@ -51,6 +52,12 @@ const Navigation = () => {
   const lastY = useRef(0);
   const navRef = useRef<HTMLElement | null>(null);
 
+  const closeNavigation = () => {
+    setOpenDropdown(null);
+    setIsMenuOpen(false);
+    setOpenMobileGroup(null);
+  };
+
   // Header should not stay frozen over the content: it slides away while
   // scrolling down and returns as soon as the user scrolls back up.
   useEffect(() => {
@@ -70,14 +77,12 @@ const Navigation = () => {
   useEffect(() => {
     const onPointerDown = (event: PointerEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setOpenDropdown(null);
-        setIsMenuOpen(false);
+        closeNavigation();
       }
     };
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
-      setOpenDropdown(null);
-      setIsMenuOpen(false);
+      closeNavigation();
     };
     document.addEventListener("pointerdown", onPointerDown);
     document.addEventListener("keydown", onKeyDown);
@@ -178,7 +183,7 @@ const Navigation = () => {
       </div>
 
       {/* Tier 2 — nav bar */}
-      <div className="relative hidden overflow-hidden bg-foreground lg:block">
+      <div className="relative hidden bg-foreground lg:block">
         <div
           className="absolute inset-y-0 right-0 w-[30%] bg-rational-red"
           style={{ clipPath: "polygon(56px 0, 100% 0, 100% 100%, 0 100%)" }}
@@ -193,23 +198,29 @@ const Navigation = () => {
                   className="relative"
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
+                  onFocus={() => setOpenDropdown(link.label)}
                 >
-                  <a
-                    href={link.href}
+                  <button
+                    type="button"
+                    aria-haspopup="menu"
+                    aria-expanded={openDropdown === link.label}
+                    onClick={() => setOpenDropdown((current) => (current === link.label ? null : link.label))}
                     className={`${desktopLinkClass} flex items-center gap-1.5`}
                   >
                     {link.label}
                     <ChevronDown size={13} className="mt-px" />
-                  </a>
+                  </button>
 
                   {openDropdown === link.label && (
-                    <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5">
+                    <div className="absolute left-1/2 top-full z-[80] -translate-x-1/2 pt-5" role="menu">
                       <div className="w-[520px] overflow-hidden border-t-2 border-rational-red bg-[linear-gradient(135deg,#1a0f0a_0%,#3d1f10_45%,#0d0d0d_100%)] shadow-2xl">
                         <div className="grid grid-cols-2 gap-px bg-white/10">
                           {link.children.map((child) => (
                             <a
                               key={child.href}
                               href={child.href}
+                              role="menuitem"
+                              onClick={() => setOpenDropdown(null)}
                               className="group block bg-[#140c08]/95 px-6 py-6 transition-colors duration-300 hover:bg-[#4a2612]/80"
                             >
                               <span className="block font-display text-lg font-light text-[#f5e2d2] group-hover:text-white">
@@ -234,12 +245,13 @@ const Navigation = () => {
             )}
           </div>
 
-          <button
+          <Button
+            type="button"
             onClick={() => setIsQuoteOpen(true)}
-            className="relative z-10 shrink-0 whitespace-nowrap bg-background px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.18em] text-rational-red hover:bg-foreground hover:text-white transition-colors duration-300"
+            className="relative z-10 h-auto shrink-0 whitespace-nowrap rounded-none bg-background px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.18em] text-rational-red hover:bg-foreground hover:text-white"
           >
             Request Quote
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -252,21 +264,45 @@ const Navigation = () => {
           <div className="container mx-auto space-y-3 px-4 py-4 md:px-6">
             {navLinks.map((link) => (
               <div key={link.label}>
-                <a
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-1.5 text-minimal text-foreground/70 hover:text-rational-red transition-colors duration-300"
-                >
-                  {link.label}
-                </a>
+                {link.children ? (
+                  <button
+                    type="button"
+                    aria-haspopup="menu"
+                    aria-expanded={openMobileGroup === link.label}
+                    onClick={() =>
+                      setOpenMobileGroup((current) => (current === link.label ? null : link.label))
+                    }
+                    className="flex min-h-11 w-full items-center justify-between py-1.5 text-left text-minimal text-foreground/70 transition-colors duration-300 hover:text-rational-red"
+                  >
+                    <span>{link.label}</span>
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-300 ${openMobileGroup === link.label ? "rotate-180" : ""}`}
+                    />
+                  </button>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={closeNavigation}
+                    className="block min-h-11 py-2.5 text-minimal text-foreground/70 hover:text-rational-red transition-colors duration-300"
+                  >
+                    {link.label}
+                  </a>
+                )}
                 {link.children && (
-                  <div className="mt-1 space-y-2 border-l-2 border-rational-red/40 pl-4">
+                  <div
+                    className={`mt-1 space-y-2 overflow-hidden border-l-2 border-rational-red/40 pl-4 transition-[max-height,opacity] duration-300 ${
+                      openMobileGroup === link.label ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                    role="menu"
+                  >
                     {link.children.map((child) => (
                       <a
                         key={child.href}
                         href={child.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block text-sm text-muted-foreground hover:text-rational-red transition-colors duration-300"
+                        role="menuitem"
+                        onClick={closeNavigation}
+                        className="block min-h-10 py-2 text-sm text-muted-foreground hover:text-rational-red transition-colors duration-300"
                       >
                         {child.label}
                       </a>
@@ -289,15 +325,16 @@ const Navigation = () => {
                 <Linkedin className="h-4 w-4" />
               </a>
             </div>
-            <button
+            <Button
+              type="button"
               onClick={() => {
-                setIsMenuOpen(false);
+                closeNavigation();
                 setIsQuoteOpen(true);
               }}
-              className="mt-2 w-full bg-rational-red px-5 py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-primary-foreground hover:bg-foreground transition-colors duration-300"
+              className="mt-2 h-auto w-full rounded-none bg-rational-red px-5 py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-primary-foreground hover:bg-foreground"
             >
               Request Quote
-            </button>
+            </Button>
           </div>
         </div>
       )}
