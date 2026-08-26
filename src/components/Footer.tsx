@@ -13,8 +13,15 @@ const Footer = () => {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="mb-6">
-                <img src={logoLight} alt="Rational Engineers" className="h-12 w-auto block dark:hidden" />
-                <img src={logoDark} alt="Rational Engineers" className="h-12 w-auto hidden dark:block" />
+                <img
+                  src={logoLight}
+                  alt="Rational Engineers"
+                  width={1264}
+                  height={848}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-12 w-auto max-w-full"
+                />
               </div>
               <p className="text-background/70 leading-relaxed max-w-xl">
                 Rational Engineers is a leading copper conductor manufacturer delivering
