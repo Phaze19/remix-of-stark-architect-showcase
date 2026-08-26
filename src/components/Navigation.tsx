@@ -46,8 +46,10 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileGroup, setOpenMobileGroup] = useState<string | null>(null);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
+  const navRef = useRef<HTMLElement | null>(null);
 
   // Header should not stay frozen over the content: it slides away while
   // scrolling down and returns as soon as the user scrolls back up.
@@ -56,12 +58,35 @@ const Navigation = () => {
       const y = window.scrollY;
       const goingDown = y > lastY.current;
       lastY.current = y;
-      if (isMenuOpen) return;
+      if (isMenuOpen || openDropdown) return;
       setHidden(goingDown && y > 220);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, openDropdown]);
+
+  // Close dropdown / mobile menu on outside click and on Escape so the
+  // navigation never traps focus or stays stuck open on touch devices.
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+        setIsMenuOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpenDropdown(null);
+      setIsMenuOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
 
   return (
     <nav
