@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
-import logoLight from "@/assets/rational-logo-light.png";
+import logoLight from "@/assets/rational-logo-white.png";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
 
@@ -15,11 +15,11 @@ const Footer = () => {
                 <img
                   src={logoLight}
                   alt="Rational Engineers"
-                  width={1264}
-                  height={848}
+                  width={1024}
+                  height={512}
                   loading="lazy"
                   decoding="async"
-                  className="h-12 w-auto max-w-full"
+                  className="h-12 w-auto max-w-full object-contain"
                 />
               </div>
               <p className="text-background/70 leading-relaxed max-w-xl">
