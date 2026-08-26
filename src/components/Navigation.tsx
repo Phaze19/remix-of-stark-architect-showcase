@@ -90,18 +90,23 @@ const Navigation = () => {
 
   return (
     <nav
+      ref={navRef}
+      aria-label="Main"
       className={`fixed top-8 left-0 right-0 z-50 transition-transform duration-500 ease-out will-change-transform ${
         hidden ? "-translate-y-[calc(100%+2rem)]" : "translate-y-0"
       }`}
     >
       {/* Tier 1 — logo band + contact strip */}
       <div className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
-        <div className="container mx-auto flex items-center justify-between gap-6 px-4 py-4 md:px-6 md:py-5 lg:px-8">
-          <a href="/" className="relative z-10 flex shrink-0 items-center">
+        <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:gap-6 sm:py-4 md:px-6 md:py-5 lg:px-8">
+          <a href="/" aria-label="Rational Engineers — home" className="relative z-10 flex min-w-0 shrink items-center">
             <img
               src={logoDark}
               alt="Rational Engineers"
-              className="h-16 w-auto md:h-24 xl:h-28"
+              width={919}
+              height={485}
+              decoding="async"
+              className="h-12 w-auto max-w-full sm:h-16 md:h-24 xl:h-28"
             />
           </a>
 
