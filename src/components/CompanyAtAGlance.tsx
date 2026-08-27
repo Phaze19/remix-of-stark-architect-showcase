@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
+import factoryExterior from "@/assets/factory-exterior.jpg.asset.json";
+
 
 type Stat = {
   /** Numeric portion animated on scroll. Omit for non-numeric values. */
@@ -67,15 +69,30 @@ const CompanyAtAGlance = () => {
               Company at a Glance
             </p>
             <div className="mt-4 h-0.5 w-12 bg-rational-red" />
-            <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-5xl">
+          <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-5xl">
               Scale, capability and
               <br />
               <span className="text-rational-red">supply reliability.</span>
             </h2>
           </div>
 
+          <figure className="relative mt-14 overflow-hidden border border-border">
+            <img
+              src={factoryExterior.url}
+              alt="Rational Engineers Limited manufacturing facility"
+              className="h-[50vh] w-full object-cover md:h-[60vh]"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <figcaption className="absolute bottom-0 left-0 w-full px-6 py-5 text-sm font-medium text-white md:text-base">
+              Rational Engineers Limited — Manufacturing facility
+            </figcaption>
+          </figure>
+
           <div
             ref={ref}
+
             className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3"
           >
             {stats.map((stat) => (
