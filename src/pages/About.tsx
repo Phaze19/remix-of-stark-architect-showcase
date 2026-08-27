@@ -239,7 +239,7 @@ const About = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 {[
                   { label: "ESTABLISHED", value: "1989" },
-                  { label: "IN COPPER", value: "50+ Yrs" },
+                  { label: "IN COPPER", value: "30+ Yrs" },
                   { label: "LEADERSHIP SINCE", value: "2006" },
                   { label: "NEXT GEN SINCE", value: "2018" },
                 ].map((stat) => (
