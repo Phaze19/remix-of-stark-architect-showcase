@@ -117,8 +117,8 @@ const Navigation = () => {
     <nav
       ref={navRef}
       aria-label="Main"
-      className={`fixed top-8 left-0 right-0 z-50 transition-transform duration-500 ease-out will-change-transform ${
-        hidden ? "-translate-y-[calc(100%+2rem)]" : "translate-y-0"
+      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-out will-change-transform ${
+        hidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
       {/* Tier 1 — logo band + contact strip */}
