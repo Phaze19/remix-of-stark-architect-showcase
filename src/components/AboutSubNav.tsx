@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 const items = [
   { href: "/about", label: "Company Overview", desc: "Legacy, values & milestones" },
-  { href: "/founder", label: "Founder's Journey", desc: "Shri. Mahendra K. Jain, 1992 – 2025" },
+  { href: "/founder", label: "Rational's Journey", desc: "From 1989 to today" },
   { href: "/leadership", label: "Leadership", desc: "Board & director profiles" },
   { href: "/csr", label: "CSR Activities", desc: "Education, healthcare & sustainability" },
 ];

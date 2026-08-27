@@ -312,7 +312,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder's Journey */}
+      {/* Rational's Journey */}
       <section className="border-t border-border bg-muted/30 py-24">
         <div className="container mx-auto px-6">
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1fr] lg:items-center">
@@ -341,7 +341,7 @@ const About = () => {
               <div className="mb-6 flex items-center gap-4">
                 <span className="h-px w-12 bg-rational-red" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-muted-foreground">
-                  FOUNDER'S JOURNEY
+                  RATIONAL'S JOURNEY
                 </span>
               </div>
               <h3 className="text-3xl font-light leading-[1.05] tracking-tight text-architectural md:text-5xl">
