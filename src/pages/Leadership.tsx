@@ -27,7 +27,7 @@ const leaders: Leader[] = [
     role: "Chairman & Managing Director",
     org: "Rational Engineers Group",
     din: "00416102",
-    image: founder,
+    image: founderAsset.url,
     quote:
       "Success is measured by the trust we earn and the impact we create for others.",
     bio: [
