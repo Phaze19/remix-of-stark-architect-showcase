@@ -51,6 +51,7 @@ const Navigation = () => {
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
   const navRef = useRef<HTMLElement | null>(null);
+  const pointerTypeRef = useRef<string | null>(null);
 
   const closeNavigation = () => {
     setOpenDropdown(null);
