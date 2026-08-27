@@ -24,6 +24,7 @@ const About = () => {
           src={brandLogo}
           alt=""
           aria-hidden="true"
+          aria-hidden="true"
           className="pointer-events-none absolute -right-10 top-0 hidden max-w-[60vw] w-[420px] opacity-[0.05] md:block"
         />
         <div className="container mx-auto px-6">
@@ -400,6 +401,7 @@ const About = () => {
         <img
           src={brandLogoWhite}
           alt=""
+          aria-hidden="true"
           aria-hidden="true"
           className="pointer-events-none absolute -bottom-16 -right-8 max-w-[70vw] w-[520px] brightness-0 invert opacity-[0.07]"
         />

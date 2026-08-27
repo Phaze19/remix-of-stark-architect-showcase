@@ -81,7 +81,7 @@ const Contact = () => {
             <div className="grid lg:grid-cols-2 gap-20">
               {/* Contact Information */}
               <div>
-                <h1 className="text-minimal text-muted-foreground mb-4">GET IN TOUCH</h1>
+                <p className="text-minimal text-muted-foreground mb-4">GET IN TOUCH</p>
                 <h2 className="text-4xl md:text-5xl font-light text-architectural mb-12">
                   Request a Quote
                   <br />
