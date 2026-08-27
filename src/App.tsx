@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import FontPresetSwitcher from "@/components/FontPresetSwitcher";
+import SEO from "@/components/SEO";
 import Index from "./pages/Index";
 
 // Secondary routes are code-split so the landing page ships the smallest bundle.
