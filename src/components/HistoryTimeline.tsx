@@ -11,14 +11,14 @@ const HistoryTimeline = () => {
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">
+            <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-rational-red">
               Our History
             </p>
-            <div className="mt-4 h-0.5 w-12 bg-primary" />
+            <div className="mt-4 h-0.5 w-12 bg-rational-red" />
             <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-5xl">
               How the capability
               <br />
-              <span className="text-primary">was built.</span>
+              <span className="text-rational-red">was built.</span>
             </h2>
           </div>
 
@@ -39,8 +39,8 @@ const HistoryTimeline = () => {
                     className="relative pl-10 md:grid md:grid-cols-2 md:gap-16 md:pl-0"
                   >
                     {/* Node */}
-                    <span className="absolute left-0 top-1.5 flex h-[19px] w-[19px] items-center justify-center rounded-full border-2 border-primary bg-background md:left-1/2 md:-translate-x-1/2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    <span className="absolute left-0 top-1.5 flex h-[19px] w-[19px] items-center justify-center rounded-full border-2 border-rational-red bg-background md:left-1/2 md:-translate-x-1/2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-rational-red" />
                     </span>
 
                     <div
@@ -48,7 +48,7 @@ const HistoryTimeline = () => {
                         alignRight ? "md:col-start-2 md:pl-4" : "md:col-start-1 md:pr-4 md:text-right"
                       }`}
                     >
-                      <span className="font-display text-3xl font-bold tracking-tight text-primary md:text-4xl">
+                      <span className="font-display text-3xl font-bold tracking-tight text-rational-red md:text-4xl">
                         {item.year}
                       </span>
                       <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.24em] text-muted-foreground">
@@ -58,7 +58,7 @@ const HistoryTimeline = () => {
                         {item.title}
                       </h3>
                       <div
-                        className={`mt-4 h-px w-8 bg-primary transition-all duration-500 group-hover:w-16 ${
+                        className={`mt-4 h-px w-8 bg-rational-red transition-all duration-500 group-hover:w-16 ${
                           alignRight ? "" : "md:ml-auto"
                         }`}
                       />

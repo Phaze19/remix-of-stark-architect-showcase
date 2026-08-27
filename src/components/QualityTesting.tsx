@@ -50,14 +50,14 @@ const QualityTesting = () => {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-20">
             <div className="lg:sticky lg:top-28">
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-rational-red">
                 Quality &amp; Testing
               </p>
-              <div className="mt-4 h-0.5 w-12 bg-primary" />
+              <div className="mt-4 h-0.5 w-12 bg-rational-red" />
               <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-5xl">
                 Consistency is
                 <br />
-                <span className="text-primary">engineered in.</span>
+                <span className="text-rational-red">engineered in.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
                 The difference is not only in what we make — it is in how we control it. Integrated
@@ -83,11 +83,11 @@ const QualityTesting = () => {
                     key={title}
                     className="group bg-background p-8 transition-colors duration-500 hover:bg-muted/60"
                   >
-                    <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                    <Icon className="h-6 w-6 text-rational-red" strokeWidth={1.5} />
                     <h3 className="mt-6 text-[13px] font-bold uppercase tracking-[0.14em] text-foreground">
                       {title}
                     </h3>
-                    <div className="mt-4 h-px w-8 bg-primary transition-all duration-500 group-hover:w-16" />
+                    <div className="mt-4 h-px w-8 bg-rational-red transition-all duration-500 group-hover:w-16" />
                     <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                       {description}
                     </p>
@@ -103,7 +103,7 @@ const QualityTesting = () => {
                   <div key={title} className="bg-background p-8">
                     <div className="flex items-start justify-between gap-4">
                       <Icon className="h-6 w-6 text-foreground/60" strokeWidth={1.5} />
-                      <span className="border border-primary/25 bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+                      <span className="border border-rational-red/25 bg-rational-red/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-rational-red">
                         {status}
                       </span>
                     </div>

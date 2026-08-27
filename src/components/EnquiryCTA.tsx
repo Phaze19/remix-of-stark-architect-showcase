@@ -34,7 +34,7 @@ const empty: Fields = {
 };
 
 const inputClass =
-  "rounded-none border-0 border-b border-background/25 bg-transparent px-0 text-background placeholder:text-background/35 focus-visible:border-primary focus-visible:ring-0 focus-visible:ring-offset-0";
+  "rounded-none border-0 border-b border-background/25 bg-transparent px-0 text-background placeholder:text-background/35 focus-visible:border-rational-red focus-visible:ring-0 focus-visible:ring-offset-0";
 const labelClass = "text-[10px] font-bold uppercase tracking-[0.2em] text-background/50";
 
 const EnquiryCTA = () => {
@@ -97,14 +97,14 @@ const EnquiryCTA = () => {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-rational-red">
                 Enquire Now
               </p>
-              <div className="mt-4 h-0.5 w-12 bg-primary" />
+              <div className="mt-4 h-0.5 w-12 bg-rational-red" />
               <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-background md:text-5xl">
                 Let&apos;s build the right solution
                 <br />
-                <span className="text-primary">for your requirement.</span>
+                <span className="text-rational-red">for your requirement.</span>
               </h2>
               <p className="mt-6 max-w-md text-base leading-relaxed text-background/70">
                 Share your specification — conductor type, dimensions, insulation class and
@@ -114,7 +114,7 @@ const EnquiryCTA = () => {
 
               <div className="mt-12 space-y-6 border-t border-background/15 pt-10">
                 <div className="flex items-start gap-4">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-rational-red" />
                   <p className="text-sm leading-relaxed text-background/75">
                     103, Dhanlaxmi Residency, Naupada,
                     <br />
@@ -125,14 +125,14 @@ const EnquiryCTA = () => {
                   href="tel:+919168643114"
                   className="flex items-center gap-4 text-sm text-background/75 transition-colors hover:text-background"
                 >
-                  <Phone className="h-5 w-5 shrink-0 text-primary" />
+                  <Phone className="h-5 w-5 shrink-0 text-rational-red" />
                   +91 91686 43114
                 </a>
                 <a
                   href="mailto:info@rationalengineers.com"
                   className="flex items-center gap-4 text-sm text-background/75 transition-colors hover:text-background"
                 >
-                  <Mail className="h-5 w-5 shrink-0 text-primary" />
+                  <Mail className="h-5 w-5 shrink-0 text-rational-red" />
                   info@rationalengineers.com
                 </a>
                 <a
@@ -141,7 +141,7 @@ const EnquiryCTA = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-sm text-background/75 transition-colors hover:text-background"
                 >
-                  <Linkedin className="h-5 w-5 shrink-0 text-primary" />
+                  <Linkedin className="h-5 w-5 shrink-0 text-rational-red" />
                   LinkedIn
                 </a>
               </div>
@@ -160,7 +160,7 @@ const EnquiryCTA = () => {
                     onChange={(e) => setField("name")(e.target.value)}
                     className={inputClass}
                   />
-                  {errors.name && <p className="text-xs text-primary">{errors.name}</p>}
+                  {errors.name && <p className="text-xs text-rational-red">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="enq-company" className={labelClass}>
@@ -198,7 +198,7 @@ const EnquiryCTA = () => {
                     onChange={(e) => setField("email")(e.target.value)}
                     className={inputClass}
                   />
-                  {errors.email && <p className="text-xs text-primary">{errors.email}</p>}
+                  {errors.email && <p className="text-xs text-rational-red">{errors.email}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="enq-phone" className={labelClass}>
@@ -239,13 +239,13 @@ const EnquiryCTA = () => {
                   onChange={(e) => setField("message")(e.target.value)}
                   className={`${inputClass} resize-none`}
                 />
-                {errors.message && <p className="text-xs text-primary">{errors.message}</p>}
+                {errors.message && <p className="text-xs text-rational-red">{errors.message}</p>}
               </div>
 
               <Button
                 type="submit"
                 disabled={submitting}
-                className="h-auto w-full rounded-none bg-primary px-10 py-5 text-[12px] font-bold uppercase tracking-[0.2em] text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 hover:bg-primary/90 sm:w-auto"
+                className="h-auto w-full rounded-none bg-rational-red px-10 py-5 text-[12px] font-bold uppercase tracking-[0.2em] text-white transition-transform duration-300 hover:-translate-y-0.5 hover:bg-rational-red/90 sm:w-auto"
               >
                 {submitting ? (
                   <>

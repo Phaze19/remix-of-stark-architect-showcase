@@ -16,14 +16,14 @@ const SustainabilityGroup = () => {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-0 overflow-hidden border border-border lg:grid-cols-[1.15fr_1fr]">
             <div className="bg-card p-8 md:p-12">
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-rational-red">
                 Responsible Manufacturing
               </p>
-              <div className="mt-4 h-0.5 w-12 bg-primary" />
+              <div className="mt-4 h-0.5 w-12 bg-rational-red" />
               <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-5xl">
                 Responsible today.
                 <br />
-                <span className="text-primary">Sustainable tomorrow.</span>
+                <span className="text-rational-red">Sustainable tomorrow.</span>
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
                 Copper and aluminium are infinitely recyclable — and how they are processed
@@ -34,8 +34,8 @@ const SustainabilityGroup = () => {
               <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-9 sm:grid-cols-3">
                 {initiatives.map(({ icon: Icon, label }) => (
                   <div key={label} className="flex flex-col items-start gap-3">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary">
-                      <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-rational-red">
+                      <Icon className="h-5 w-5 text-rational-red" strokeWidth={1.75} />
                     </span>
                     <p className="text-[12px] font-medium leading-snug text-foreground">{label}</p>
                   </div>

@@ -63,14 +63,14 @@ const CompanyAtAGlance = () => {
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">
+            <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-rational-red">
               Company at a Glance
             </p>
-            <div className="mt-4 h-0.5 w-12 bg-primary" />
+            <div className="mt-4 h-0.5 w-12 bg-rational-red" />
             <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-5xl">
               Scale, capability and
               <br />
-              <span className="text-primary">supply reliability.</span>
+              <span className="text-rational-red">supply reliability.</span>
             </h2>
           </div>
 
@@ -84,7 +84,7 @@ const CompanyAtAGlance = () => {
                 className="group bg-background p-8 transition-colors duration-500 hover:bg-muted/50 md:p-10"
               >
                 <StatValue stat={stat} active={inView} />
-                <div className="mt-5 h-px w-8 bg-primary transition-all duration-500 group-hover:w-16" />
+                <div className="mt-5 h-px w-8 bg-rational-red transition-all duration-500 group-hover:w-16" />
                 <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground">
                   {stat.label}
                 </p>
