@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import CompanyAtAGlance from "@/components/CompanyAtAGlance";
@@ -37,6 +38,36 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Copper CTC Wires & Transformer Conductors | Rational Engineers</title>
+        <meta
+          name="description"
+          content="Rational Engineers Limited manufactures copper CTC conductors, enamelled wires, busbars and transformer strips — 38,000 MT capacity, ISO-certified, serving 350+ customers across 4 continents."
+        />
+        <link rel="canonical" href="https://rationalengineers.lovable.app/" />
+        <meta property="og:title" content="Copper CTC Wires & Transformer Conductors | Rational Engineers" />
+        <meta
+          property="og:description"
+          content="Precision copper conductors for power and distribution transformers — CTC, enamelled wire, busbars and paper covered strips from a 35+ year Indian manufacturer."
+        />
+        <meta property="og:url" content="https://rationalengineers.lovable.app/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Copper CTC Wires & Transformer Conductors | Rational Engineers" />
+        <meta
+          name="twitter:description"
+          content="Precision copper conductors for power and distribution transformers — CTC, enamelled wire, busbars and paper covered strips."
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Rational Engineers Limited",
+            url: "https://rationalengineers.lovable.app/",
+            about: "Manufacturer of copper CTC conductors, enamelled winding wires and busbars",
+          })}
+        </script>
+      </Helmet>
       <Navigation />
       <CopperTicker />
       <Hero />
