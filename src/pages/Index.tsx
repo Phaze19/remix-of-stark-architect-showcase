@@ -115,8 +115,6 @@ const Index = () => {
         <Testimonials />
       </ScrollReveal>
 
-      <ScrollReveal delay={0.1}>
-      </ScrollReveal>
 
       <ScrollReveal delay={0.1}>
         <EnquiryCTA />
