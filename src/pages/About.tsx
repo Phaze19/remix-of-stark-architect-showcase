@@ -359,8 +359,8 @@ const About = () => {
 
               <div className="mt-8 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-3">
                 {[
-                  { v: "₹1,600+ Cr", l: "Group Revenue FY 25-26" },
-                  { v: "800+", l: "Strong Workforce" },
+                  { v: "₹1,500+ Cr", l: "Group Revenue FY 25-26" },
+                  { v: "750+", l: "Strong Workforce" },
                   { v: "5", l: "Manufacturing Facilities" },
                 ].map((s) => (
                   <div key={s.l} className="bg-background px-5 py-6">
