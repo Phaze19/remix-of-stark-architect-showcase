@@ -13,7 +13,7 @@ type Stat = {
 
 const stats: Stat[] = [
   { display: "1989", label: "Manufacturing since", note: "Over three decades of continuous production" },
-  { count: 33000, suffix: " MT", label: "Annual capacity", note: "Copper & aluminium winding conductors" },
+  { count: 38000, suffix: " MT", label: "Annual capacity", note: "Copper & aluminium winding conductors" },
   { count: 3, label: "Manufacturing locations", note: "Wada, Daman & Vadodara" },
   { count: 25, suffix: "+", label: "Countries served", note: "Across six continents" },
   { count: 400, suffix: "+", label: "Customers", note: "Transformer, motor & infrastructure OEMs" },
