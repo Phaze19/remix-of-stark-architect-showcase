@@ -1,19 +1,18 @@
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import QuoteDialog from "@/components/QuoteDialog";
 import heroImage from "@/assets/hero-copper-wires.jpg";
 
-const stats = [
-  { value: "35+", label: "Years of manufacturing" },
-  { value: "33,000 MT", label: "ANNUAL MANUFACTURING CAPACITY" },
-  { value: "40+", label: "OEM partners served" },
-];
-
 const Hero = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+
   return (
-    <section className="relative min-h-[92vh] flex items-end overflow-hidden bg-foreground">
+    <section className="relative flex min-h-[88vh] items-end overflow-hidden bg-foreground">
       {/* Background Image */}
       <img
         src={heroImage}
         alt="Copper wire rod coils on the Rational Engineers manufacturing floor"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
       {/* Overlays */}
@@ -22,61 +21,45 @@ const Hero = () => {
       <div className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-overlay bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:4px_4px]" />
 
       {/* Content */}
-      <div className="relative z-10 w-full container mx-auto px-6 pt-52 md:pt-64 lg:pt-72 pb-0">
+      <div className="relative z-10 container mx-auto w-full px-6 pb-20 pt-48 md:pb-24 md:pt-60 lg:pt-64">
         <div className="max-w-4xl">
-          <div className="flex items-center gap-4 mb-8 reveal">
+          <div className="reveal mb-8 flex items-center gap-4">
             <span className="h-px w-12 bg-rational-red" />
-            <span className="text-xs md:text-sm tracking-[0.35em] text-white/70 uppercase font-medium">
-              Established 1989
+            <span className="text-xs font-medium uppercase tracking-[0.35em] text-white/70 md:text-sm">
+              Rational Engineers Limited · Established 1989
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-[5rem] font-light text-white text-architectural mb-8 reveal">
+          <h1 className="reveal mb-8 text-5xl font-light text-white text-architectural md:text-7xl lg:text-[5rem]">
             Empowering Transformation
-            &nbsp;&nbsp;
           </h1>
 
-          <p className="text-base md:text-xl text-white/70 font-light max-w-xl mb-10 reveal-delayed leading-relaxed">
-            Supplying high performance copper conductors to India&apos;s leading transformer
-            and infrastructure manufacturers since 1989.
+          <p className="reveal-delayed mb-10 max-w-2xl text-base font-light leading-relaxed text-white/70 md:text-xl">
+            Manufacturers of copper and aluminium winding conductors — CTC, paper covered,
+            enamelled, busbars and Litz — engineered in India for transformer, motor and
+            infrastructure OEMs worldwide.
           </p>
 
-
-          <div className="flex flex-wrap gap-4 reveal-delayed">
-            <a
-              href="#trust"
-              className="inline-block bg-rational-red text-white px-10 py-5 text-xs font-bold tracking-[0.15em] uppercase hover:-translate-y-0.5 hover:bg-rational-red/90 transition-all duration-300"
-            >
-              WHY TRUST US
-            </a>
+          <div className="reveal-delayed flex flex-wrap gap-4">
             <a
               href="#products"
-              className="inline-block border border-white/25 text-white px-10 py-5 text-xs font-bold tracking-[0.15em] uppercase hover:bg-white/10 transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-rational-red px-10 py-5 text-xs font-bold uppercase tracking-[0.15em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-rational-red/90"
             >
-              Product portfolio
+              Explore Products
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
+            <button
+              type="button"
+              onClick={() => setIsQuoteOpen(true)}
+              className="inline-block border border-white/25 px-10 py-5 text-xs font-bold uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-white/10"
+            >
+              Enquire Now
+            </button>
           </div>
         </div>
-
-        {/* Stat rail */}
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-3 border-t border-white/15 reveal-delayed">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="group py-6 lg:py-10 px-1 lg:px-6 border-b lg:border-b-0 border-r last:border-r-0 border-white/15 transition-colors duration-500 hover:bg-white/[0.04]"
-            >
-              <div className="font-display text-3xl md:text-4xl font-bold text-white">
-                {stat.value}
-              </div>
-              <div className="mt-3 h-px w-8 bg-rational-red transition-all duration-500 group-hover:w-14" />
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-white/50 mt-3">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
       </div>
+
+      <QuoteDialog open={isQuoteOpen} onOpenChange={setIsQuoteOpen} />
     </section>
   );
 };
