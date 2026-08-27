@@ -67,7 +67,7 @@ const SustainabilityGroup = () => {
 
               <div className="mt-10 flex flex-col gap-8 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
                 <SmartLink
-                  to="/contact"
+                  href="/contact"
                   className="group inline-flex w-fit items-center gap-3 border-2 border-foreground px-6 py-3 text-[12px] font-bold uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
                 >
                   Visit REL Metals Trading
