@@ -1,5 +1,4 @@
-import { Leaf, Zap, Droplets, Recycle, ClipboardCheck, ArrowRight } from "lucide-react";
-import SmartLink from "@/components/SmartLink";
+import { Leaf, Zap, Droplets, Recycle, ClipboardCheck } from "lucide-react";
 import sprout from "@/assets/sustainability-sprout.jpg";
 
 const initiatives = [
@@ -12,24 +11,30 @@ const initiatives = [
 
 const SustainabilityGroup = () => {
   return (
-    <section className="bg-background pb-20 md:pb-28">
+    <section id="responsible" className="border-b border-border bg-background py-20 md:py-28">
       <div className="container mx-auto px-6">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
-          {/* Sustainability panel */}
-          <div className="flex flex-col overflow-hidden border border-border bg-card">
-            <div className="p-8 md:p-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-0 overflow-hidden border border-border lg:grid-cols-[1.15fr_1fr]">
+            <div className="bg-card p-8 md:p-12">
               <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">
-                Sustainability &amp; Environmental Responsibility
+                Responsible Manufacturing
               </p>
-              <h3 className="mt-4 text-3xl font-light leading-tight tracking-tight text-foreground md:text-4xl">
-                Responsible Today.
-                <span className="block font-normal">Sustainable Tomorrow.</span>
-              </h3>
+              <div className="mt-4 h-0.5 w-12 bg-primary" />
+              <h2 className="mt-6 text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-5xl">
+                Responsible today.
+                <br />
+                <span className="text-primary">Sustainable tomorrow.</span>
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+                Copper and aluminium are infinitely recyclable — and how they are processed
+                matters. Our operations are managed around resource efficiency, environmental
+                compliance and continuous reduction of energy and water intensity.
+              </p>
 
-              <div className="mt-9 grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3">
+              <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-9 sm:grid-cols-3">
                 {initiatives.map(({ icon: Icon, label }) => (
                   <div key={label} className="flex flex-col items-start gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-primary">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary">
                       <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
                     </span>
                     <p className="text-[12px] font-medium leading-snug text-foreground">{label}</p>
@@ -37,58 +42,16 @@ const SustainabilityGroup = () => {
                 ))}
               </div>
             </div>
-            <div className="mt-auto">
+
+            <div className="relative min-h-[280px]">
               <img
                 src={sprout}
                 alt="Young green plant sprouting from soil, representing sustainable manufacturing"
                 loading="lazy"
                 width={1000}
-                height={600}
-                className="h-48 w-full object-cover md:h-56"
+                height={800}
+                className="absolute inset-0 h-full w-full object-cover"
               />
-            </div>
-          </div>
-
-          {/* Group company / REL Metals highlight panel */}
-          <div className="flex flex-col overflow-hidden border border-border bg-card">
-            <div className="flex flex-1 flex-col p-8 md:p-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">
-                Our Group / Associated Companies
-              </p>
-              <h3 className="mt-4 text-3xl font-light leading-tight tracking-tight text-foreground md:text-4xl">
-                Stronger Together.
-                <span className="block font-normal">Expanding Capabilities.</span>
-              </h3>
-              <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-                Discover our global trade and distribution capabilities through REL METALS
-                TRADING LLC, UAE — our international arm serving the Middle East, Africa and
-                emerging markets worldwide.
-              </p>
-
-              <div className="mt-10 flex flex-col gap-8 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-                <SmartLink
-                  href="/contact"
-                  className="group inline-flex w-fit items-center gap-3 border-2 border-foreground px-6 py-3 text-[12px] font-bold uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
-                >
-                  Visit REL Metals Trading
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </SmartLink>
-
-                {/* REL Metals brand mark */}
-                <div className="flex items-center gap-4">
-                  <span className="flex h-14 w-14 items-center justify-center bg-primary">
-                    <span className="text-xl font-black tracking-tighter text-primary-foreground">R</span>
-                  </span>
-                  <div className="leading-tight">
-                    <p className="text-lg font-black uppercase tracking-tight text-foreground">
-                      REL Metals
-                    </p>
-                    <p className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
-                      Trading LLC
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
