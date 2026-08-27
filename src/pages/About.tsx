@@ -24,7 +24,7 @@ const About = () => {
           src={brandLogo}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -right-10 top-0 hidden w-[420px] opacity-[0.05] md:block"
+          className="pointer-events-none absolute -right-10 top-0 hidden max-w-[60vw] w-[420px] opacity-[0.05] md:block"
         />
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
@@ -401,7 +401,7 @@ const About = () => {
           src={brandLogoWhite}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -bottom-16 -right-8 w-[520px] brightness-0 invert opacity-[0.07]"
+          className="pointer-events-none absolute -bottom-16 -right-8 max-w-[70vw] w-[520px] brightness-0 invert opacity-[0.07]"
         />
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-6xl">

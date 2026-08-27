@@ -112,7 +112,7 @@ const Navigation = () => {
               width={919}
               height={485}
               decoding="async"
-              className="h-12 w-auto max-w-full sm:h-16 md:h-24 xl:h-28"
+              className="h-12 w-auto max-w-full object-contain sm:h-16 md:h-24 xl:h-28"
             />
           </a>
 
