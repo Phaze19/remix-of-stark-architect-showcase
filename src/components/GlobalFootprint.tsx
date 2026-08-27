@@ -29,10 +29,10 @@ const locations = [
 
 const glance = [
   { icon: Globe, value: "25+", label: "Countries Served" },
-  { icon: MapPin, value: "6", label: "Continents" },
+  { icon: MapPin, value: "4", label: "Continents" },
   { icon: Factory, value: "3", label: "Manufacturing Locations" },
   { icon: Warehouse, value: "5", label: "Operational Hubs" },
-  { icon: Building2, value: "400+", label: "Customers" },
+  { icon: Building2, value: "350+", label: "Customers Served" },
   { icon: Users, value: "2", label: "Strategic Regions" },
 ];
 
@@ -52,7 +52,7 @@ const GlobalFootprint = () => {
             <br />&amp; <span className="text-primary">Global Footprints</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Serving customers in 50+ countries across 6 continents with a robust global
+            Serving 350+ customers across 4 continents with a robust global
             network of plants and trading hubs.
           </p>
         </div>
