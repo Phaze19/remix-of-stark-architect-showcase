@@ -135,80 +135,64 @@ const IndustrialApplications = () => {
         </div>
       </div>
 
-      {/* Cinematic application band */}
-      <div className="relative isolate overflow-hidden">
-        <img
-          src={applicationsBg}
-          alt="Renewable energy and power transmission infrastructure at dusk"
-          loading="lazy"
-          width={1920}
-          height={1088}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-foreground/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground via-foreground/55 to-foreground" />
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary-foreground)/0.6) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)/0.6) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-          }}
-        />
+      {/* Application cards — light, high-readability layout */}
+      <div className="container mx-auto px-6 pb-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {applications.map((app, i) => (
+            <article
+              key={app.title}
+              className="group flex flex-col overflow-hidden rounded-sm border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-rational-red/60 hover:shadow-[var(--shadow-elegant)]"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                <img
+                  src={app.image}
+                  alt={app.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-rational-red text-sm font-bold text-primary-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-sm bg-background/90 backdrop-blur-sm">
+                  <app.icon className="h-5 w-5 text-rational-red" strokeWidth={1.75} />
+                </span>
+              </div>
 
-        <div className="relative container mx-auto px-6 py-24">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {applications.map((app, i) => (
-              <article
-                key={app.title}
-                className="group relative flex flex-col overflow-hidden rounded-sm border border-primary-foreground/10 bg-primary-foreground/[0.04] p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-rational-red/50 hover:bg-primary-foreground/[0.07]"
-              >
-                <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-rational-red via-rational-red/40 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-100" />
-
-                <div className="flex items-center justify-between">
-                  <span className="text-4xl font-light tracking-tight text-primary-foreground/90 md:text-5xl">
-                    {String(i + 1).padStart(2, "0")}
-                    <span className="text-rational-red">.</span>
-                  </span>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-primary-foreground/20 bg-primary-foreground/5 transition-colors duration-500 group-hover:border-rational-red group-hover:bg-rational-red">
-                    <app.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.75} />
-                  </span>
-                </div>
-
-                <h3 className="mt-6 min-h-[3.25rem] text-[15px] font-bold uppercase leading-snug tracking-tight text-primary-foreground">
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-[15px] font-bold uppercase leading-snug tracking-tight text-foreground">
                   {app.title}
                 </h3>
+                <span className="mt-3 block h-0.5 w-12 bg-rational-red transition-all duration-300 group-hover:w-20" />
 
-                <span className="mt-3 block h-0.5 w-12 bg-rational-red transition-all duration-500 group-hover:w-20" />
-
-                <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.2em] text-rational-red">
-                  Applications
+                <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.2em] text-rational-red">
+                  Where it is used
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-primary-foreground/65">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {app.application}
                 </p>
 
-                <div className="my-6 h-px w-full bg-primary-foreground/10" />
+                <div className="my-5 h-px w-full bg-border" />
 
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-rational-red">
-                  Products
+                  Products supplied
                 </p>
-                <ul className="mt-3 space-y-2.5">
-                  {app.products.map((p) => (
-                    <li
-                      key={p}
-                      className="flex items-start gap-2.5 text-[13px] leading-relaxed text-primary-foreground/90"
-                    >
-                      {p !== "\n" && (
-                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-rational-red" />
-                      )}
-                      {p}
-                    </li>
-                  ))}
+                <ul className="mt-3 space-y-2">
+                  {app.products
+                    .map((p) => p.trim())
+                    .filter(Boolean)
+                    .map((p) => (
+                      <li
+                        key={p}
+                        className="flex items-start gap-2.5 text-[13px] leading-relaxed text-foreground"
+                      >
+                        <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-rational-red" />
+                        {p}
+                      </li>
+                    ))}
                 </ul>
-              </article>
-            ))}
-          </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
 
