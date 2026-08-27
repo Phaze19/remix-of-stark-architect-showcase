@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import founder from "@/assets/founder-mahendra-jain.jpg";
+import founderAsset from "@/assets/founder-mahendra-jain.jpg.asset.json";
 import jubin from "@/assets/director-jubin-jain.jpg";
 import ajit from "@/assets/director-ajit-venugopalan.jpg";
 import gandhi from "@/assets/director-nilesh-gandhi.jpg";
