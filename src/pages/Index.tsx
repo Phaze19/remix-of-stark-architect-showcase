@@ -7,6 +7,7 @@ import Differentiation from "@/components/Differentiation";
 import CopperTicker from "@/components/CopperTicker";
 import MarketPulse from "@/components/MarketPulse";
 import GlobalFootprint from "@/components/GlobalFootprint";
+import SustainabilityGroup from "@/components/SustainabilityGroup";
 import ProductShowcase from "@/components/ProductShowcase";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
@@ -40,6 +41,9 @@ const Index = () => {
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <GlobalFootprint />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <SustainabilityGroup />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <MarketPulse />
