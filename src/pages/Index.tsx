@@ -12,8 +12,6 @@ import SustainabilityGroup from "@/components/SustainabilityGroup";
 import GroupCompanies from "@/components/GroupCompanies";
 import Testimonials from "@/components/Testimonials";
 import EnquiryCTA from "@/components/EnquiryCTA";
-import MarketPulse from "@/components/MarketPulse";
-import CopperTicker from "@/components/CopperTicker";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useEffect } from "react";
@@ -69,7 +67,6 @@ const Index = () => {
         </script>
       </Helmet>
       <Navigation />
-      <CopperTicker />
       <Hero />
 
       <ScrollReveal>
@@ -119,7 +116,6 @@ const Index = () => {
       </ScrollReveal>
 
       <ScrollReveal delay={0.1}>
-        <MarketPulse />
       </ScrollReveal>
 
       <ScrollReveal delay={0.1}>
