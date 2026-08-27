@@ -459,7 +459,23 @@ const ProductShowcase = () => {
                 leaders choose us.
               </p>
               <Button asChild className="gap-2 shrink-0" size="lg">
-                <a href={brochurePdf} download="Rational-Engineers-Brochure.pdf">
+                <a
+                  href={brochurePdf}
+                  download="Rational-Engineers-Brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Download or open the Rational Engineers brochure PDF"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open(brochurePdf, "_blank", "noopener,noreferrer");
+                    const link = document.createElement("a");
+                    link.href = brochurePdf;
+                    link.download = "Rational-Engineers-Brochure.pdf";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                >
                   <Download className="w-4 h-4" />
                   Download Brochure
                 </a>
