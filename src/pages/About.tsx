@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import aboutFacility from "@/assets/rational-facility-exterior.png.asset.json";
 
 import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
-import brandLogo from "@/assets/rational-logo.png";
-import brandLogoWhite from "@/assets/rational-logo-white.png";
+import brandLogoAsset from "@/assets/rational-logo-master.png.asset.json";
+
+const brandLogo = brandLogoAsset.url;
+const brandLogoWhite = brandLogoAsset.url;
 
 
 const About = () => {
@@ -401,7 +403,7 @@ const About = () => {
           src={brandLogoWhite}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute -bottom-16 -right-8 max-w-[70vw] w-[520px] brightness-0 invert opacity-[0.07]"
+          className="pointer-events-none absolute -bottom-16 -right-8 max-w-[70vw] w-[520px] opacity-[0.07]"
         />
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-6xl">
@@ -434,7 +436,7 @@ const About = () => {
               <img
                 src={brandLogoWhite}
                 alt="Rational Engineers Limited logo"
-                className="h-20 w-auto brightness-0 invert md:h-28"
+                className="h-20 w-auto rounded-md bg-white px-4 py-3 md:h-28"
               />
             </motion.div>
           </div>

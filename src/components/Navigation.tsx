@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, MapPin, Phone, Mail, Linkedin } from "lucide-reac
 import QuoteDialog from "@/components/QuoteDialog";
 import SmartLink from "@/components/SmartLink";
 import { Button } from "@/components/ui/button";
-import logoDark from "@/assets/rational-logo-original.jpeg";
+import brandLogo from "@/assets/rational-logo-master.png.asset.json";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
 
@@ -124,10 +124,10 @@ const Navigation = () => {
         <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:gap-6 sm:py-4 md:px-6 md:py-5 lg:px-8">
           <a href="/" aria-label="Rational Engineers — home" className="relative z-10 flex min-w-0 shrink items-center">
             <img
-              src={logoDark}
+              src={brandLogo.url}
               alt="Rational Engineers"
-              width={919}
-              height={485}
+              width={1507}
+              height={603}
               decoding="async"
               className="h-12 w-auto max-w-full object-contain sm:h-16 md:h-24 xl:h-28"
             />
