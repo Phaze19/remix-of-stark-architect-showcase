@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown, MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import QuoteDialog from "@/components/QuoteDialog";
+import SmartLink from "@/components/SmartLink";
 import { Button } from "@/components/ui/button";
 import logoDark from "@/assets/rational-logo-original.jpeg";
 
@@ -241,7 +242,7 @@ const Navigation = () => {
                       <div className="w-[520px] overflow-hidden border-t-2 border-rational-red bg-[linear-gradient(135deg,#1a0f0a_0%,#3d1f10_45%,#0d0d0d_100%)] shadow-2xl">
                         <div className="grid grid-cols-2 gap-px bg-white/10">
                           {link.children.map((child) => (
-                            <a
+                            <SmartLink
                               key={child.href}
                               href={child.href}
                               role="menuitem"
@@ -255,7 +256,7 @@ const Navigation = () => {
                               <span className="mt-2 block text-[11px] uppercase tracking-[0.14em] text-[#c9a58c]">
                                 {child.desc}
                               </span>
-                            </a>
+                            </SmartLink>
                           ))}
                         </div>
                       </div>
@@ -263,9 +264,9 @@ const Navigation = () => {
                   )}
                 </div>
               ) : (
-                <a key={link.href} href={link.href} className={desktopLinkClass}>
+                <SmartLink key={link.href} href={link.href} className={desktopLinkClass}>
                   {link.label}
-                </a>
+                </SmartLink>
               )
             )}
           </div>
@@ -306,13 +307,13 @@ const Navigation = () => {
                     />
                   </button>
                 ) : (
-                  <a
+                  <SmartLink
                     href={link.href}
                     onClick={closeNavigation}
                     className="block min-h-11 py-2.5 text-minimal text-foreground/70 hover:text-rational-red transition-colors duration-300"
                   >
                     {link.label}
-                  </a>
+                  </SmartLink>
                 )}
                 {link.children && (
                   <div
@@ -322,7 +323,7 @@ const Navigation = () => {
                     role="menu"
                   >
                     {link.children.map((child) => (
-                      <a
+                      <SmartLink
                         key={child.href}
                         href={child.href}
                         role="menuitem"
@@ -330,7 +331,7 @@ const Navigation = () => {
                         className="block min-h-10 py-2 text-sm text-muted-foreground hover:text-rational-red transition-colors duration-300"
                       >
                         {child.label}
-                      </a>
+                      </SmartLink>
                     ))}
                   </div>
                 )}
