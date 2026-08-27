@@ -15,6 +15,7 @@ import fiberglassAsset from "@/assets/cat2-fiberglass.jpg.asset.json";
 import litzCuAsset from "@/assets/cat2-litz-copper.jpg.asset.json";
 import litzAlAsset from "@/assets/cat2-litz-alu.jpg.asset.json";
 import busbarAsset from "@/assets/cat2-busbar.jpg.asset.json";
+import brochureAsset from "@/assets/Rational_Engineers_Limited_REL_Catalogue.pdf.asset.json";
 
 const ctcImg = ctcAsset.url;
 const bareCableImg = bareCableAsset.url;
@@ -28,9 +29,7 @@ const fiberglassImg = fiberglassAsset.url;
 const litzCuImg = litzCuAsset.url;
 const litzAlImg = litzAlAsset.url;
 const busbarImg = busbarAsset.url;
-
-// Brochure PDF path - will work once the user uploads the file
-const brochurePdf = "/rational-engineers-brochure.pdf";
+const brochurePdf = brochureAsset.url;
 
 interface Product {
   id: string;
