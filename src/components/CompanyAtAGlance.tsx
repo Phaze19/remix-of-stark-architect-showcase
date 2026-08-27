@@ -18,7 +18,7 @@ const stats: Stat[] = [
   { count: 38000, suffix: " MT", label: "Annual capacity", note: "Copper & aluminium winding conductors" },
   { count: 3, label: "Manufacturing locations", note: "Wada, Daman & Vadodara" },
   { count: 25, suffix: "+", label: "Countries served", note: "Across six continents" },
-  { count: 400, suffix: "+", label: "Customers", note: "Transformer, motor & infrastructure OEMs" },
+  { count: 350, suffix: "+", label: "Customers", note: "Transformer, motor & infrastructure OEMs" },
   { display: "ISO 9001:2015", label: "Quality certified", note: "ISO 14001:2015 in progress" },
 ];
 
