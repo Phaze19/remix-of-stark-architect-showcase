@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import FontPresetSwitcher from "@/components/FontPresetSwitcher";
+import SEO from "@/components/SEO";
 import Index from "./pages/Index";
 
 // Secondary routes are code-split so the landing page ships the smallest bundle.
@@ -30,6 +31,67 @@ const RouteTracker = () => {
   return null;
 };
 
+const ROUTE_META: Record<string, { title: string; description: string }> = {
+  "/": {
+    title: "Rational Engineers — Premium Copper CTC Wires & Conductors",
+    description:
+      "Leading manufacturer of copper CTC wires, continuously transposed conductors, and premium copper wire products for power transformers and electrical applications.",
+  },
+  "/work": {
+    title: "Our Work & Certifications — Rational Engineers",
+    description:
+      "Explore Rational Engineers' projects, OEM clients, and active ISO certifications for copper conductors and transformer winding products.",
+  },
+  "/about": {
+    title: "About Us — Rational Engineers Limited",
+    description:
+      "Learn about Rational Engineers Limited, a Thane-based manufacturer of copper CTC, paper covered and enamelled conductors serving the power industry since 1990.",
+  },
+  "/founder": {
+    title: "Our Journey — Rational Engineers Limited",
+    description:
+      "The journey of Rational Engineers Limited — key milestones from its founding by Mr. Mahendra Jain to a 33,000 MT copper conductor manufacturer.",
+  },
+  "/leadership": {
+    title: "Leadership — Rational Engineers Limited",
+    description:
+      "Meet the leadership team of Rational Engineers Limited driving copper conductor manufacturing excellence across India and global markets.",
+  },
+  "/csr": {
+    title: "CSR Activities — Rational Engineers Limited",
+    description:
+      "Rational Engineers' corporate social responsibility initiatives in community development, education, and sustainability.",
+  },
+  "/certifications": {
+    title: "Certifications — Rational Engineers Limited",
+    description:
+      "Quality certifications of Rational Engineers Limited, including ISO 9001:2015 quality management systems for copper conductor manufacturing.",
+  },
+  "/contact": {
+    title: "Contact Us — Rational Engineers Limited",
+    description:
+      "Get in touch with Rational Engineers Limited for copper CTC wires, busbars, and conductor products. Request a quote today.",
+  },
+  "/blog": {
+    title: "Blog & Insights — Rational Engineers Limited",
+    description:
+      "Industry insights, product updates, and news from Rational Engineers Limited on copper conductors and transformer components.",
+  },
+};
+
+const DEFAULT_META = {
+  title: "Blog — Rational Engineers Limited",
+  description:
+    "Industry insights and updates from Rational Engineers Limited on copper conductors and transformer components.",
+};
+
+const RouteSEO = () => {
+  const { pathname } = useLocation();
+  const meta = ROUTE_META[pathname] ?? DEFAULT_META;
+  const path = pathname.startsWith("/blog/") ? pathname : pathname;
+  return <SEO title={meta.title} description={meta.description} path={path} />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -37,6 +99,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <RouteTracker />
+        <RouteSEO />
         <Suspense fallback={<div className="min-h-dvh bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
