@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import aboutFacility from "@/assets/rational-facility-exterior.png.asset.json";
 
-import founderPortrait from "@/assets/founder-mahendra-jain.jpg";
+import founderPortraitAsset from "@/assets/founder-mahendra-jain.jpg.asset.json";
 import brandLogoAsset from "@/assets/rational-logo-master.png.asset.json";
 
 const brandLogo = brandLogoAsset.url;
@@ -325,7 +325,7 @@ const About = () => {
             >
               <div className="absolute -left-4 -top-4 h-2/3 w-2/3 bg-rational-red/10" />
               <img
-                src={founderPortrait}
+                src={founderPortraitAsset.url}
                 alt="Shri. Mahendra K. Jain, Chairman & Managing Director of Rational Engineers Limited"
                 className="relative w-full object-cover"
                 loading="lazy"
