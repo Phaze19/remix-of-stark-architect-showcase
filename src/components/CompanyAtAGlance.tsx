@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
+import factoryExterior from "@/assets/factory-exterior.jpg.asset.json";
+
 
 type Stat = {
   /** Numeric portion animated on scroll. Omit for non-numeric values. */
