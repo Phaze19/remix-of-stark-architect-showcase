@@ -23,6 +23,33 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
+// Warm the code-split route chunks once the landing page is idle so clicking a
+// nav link feels instant instead of waiting on a network round-trip.
+const prefetchRoutes = () => {
+  void import("./pages/Certifications");
+  void import("./pages/About");
+  void import("./pages/Work");
+  void import("./pages/Contact");
+  void import("./pages/Leadership");
+  void import("./pages/FounderJourney");
+  void import("./pages/CSR");
+};
+
+const RoutePrefetcher = () => {
+  useEffect(() => {
+    const idle = (window as typeof window & {
+      requestIdleCallback?: (cb: () => void) => number;
+    }).requestIdleCallback;
+    if (idle) {
+      idle(prefetchRoutes);
+      return;
+    }
+    const timer = window.setTimeout(prefetchRoutes, 1500);
+    return () => window.clearTimeout(timer);
+  }, []);
+  return null;
+};
+
 const RouteTracker = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -100,6 +127,7 @@ const App = () => (
       <BrowserRouter>
         <RouteTracker />
         <RouteSEO />
+        <RoutePrefetcher />
         <Suspense fallback={<div className="min-h-dvh bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
