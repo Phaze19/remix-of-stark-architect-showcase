@@ -67,13 +67,10 @@ const Contact = () => {
         <div className="absolute inset-0 bg-background/85" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-minimal text-muted-foreground mb-4 tracking-widest">POWERING INFRASTRUCTURE</h1>
-            <h2 className="text-4xl md:text-6xl font-light text-foreground mb-6">
+            <p className="text-minimal text-muted-foreground mb-4 tracking-widest">POWERING INFRASTRUCTURE</p>
+            <h1 className="text-4xl md:text-6xl font-light text-foreground mb-6">
               Copper Solutions for
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-xl">
-              {"\n"}
-            </p>
+            </h1>
           </div>
         </div>
       </section>
@@ -84,7 +81,7 @@ const Contact = () => {
             <div className="grid lg:grid-cols-2 gap-20">
               {/* Contact Information */}
               <div>
-                <h1 className="text-minimal text-muted-foreground mb-4">GET IN TOUCH</h1>
+                <p className="text-minimal text-muted-foreground mb-4">GET IN TOUCH</p>
                 <h2 className="text-4xl md:text-5xl font-light text-architectural mb-12">
                   Request a Quote
                   <br />

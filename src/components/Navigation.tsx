@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import QuoteDialog from "@/components/QuoteDialog";
 import SmartLink from "@/components/SmartLink";
@@ -53,6 +54,13 @@ const Navigation = () => {
   const lastY = useRef(0);
   const navRef = useRef<HTMLElement | null>(null);
   const pointerTypeRef = useRef<string | null>(null);
+  const { pathname } = useLocation();
+
+  const isActive = (link: NavLink) =>
+    link.href.startsWith("/") && !link.href.startsWith("/#")
+      ? pathname === link.href || (link.children?.some((c) => c.href === pathname) ?? false)
+      : false;
+
 
   const closeNavigation = () => {
     setOpenDropdown(null);
@@ -94,6 +102,14 @@ const Navigation = () => {
     };
   }, []);
 
+  // Any route change must leave the navigation in a clean, closed state.
+  useEffect(() => {
+    setOpenDropdown(null);
+    setIsMenuOpen(false);
+    setOpenMobileGroup(null);
+  }, [pathname]);
+
+
 
   return (
     <nav
@@ -118,7 +134,7 @@ const Navigation = () => {
           </a>
 
 
-          <div className="hidden items-stretch gap-8 lg:flex">
+          <div className="hidden items-stretch gap-6 xl:flex xl:gap-8">
             {contactItems.map((item) => {
               const Body = (
                 <div className="flex items-start gap-3">
@@ -141,7 +157,7 @@ const Navigation = () => {
               return (
                 <div
                   key={item.label}
-                  className="border-l border-border pl-8 first:border-l-0 first:pl-0"
+                  className="border-l border-border pl-6 first:border-l-0 first:pl-0"
                 >
                   {item.href ? (
                     <a href={item.href} className="block transition-opacity hover:opacity-70">
@@ -216,15 +232,16 @@ const Navigation = () => {
                     }}
                     onClick={() => {
                       // Mouse users already see the panel from hover, so a click must never
-                      // collapse it. Touch / keyboard users get a real toggle.
-                      if (pointerTypeRef.current === "mouse") {
+                      // collapse it. Touch / keyboard / pen users get a real toggle.
+                      const wasMouse = pointerTypeRef.current === "mouse";
+                      pointerTypeRef.current = null;
+                      if (wasMouse) {
                         setOpenDropdown(link.label);
                         return;
                       }
                       setOpenDropdown((current) => (current === link.label ? null : link.label));
-                      pointerTypeRef.current = null;
                     }}
-                    className={`${desktopLinkClass} flex items-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rational-red`}
+                    className={`${desktopLinkClass} ${isActive(link) ? "text-white after:scale-x-100 after:origin-bottom-left" : ""} flex items-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rational-red`}
                   >
                     {link.label}
                     <ChevronDown
@@ -239,15 +256,15 @@ const Navigation = () => {
                       role="menu"
                       aria-labelledby={`${link.label}-trigger`}
                     >
-                      <div className="w-[520px] overflow-hidden border-t-2 border-rational-red bg-[linear-gradient(135deg,#1a0f0a_0%,#3d1f10_45%,#0d0d0d_100%)] shadow-2xl">
-                        <div className="grid grid-cols-2 gap-px bg-white/10">
+                      <div className="w-[520px] overflow-hidden border-t-2 border-rational-red bg-[#0d0d0d] bg-[linear-gradient(135deg,#1a0f0a_0%,#3d1f10_45%,#0d0d0d_100%)] shadow-2xl">
+                        <div className="grid grid-cols-2 gap-px bg-white/15">
                           {link.children.map((child) => (
                             <SmartLink
                               key={child.href}
                               href={child.href}
                               role="menuitem"
                               onClick={() => setOpenDropdown(null)}
-                              className="group block bg-[#140c08]/95 px-6 py-6 transition-colors duration-300 hover:bg-[#4a2612]/80"
+                              className="group block bg-[#140c08] px-6 py-6 transition-colors duration-300 hover:bg-[#4a2612]"
                             >
                               <span className="block font-display text-lg font-light text-[#f5e2d2] group-hover:text-white">
                                 {child.label}
@@ -264,7 +281,12 @@ const Navigation = () => {
                   )}
                 </div>
               ) : (
-                <SmartLink key={link.href} href={link.href} className={desktopLinkClass}>
+                <SmartLink
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive(link) ? "page" : undefined}
+                  className={`${desktopLinkClass} ${isActive(link) ? "text-white after:scale-x-100 after:origin-bottom-left" : ""}`}
+                >
                   {link.label}
                 </SmartLink>
               )
