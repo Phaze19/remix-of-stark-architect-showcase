@@ -3,22 +3,22 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import FontPresetSwitcher from "@/components/FontPresetSwitcher";
 import Index from "./pages/Index";
-import Work from "./pages/Work";
 
-import About from "./pages/About";
-import FounderJourney from "./pages/FounderJourney";
-import Leadership from "./pages/Leadership";
-import CSR from "./pages/CSR";
-import Contact from "./pages/Contact";
-import Certifications from "./pages/Certifications";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-
-import NotFound from "./pages/NotFound";
+// Secondary routes are code-split so the landing page ships the smallest bundle.
+const Work = lazy(() => import("./pages/Work"));
+const About = lazy(() => import("./pages/About"));
+const FounderJourney = lazy(() => import("./pages/FounderJourney"));
+const Leadership = lazy(() => import("./pages/Leadership"));
+const CSR = lazy(() => import("./pages/CSR"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Certifications = lazy(() => import("./pages/Certifications"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
