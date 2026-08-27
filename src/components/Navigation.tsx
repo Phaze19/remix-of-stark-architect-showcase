@@ -209,7 +209,19 @@ const Navigation = () => {
                     id={`${link.label}-trigger`}
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === link.label}
-                    onClick={() => setOpenDropdown((current) => (current === link.label ? null : link.label))}
+                    onPointerDown={(event) => {
+                      pointerTypeRef.current = event.pointerType;
+                    }}
+                    onClick={() => {
+                      // Mouse users already see the panel from hover, so a click must never
+                      // collapse it. Touch / keyboard users get a real toggle.
+                      if (pointerTypeRef.current === "mouse") {
+                        setOpenDropdown(link.label);
+                        return;
+                      }
+                      setOpenDropdown((current) => (current === link.label ? null : link.label));
+                      pointerTypeRef.current = null;
+                    }}
                     className={`${desktopLinkClass} flex items-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rational-red`}
                   >
                     {link.label}
