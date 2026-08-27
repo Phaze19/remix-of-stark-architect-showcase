@@ -13,6 +13,9 @@ const Hero = () => {
         src={heroImage}
         alt="Copper wire rod coils on the Rational Engineers manufacturing floor"
         className="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
       />
 
       {/* Overlays */}
