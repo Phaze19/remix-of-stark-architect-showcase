@@ -15,8 +15,26 @@ import MarketPulse from "@/components/MarketPulse";
 import CopperTicker from "@/components/CopperTicker";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useEffect } from "react";
+import { preloadAfterRender } from "@/lib/preloadImages";
+import ctcAsset from "@/assets/cat2-ctc.jpg.asset.json";
+import bareCableAsset from "@/assets/cat2-bare-cable.jpg.asset.json";
+import insulatedCableAsset from "@/assets/cat2-insulated-cable.jpg.asset.json";
+import enamCopperAsset from "@/assets/cat2-enam-copper.jpg.asset.json";
+import labImage from "@/assets/cat-lab.jpg";
 
 const Index = () => {
+  useEffect(() => {
+    // Warm the first product cards + lab visual once the hero has painted.
+    preloadAfterRender([
+      ctcAsset.url,
+      bareCableAsset.url,
+      insulatedCableAsset.url,
+      enamCopperAsset.url,
+      labImage,
+    ]);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navigation />
