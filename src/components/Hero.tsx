@@ -3,7 +3,6 @@ import heroImage from "@/assets/hero-copper-wires.jpg";
 const stats = [
   { value: "35+", label: "Years of manufacturing" },
   { value: "33,000 MT", label: "ANNUAL MANUFACTURING CAPACITY" },
-  { value: "ISO 9001", label: "Certified quality systems" },
   { value: "40+", label: "OEM partners served" },
 ];
 
@@ -60,7 +59,7 @@ const Hero = () => {
         </div>
 
         {/* Stat rail */}
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 border-t border-white/15 reveal-delayed">
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-3 border-t border-white/15 reveal-delayed">
           {stats.map((stat) => (
             <div
               key={stat.label}
