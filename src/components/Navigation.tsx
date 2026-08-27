@@ -51,6 +51,7 @@ const Navigation = () => {
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
   const navRef = useRef<HTMLElement | null>(null);
+  const pointerTypeRef = useRef<string | null>(null);
 
   const closeNavigation = () => {
     setOpenDropdown(null);
@@ -111,7 +112,7 @@ const Navigation = () => {
               width={919}
               height={485}
               decoding="async"
-              className="h-12 w-auto max-w-full sm:h-16 md:h-24 xl:h-28"
+              className="h-12 w-auto max-w-full object-contain sm:h-16 md:h-24 xl:h-28"
             />
           </a>
 
@@ -196,23 +197,47 @@ const Navigation = () => {
                 <div
                   key={link.label}
                   className="relative"
-                  onMouseEnter={() => setOpenDropdown(link.label)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                  onFocus={() => setOpenDropdown(link.label)}
+                  onPointerEnter={(event) => {
+                    // Hover-open only for real mice; touch/pen rely on the click toggle.
+                    if (event.pointerType === "mouse") setOpenDropdown(link.label);
+                  }}
+                  onPointerLeave={(event) => {
+                    if (event.pointerType === "mouse") setOpenDropdown(null);
+                  }}
                 >
                   <button
                     type="button"
+                    id={`${link.label}-trigger`}
                     aria-haspopup="menu"
                     aria-expanded={openDropdown === link.label}
-                    onClick={() => setOpenDropdown((current) => (current === link.label ? null : link.label))}
-                    className={`${desktopLinkClass} flex items-center gap-1.5`}
+                    onPointerDown={(event) => {
+                      pointerTypeRef.current = event.pointerType;
+                    }}
+                    onClick={() => {
+                      // Mouse users already see the panel from hover, so a click must never
+                      // collapse it. Touch / keyboard users get a real toggle.
+                      if (pointerTypeRef.current === "mouse") {
+                        setOpenDropdown(link.label);
+                        return;
+                      }
+                      setOpenDropdown((current) => (current === link.label ? null : link.label));
+                      pointerTypeRef.current = null;
+                    }}
+                    className={`${desktopLinkClass} flex items-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rational-red`}
                   >
                     {link.label}
-                    <ChevronDown size={13} className="mt-px" />
+                    <ChevronDown
+                      size={13}
+                      className={`mt-px transition-transform duration-300 ${openDropdown === link.label ? "rotate-180" : ""}`}
+                    />
                   </button>
 
                   {openDropdown === link.label && (
-                    <div className="absolute left-1/2 top-full z-[80] -translate-x-1/2 pt-5" role="menu">
+                    <div
+                      className="absolute left-1/2 top-full z-[80] -translate-x-1/2 pt-5"
+                      role="menu"
+                      aria-labelledby={`${link.label}-trigger`}
+                    >
                       <div className="w-[520px] overflow-hidden border-t-2 border-rational-red bg-[linear-gradient(135deg,#1a0f0a_0%,#3d1f10_45%,#0d0d0d_100%)] shadow-2xl">
                         <div className="grid grid-cols-2 gap-px bg-white/10">
                           {link.children.map((child) => (
