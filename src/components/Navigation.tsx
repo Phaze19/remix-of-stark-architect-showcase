@@ -25,7 +25,6 @@ const navLinks: NavLink[] = [
     label: "ABOUT US",
     children: [
       { href: "/about", label: "Company Overview", desc: "Legacy, values & milestones" },
-      { href: "/founder", label: "Rational's Journey", desc: "From 1989 to today" },
       { href: "/leadership", label: "Leadership", desc: "Board & director profiles" },
       { href: "/csr", label: "CSR Activities", desc: "Education, healthcare & sustainability" },
     ],

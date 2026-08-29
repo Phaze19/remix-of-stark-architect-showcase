@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 
 const items = [
   { href: "/about", label: "Company Overview", desc: "Legacy, values & milestones" },
-  { href: "/founder", label: "Rational's Journey", desc: "From 1989 to today" },
   { href: "/leadership", label: "Leadership", desc: "Board & director profiles" },
   { href: "/csr", label: "CSR Activities", desc: "Education, healthcare & sustainability" },
 ];
@@ -13,7 +12,7 @@ const AboutSubNav = () => {
   return (
     <nav aria-label="About Us sections" className="border-b border-border bg-muted/30">
       <div className="container mx-auto px-6">
-        <ul className="mx-auto grid max-w-6xl gap-px overflow-hidden bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mx-auto grid max-w-4xl gap-px overflow-hidden bg-border sm:grid-cols-3">
           {items.map((item) => {
             const active = pathname === item.href;
             return (

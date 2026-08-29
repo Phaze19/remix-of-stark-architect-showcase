@@ -12,7 +12,6 @@ import Index from "./pages/Index";
 // Secondary routes are code-split so the landing page ships the smallest bundle.
 const Work = lazy(() => import("./pages/Work"));
 const About = lazy(() => import("./pages/About"));
-const FounderJourney = lazy(() => import("./pages/FounderJourney"));
 const Leadership = lazy(() => import("./pages/Leadership"));
 const CSR = lazy(() => import("./pages/CSR"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -31,7 +30,6 @@ const prefetchRoutes = () => {
   void import("./pages/Work");
   void import("./pages/Contact");
   void import("./pages/Leadership");
-  void import("./pages/FounderJourney");
   void import("./pages/CSR");
 };
 
@@ -73,11 +71,6 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     title: "About Us — Rational Engineers Limited",
     description:
       "Learn about Rational Engineers Limited, a Thane-based manufacturer of copper CTC, paper covered and enamelled conductors serving the power industry since 1990.",
-  },
-  "/founder": {
-    title: "Our Journey — Rational Engineers Limited",
-    description:
-      "The journey of Rational Engineers Limited — key milestones from its founding by Mr. Mahendra Jain to a 33,000 MT copper conductor manufacturer.",
   },
   "/leadership": {
     title: "Leadership — Rational Engineers Limited",
@@ -134,7 +127,6 @@ const App = () => (
           <Route path="/work" element={<Work />} />
           
           <Route path="/about" element={<About />} />
-          <Route path="/founder" element={<FounderJourney />} />
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/csr" element={<CSR />} />
           <Route path="/certifications" element={<Certifications />} />
