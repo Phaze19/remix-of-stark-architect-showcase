@@ -24,7 +24,7 @@ export const milestones: Milestone[] = [
     desc: "Taken over by Mr. Mahendra Jain with a vision to transform the production and distribution landscape of copper conductors.",
   },
   {
-    year: "2018",
+    year: "2016",
     phase: "Leadership",
     title: "Next-Generation Leadership",
     desc: "Mr. Jubin Jain joined the business, bringing electrical engineering expertise and a drive for modern manufacturing excellence.",
