@@ -280,7 +280,7 @@ const About = () => {
                 { year: "1990", title: "Building Foundations", desc: "Established core manufacturing capabilities and built early relationships with transformer OEMs across India." },
                 { year: "2006", title: "New Leadership", desc: "Mr. Mahendra Jain (B.E Mech) takes over as Managing Director, bringing a bold vision to modernise and scale operations." },
                 { year: "2010", title: "Facility Modernisation", desc: "Major upgrades to manufacturing facilities with state-of-the-art machinery, achieving ISO certifications and expanding product range." },
-                { year: "2018", title: "Next Generation Joins", desc: "Mr. Jubin Jain (B.E Electrical) joins the leadership, driving innovation in CTC conductors and digital transformation." },
+                { year: "2016", title: "Next Generation Joins", desc: "Mr. Jubin Jain (B.E Electrical) joins the leadership, driving innovation in CTC conductors and digital transformation." },
                 { year: "2020", title: "Global Expansion", desc: "Expanded presence in international markets while strengthening domestic operations — now serving clients across India and abroad." },
                 { year: "Today", title: "Industry Pioneer", desc: "50+ years in copper, a complete product range, and a reputation for exceeding customer expectations at every turn." },
               ].map((milestone, i) => (
