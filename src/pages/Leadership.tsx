@@ -44,7 +44,7 @@ const leaders: Leader[] = [
   },
   {
     name: "Jubin Mahendra Jain",
-    role: "WHOLE TIME DIRECTOR",
+    role: "CEO & WHOLE TIME DIRECTOR",
     org: "Rational Engineers Limited",
     din: "754430",
     image: jubin,
