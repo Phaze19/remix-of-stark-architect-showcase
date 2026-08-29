@@ -144,7 +144,7 @@ const leaders: Leader[] = [
     org: "Legal Counsel · B.A., LL.B.",
     image: bipin,
     bio: [
-      "Enrolled with the Bar in 1980, with more than four decades of distinguished legal practice advising on corporate, commercial and regulatory matters.",
+      "With over four decades of distinguished legal practice since 1980, Mr. Bipin Joshi brings extensive experience in civil and commercial litigation, corporate matters, debt recovery, consumer disputes and proceedings before the High Court and various judicial and quasi-judicial forums. His longstanding practice is marked by substantial courtroom experience, sound legal acumen and a comprehensive understanding of complex civil-law matters.",
     ],
     facts: ["45+ Years of Legal Practice", "Enrolled with the Bar in 1980"],
   },
