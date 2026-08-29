@@ -240,7 +240,7 @@ const About = () => {
                   { label: "ESTABLISHED", value: "1989" },
                   { label: "IN COPPER", value: "30+ Yrs" },
                   { label: "LEADERSHIP SINCE", value: "2006" },
-                  { label: "NEXT GEN SINCE", value: "2018" },
+                  { label: "NEXT GEN SINCE", value: "2016" },
                 ].map((stat) => (
                   <div key={stat.label}>
                     <p className="mb-2 text-3xl font-light tracking-tight text-foreground md:text-4xl">{stat.value}</p>
