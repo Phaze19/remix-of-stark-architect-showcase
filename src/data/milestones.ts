@@ -7,8 +7,7 @@ export type Milestone = {
 };
 
 /**
- * Verified company milestones. Shared by the homepage history timeline and the
- * /founder journey page so both stay in sync.
+ * Verified company milestones. Used by the homepage history timeline.
  */
 export const milestones: Milestone[] = [
   {
