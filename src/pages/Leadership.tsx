@@ -146,7 +146,7 @@ const leaders: Leader[] = [
     bio: [
       "With over four decades of distinguished legal practice since 1980, Mr. Bipin Joshi brings extensive experience in civil and commercial litigation, corporate matters, debt recovery, consumer disputes and proceedings before the High Court and various judicial and quasi-judicial forums. His longstanding practice is marked by substantial courtroom experience, sound legal acumen and a comprehensive understanding of complex civil-law matters.",
     ],
-    facts: ["45+ Years of Legal Practice", "Enrolled with the Bar in 1980"],
+    facts: ["45+ Years of Legal Practice", "IN LEGAL PRACTICE SINCE 1980"],
   },
 ];
 
