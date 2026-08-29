@@ -21,15 +21,16 @@ import bareCableAsset from "@/assets/cat2-bare-cable.jpg.asset.json";
 import insulatedCableAsset from "@/assets/cat2-insulated-cable.jpg.asset.json";
 import enamCopperAsset from "@/assets/cat2-enam-copper.jpg.asset.json";
 import labImage from "@/assets/cat-lab.jpg";
+import { assetUrl } from "@/lib/assetUrl";
 
 const Index = () => {
   useEffect(() => {
     // Warm the first product cards + lab visual once the hero has painted.
     preloadAfterRender([
-      ctcAsset.url,
-      bareCableAsset.url,
-      insulatedCableAsset.url,
-      enamCopperAsset.url,
+      assetUrl(ctcAsset),
+      assetUrl(bareCableAsset),
+      assetUrl(insulatedCableAsset),
+      assetUrl(enamCopperAsset),
       labImage,
     ]);
   }, []);

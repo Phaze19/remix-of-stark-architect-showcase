@@ -5,6 +5,7 @@ import QuoteDialog from "@/components/QuoteDialog";
 import SmartLink from "@/components/SmartLink";
 import { Button } from "@/components/ui/button";
 import brandLogo from "@/assets/rational-logo-master.png.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
 
@@ -126,7 +127,7 @@ const Navigation = () => {
         <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:gap-6 sm:py-4 md:px-6 md:py-5 lg:px-8">
           <a href="/" aria-label="Rational Engineers — home" className="relative z-10 flex min-w-0 shrink items-center">
             <img
-              src={brandLogo.url}
+              src={assetUrl(brandLogo)}
               alt="Rational Engineers"
               width={1507}
               height={603}

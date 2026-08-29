@@ -6,9 +6,10 @@ import aboutFacility from "@/assets/rational-facility-exterior.png.asset.json";
 
 import founderPortraitAsset from "@/assets/founder-mahendra-jain.jpg.asset.json";
 import brandLogoAsset from "@/assets/rational-logo-master.png.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
-const brandLogo = brandLogoAsset.url;
-const brandLogoWhite = brandLogoAsset.url;
+const brandLogo = assetUrl(brandLogoAsset);
+const brandLogoWhite = assetUrl(brandLogoAsset);
 
 
 const About = () => {
@@ -85,7 +86,7 @@ const About = () => {
               className="rounded-xl overflow-hidden"
             >
               <img
-                src={aboutFacility.url}
+                src={assetUrl(aboutFacility)}
                 alt="Rational Engineers copper manufacturing facility"
                 className="w-full h-[300px] md:h-[450px] object-cover"
               />
@@ -325,7 +326,7 @@ const About = () => {
             >
               <div className="absolute -left-4 -top-4 h-2/3 w-2/3 bg-rational-red/10" />
               <img
-                src={founderPortraitAsset.url}
+                src={assetUrl(founderPortraitAsset)}
                 alt="Shri. Mahendra K. Jain, Chairman & Managing Director of Rational Engineers Limited"
                 className="relative w-full object-cover"
                 loading="lazy"

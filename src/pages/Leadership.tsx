@@ -9,6 +9,7 @@ import gandhi from "@/assets/director-nilesh-gandhi.jpg";
 import vedakAsset from "@/assets/director-nilesh-vedak.jpg.asset.json";
 import kajolAsset from "@/assets/director-kajol-jain.jpg.asset.json";
 import bipin from "@/assets/director-bipin-joshi.jpg";
+import { assetUrl } from "@/lib/assetUrl";
 
 type Leader = {
   name: string;
@@ -27,7 +28,7 @@ const leaders: Leader[] = [
     role: "Chairman & Managing Director",
     org: "Rational Engineers Group",
     din: "00416102",
-    image: founderAsset.url,
+    image: assetUrl(founderAsset),
     quote:
       "Success is measured by the trust we earn and the impact we create for others.",
     bio: [
@@ -64,7 +65,7 @@ const leaders: Leader[] = [
     role: "Director",
     org: "Rational Engineers Limited",
     din: "08014510",
-    image: kajolAsset.url,
+    image: assetUrl(kajolAsset),
     quote:
       "Success is not defined by profit alone, but by the value we create for people, communities, and future generations.",
     bio: [
@@ -84,7 +85,7 @@ const leaders: Leader[] = [
     role: "EXECUTIVE DIRECTOR",
     org: "Rational Engineers Limited",
     din: "07874351",
-    image: vedakAsset.url,
+    image: assetUrl(vedakAsset),
     quote:
       "Every achievement stands on a foundation of trust, hard work, and values. Our responsibility is to strengthen that foundation while creating new possibilities for tomorrow.",
     bio: [
