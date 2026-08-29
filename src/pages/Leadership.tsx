@@ -146,7 +146,7 @@ const leaders: Leader[] = [
     bio: [
       "With over four decades of distinguished legal practice since 1980, Mr. Bipin Joshi brings extensive experience in civil and commercial litigation, corporate matters, debt recovery, consumer disputes and proceedings before the High Court and various judicial and quasi-judicial forums. His longstanding practice is marked by substantial courtroom experience, sound legal acumen and a comprehensive understanding of complex civil-law matters.",
     ],
-    facts: ["45+ Years of Legal Practice", "IN LEGAL PRACTICE SINCE 1980"],
+    facts: [],
   },
 ];
 
@@ -237,16 +237,18 @@ const Leadership = () => {
                     ))}
                   </div>
 
-                  <ul className="mt-8 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
-                    {leader.facts.map((f) => (
-                      <li
-                        key={f}
-                        className="bg-background px-5 py-4 text-xs font-medium uppercase tracking-[0.12em] text-foreground"
-                      >
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
+                  {leader.facts.length > 0 && (
+                    <ul className="mt-8 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
+                      {leader.facts.map((f) => (
+                        <li
+                          key={f}
+                          className="bg-background px-5 py-4 text-xs font-medium uppercase tracking-[0.12em] text-foreground"
+                        >
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </motion.article>
             ))}
