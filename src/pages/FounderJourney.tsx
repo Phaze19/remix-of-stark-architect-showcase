@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import facilityAsset from "@/assets/rational-facility-exterior.png.asset.json";
-const facilityExterior = facilityAsset.url;
+import { assetUrl } from "@/lib/assetUrl";
+const facilityExterior = assetUrl(facilityAsset);
 
 type Milestone = {
   year: string;

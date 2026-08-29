@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 import factoryExterior from "@/assets/factory-exterior.jpg.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
 
 type Stat = {
@@ -78,7 +79,7 @@ const CompanyAtAGlance = () => {
 
           <figure className="relative mt-14 overflow-hidden border border-border">
             <img
-              src={factoryExterior.url}
+              src={assetUrl(factoryExterior)}
               alt="Rational Engineers Limited manufacturing facility"
               className="h-[50vh] w-full object-cover md:h-[60vh]"
               loading="lazy"

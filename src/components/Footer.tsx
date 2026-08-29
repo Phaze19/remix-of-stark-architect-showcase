@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import SmartLink from "@/components/SmartLink";
 import brandLogo from "@/assets/rational-logo-master.png.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
 
@@ -46,7 +47,7 @@ const Footer = () => {
             {/* Brand + contact */}
             <div>
               <img
-                src={brandLogo.url}
+                src={assetUrl(brandLogo)}
                 alt="Rational Engineers"
                 width={1507}
                 height={603}

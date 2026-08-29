@@ -16,20 +16,21 @@ import litzCuAsset from "@/assets/cat2-litz-copper.jpg.asset.json";
 import litzAlAsset from "@/assets/cat2-litz-alu.jpg.asset.json";
 import busbarAsset from "@/assets/cat2-busbar.jpg.asset.json";
 import brochureAsset from "@/assets/Rational_Engineers_Limited_REL_Catalogue.pdf.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
-const ctcImg = ctcAsset.url;
-const bareCableImg = bareCableAsset.url;
-const insulatedCableImg = insulatedCableAsset.url;
-const enamCopperImg = enamCopperAsset.url;
-const enamAluImg = enamAluAsset.url;
-const piccImg = piccAsset.url;
-const micaImg = micaAsset.url;
-const kaptonImg = kaptonAsset.url;
-const fiberglassImg = fiberglassAsset.url;
-const litzCuImg = litzCuAsset.url;
-const litzAlImg = litzAlAsset.url;
-const busbarImg = busbarAsset.url;
-const brochurePdf = brochureAsset.url;
+const ctcImg = assetUrl(ctcAsset);
+const bareCableImg = assetUrl(bareCableAsset);
+const insulatedCableImg = assetUrl(insulatedCableAsset);
+const enamCopperImg = assetUrl(enamCopperAsset);
+const enamAluImg = assetUrl(enamAluAsset);
+const piccImg = assetUrl(piccAsset);
+const micaImg = assetUrl(micaAsset);
+const kaptonImg = assetUrl(kaptonAsset);
+const fiberglassImg = assetUrl(fiberglassAsset);
+const litzCuImg = assetUrl(litzCuAsset);
+const litzAlImg = assetUrl(litzAlAsset);
+const busbarImg = assetUrl(busbarAsset);
+const brochurePdf = assetUrl(brochureAsset);
 
 interface Product {
   id: string;
