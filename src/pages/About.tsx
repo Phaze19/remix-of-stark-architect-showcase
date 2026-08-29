@@ -3,8 +3,6 @@ import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import aboutFacility from "@/assets/rational-facility-exterior.png.asset.json";
-
-import founderPortraitAsset from "@/assets/founder-mahendra-jain.jpg.asset.json";
 import brandLogoAsset from "@/assets/rational-logo-master.png.asset.json";
 import { assetUrl } from "@/lib/assetUrl";
 
