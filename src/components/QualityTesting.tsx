@@ -60,9 +60,7 @@ const QualityTesting = () => {
                 <span className="text-rational-red">engineered in.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-                The difference is not only in what we make — it is in how we control it. Integrated
-                manufacturing and inspection at every stage means every conductor leaves our lines
-                to the same specification your application was designed around.
+                The difference is not only in what we make ;  is in how we control it. Integrated manufacturing and inspection at every stage means every conductor leaves our lines to the same specification your application was designed around.
               </p>
 
               <div className="mt-10 overflow-hidden border border-border">

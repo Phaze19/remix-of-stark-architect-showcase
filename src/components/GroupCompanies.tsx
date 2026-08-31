@@ -18,9 +18,7 @@ const GroupCompanies = () => {
                 <span className="text-rational-red">Expanding capabilities.</span>
               </h2>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-background/70">
-                Our international trade and distribution capabilities are delivered through
-                REL METALS TRADING LLC, UAE — the group&apos;s trading arm serving the Middle
-                East, Africa and other emerging markets.
+                Our international trade and distribution capabilities are delivered through REL METALS TRADING LLC, UAE ; the group&apos;s trading arm serving the Middle East, Africa and other emerging markets.
               </p>
             </div>
 

@@ -107,9 +107,7 @@ const EnquiryCTA = () => {
                 <span className="text-rational-red">for your requirement.</span>
               </h2>
               <p className="mt-6 max-w-md text-base leading-relaxed text-background/70">
-                Share your specification — conductor type, dimensions, insulation class and
-                volumes — and our engineering team will revert with a technical and commercial
-                proposal.
+                Share your specification  conductor type, dimensions, insulation class and volumes  and our engineering team will revert with a technical and commercial proposal.
               </p>
 
               <div className="mt-12 space-y-6 border-t border-background/15 pt-10">
