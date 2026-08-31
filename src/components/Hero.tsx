@@ -29,7 +29,7 @@ const Hero = () => {
           <div className="reveal mb-8 flex items-center gap-4">
             <span className="h-px w-12 bg-rational-red" />
             <span className="text-xs font-medium uppercase tracking-[0.35em] text-white/70 md:text-sm">
-              Rational Engineers Limited · Established 1989
+              Product Engineering Partner · Established 1989
             </span>
           </div>
 
@@ -38,9 +38,9 @@ const Hero = () => {
           </h1>
 
           <p className="reveal-delayed mb-10 max-w-2xl text-base font-light leading-relaxed text-white/70 md:text-xl">
-            Manufacturers of copper and aluminium winding conductors — CTC, paper covered,
-            enamelled, busbars and Litz — engineered in India for transformer, motor and
-            infrastructure OEMs worldwide.
+            Your product-engineering partner for high-performance copper CTC conductors,
+            enamelled winding wires, busbars and paper-covered strips — engineered in India
+            for transformer, motor and infrastructure OEMs across four continents.
           </p>
 
           <div className="reveal-delayed flex flex-wrap gap-4">
@@ -56,7 +56,7 @@ const Hero = () => {
               onClick={() => setIsQuoteOpen(true)}
               className="inline-block border border-white/25 px-10 py-5 text-xs font-bold uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-white/10"
             >
-              Enquire Now
+              Request a Quote
             </button>
           </div>
         </div>
