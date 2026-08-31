@@ -38,9 +38,7 @@ const Hero = () => {
           </h1>
 
           <p className="reveal-delayed mb-10 max-w-2xl text-base font-light leading-relaxed text-white/70 md:text-xl">
-            Your product-engineering partner for high-performance copper CTC conductors,
-            enamelled winding wires, busbars and paper-covered strips — engineered in India
-            for transformer, motor and infrastructure OEMs across four continents.
+            Your product engineering partner for high performance copper CTC conductors, enamelled winding wires, busbars and paper covered strips Engineered in India for transformer, motor and infrastructure OEMs across four continents.
           </p>
 
           <div className="reveal-delayed flex flex-wrap gap-4">
