@@ -82,7 +82,7 @@ const leaders: Leader[] = [
   {
 
     name: "Nilesh Pramod Vedak",
-    role: "EXECUTIVE DIRECTOR",
+    role: "COO & EXECUTIVE DIRECTOR",
     org: "Rational Engineers Limited",
     din: "07874351",
     image: assetUrl(vedakAsset),
