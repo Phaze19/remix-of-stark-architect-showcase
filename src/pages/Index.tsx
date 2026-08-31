@@ -6,7 +6,7 @@ import ProductShowcase from "@/components/ProductShowcase";
 import TrustSignals from "@/components/TrustSignals";
 import IndustrialApplications from "@/components/IndustrialApplications";
 import QualityTesting from "@/components/QualityTesting";
-import HistoryTimeline from "@/components/HistoryTimeline";
+
 import GlobalFootprint from "@/components/GlobalFootprint";
 import SustainabilityGroup from "@/components/SustainabilityGroup";
 import GroupCompanies from "@/components/GroupCompanies";
@@ -96,9 +96,6 @@ const Index = () => {
         <QualityTesting />
       </ScrollReveal>
 
-      <ScrollReveal delay={0.1}>
-        <HistoryTimeline />
-      </ScrollReveal>
 
       <ScrollReveal delay={0.1}>
         <GlobalFootprint />
