@@ -56,9 +56,7 @@ const Footer = () => {
                 className="h-12 w-auto max-w-full rounded-md bg-white object-contain px-3 py-2"
               />
               <p className="mt-6 max-w-sm text-sm leading-relaxed text-background/70">
-                Rational Engineers Limited manufactures copper and aluminium winding conductors
-                with consistent quality, process control and long-term supply reliability for
-                critical industrial applications.
+                Rational Engineers Limited manufactures copper and aluminium winding conductors with consistent quality, process control and long term supply reliability for critical industrial applications.
               </p>
 
               <div className="mt-8 space-y-4 text-sm">
