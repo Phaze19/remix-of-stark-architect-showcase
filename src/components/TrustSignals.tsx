@@ -5,7 +5,7 @@ const TrustSignals = () => {
     "TBEA",
     "Crompton",
     "BHEL",
-    "CG Power",
+    "CG Power & Industrial Solutions Ltd",
     "Voltamp",
     "Schneider",
     "GE Vernova\u00a0",
