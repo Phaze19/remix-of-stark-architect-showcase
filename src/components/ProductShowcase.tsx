@@ -14,7 +14,7 @@ import kaptonAsset from "@/assets/cat2-kapton.jpg.asset.json";
 import fiberglassAsset from "@/assets/cat2-fiberglass.jpg.asset.json";
 import litzCuAsset from "@/assets/cat2-litz-copper.jpg.asset.json";
 import litzAlAsset from "@/assets/cat2-litz-alu.jpg.asset.json";
-import busbarAsset from "@/assets/cat2-busbar.jpg.asset.json";
+import busbarAsset from "@/assets/cat2-busbar-new.png.asset.json";
 import brochureAsset from "@/assets/Rational_Engineers_Limited_REL_Catalogue.pdf.asset.json";
 import { assetUrl } from "@/lib/assetUrl";
 
