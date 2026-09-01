@@ -141,7 +141,7 @@ const Navigation = () => {
       }`}
     >
       {/* Tier 1 — logo band + contact strip */}
-      <div className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
+      <div data-nav-bar className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
         <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:gap-6 sm:py-4 md:px-6 md:py-5 lg:px-8">
           <a href="/" aria-label="Rational Engineers — home" className="relative z-10 flex min-w-0 shrink items-center">
             <img
