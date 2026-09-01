@@ -38,13 +38,13 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Rational Engineers</title>
+        <title>RATIONAL ENGINEERS LIMITED</title>
         <meta
           name="description"
           content="Rational Engineers Limited manufactures copper CTC conductors, enamelled wires, busbars and transformer strips — 38,000 MT capacity, ISO-certified, serving 350+ customers across 4 continents."
         />
         <link rel="canonical" href="https://rationalengineers.lovable.app/" />
-        <meta property="og:title" content="Rational Engineers" />
+        <meta property="og:title" content="RATIONAL ENGINEERS LIMITED" />
         <meta
           property="og:description"
           content="Precision copper conductors for power and distribution transformers — CTC, enamelled wire, busbars and paper covered strips from a 35+ year Indian manufacturer."
@@ -52,7 +52,7 @@ const Index = () => {
         <meta property="og:url" content="https://rationalengineers.lovable.app/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Rational Engineers" />
+        <meta name="twitter:title" content="RATIONAL ENGINEERS LIMITED" />
         <meta
           name="twitter:description"
           content="Precision copper conductors for power and distribution transformers — CTC, enamelled wire, busbars and paper covered strips."
