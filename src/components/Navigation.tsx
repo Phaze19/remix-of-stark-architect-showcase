@@ -89,19 +89,22 @@ const Navigation = () => {
   useEffect(() => {
     const el = navRef.current;
     if (!el) return;
+    // Only the persistent bars count — the expanded mobile menu overlays content
+    // and must not inflate the space reserved on the page.
+    const bars = Array.from(el.querySelectorAll<HTMLElement>("[data-nav-bar]"));
     const apply = () => {
-      const h = el.getBoundingClientRect().height;
+      const h = bars.reduce((sum, bar) => sum + bar.getBoundingClientRect().height, 0);
       if (h > 0) document.documentElement.style.setProperty("--nav-h", `${Math.round(h)}px`);
     };
     apply();
     const ro = new ResizeObserver(apply);
-    ro.observe(el);
+    bars.forEach((bar) => ro.observe(bar));
     window.addEventListener("resize", apply);
     return () => {
       ro.disconnect();
       window.removeEventListener("resize", apply);
     };
-  }, [isMenuOpen, openMobileGroup]);
+  }, []);
 
   // Close dropdown / mobile menu on outside click and on Escape so the
   // navigation never traps focus or stays stuck open on touch devices.
