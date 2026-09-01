@@ -1,53 +1,38 @@
-# Contact page: real form + direct WhatsApp/Email contact
+# Fix header overlapping page content
 
-The `/contact` page currently has a fake form (a `setTimeout` that saves nothing) and a stale product list of 7 invented names. Fix it so visitors can actually reach you, and give them a fast direct path alongside the form.
+## The problem
 
-## What changes
+The main header is fixed to the top of the window (it floats above the page so it stays visible). The multi-tier header — logo band, contact strip, then the menu row — is roughly 200px tall on large screens, but the inner pages reserve only 128px (`pt-32`) of space beneath it. So the top of each page's content sits under the header and is hidden.
 
-### 1. Wire the Contact form to the real database
-File: `src/pages/Contact.tsx`
+Confirmed in the code:
+- `Navigation.tsx` is `fixed top-0` with a logo that scales up to `h-28` plus vertical padding and a second menu tier.
+- `About.tsx`, `Leadership.tsx`, `CSR.tsx` reserve `pt-32 md:pt-40`.
+- `Certifications.tsx` and `Contact.tsx` reserve `pt-32`.
+- The homepage does not have this bug because the hero reserves `pt-48 / md:pt-60 / lg:pt-64`.
 
-- Replace the fake `setTimeout` submission with a real `supabase.from("quote_requests").insert(...)` call, mirroring the pattern already used in `QuoteDialog.tsx` and `EnquiryCTA.tsx`.
-- Add `zod` validation (name, email, message required; length limits matching the table's RLS check constraints).
-- Show a success toast on insert, or a destructive toast with "email us directly at info@rationalengineers.com" on failure.
-- Keep the existing layout (contact info column + form column) so the page doesn't need a redesign.
+So this is a fixed, hard-coded spacing number that is smaller than the real header — and it will drift again whenever the header changes.
 
-### 2. Update the product dropdown to the 12 real products
-File: `src/pages/Contact.tsx`
+## The fix
 
-Replace the `productTypes` array with the actual catalogue titles:
-- CONTINUOUSLY TRANSPOSED CONDUCTOR (CTC)
-- BARE CABLE
-- INSULATED CABLE
-- ENAMELLED COPPER — ROUND & RECTANGLE
-- ENAMELLED ALUMINIUM — ROUND & RECTANGLE
-- PAPER INSULATED COPPER CONDUCTOR (PICC)
-- MICA INSULATED COPPER CONDUCTOR
-- POLYIMIDE / KAPTON INSULATED COPPER
-- FIBER GLASS INSULATED COPPER & ALUMINIUM
-- HIGH FREQUENCY COPPER LITZ WIRES & CABLES
-- HIGH FREQUENCY ALUMINIUM LITZ WIRES & CABLES
-- BARE / TIN COATED BUSBAR
-- (keep "Custom Product" as a final option)
+Stop guessing the number. Measure the header once at runtime and let every page reserve exactly that much space.
 
-### 3. Add a "direct contact" rail with WhatsApp + Email buttons
-File: `src/pages/Contact.tsx`
+1. In the header component, measure its own rendered height and publish it as a CSS variable (`--nav-h`) on the document, updating on resize and when the mobile menu opens/closes.
+2. Add a small shared `PageTopSpacer` (or a utility class) that reserves exactly `var(--nav-h)` with a sensible fallback for the first paint.
+3. Apply it to the affected pages, replacing the hard-coded `pt-32 md:pt-40`:
+   - About Us (`/about`)
+   - Leadership (`/leadership`) — same About Us sub-nav, same bug
+   - CSR (`/csr`) — same
+   - Certifications (`/certifications`)
+   - Contact (`/contact`)
+4. Also fix the other pages carrying the same `pt-32` so the problem does not resurface: Work, Blog, Blog post, 404.
+5. Leave the homepage hero untouched — its full-bleed background is designed to sit behind the header.
 
-Above the form, add two prominent buttons so a visitor can bypass the form entirely and reach you instantly:
-- **WhatsApp** — `https://wa.me/919168643114?text=...` with a pre-filled message ("I'd like a quote for [product] — required quantity: ..."). Opens chat with +91 91686 43114.
-- **Email us directly** — `mailto:info@rationalengineers.com?subject=...&body=...` with a pre-filled subject ("Quote request — [product]") and body template (product, quantity, specs fields).
+## Verification
 
-Both use the brand's red accent button style (`bg-rational-red`) consistent with `EnquiryCTA.tsx`. The WhatsApp number and email both already appear elsewhere on the site, so this is consistent.
+Load each page at desktop, tablet and mobile widths and confirm the first heading/breadcrumb row is fully visible directly below the header, with no clipped text and no oversized gap.
 
-### 4. Fix the incomplete hero heading
-File: `src/pages/Contact.tsx`
+## Technical notes
 
-The hero currently reads "Copper Solutions for" with no continuation — it was cut off. Complete it to "Copper Solutions for Power & Industry" (or a similar on-brand phrase).
-
-## Not touched
-- No email infrastructure setup (no sender domain, no edge function). Direct WhatsApp + mailto cover immediate contact; form submissions land in the database. Email alerts can be added later as a separate task if you want automatic team notifications.
-- No changes to `QuoteDialog.tsx`, `EnquiryCTA.tsx`, or the homepage.
-- No database schema changes — the `quote_requests` table and RLS already support inserts from anon.
-
-## Why WhatsApp + Email directly
-Your buyers are mostly in India where WhatsApp is the default B2B channel. A click-to-chat button with a pre-filled product + quantity message lets a serious buyer reach your sales team in one tap, with zero form friction and no infrastructure to maintain. The form stays for visitors who prefer it.
+- `ResizeObserver` on the nav element writes `--nav-h` to `document.documentElement`; cleanup on unmount.
+- Fallback padding via `padding-top: var(--nav-h, 12rem)` so there is no jump before the measurement lands.
+- The header's scroll-away transform does not change layout, so content spacing stays stable while scrolling.
