@@ -11,7 +11,6 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-      <PageTopSpacer />
         <PageTopSpacer />
         <div className="pt-14 pb-32">
           <div className="container mx-auto px-6">
@@ -35,7 +34,8 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+      <PageTopSpacer />
+
       {/* Article Header */}
       <article className="pt-14 pb-32">
         <div className="container mx-auto px-6">
