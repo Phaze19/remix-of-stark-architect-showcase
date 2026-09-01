@@ -222,7 +222,7 @@ const Navigation = () => {
       </div>
 
       {/* Tier 2 — nav bar */}
-      <div className="relative hidden bg-foreground lg:block">
+      <div data-nav-bar className="relative hidden bg-foreground lg:block">
         <div
           className="absolute inset-y-0 right-0 w-[30%] bg-rational-red"
           style={{ clipPath: "polygon(56px 0, 100% 0, 100% 100%, 0 100%)" }}
