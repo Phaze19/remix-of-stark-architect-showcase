@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import Footer from "@/components/Footer";
 
 const NotFound = () => {
@@ -15,7 +16,8 @@ const NotFound = () => {
   return (
     <div className="min-h-dvh bg-background">
       <Navigation />
-      <main className="container mx-auto flex min-h-[60vh] flex-col items-center justify-center px-6 pt-60 pb-24 text-center md:pt-72">
+      <PageTopSpacer />
+      <main className="container mx-auto flex min-h-[60vh] flex-col items-center justify-center px-6 pt-16 pb-24 text-center md:pt-20">
         <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-rational-red">
           Error 404
         </span>

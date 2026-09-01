@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import { blogPosts } from "@/data/blogPosts";
 
 const Blog = () => {
@@ -15,9 +16,10 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <PageTopSpacer />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20">
+      <section className="pt-14 pb-20">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="mb-12">

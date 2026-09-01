@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -14,9 +15,8 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <div className="pt-32 md:pt-40">
-        <AboutSubNav />
-      </div>
+      <PageTopSpacer />
+      <AboutSubNav />
 
       {/* Hero Banner */}
       <section className="relative pt-14 pb-20 bg-background overflow-hidden">

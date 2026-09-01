@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import { blogPosts } from "@/data/blogPosts";
 
 const BlogPost = () => {
@@ -10,7 +11,9 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <div className="pt-32 pb-32">
+      <PageTopSpacer />
+        <PageTopSpacer />
+        <div className="pt-14 pb-32">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-light text-architectural mb-8">
@@ -34,7 +37,7 @@ const BlogPost = () => {
       <Navigation />
       
       {/* Article Header */}
-      <article className="pt-32 pb-32">
+      <article className="pt-14 pb-32">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             {/* Back Link */}

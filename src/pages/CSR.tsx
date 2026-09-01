@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import AboutSubNav from "@/components/AboutSubNav";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -74,9 +75,8 @@ const CSR = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="pt-32 md:pt-40">
-        <AboutSubNav />
-      </div>
+      <PageTopSpacer />
+      <AboutSubNav />
 
       {/* Hero */}
       <section className="pt-14 pb-16 md:pt-20">

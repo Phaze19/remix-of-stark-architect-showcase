@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import Footer from "@/components/Footer";
 import { Shield, FlaskConical } from "lucide-react";
 
@@ -53,9 +54,10 @@ const Work = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <PageTopSpacer />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-muted">
+      <section className="pt-14 pb-20 bg-muted">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div 
