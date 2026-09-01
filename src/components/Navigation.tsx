@@ -84,6 +84,25 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isMenuOpen, openDropdown]);
 
+  // Publish the real rendered header height as --nav-h so every page can
+  // reserve exactly the right amount of space beneath the fixed header.
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+    const apply = () => {
+      const h = el.getBoundingClientRect().height;
+      if (h > 0) document.documentElement.style.setProperty("--nav-h", `${Math.round(h)}px`);
+    };
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(el);
+    window.addEventListener("resize", apply);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", apply);
+    };
+  }, [isMenuOpen, openMobileGroup]);
+
   // Close dropdown / mobile menu on outside click and on Escape so the
   // navigation never traps focus or stays stuck open on touch devices.
   useEffect(() => {
