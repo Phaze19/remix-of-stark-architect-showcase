@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -58,10 +59,11 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
+      <PageTopSpacer />
       
       {/* Hero Section with Windmill Background */}
       <section 
-        className="relative pt-32 pb-20 bg-cover bg-center bg-no-repeat"
+        className="relative pt-14 pb-20 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${windmillBg})` }}
       >
         <div className="absolute inset-0 bg-background/85" />

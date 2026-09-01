@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import PageTopSpacer from "@/components/PageTopSpacer";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Shield, FileCheck, Download, ExternalLink, FlaskConical } from "lucide-react";
@@ -36,9 +37,10 @@ const Certifications = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
+      <PageTopSpacer />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-background">
+      <section className="pt-14 pb-16 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div

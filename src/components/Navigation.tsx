@@ -84,6 +84,28 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isMenuOpen, openDropdown]);
 
+  // Publish the real rendered header height as --nav-h so every page can
+  // reserve exactly the right amount of space beneath the fixed header.
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+    // Only the persistent bars count — the expanded mobile menu overlays content
+    // and must not inflate the space reserved on the page.
+    const bars = Array.from(el.querySelectorAll<HTMLElement>("[data-nav-bar]"));
+    const apply = () => {
+      const h = bars.reduce((sum, bar) => sum + bar.getBoundingClientRect().height, 0);
+      if (h > 0) document.documentElement.style.setProperty("--nav-h", `${Math.round(h)}px`);
+    };
+    apply();
+    const ro = new ResizeObserver(apply);
+    bars.forEach((bar) => ro.observe(bar));
+    window.addEventListener("resize", apply);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", apply);
+    };
+  }, []);
+
   // Close dropdown / mobile menu on outside click and on Escape so the
   // navigation never traps focus or stays stuck open on touch devices.
   useEffect(() => {
@@ -122,7 +144,7 @@ const Navigation = () => {
       }`}
     >
       {/* Tier 1 — logo band + contact strip */}
-      <div className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
+      <div data-nav-bar className="relative bg-background shadow-[0_1px_0_0_hsl(var(--border))]">
         <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3 sm:gap-6 sm:py-4 md:px-6 md:py-5 lg:px-8">
           <a href="/" aria-label="Rational Engineers — home" className="relative z-10 flex min-w-0 shrink items-center">
             <img
@@ -203,7 +225,7 @@ const Navigation = () => {
       </div>
 
       {/* Tier 2 — nav bar */}
-      <div className="relative hidden bg-foreground lg:block">
+      <div data-nav-bar className="relative hidden bg-foreground lg:block">
         <div
           className="absolute inset-y-0 right-0 w-[30%] bg-rational-red"
           style={{ clipPath: "polygon(56px 0, 100% 0, 100% 100%, 0 100%)" }}
