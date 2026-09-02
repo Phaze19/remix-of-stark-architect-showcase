@@ -10,7 +10,8 @@ const TrustSignals = () => {
     "Schneider",
     "GE Vernova\u00a0",
     "Hitachi",
-    "Alfanar"
+    "Alfanar",
+    "T&R Transformers and Rectifiers"
   ];
 
   return (
