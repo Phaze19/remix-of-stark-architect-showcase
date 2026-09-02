@@ -193,36 +193,6 @@ const IndustrialApplications = () => {
           ))}
         </div>
       </div>
-
-
-
-      {/* Benefits strip + tagline */}
-      <div className="border-y border-border bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto grid max-w-7xl items-stretch lg:grid-cols-[1fr_auto]">
-            <div className="grid grid-cols-1 divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
-              {benefits.map((b) => (
-                <div key={b.lines[0]} className="flex items-center gap-3 px-5 py-7">
-                  <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border-2 border-rational-red">
-                    <b.icon className="h-5 w-5 text-rational-red" strokeWidth={1.75} />
-                  </span>
-                  <p className="text-sm font-medium leading-snug text-foreground">
-                    {b.lines[0]}
-                    <span className="block font-normal text-muted-foreground">{b.lines[1]}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center bg-rational-red px-8 py-7">
-              <p className="text-sm font-bold uppercase leading-relaxed tracking-[0.08em] text-primary-foreground">
-                Powering Progress.
-                <span className="block">Connecting Possibilities.</span>
-                <span className="block">Delivering Performance.</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
