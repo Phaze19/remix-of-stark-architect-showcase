@@ -103,12 +103,6 @@ const applications = [
   },
 ];
 
-const benefits = [
-  { icon: ShieldCheck, lines: ["High Conductivity for", "Superior Performance"] },
-  { icon: Thermometer, lines: ["High Thermal", "Resistance & Insulation"] },
-  { icon: BadgeCheck, lines: ["Reliable. Durable.", "Engineered for Excellence."] },
-  { icon: Settings, lines: ["Custom Solutions for", "Diverse Industrial Needs"] },
-];
 
 const IndustrialApplications = () => {
   return (
