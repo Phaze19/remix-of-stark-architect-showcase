@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { generateQuoteReference } from "@/lib/quoteReference";
 
 export interface QuoteSpec {
   label: string;
@@ -107,7 +108,9 @@ const QuoteDialog = ({
     }
 
     setSubmitting(true);
+    const reference = generateQuoteReference();
     const { error } = await supabase.from("quote_requests").insert({
+      reference,
       name: parsed.data.name,
       company: parsed.data.company || null,
       email: parsed.data.email,
@@ -130,8 +133,9 @@ const QuoteDialog = ({
 
     toast({
       title: "Quote request sent",
-      description: "Our team will get back to you within one business day.",
+      description: `Reference ${reference} — track it any time at /quote-status.`,
     });
+
     setForm({ name: "", company: "", email: "", phone: "", quantity: "", message: "" });
     onOpenChange(false);
   };
