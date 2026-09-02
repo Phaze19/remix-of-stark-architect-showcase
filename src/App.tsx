@@ -92,6 +92,11 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     description:
       "Get in touch with Rational Engineers Limited for copper CTC wires, busbars, and conductor products. Request a quote today.",
   },
+  "/quote-status": {
+    title: "Track Your Quote — Rational Engineers Limited",
+    description:
+      "Track the status of your Rational Engineers quote request using your reference code and email address.",
+  },
 };
 
 const DEFAULT_META = {
