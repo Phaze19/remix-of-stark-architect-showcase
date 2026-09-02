@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Mail, ArrowRight, Copy, Check } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import PageTopSpacer from "@/components/PageTopSpacer";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
-import { PRODUCT_OPTIONS } from "@/data/products";
-import { generateQuoteReference } from "@/lib/quoteReference";
 import windmillBg from "@/assets/contact-windmill-bg.jpg";
+
+type ContactEntry = {
+  name: string;
+  role: string;
+  email: string;
+};
+
+const CONTACTS: ContactEntry[] = [
+  { name: "Aditya Nayak", role: "Sales & Quotations", email: "aditya.nayak@rationalengineers.com" },
+  { name: "Enquiries", role: "General Enquiries", email: "enquiry@rationalengineers.com" },
+  { name: "Information Desk", role: "Product Information", email: "info@rationalengineers.com" },
+];
 
 const emptyForm = {
   name: "",
