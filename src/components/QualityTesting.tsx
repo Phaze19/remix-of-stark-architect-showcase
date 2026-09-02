@@ -33,7 +33,7 @@ const certifications = [
     icon: Shield,
     title: "ISO 9001:2015",
     scope: "Manufacturing & Quality Control",
-    status: "ACTIVE",
+    status: "CERTIFIED",
   },
   {
     icon: FlaskConical,

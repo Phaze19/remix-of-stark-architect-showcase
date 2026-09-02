@@ -13,7 +13,7 @@ const certifications = [
     subtitle: "Quality Management System",
     description: "Internationally recognised standard ensuring consistent quality in design, development, production, and delivery of copper conductors.",
     scope: "Manufacturing of CTC conductors, paper covered copper strips/wires, enameled copper wires, bare copper wires & strips",
-    status: "ACTIVE",
+    status: "CERTIFIED",
   },
   {
     id: "iso-14001",
@@ -92,7 +92,7 @@ const Certifications = () => {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">ACTIVE CERTIFICATIONS</h3>
+              <h3 className="text-minimal text-muted-foreground mb-4 tracking-widest">CERTIFIED STANDARDS</h3>
               <h4 className="text-3xl md:text-4xl font-light text-architectural">
                 Standards We Uphold
               </h4>
