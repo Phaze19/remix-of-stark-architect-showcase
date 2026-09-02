@@ -16,8 +16,6 @@ const Leadership = lazy(() => import("./pages/Leadership"));
 const CSR = lazy(() => import("./pages/CSR"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Certifications = lazy(() => import("./pages/Certifications"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
