@@ -16,8 +16,6 @@ const Leadership = lazy(() => import("./pages/Leadership"));
 const CSR = lazy(() => import("./pages/CSR"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Certifications = lazy(() => import("./pages/Certifications"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -92,24 +90,18 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     description:
       "Get in touch with Rational Engineers Limited for copper CTC wires, busbars, and conductor products. Request a quote today.",
   },
-  "/blog": {
-    title: "Blog & Insights — Rational Engineers Limited",
-    description:
-      "Industry insights, product updates, and news from Rational Engineers Limited on copper conductors and transformer components.",
-  },
 };
 
 const DEFAULT_META = {
-  title: "Blog — Rational Engineers Limited",
+  title: "RATIONAL ENGINEERS LIMITED",
   description:
-    "Industry insights and updates from Rational Engineers Limited on copper conductors and transformer components.",
+    "Rational Engineers Limited manufactures copper CTC, paper covered and enamelled conductors for the global power industry.",
 };
 
 const RouteSEO = () => {
   const { pathname } = useLocation();
   const meta = ROUTE_META[pathname] ?? DEFAULT_META;
-  const path = pathname.startsWith("/blog/") ? pathname : pathname;
-  return <SEO title={meta.title} description={meta.description} path={path} />;
+  return <SEO title={meta.title} description={meta.description} path={pathname} />;
 };
 
 const App = () => (
@@ -131,8 +123,6 @@ const App = () => (
           <Route path="/csr" element={<CSR />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
