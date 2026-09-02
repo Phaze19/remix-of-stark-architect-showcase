@@ -121,6 +121,13 @@ const Footer = () => {
               >
                 Contact
               </SmartLink>
+              <SmartLink
+                href="/quote-status"
+                className="text-[11px] font-bold uppercase tracking-[0.2em] text-background/60 transition-colors hover:text-background"
+              >
+                Track Quote
+              </SmartLink>
+
             </div>
             <a
               href={LINKEDIN_URL}
