@@ -256,11 +256,29 @@ const Contact = () => {
                     {isSubmitting ? "Submitting..." : "Submit Quote Request"}
                   </Button>
 
+                  {reference && (
+                    <div className="rounded-md border border-primary/40 bg-background p-4 text-center">
+                      <p className="text-minimal text-muted-foreground mb-1">YOUR TRACKING REFERENCE</p>
+                      <p className="text-xl font-medium tracking-wide">{reference}</p>
+                      <Link
+                        to={`/quote-status?ref=${encodeURIComponent(reference)}`}
+                        className="mt-2 inline-block text-sm underline"
+                      >
+                        Track this request
+                      </Link>
+                    </div>
+                  )}
+
                   <p className="text-sm text-muted-foreground text-center">
-                    By submitting this form, you agree to our privacy policy. 
-                    We'll respond within 24-48 business hours.
+                    By submitting this form, you agree to our privacy policy.
+                    We'll respond within 24-48 business hours. Already submitted?{" "}
+                    <Link to="/quote-status" className="underline">
+                      Track your quote
+                    </Link>
+                    .
                   </p>
                 </form>
+
               </div>
             </div>
           </div>
