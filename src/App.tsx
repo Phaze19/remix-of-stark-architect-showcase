@@ -16,6 +16,7 @@ const Leadership = lazy(() => import("./pages/Leadership"));
 const CSR = lazy(() => import("./pages/CSR"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Certifications = lazy(() => import("./pages/Certifications"));
+const QuoteStatus = lazy(() => import("./pages/QuoteStatus"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const prefetchRoutes = () => {
   void import("./pages/About");
   void import("./pages/Work");
   void import("./pages/Contact");
+  void import("./pages/QuoteStatus");
   void import("./pages/Leadership");
   void import("./pages/CSR");
 };
@@ -123,6 +125,7 @@ const App = () => (
           <Route path="/csr" element={<CSR />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/quote-status" element={<QuoteStatus />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
