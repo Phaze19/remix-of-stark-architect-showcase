@@ -90,24 +90,18 @@ const ROUTE_META: Record<string, { title: string; description: string }> = {
     description:
       "Get in touch with Rational Engineers Limited for copper CTC wires, busbars, and conductor products. Request a quote today.",
   },
-  "/blog": {
-    title: "Blog & Insights — Rational Engineers Limited",
-    description:
-      "Industry insights, product updates, and news from Rational Engineers Limited on copper conductors and transformer components.",
-  },
 };
 
 const DEFAULT_META = {
-  title: "Blog — Rational Engineers Limited",
+  title: "RATIONAL ENGINEERS LIMITED",
   description:
-    "Industry insights and updates from Rational Engineers Limited on copper conductors and transformer components.",
+    "Rational Engineers Limited manufactures copper CTC, paper covered and enamelled conductors for the global power industry.",
 };
 
 const RouteSEO = () => {
   const { pathname } = useLocation();
   const meta = ROUTE_META[pathname] ?? DEFAULT_META;
-  const path = pathname.startsWith("/blog/") ? pathname : pathname;
-  return <SEO title={meta.title} description={meta.description} path={path} />;
+  return <SEO title={meta.title} description={meta.description} path={pathname} />;
 };
 
 const App = () => (
