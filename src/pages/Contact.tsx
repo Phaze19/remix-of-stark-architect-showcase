@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import PageTopSpacer from "@/components/PageTopSpacer";
 import { Input } from "@/components/ui/input";
@@ -7,54 +8,73 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { PRODUCT_OPTIONS } from "@/data/products";
+import { generateQuoteReference } from "@/lib/quoteReference";
 import windmillBg from "@/assets/contact-windmill-bg.jpg";
+
+const emptyForm = {
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+  productType: "",
+  quantity: "",
+  specifications: "",
+};
 
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    productType: "",
-    quantity: "",
-    specifications: "",
-  });
+  const [reference, setReference] = useState<string | null>(null);
+  const [formData, setFormData] = useState(emptyForm);
 
-  const productTypes = [
-    "Bare Copper Wire",
-    "Paper Covered Copper Wire",
-    "Enameled Copper Wire",
-    "CTC Conductors",
-    "Copper Busbars",
-    "Winding Wire",
-    "Custom Product",
-  ];
+  const productTypes = PRODUCT_OPTIONS;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.productType) {
+      toast({
+        title: "Select a product",
+        description: "Please choose the product you need a quote for.",
+        variant: "destructive",
+      });
+      return;
+    }
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const newReference = generateQuoteReference();
 
-    toast({
-      title: "Quote Request Submitted",
-      description: "Our team will contact you within 24 hours with a detailed quote.",
+    const { error } = await supabase.from("quote_requests").insert({
+      reference: newReference,
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim() || null,
+      company: formData.company.trim() || null,
+      quantity: formData.quantity.trim() || null,
+      product_title: formData.productType,
+      message: formData.specifications.trim(),
     });
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      productType: "",
-      quantity: "",
-      specifications: "",
-    });
     setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        title: "Could not submit request",
+        description: "Please try again, or email info@rationalengineers.com directly.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setReference(newReference);
+    toast({
+      title: "Quote request submitted",
+      description: `Your tracking reference is ${newReference}.`,
+    });
+    setFormData(emptyForm);
   };
+
 
   return (
     <div className="min-h-screen">
