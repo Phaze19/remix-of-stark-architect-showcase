@@ -26,6 +26,10 @@ export type Database = {
           product_specs: string | null
           product_title: string | null
           quantity: string | null
+          reference: string
+          status: string
+          status_note: string | null
+          updated_at: string
         }
         Insert: {
           company?: string | null
@@ -38,6 +42,10 @@ export type Database = {
           product_specs?: string | null
           product_title?: string | null
           quantity?: string | null
+          reference?: string
+          status?: string
+          status_note?: string | null
+          updated_at?: string
         }
         Update: {
           company?: string | null
@@ -50,6 +58,10 @@ export type Database = {
           product_specs?: string | null
           product_title?: string | null
           quantity?: string | null
+          reference?: string
+          status?: string
+          status_note?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
@@ -58,7 +70,19 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_quote_reference: { Args: never; Returns: string }
+      get_quote_status: {
+        Args: { _email: string; _reference: string }
+        Returns: {
+          created_at: string
+          product_title: string
+          quantity: string
+          reference: string
+          status: string
+          status_note: string
+          updated_at: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
