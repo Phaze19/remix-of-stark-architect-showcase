@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { z } from "zod";
-import { Loader2, Send } from "lucide-react";
+import { Mail, Phone, ArrowRight, Copy, Check } from "lucide-react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -8,13 +7,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
-import { generateQuoteReference } from "@/lib/quoteReference";
 
 export interface QuoteSpec {
   label: string;
@@ -28,116 +22,47 @@ interface QuoteDialogProps {
   specifications?: QuoteSpec[];
 }
 
-const quoteSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
-  company: z.string().trim().max(150, "Company must be under 150 characters"),
-  email: z
-    .string()
-    .trim()
-    .min(1, "Email is required")
-    .email("Enter a valid email address")
-    .max(255, "Email must be under 255 characters"),
-  phone: z.string().trim().max(40, "Phone must be under 40 characters"),
-  quantity: z.string().trim().max(100, "Quantity must be under 100 characters"),
-  message: z
-    .string()
-    .trim()
-    .min(1, "Message is required")
-    .max(2000, "Message must be under 2000 characters"),
-});
+type Contact = {
+  name: string;
+  role: string;
+  email: string;
+};
 
-type FieldErrors = Partial<Record<keyof z.infer<typeof quoteSchema>, string>>;
+const CONTACTS: Contact[] = [
+  { name: "Aditya Nayak", role: "Sales & Quotations", email: "aditya.nayak@rationalengineers.com" },
+  { name: "Enquiries", role: "General Enquiries", email: "enquiry@rationalengineers.com" },
+  { name: "Information Desk", role: "Product Information", email: "info@rationalengineers.com" },
+];
 
-const buildSpecSummary = (specs: QuoteSpec[]) =>
-  specs.map((s) => `• ${s.label}: ${s.value}`).join("\n");
-
-const QuoteDialog = ({
-  open,
-  onOpenChange,
-  productTitle,
-  specifications = [],
-}: QuoteDialogProps) => {
+const QuoteDialog = ({ open, onOpenChange, productTitle, specifications = [] }: QuoteDialogProps) => {
   const { toast } = useToast();
-  const [submitting, setSubmitting] = useState(false);
-  const [errors, setErrors] = useState<FieldErrors>({});
-  const [form, setForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    quantity: "",
-    message: "",
-  });
+  const [copied, setCopied] = useState<string | null>(null);
 
-  const keySpecs = useMemo(() => specifications.slice(0, 6), [specifications]);
-
-  const prefilledMessage = useMemo(() => {
-    if (!productTitle) {
-      return "Please share pricing, lead time and MOQ for the products I am interested in.";
-    }
-    const specBlock = keySpecs.length
-      ? `\n\nKey specifications:\n${buildSpecSummary(keySpecs)}`
-      : "";
-    return `I would like a quotation for ${productTitle}.${specBlock}\n\nPlease share pricing, lead time and minimum order quantity.`;
-  }, [productTitle, keySpecs]);
-
-  // Re-prefill whenever the dialog is opened for a (new) product
   useEffect(() => {
-    if (open) {
-      setErrors({});
-      setForm((prev) => ({ ...prev, message: prefilledMessage }));
-    }
-  }, [open, prefilledMessage]);
+    if (!open) setCopied(null);
+  }, [open]);
 
-  const setField = (key: keyof typeof form) => (value: string) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
-    setErrors((prev) => ({ ...prev, [key]: undefined }));
+  const keySpecs = specifications.slice(0, 6);
+
+  const copyEmail = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(email);
+      toast({ title: "Email address copied", description: email });
+      setTimeout(() => setCopied((c) => (c === email ? null : c)), 2000);
+    } catch {
+      toast({ title: "Could not copy", description: "Please copy the address manually.", variant: "destructive" });
+    }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const parsed = quoteSchema.safeParse(form);
-    if (!parsed.success) {
-      const next: FieldErrors = {};
-      for (const issue of parsed.error.issues) {
-        const key = issue.path[0] as keyof FieldErrors;
-        if (key && !next[key]) next[key] = issue.message;
-      }
-      setErrors(next);
-      return;
-    }
-
-    setSubmitting(true);
-    const reference = generateQuoteReference();
-    const { error } = await supabase.from("quote_requests").insert({
-      reference,
-      name: parsed.data.name,
-      company: parsed.data.company || null,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      quantity: parsed.data.quantity || null,
-      product_title: productTitle ?? null,
-      product_specs: keySpecs.length ? buildSpecSummary(keySpecs) : null,
-      message: parsed.data.message,
-    });
-    setSubmitting(false);
-
-    if (error) {
-      toast({
-        title: "Could not send your request",
-        description: "Please try again, or email us directly.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    toast({
-      title: "Quote request sent",
-      description: `Reference ${reference} — track it any time at /quote-status.`,
-    });
-
-    setForm({ name: "", company: "", email: "", phone: "", quantity: "", message: "" });
-    onOpenChange(false);
+  const mailtoFor = (contact: Contact) => {
+    const subject = productTitle
+      ? `Quotation request — ${productTitle}`
+      : "Quotation request — RATIONAL ENGINEERS LIMITED";
+    const body = productTitle
+      ? `Dear ${contact.name},%0D%0A%0D%0AI would like a quotation for ${productTitle}.%0D%0A%0D%0APlease share pricing, lead time and minimum order quantity.%0D%0A%0D%0ARegards,%0D%0A`
+      : `Dear ${contact.name},%0D%0A%0D%0AI would like a quotation for your copper conductor products.%0D%0A%0D%0ARegards,%0D%0A`;
+    return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   return (
@@ -149,8 +74,8 @@ const QuoteDialog = ({
           </DialogTitle>
           <DialogDescription>
             {productTitle
-              ? `Your enquiry is pre-filled for ${productTitle}. Edit anything before sending.`
-              : "Tell us what you need and our team will respond within one business day."}
+              ? `Reach out to our team about ${productTitle}. Your email client will open with the product details pre-filled.`
+              : "Reach out to our team directly — pick the contact that fits your enquiry best."}
           </DialogDescription>
         </DialogHeader>
 
@@ -173,91 +98,65 @@ const QuoteDialog = ({
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <Label htmlFor="quote-name">Name *</Label>
-              <Input
-                id="quote-name"
-                value={form.name}
-                maxLength={100}
-                onChange={(e) => setField("name")(e.target.value)}
-              />
-              {errors.name && <p className="text-xs text-rational-red">{errors.name}</p>}
+        <div className="space-y-3">
+          {CONTACTS.map((contact) => (
+            <div
+              key={contact.email}
+              className="flex flex-col gap-3 border border-border p-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-foreground">{contact.name}</p>
+                <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
+                  {contact.role}
+                </p>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="mt-1 inline-flex items-center gap-2 text-sm text-foreground/80 transition-colors hover:text-rational-red"
+                >
+                  <Mail className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">{contact.email}</span>
+                </a>
+              </div>
+              <div className="flex shrink-0 items-center gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => copyEmail(contact.email)}
+                  className="rounded-none"
+                >
+                  {copied === contact.email ? (
+                    <>
+                      <Check className="mr-1.5 h-3.5 w-3.5" /> Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="mr-1.5 h-3.5 w-3.5" /> Copy
+                    </>
+                  )}
+                </Button>
+                <a href={mailtoFor(contact)} className="inline-flex">
+                  <Button
+                    type="button"
+                    size="sm"
+                    className="rounded-none bg-rational-red text-white hover:bg-foreground"
+                  >
+                    Email
+                    <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Button>
+                </a>
+              </div>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="quote-company">Company</Label>
-              <Input
-                id="quote-company"
-                value={form.company}
-                maxLength={150}
-                onChange={(e) => setField("company")(e.target.value)}
-              />
-              {errors.company && <p className="text-xs text-rational-red">{errors.company}</p>}
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="quote-email">Email *</Label>
-              <Input
-                id="quote-email"
-                type="email"
-                value={form.email}
-                maxLength={255}
-                onChange={(e) => setField("email")(e.target.value)}
-              />
-              {errors.email && <p className="text-xs text-rational-red">{errors.email}</p>}
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="quote-phone">Phone</Label>
-              <Input
-                id="quote-phone"
-                value={form.phone}
-                maxLength={40}
-                onChange={(e) => setField("phone")(e.target.value)}
-              />
-              {errors.phone && <p className="text-xs text-rational-red">{errors.phone}</p>}
-            </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="quote-quantity">Required quantity</Label>
-            <Input
-              id="quote-quantity"
-              placeholder="e.g. 5 MT per month"
-              value={form.quantity}
-              maxLength={100}
-              onChange={(e) => setField("quantity")(e.target.value)}
-            />
-            {errors.quantity && <p className="text-xs text-rational-red">{errors.quantity}</p>}
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="quote-message">Message *</Label>
-            <Textarea
-              id="quote-message"
-              rows={8}
-              value={form.message}
-              maxLength={2000}
-              onChange={(e) => setField("message")(e.target.value)}
-            />
-            {errors.message && <p className="text-xs text-rational-red">{errors.message}</p>}
-          </div>
-
-          <Button
-            type="submit"
-            disabled={submitting}
-            className="w-full bg-rational-red text-white hover:bg-foreground"
-          >
-            {submitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending…
-              </>
-            ) : (
-              <>
-                <Send className="mr-2 h-4 w-4" /> Send request
-              </>
-            )}
-          </Button>
-        </form>
+        <div className="mt-2 flex items-center gap-3 border-t border-border pt-4 text-sm text-muted-foreground">
+          <Phone className="h-4 w-4 shrink-0 text-rational-red" />
+          <span>Prefer to call? Reach us at </span>
+          <a href="tel:+919168643114" className="font-medium text-foreground hover:text-rational-red">
+            +91 91686 43114
+          </a>
+        </div>
       </DialogContent>
     </Dialog>
   );
