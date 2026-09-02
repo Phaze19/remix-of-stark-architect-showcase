@@ -19,67 +19,32 @@ const CONTACTS: ContactEntry[] = [
   { name: "Information Desk", role: "Product Information", email: "info@rationalengineers.com" },
 ];
 
-const emptyForm = {
-  name: "",
-  email: "",
-  phone: "",
-  company: "",
-  productType: "",
-  quantity: "",
-  specifications: "",
-};
-
 const Contact = () => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [reference, setReference] = useState<string | null>(null);
-  const [formData, setFormData] = useState(emptyForm);
+  const [copied, setCopied] = useState<string | null>(null);
 
-  const productTypes = PRODUCT_OPTIONS;
+  useEffect(() => {
+    setCopied(null);
+  }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.productType) {
-      toast({
-        title: "Select a product",
-        description: "Please choose the product you need a quote for.",
-        variant: "destructive",
-      });
-      return;
+  const copyEmail = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(email);
+      toast({ title: "Email address copied", description: email });
+      setTimeout(() => setCopied((c) => (c === email ? null : c)), 2000);
+    } catch {
+      toast({ title: "Could not copy", description: "Please copy the address manually.", variant: "destructive" });
     }
-    setIsSubmitting(true);
-
-    const newReference = generateQuoteReference();
-
-    const { error } = await supabase.from("quote_requests").insert({
-      reference: newReference,
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      phone: formData.phone.trim() || null,
-      company: formData.company.trim() || null,
-      quantity: formData.quantity.trim() || null,
-      product_title: formData.productType,
-      message: formData.specifications.trim(),
-    });
-
-    setIsSubmitting(false);
-
-    if (error) {
-      toast({
-        title: "Could not submit request",
-        description: "Please try again, or email info@rationalengineers.com directly.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setReference(newReference);
-    toast({
-      title: "Quote request submitted",
-      description: `Your tracking reference is ${newReference}.`,
-    });
-    setFormData(emptyForm);
   };
+
+  const mailtoFor = (contact: ContactEntry) => {
+    const subject = `Quotation request — RATIONAL ENGINEERS LIMITED`;
+    const body = `Dear ${contact.name},%0D%0A%0D%0AI would like a quotation for your copper conductor products.%0D%0A%0D%0APlease share pricing, lead time and minimum order quantity.%0D%0A%0D%0ARegards,%0D%0A`;
+    return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+  };
+
+
 
 
   return (
