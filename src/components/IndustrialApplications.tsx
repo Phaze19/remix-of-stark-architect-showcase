@@ -7,10 +7,6 @@ import {
   SlidersHorizontal,
   Gauge,
   CircuitBoard,
-  ShieldCheck,
-  Thermometer,
-  BadgeCheck,
-  Settings,
 } from "lucide-react";
 import appTransformers from "@/assets/app-transformers.jpg";
 import appMotors from "@/assets/app-motors.jpg";
