@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { generateQuoteReference } from "@/lib/quoteReference";
 
 export interface QuoteSpec {
   label: string;
