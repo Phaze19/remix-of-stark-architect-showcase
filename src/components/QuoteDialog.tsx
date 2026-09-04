@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { CONTACTS } from "@/data/contacts";
 
 export interface QuoteSpec {
   label: string;
@@ -28,11 +29,7 @@ type Contact = {
   email: string;
 };
 
-const CONTACTS: Contact[] = [
-  { name: "Aditya Nayak", role: "Sales & Quotations", email: "aditya.nayak@rationalengineers.com" },
-  { name: "Enquiries", role: "General Enquiries", email: "enquiry@rationalengineers.com" },
-  { name: "Information Desk", role: "Product Information", email: "info@rationalengineers.com" },
-];
+
 
 const QuoteDialog = ({ open, onOpenChange, productTitle, specifications = [] }: QuoteDialogProps) => {
   const { toast } = useToast();

@@ -5,19 +5,10 @@ import Navigation from "@/components/Navigation";
 import PageTopSpacer from "@/components/PageTopSpacer";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { CONTACTS, CONTACT_PHONE, CONTACT_PHONE_HREF, type ContactEntry } from "@/data/contacts";
 import windmillBg from "@/assets/contact-windmill-bg.jpg";
 
-type ContactEntry = {
-  name: string;
-  role: string;
-  email: string;
-};
 
-const CONTACTS: ContactEntry[] = [
-  { name: "Aditya Nayak", role: "Sales & Quotations", email: "aditya.nayak@rationalengineers.com" },
-  { name: "Enquiries", role: "General Enquiries", email: "enquiry@rationalengineers.com" },
-  { name: "Information Desk", role: "Product Information", email: "info@rationalengineers.com" },
-];
 
 const Contact = () => {
   const { toast } = useToast();
@@ -91,8 +82,8 @@ const Contact = () => {
                   
                   <div>
                     <h3 className="text-minimal text-muted-foreground mb-2">PHONE</h3>
-                    <a href="tel:+919168643114" className="text-xl hover:text-muted-foreground transition-colors duration-300">
-                      +91 91686 43114
+                    <a href={CONTACT_PHONE_HREF} className="text-xl hover:text-muted-foreground transition-colors duration-300">
+                      {CONTACT_PHONE}
                     </a>
                   </div>
                   
