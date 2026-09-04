@@ -137,6 +137,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
+        <ScrollToTop />
       </BrowserRouter>
       <FontPresetSwitcher />
     </TooltipProvider>
