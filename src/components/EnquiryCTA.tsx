@@ -12,8 +12,8 @@ type Contact = {
 };
 
 const CONTACTS: Contact[] = [
-  { name: "Aditya Nayak", role: "Sales & Quotations", email: "aditya.nayak@rationalengineers.com" },
-  { name: "Enquiries", role: "General Enquiries", email: "enquiry@rationalengineers.com" },
+  { name: "Sales Enquiry ", role: "Sales & Quotations", email: "enquiry@rationalengineers.com" },
+  { name: "Carrer", role: "JOB OPPORTUNITY ", email: "hr@rationalengineers.com" },
   { name: "Information Desk", role: "Product Information", email: "info@rationalengineers.com" },
 ];
 
