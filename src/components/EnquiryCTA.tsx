@@ -2,20 +2,11 @@ import { Mail, MapPin, Phone, Linkedin, ArrowRight, Copy, Check } from "lucide-r
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { CONTACTS, CONTACT_PHONE, CONTACT_PHONE_HREF, type ContactEntry } from "@/data/contacts";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/5681546";
 
-type Contact = {
-  name: string;
-  role: string;
-  email: string;
-};
-
-const CONTACTS: Contact[] = [
-  { name: "Sales Enquiry ", role: "Sales & Quotations", email: "enquiry@rationalengineers.com" },
-  { name: "Carrer", role: "JOB OPPORTUNITY ", email: "hr@rationalengineers.com" },
-  { name: "Information Desk", role: "Product Information", email: "info@rationalengineers.com" },
-];
+type Contact = ContactEntry;
 
 const EnquiryCTA = () => {
   const { toast } = useToast();
@@ -71,11 +62,11 @@ const EnquiryCTA = () => {
                   </p>
                 </div>
                 <a
-                  href="tel:+919168643114"
+                  href={CONTACT_PHONE_HREF}
                   className="flex items-center gap-4 text-sm text-background/75 transition-colors hover:text-background"
                 >
                   <Phone className="h-5 w-5 shrink-0 text-rational-red" />
-                  +91 91686 43114
+                  {CONTACT_PHONE}
                 </a>
                 <a
                   href={LINKEDIN_URL}
