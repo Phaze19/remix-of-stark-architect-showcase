@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, lazy, useEffect } from "react";
 import { trackPageView } from "@/lib/analytics";
 import FontPresetSwitcher from "@/components/FontPresetSwitcher";
+import ScrollToTop from "@/components/ScrollToTop";
 import SEO from "@/components/SEO";
 import Index from "./pages/Index";
 
